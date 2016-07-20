@@ -17,8 +17,8 @@ class DefaultController extends Controller
         return $this->render('OCCoreBundle:Default:association.html.twig');
     }
     
-    public function observationsAction(){
-        return $this->render('OCCoreBundle:Default:observations.html.twig');
+    public function rechercheAction(){
+        return $this->render('OCCoreBundle:Default:recherche.html.twig');
     }
     
     public function contactAction(){
