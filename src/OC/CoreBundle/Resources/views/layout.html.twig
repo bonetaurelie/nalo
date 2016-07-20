@@ -49,7 +49,7 @@
                 <ul class="nav navbar-nav">
                     <li ><a href="{{path('oc_core_homepage')}}">ACCUEIL<span class="sr-only"></span></a></li>
                     <li><a href="{{path('oc_core_association')}}">L'ASSOCIATION</a></li>
-                    <li><a href="{{path('oc_core_observations')}}">OBSERVATIONS</a></li>
+                    <li><a href="{{path('oc_core_recherche')}}">RECHERCHE</a></li>
                     <li><a href="{{path('oc_core_contact')}}">CONTACT</a></li>
                     <li><a href="{{path('oc_core_connexion')}}">CONNEXION</a></li>
                 </ul>
@@ -63,12 +63,12 @@
 {%  endblock %}
 <footer>
     <div class="footer">
-        <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-2 col-xs-offset-2 col-lg-4 col-md-4 col-sm-4 col-xs-4">
-            <p>&copy; Les bronzés font du code - 2016 </p>
+       <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-2 col-xs-offset-2 col-lg-3 col-md-3 col-sm-3 col-xs-3" >
+            <p><a href="{{ path('oc_core_mentions') }}">Mentions légales</a></p>
         </div>
 
-        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" >
-            <p><a href="{{ path('oc_core_mentions') }}">Mentions légales</a></p>
+        <div class=" col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <p>&copy; Les bronzés font du code - 2016 </p>
         </div>
 
         <div class="footer3 col-lg-3 col-md-3 col-sm-3 col-xs-3">
