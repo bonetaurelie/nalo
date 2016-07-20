@@ -10,16 +10,29 @@ body {
 /*menu*/
 
 .navbar-default{
-    background-color: #8BC34A;
+    background-color: #689F38;
     color: white;
 }
 
 .navbar-brand{
-    padding-left: 200px;
+    padding-left: 300px;
 }
 
-.navbar-default .navbar-brand {
+.navbar-brand img{
+    margin-top: -16px;
+}
+
+.navbar-default .navbar-nav > li > a {
     color: white;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+    color: #DCEDC8;
+    text-decoration: underline;
+}
+
+.navbar-default .navbar-collapse:hover{
+    color: #DCEDC8;
 }
 
 /*Contact*/
@@ -40,7 +53,7 @@ body {
 
 /*footer*/
 footer {
-    background-color: #8BC34A;
+    background-color: #689F38;
     margin-top: 50px;
     margin-bottom: -5px;
     height: auto;
