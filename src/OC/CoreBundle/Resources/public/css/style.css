@@ -43,6 +43,7 @@ body {
 
 .button{
     padding-top: 40px;
+    margin-bottom: 40px;
 }
 
 .btn-default{
@@ -56,11 +57,13 @@ body {
 }
 
 .saisie{
-    margin-right: 30px;
+    margin-right: 40px;
 }
 
 .titre{
     border-bottom: solid 1px ;
+    width: 450px;
+    margin-bottom: 40px;
 }
 
 .obs{
@@ -69,6 +72,16 @@ body {
 
 .observations{
     border-bottom: solid 1px ;
+    width: 500px;
+    margin-bottom: 40px;
+}
+
+.obs h3{
+    color: #689F38;
+}
+
+.accueil{
+    padding-top: 40px;
 }
 
 /*Contact*/
@@ -115,6 +128,33 @@ footer a:hover{
 
 .footer{
     padding-top: 5px;
+}
+
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .button{
+        margin-left: 300px;
+    }
+
+    .observations{
+
+    }
+
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width:992px) {
+    .button {
+        margin-left: 360px;
+    }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .button{
+        margin-left: 360px;
+    }
 }
 
 
