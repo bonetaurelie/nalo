@@ -1,0 +1,26 @@
+oc_core_homepage:
+    path:     /
+    defaults: { _controller: OCCoreBundle:Default:index }
+
+oc_core_association:
+    path:    /association
+    defaults: {_controller: OCCoreBundle:Default:association}
+
+oc_core_observations:
+    path:    /observations
+    defaults: {_controller: OCCoreBundle:Default:observations}
+
+oc_core_contact:
+    path:    /contact
+    defaults: {_controller: OCCoreBundle:Default:contact}
+
+oc_core_connexion:
+    path:    /connexion
+    defaults: {_controller: OCCoreBundle:Default:connexion}
+
+oc_core_mentions:
+    path:    /mentions
+    defaults: {_controller: OCCoreBundle:Default:mentions}
+
+
+
