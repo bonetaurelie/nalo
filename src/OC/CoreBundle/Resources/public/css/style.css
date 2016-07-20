@@ -1,5 +1,6 @@
 body {
     font-family: 'Lato-Regular';
+    color: #212121;
 }
 
 @font-face {
@@ -38,6 +39,36 @@ body {
 /*accueil*/
 .nao{
     padding-top: 200px;
+}
+
+.button{
+    padding-top: 40px;
+}
+
+.btn-default{
+    border-radius: 25px 25px 25px 25px;
+    background-color: #689F38;
+    color: white;
+}
+
+.nao i{
+    padding-right: 20px;
+}
+
+.saisie{
+    margin-right: 30px;
+}
+
+.titre{
+    border-bottom: solid 1px ;
+}
+
+.obs{
+    padding-top: 60px;
+}
+
+.observations{
+    border-bottom: solid 1px ;
 }
 
 /*Contact*/
