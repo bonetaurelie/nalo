@@ -6,9 +6,9 @@ oc_core_association:
     path:    /association
     defaults: {_controller: OCCoreBundle:Default:association}
 
-oc_core_observations:
-    path:    /observations
-    defaults: {_controller: OCCoreBundle:Default:observations}
+oc_core_recherche:
+    path:    /recherche
+    defaults: {_controller: OCCoreBundle:Default:recherche}
 
 oc_core_contact:
     path:    /contact
