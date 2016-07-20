@@ -1,0 +1,63 @@
+body {
+    font-family: 'Lato-Regular';
+}
+
+@font-face {
+    font-family: 'Lato-Regular';
+    src: url('Lato-Regular.ttf');
+}
+
+/*menu*/
+
+.navbar-default{
+    background-color: #8BC34A;
+    color: white;
+}
+
+.navbar-brand{
+    padding-left: 200px;
+}
+
+.navbar-default .navbar-brand {
+    color: white;
+}
+
+/*Contact*/
+.contacter{
+    padding-top: 40px;
+}
+
+.contacter h2{
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+
+/*Mentions légales*/
+.mentions{
+    padding-top: 40px;
+}
+
+/*footer*/
+footer {
+    background-color: #8BC34A;
+    margin-top: 50px;
+    margin-bottom: -5px;
+    height: auto;
+    width: 100%;
+    display: inline-block;
+}
+
+footer p {
+    color: white;
+}
+
+footer a{
+    color: white;
+}
+footer a:hover{
+    text-decoration: none;
+    color: #DCEDC8;
+}
+
+
