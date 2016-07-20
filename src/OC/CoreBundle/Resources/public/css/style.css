@@ -35,6 +35,11 @@ body {
     color: #DCEDC8;
 }
 
+/*accueil*/
+.nao{
+    padding-top: 200px;
+}
+
 /*Contact*/
 .contacter{
     padding-top: 40px;
@@ -71,6 +76,14 @@ footer a{
 footer a:hover{
     text-decoration: none;
     color: #DCEDC8;
+}
+
+.footer3 i{
+    padding-right: 10px;
+}
+
+.footer{
+    padding-top: 5px;
 }
 
 
