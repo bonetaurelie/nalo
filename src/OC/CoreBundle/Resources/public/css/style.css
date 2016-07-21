@@ -13,14 +13,24 @@ body {
 .navbar-default{
     background-color: #689F38;
     color: white;
+    height: 75px;
 }
 
 .navbar-brand{
-    padding-left: 300px;
+    padding-left: 125px;
 }
 
 .navbar-brand img{
-    margin-top: -16px;
+    margin-top: -10px;
+}
+
+#navbar{
+    padding-left: 325px;
+}
+
+#navbar li{
+    margin-right: 25px;
+    margin-top: 10px;
 }
 
 .navbar-default .navbar-nav > li > a {
@@ -38,7 +48,7 @@ body {
 
 /*accueil*/
 .nao{
-    padding-top: 200px;
+    padding-top: 550px;
 }
 
 .button{
@@ -94,6 +104,9 @@ body {
     padding-bottom: 20px;
 }
 
+.btn-default{
+    background-color: #689F38;
+}
 
 /*Mentions légales*/
 .mentions{
