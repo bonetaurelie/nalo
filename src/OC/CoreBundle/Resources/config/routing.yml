@@ -26,5 +26,9 @@ oc_core_saiaie:
     path:    /saisie
     defaults: {_controller: OCCoreBundle:default:saisie}
 
+oc_core_observations:
+    path:    /observations
+    defaults: {_controller: OCCoreBundle:Default:observations}
+
 
 
