@@ -61,5 +61,9 @@ class DefaultController extends Controller
     public function saisieAction(){
         return $this->render('OCCoreBundle:Default:saisie.html.twig');
     }
+    
+    public function observationsAction(){
+        return $this->render('OCCoreBundle:Default:observations.html.twig');
+    }
 }
 
