@@ -57,5 +57,9 @@ class DefaultController extends Controller
     public function mentionsAction(){
         return $this->render('OCCoreBundle:Default:mentions.html.twig');
     }
+    
+    public function saisieAction(){
+        return $this->render('OCCoreBundle:Default:saisie.html.twig');
+    }
 }
 
