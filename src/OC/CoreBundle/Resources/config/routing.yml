@@ -22,5 +22,9 @@ oc_core_mentions:
     path:    /mentions
     defaults: {_controller: OCCoreBundle:Default:mentions}
 
+oc_core_saiaie:
+    path:    /saisie
+    defaults: {_controller: OCCoreBundle:default:saisie}
+
 
 
