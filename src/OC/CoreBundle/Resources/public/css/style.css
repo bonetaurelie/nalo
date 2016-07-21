@@ -52,7 +52,7 @@ body {
 }
 
 .button{
-    padding-top: 40px;
+    padding-top: 50px;
     margin-bottom: 40px;
 }
 
@@ -67,13 +67,15 @@ body {
 }
 
 .saisie{
-    margin-right: 40px;
+    margin-right: 100px;
 }
 
 .titre{
+    padding-bottom: 25px;
     border-bottom: solid 1px ;
     width: 450px;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
+    margin-top: 50px;
 }
 
 .obs{
@@ -81,13 +83,15 @@ body {
 }
 
 .observations{
+    padding-bottom: 25px;
     border-bottom: solid 1px ;
     width: 500px;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
 }
 
 .obs h3{
     color: #689F38;
+    margin-top: -8px;
 }
 
 .accueil{
@@ -116,7 +120,7 @@ body {
 /*footer*/
 footer {
     background-color: #689F38;
-    margin-top: 50px;
+    margin-top: 100px;
     margin-bottom: -5px;
     height: auto;
     width: 100%;
@@ -159,14 +163,14 @@ footer a:hover{
 /* Medium devices (desktops, 992px and up) */
 @media (min-width:992px) {
     .button {
-        margin-left: 360px;
+        margin-left: 350px;
     }
 }
 
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
     .button{
-        margin-left: 360px;
+        margin-left: 350px;
     }
 }
 
