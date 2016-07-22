@@ -14,6 +14,10 @@ oc_core_contact:
     path:    /contact
     defaults: {_controller: OCCoreBundle:Default:contact}
 
+oc_core_inscription:
+    path:    /inscription
+    defaults: {_controller: OCCoreBundle:Default:inscription}
+
 oc_core_connexion:
     path:    /connexion
     defaults: {_controller: OCCoreBundle:Default:connexion}
