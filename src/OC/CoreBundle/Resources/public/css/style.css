@@ -9,6 +9,10 @@ body {
 }
 
 /*menu*/
+.navbar{
+    font-size: 1em;
+}
+
 
 .navbar-default{
     background-color: #689F38;
@@ -16,17 +20,18 @@ body {
     height: 75px;
 }
 
+.navbar-default .navbar-collapse{
+    background-color: #689F38;
+}
+
 .navbar-brand{
-    padding-left: 60px;
+    padding-left: 125px;
 }
 
 .navbar-brand img{
     margin-top: -10px;
 }
 
-#navbar{
-    padding-left: 250px;
-}
 
 #navbar li{
     margin-right: 25px;
@@ -68,6 +73,7 @@ body {
 
 .saisie{
     margin-right: 100px;
+    margin-bottom: 20px;
 }
 
 .titre{
@@ -96,6 +102,10 @@ body {
 
 .accueil{
     padding-top: 40px;
+}
+
+.carte{
+    padding-bottom: 20px;
 }
 
 /*association*/
@@ -160,19 +170,35 @@ footer a:hover{
     padding-top: 30px;
 }
 
-
-/* Small devices (tablets, 768px and up) */
-@media (min-width: 768px) {
+@media (max-width: 768px) {
     .button{
         margin-left: 300px;
     }
 
     .footer1{
-
+        margin-right: -80px;
     }
 
     .footer2{
+        margin-right: -110px;
+    }
 
+
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+
+    .button{
+        margin-left: 300px;
+    }
+
+    .footer1{
+        margin-right: -95px;
+    }
+
+    .footer2{
+        margin-right: -95px;
     }
 
 
@@ -185,11 +211,11 @@ footer a:hover{
     }
 
     .footer1{
-        margin-right: 75px;
+        margin-right: 45px;
     }
 
     .footer2{
-        margin-right: 75px;
+        margin-right: -30px;
     }
 }
 
