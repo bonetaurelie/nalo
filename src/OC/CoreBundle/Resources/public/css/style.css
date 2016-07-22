@@ -17,7 +17,7 @@ body {
 }
 
 .navbar-brand{
-    padding-left: 125px;
+    padding-left: 60px;
 }
 
 .navbar-brand img{
@@ -25,7 +25,7 @@ body {
 }
 
 #navbar{
-    padding-left: 325px;
+    padding-left: 250px;
 }
 
 #navbar li{
@@ -121,7 +121,11 @@ body {
 
 /*Mentions légales*/
 .mentions{
-    padding-top: 40px;
+    padding-top: 100px;
+}
+
+.mentions1{
+    padding-bottom: 50px;
 }
 
 /*footer*/
@@ -136,6 +140,8 @@ footer {
 
 footer p {
     color: white;
+    margin-left: 110px;
+
 }
 
 footer a{
@@ -150,7 +156,7 @@ footer a:hover{
     padding-right: 12px;
 }
 
-.footer{
+.footer {
     padding-top: 30px;
 }
 
@@ -161,9 +167,14 @@ footer a:hover{
         margin-left: 300px;
     }
 
-    .observations{
+    .footer1{
 
     }
+
+    .footer2{
+
+    }
+
 
 }
 
@@ -172,12 +183,28 @@ footer a:hover{
     .button {
         margin-left: 350px;
     }
+
+    .footer1{
+        margin-right: 75px;
+    }
+
+    .footer2{
+        margin-right: 75px;
+    }
 }
 
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
     .button{
         margin-left: 350px;
+    }
+
+    .footer1{
+        margin-right: 75px;
+    }
+
+    .footer2{
+        margin-right: 75px;
     }
 }
 
