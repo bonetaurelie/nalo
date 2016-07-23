@@ -22,6 +22,10 @@ oc_core_connexion:
     path:    /connexion
     defaults: {_controller: OCCoreBundle:Default:connexion}
 
+oc_core_mdpoublie:
+    path:    /motdepasse
+    defaults: {_controller: OCCoreBundle:Default:mdpoublie}
+
 oc_core_mentions:
     path:    /mentions
     defaults: {_controller: OCCoreBundle:Default:mentions}
