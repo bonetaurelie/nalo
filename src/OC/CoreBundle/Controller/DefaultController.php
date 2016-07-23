@@ -2,8 +2,11 @@
 
 namespace OC\CoreBundle\Controller;
 
+use OC\CoreBundle\Entity\Recherche;
 use OC\CoreBundle\Form\ContactType;
+use OC\CoreBundle\Form\RechercheType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\BrowserKit\Request;
 
 class DefaultController extends Controller
 {
@@ -18,13 +21,13 @@ class DefaultController extends Controller
     }
     
     public function rechercheAction(){
-        return $this->render('OCCoreBundle:Default:recherche.html.twig');
+        $form=  $this->get('form.factory')->create(RechercheType::class);
+
+        return $this->render('OCCoreBundle:Default:recherche.html.twig', array(
+            'form' => $form->createView(),
+        ));
     }
-    
-    public function rechercheBisAction(){
-        return $this->render('OCCoreBundle:Default:rechercheBis.html.twig');
-    }
-    
+
     public function contactAction(){
         $form = $this->get('form.factory')->create(ContactType::class);
 
