@@ -73,5 +73,9 @@ class DefaultController extends Controller
     public function mdpoublieAction(){
         return $this->render('OCCoreBundle:Default:mdpoublie.html.twig');
     }
+
+    public function newmdpAction(){
+        return $this->render('OCCoreBundle:Default:newmdpAction.html.twig');
+    }
 }
 
