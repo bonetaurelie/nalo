@@ -145,6 +145,12 @@ padding-left: 125px;
     margin-bottom: 50px;
 }
 
+/*changement mdp*/
+.newmdp{
+    padding-top: 80px;
+    margin-bottom: 50px;
+}
+
 /*Mentions légales*/
 .mentions{
     padding-top: 100px;
@@ -266,6 +272,10 @@ footer a:hover{
         padding-top: 120px;
     }
 
+    .newmdp{
+        padding-top: 120px;
+    }
+
 }
 
 /* Medium devices (desktops, 992px and up) */
@@ -308,6 +318,10 @@ footer a:hover{
     }
 
     .mdp{
+        padding-top: 120px;
+    }
+
+    .newmdp{
         padding-top: 120px;
     }
 
