@@ -26,6 +26,10 @@ oc_core_mdpoublie:
     path:    /motdepasse
     defaults: {_controller: OCCoreBundle:Default:mdpoublie}
 
+oc_core_newmdp:
+    path:    /nouveaumotdepasse
+    defaults: {_controller: OCCoreBundle:Default:newmdp}
+
 oc_core_mentions:
     path:    /mentions
     defaults: {_controller: OCCoreBundle:Default:mentions}
