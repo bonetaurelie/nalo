@@ -75,7 +75,7 @@ class DefaultController extends Controller
     }
 
     public function newmdpAction(){
-        return $this->render('OCCoreBundle:Default:newmdpAction.html.twig');
+        return $this->render('OCCoreBundle:Default:newmdp.html.twig');
     }
 }
 
