@@ -173,6 +173,21 @@ ul .pagination li a.active{
     background-color: #689F38;
 }
 
+/*detaiL de la recherche*/
+.detail{
+    padding-top: 80px;
+    margin-bottom: 50px;
+}
+
+.info{
+    margin-top: -30px;
+    margin-bottom: 20px;
+}
+
+.photos{
+    margin-bottom: 20px;
+}
+
 /*Mentions légales*/
 .mentions{
     padding-top: 100px;
@@ -303,6 +318,10 @@ footer a:hover{
         padding-top: 120px;
     }
 
+    .detail{
+        padding-top: 120px;
+    }
+
 }
 
 /* Medium devices (desktops, 992px and up) */
@@ -362,6 +381,10 @@ footer a:hover{
     .resulttext{
         margin-top: 20px;
         margin-left: -40px;
+    }
+
+    .detail{
+        padding-top: 120px;
     }
 
 }
