@@ -27,6 +27,10 @@ class DefaultController extends Controller
             'form' => $form->createView(),
         ));
     }
+    
+    public function detailRechercheAction(){
+        return $this->render('OCCoreBundle:Default:detailRecherche.html.twig');
+    }
 
     public function contactAction(){
         $form = $this->get('form.factory')->create(ContactType::class);
