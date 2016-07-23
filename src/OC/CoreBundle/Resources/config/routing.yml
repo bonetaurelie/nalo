@@ -10,6 +10,10 @@ oc_core_recherche:
     path:    /recherche
     defaults: {_controller: OCCoreBundle:Default:recherche}
 
+oc_core_rechercheBis:
+    path:    /rechercheBis
+    defaults: {_controller: OCCoreBundle:Default:rechercheBis}
+
 oc_core_contact:
     path:    /contact
     defaults: {_controller: OCCoreBundle:Default:contact}
