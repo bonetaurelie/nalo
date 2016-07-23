@@ -69,5 +69,9 @@ class DefaultController extends Controller
     public function inscriptionAction(){
         return $this->render('OCCoreBundle:Default:inscription.html.twig');
     }
+    
+    public function mdpoublieAction(){
+        return $this->render('OCCoreBundle:Default:mdpoublie.html.twig');
+    }
 }
 
