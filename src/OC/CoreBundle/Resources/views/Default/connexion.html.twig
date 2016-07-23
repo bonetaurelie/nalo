@@ -6,6 +6,44 @@
 
 {% block body %}
     <h1 class="connexion text-center">CONNEXION</h1>
+
+    <div class="text-center col-lg-6 col-md-6">
+        {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+        {{ form_errors(form) }}
+
+        <div class="form-group">
+            {{ form_label(form.email, "Votre e-mail", {'label_attr': {'class': 'col-lg-offset-2 col-md-offset-2 col-sm-pull-2 col-lg-5 col-md-5 col-sm-5 col-xs-offset-2 col-xs-8 control-label'}}) }}
+            {{ form_errors(form.email) }}
+
+            <div class="col-lg-offset-1 col-md-offset-1 col-sm-pull-3 col-lg-4 col-md-4 col-sm-3 col-xs-offset-2 col-xs-8">
+                {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.password, "Votre mot de passe", {'label_attr': {'class': 'col-lg-offset-2 col-md-offset-2 col-sm-pull-2 col-lg-5 col-md-5 col-sm-5 col-xs-offset-2 col-xs-8 control-label'}}) }}
+            {{ form_errors(form.password) }}
+
+            <div class="col-lg-offset-1 col-md-offset-1 col-sm-pull-3 col-lg-4 col-md-4 col-sm-3 col-xs-offset-2 col-xs-8">
+                {{ form_widget(form.password, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.remember, "Se souvenir de moi", {'label_attr': {'class': 'col-lg-offset-2 col-md-offset-2 col-sm-pull-2 col-lg-5 col-md-5 col-sm-5 col-xs-offset-2 col-xs-8 control-label'}}) }}
+            {{ form_errors(form.remember) }}
+
+            <div class="col-lg-offset-1 col-md-offset-1 col-sm-pull-3 col-lg-4 col-md-4 col-sm-3 col-xs-offset-2 col-xs-8">
+                {{ form_widget(form.remember, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+
+        {{ form_widget(form.Connecter, {'attr': {'class': 'btn btn-default'}}) }}
+
+        {{ form_rest(form) }}
+
+        {{ form_end(form) }}
+    </div>
     <a class="col-lg-offset-4 col-md-offset-4 col-sm-offset-2 col-xs-offset-2 col-lg-8 col-md-8 col-sm-8 col-xs-8" href="{{ path('oc_core_mdpoublie') }}">Mot de passe oublié?</a>
     <a class="col-lg-offset-4 col-md-offset-4 col-sm-offset-2 col-xs-offset-2 col-lg-8 col-md-8 col-sm-8 col-xs-8" href="{{ path('oc_core_inscription') }}">Pas encore inscrit?</a>
 {% endblock %}
