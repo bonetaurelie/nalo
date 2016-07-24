@@ -57,6 +57,13 @@ class Saisie
     private $espece;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="especebis", type="string", length=255)
+     */
+    private $especebis;
+
+    /**
      * @var int
      *
      * @ORM\Column(name="indiv", type="integer")
@@ -199,6 +206,30 @@ class Saisie
     public function getEspece()
     {
         return $this->espece;
+    }
+
+    /**
+     * Set especebis
+     *
+     * @param string $especebis
+     *
+     * @return Recherche
+     */
+    public function setEspecebis($especebis)
+    {
+        $this->especebis = $especebis;
+
+        return $this;
+    }
+
+    /**
+     * Get especebis
+     *
+     * @return string
+     */
+    public function getEspecebis()
+    {
+        return $this->especebis;
     }
 
     /**
