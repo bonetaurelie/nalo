@@ -7,4 +7,75 @@
 {% block body %}
     <h1 class="inscription text-center">INSCRIPTION</h1>
     <p class="text-justify col-lg-offset-2 col-md-offset-2 col-sm-offset-2 col-xs-offset-2 col-lg-8 col-md-8 col-sm-8 col-xs-8">Pour soumettre une observation, il est nécessaire de s'inscrire. Si vous êtes un naturaliste professionnel, vous devrez valider les observations des autres utilisateurs. Cochez la case correspondante lors de votre inscription.</p>
+
+    <div class="col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1 col-lg-10 col-md-10 col-sm-10 col-xs-10">
+        {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+
+        {{ form_errors(form) }}
+
+        <div class="form-group">
+            {{ form_label(form.prenom, "Prénom", {'label_attr': {'class': 'col-md-pull-1 col-lg-5 col-md-5 col-sm-offset-1 col-sm-4 col-xs-offset-3 col-xs-4 control-label'}}) }}
+            {{ form_errors(form.prenom) }}
+
+            <div class="col-lg-offset-3 col-md-offset-3 col-sm-offset-3 col-lg-6 col-md-6 col-sm-6 col-sm-offset-5 col-xs-offset-2 col-xs-8">
+                {{ form_widget(form.prenom, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.nom, "Nom", {'label_attr': {'class': 'col-lg-pull-1 col-md-pull-1 col-lg-5 col-md-5 col-sm-offset-1 col-sm-4 col-xs-offset-3 col-xs-4 control-label'}}) }}
+            {{ form_errors(form.nom) }}
+
+            <div class="col-lg-offset-3 col-md-offset-3 col-sm-offset-3 col-lg-6 col-md-6 col-sm-6 col-sm-offset-5 col-xs-offset-2 col-xs-8">
+                {{ form_widget(form.nom, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.email, "Adresse email", {'label_attr': {'class': 'col-md-offset-1 col-lg-5 col-md-5 col-sm-offset-2 col-sm-4 col-xs-offset-3 col-xs-4 control-label'}}) }}
+            {{ form_errors(form.email) }}
+
+            <div class="col-lg-offset-3 col-md-offset-3 col-sm-offset-3 col-lg-6 col-md-6 col-sm-6 col-sm-offset-5 col-xs-offset-2 col-xs-8">
+                {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.password, "Mot de passe", {'label_attr': {'class': 'col-md-offset-1 col-lg-5 col-md-5 col-sm-offset-2 col-sm-4 col-xs-offset-3 col-xs-4 control-label'}}) }}
+            {{ form_errors(form.password) }}
+
+            <div class="col-lg-offset-3 col-md-offset-3 col-sm-offset-3 col-lg-6 col-md-6 col-sm-6 col-sm-offset-5 col-xs-offset-2 col-xs-8">
+                {{ form_widget(form.password, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.confirm, "Confirmez votre mot de passe", {'label_attr': {'class': 'col-lg-offset-2 col-md-offset-3 col-lg-5 col-md-5 col-sm-offset-2 col-sm-6 col-xs-offset-3 col-xs-7 control-label'}}) }}
+            {{ form_errors(form.confirm) }}
+
+            <div class="col-lg-offset-3 col-md-offset-3 col-sm-offset-3 col-lg-6 col-md-6 col-sm-6 col-sm-offset-5 col-xs-offset-2 col-xs-8">
+                {{ form_widget(form.confirm, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-lg-offset-3 col-md-offset-3 col-lg-1 col-md-1 col-sm-1 col-sm-offset-3 col-xs-offset-2 col-xs-1">
+                {{ form_widget(form.pro, {'attr': {'class': 'form-control'}}) }}
+            </div>
+
+            {{ form_label(form.pro, "Je suis un naturaliste professionnel", {'label_attr': {'class': 'col-lg-pull-2 col-lg-6 col-md-6 col-md-pull-1 col-sm-6 col-xs-7 control-label'}}) }}
+            {{ form_errors(form.pro) }}
+
+
+        </div>
+
+        <div class=" col-lg-offset-5 col-md-offset-5 col-sm-offset-4 col-xs-offset-4 col-lg-4 col-md-4 col-sm-6 col-xs-offset-5 col-xs-7">
+            {{ form_widget(form.Envoyer, {'attr': {'class': 'btn-lg btn-default'}}) }}
+        </div>
+    </div>
+
+    {{ form_rest(form) }}
+
+    {{ form_end(form) }}
+
 {% endblock %}
