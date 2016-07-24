@@ -26,6 +26,7 @@ class SaisieType extends AbstractType
             ->add('departement',ChoiceType::class)
             ->add('commune',ChoiceType::class)
             ->add('lieu',ChoiceType::class)
+            ->add('especebis',TextType::class)
             ->add('espece',ChoiceType::class)
             ->add('indiv',IntegerType::class)
             ->add('commentaire',TextareaType::class)
