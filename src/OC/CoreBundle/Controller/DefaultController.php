@@ -3,7 +3,9 @@
 namespace OC\CoreBundle\Controller;
 
 use OC\CoreBundle\Entity\Recherche;
+use OC\CoreBundle\Form\ConnexionType;
 use OC\CoreBundle\Form\ContactType;
+use OC\CoreBundle\Form\InscriptionType;
 use OC\CoreBundle\Form\NewMdpType;
 use OC\CoreBundle\Form\RechercheType;
 use OC\CoreBundle\Form\ReinitialisationType;
@@ -65,7 +67,12 @@ class DefaultController extends Controller
     }
     
     public function connexionAction(){
-        return $this->render('OCCoreBundle:Default:connexion.html.twig');
+        $form=  $this->get('form.factory')->create(ConnexionType::class);
+
+        return $this->render('OCCoreBundle:Default:connexion.html.twig', array(
+            'form' => $form->createView(),
+        ));
+
     }
 
     public function mentionsAction(){
@@ -86,7 +93,12 @@ class DefaultController extends Controller
     }
 
     public function inscriptionAction(){
-        return $this->render('OCCoreBundle:Default:inscription.html.twig');
+        $form=  $this->get('form.factory')->create(InscriptionType::class);
+
+        return $this->render('OCCoreBundle:Default:inscription.html.twig', array(
+            'form' => $form->createView(),
+        ));
+       
     }
     
     public function mdpoublieAction(){
