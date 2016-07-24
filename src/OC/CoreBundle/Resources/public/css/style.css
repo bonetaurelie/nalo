@@ -371,6 +371,35 @@ footer a:hover{
         margin-left: 350px;
         margin-top: -50px;
     }
+
+    .control-label-prenom{
+        margin-left: 247px;
+    }
+
+    .control-label-nom{
+        margin-left: 243px;
+    }
+
+    .control-label-email{
+        margin-left: 243px;
+    }
+
+    .control-label-mdpform{
+        margin-left: 243px;
+    }
+
+    .control-label-confmdp{
+        margin-left: 243px;
+    }
+
+    .control-label-pro{
+        margin-top: 5px;
+        margin-left: 70px;
+    }
+
+    .btnInscr{
+        margin-right: 25px;
+    }
 }
 
 /* Medium devices (desktops, 992px and up) */
@@ -440,6 +469,35 @@ footer a:hover{
         padding-top: 120px;
     }
 
+    .control-label-prenom{
+        margin-left: 398px;
+    }
+
+    .control-label-nom{
+        margin-left: 303px;
+    }
+
+    .control-label-email{
+        margin-left: 303px;
+    }
+
+    .control-label-mdpform{
+        margin-left: 303px;
+    }
+
+    .control-label-confmdp{
+        margin-left: 303px;
+    }
+
+    .control-label-pro{
+        margin-top: 5px;
+        margin-left: 70px;
+    }
+
+    .btnInscr{
+        margin-right: 25px;
+    }
+
 }
 
 /* Large devices (large desktops, 1200px and up) */
@@ -478,6 +536,35 @@ footer a:hover{
     .resulttext{
         margin-top: 20px;
         margin-left: -125px;
+    }
+
+    .control-label-prenom{
+        margin-left: 530px;
+    }
+
+    .control-label-nom{
+        margin-left: 423px;
+    }
+
+    .control-label-email{
+        margin-left: 423px;
+    }
+
+    .control-label-mdpform{
+        margin-left: 423px;
+    }
+
+    .control-label-confmdp{
+        margin-left: 423px;
+    }
+
+    .control-label-pro{
+        margin-top: 5px;
+        margin-left: 70px;
+    }
+
+    .btnInscr{
+        margin-right: 25px;
     }
 
 }
