@@ -303,6 +303,10 @@ footer a:hover{
         margin-left: 270px;
     }
 
+    .control-label-emailoubli{
+        margin-left: 230px;
+    }
+
 
 }
 
@@ -428,6 +432,14 @@ footer a:hover{
     .btnConnexion{
         margin-left: 400px;
     }
+
+    .reinit{
+        margin-left: 250px;
+    }
+
+    .control-label-emailoubli{
+        margin-left: 330px;
+    }
 }
 
 /* Medium devices (desktops, 992px and up) */
@@ -546,6 +558,14 @@ footer a:hover{
         margin-left: 480px;
     }
 
+    .reinit{
+        margin-left: 300px;
+    }
+
+    .control-label-emailoubli{
+        margin-left: 380px;
+    }
+
 }
 
 /* Large devices (large desktops, 1200px and up) */
@@ -633,6 +653,14 @@ footer a:hover{
 
     .btnConnexion{
         margin-left: 480px;
+    }
+
+    .reinit{
+        margin-left: 360px;
+    }
+
+    .control-label-emailoubli{
+        margin-left: 440px;
     }
 
 }
