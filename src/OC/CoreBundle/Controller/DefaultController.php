@@ -5,6 +5,7 @@ namespace OC\CoreBundle\Controller;
 use OC\CoreBundle\Entity\Recherche;
 use OC\CoreBundle\Form\ContactType;
 use OC\CoreBundle\Form\RechercheType;
+use OC\CoreBundle\Form\ReinitialisationType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\BrowserKit\Request;
 
@@ -82,7 +83,12 @@ class DefaultController extends Controller
     }
     
     public function mdpoublieAction(){
-        return $this->render('OCCoreBundle:Default:mdpoublie.html.twig');
+        $form=  $this->get('form.factory')->create(ReinitialisationType::class);
+
+        return $this->render('OCCoreBundle:Default:mdpoublie.html.twig', array(
+            'form' => $form->createView(),
+        ));
+
     }
 
     public function newmdpAction(){
