@@ -188,6 +188,12 @@ ul .pagination li a.active{
     margin-bottom: 20px;
 }
 
+/*saisie*/
+.enregistrement{
+    padding-top: 80px;
+    margin-bottom: 50px;
+}
+
 /*Mentions légales*/
 .mentions{
     padding-top: 100px;
@@ -322,6 +328,10 @@ footer a:hover{
         padding-top: 120px;
     }
 
+    .enregistrement{
+        padding-top: 140px;
+    }
+
 }
 
 /* Medium devices (desktops, 992px and up) */
@@ -384,6 +394,10 @@ footer a:hover{
     }
 
     .detail{
+        padding-top: 120px;
+    }
+
+    .enregistrement{
         padding-top: 120px;
     }
 
