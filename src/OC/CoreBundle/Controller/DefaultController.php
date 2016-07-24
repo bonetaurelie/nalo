@@ -4,6 +4,7 @@ namespace OC\CoreBundle\Controller;
 
 use OC\CoreBundle\Entity\Recherche;
 use OC\CoreBundle\Form\ContactType;
+use OC\CoreBundle\Form\NewMdpType;
 use OC\CoreBundle\Form\RechercheType;
 use OC\CoreBundle\Form\ReinitialisationType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -92,7 +93,12 @@ class DefaultController extends Controller
     }
 
     public function newmdpAction(){
-        return $this->render('OCCoreBundle:Default:newmdp.html.twig');
+        $form=  $this->get('form.factory')->create(NewMdpType::class);
+
+        return $this->render('OCCoreBundle:Default:newmdp.html.twig', array(
+            'form' => $form->createView(),
+        ));
+
     }
 }
 
