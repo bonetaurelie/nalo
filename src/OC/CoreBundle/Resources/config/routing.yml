@@ -46,5 +46,9 @@ oc_core_observations:
     path:    /observations
     defaults: {_controller: OCCoreBundle:Default:observations}
 
+oc_core_profil:
+    path:    /profil
+    defaults: {_controller: OCCoreBundle:Default:profil}
+
 
 
