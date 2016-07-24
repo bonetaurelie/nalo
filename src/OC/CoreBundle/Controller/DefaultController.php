@@ -118,5 +118,9 @@ class DefaultController extends Controller
         ));
 
     }
+    
+    public function profilAction(){
+        return $this->render('OCCoreBundle:Default:profil.html.twig');
+    }
 }
 
