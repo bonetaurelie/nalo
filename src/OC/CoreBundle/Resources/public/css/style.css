@@ -54,6 +54,28 @@ padding-left: 125px;
 }
 
 /*accueil*/
+
+.header img{
+    width:100%;
+    height: auto;
+    margin-top: -480px;
+}
+
+.titreHeader{
+    margin-top: -240px;
+}
+
+.btnHeader{
+    margin-top: -150px;
+    background-color: #795548;
+    color: white;
+}
+
+.btnHeader:hover{
+    color: white;
+    text-decoration: none;
+}
+
 .nao{
     padding-top: 550px;
 }
