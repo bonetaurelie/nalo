@@ -7,6 +7,7 @@ use OC\CoreBundle\Form\ContactType;
 use OC\CoreBundle\Form\NewMdpType;
 use OC\CoreBundle\Form\RechercheType;
 use OC\CoreBundle\Form\ReinitialisationType;
+use OC\CoreBundle\Form\SaisieType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\BrowserKit\Request;
 
@@ -72,7 +73,12 @@ class DefaultController extends Controller
     }
     
     public function saisieAction(){
-        return $this->render('OCCoreBundle:Default:saisie.html.twig');
+        $form=  $this->get('form.factory')->create(SaisieType::class);
+
+        return $this->render('OCCoreBundle:Default:saisie.html.twig', array(
+            'form' => $form->createView(),
+        ));
+        
     }
     
     public function observationsAction(){
