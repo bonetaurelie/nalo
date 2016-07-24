@@ -286,6 +286,15 @@ footer a:hover{
         margin-top: 20px;
     }
 
+    .titreHeader{
+        margin-top: -160px;
+    }
+
+    .btnHeader{
+        margin-left: 350px;
+        margin-top: -60px;
+    }
+
 
 }
 
@@ -354,6 +363,14 @@ footer a:hover{
         padding-top: 140px;
     }
 
+    .titreHeader{
+        margin-top: -140px;
+    }
+
+    .btnHeader{
+        margin-left: 350px;
+        margin-top: -50px;
+    }
 }
 
 /* Medium devices (desktops, 992px and up) */
