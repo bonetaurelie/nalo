@@ -295,6 +295,14 @@ footer a:hover{
         margin-top: -60px;
     }
 
+    .oubli{
+        margin-left: 360px;
+    }
+
+    .btnConnexion{
+        margin-left: 270px;
+    }
+
 
 }
 
@@ -400,6 +408,26 @@ footer a:hover{
     .btnInscr{
         margin-right: 25px;
     }
+
+    .control-label-emailconnexion{
+        margin-left:560px;
+    }
+
+    .control-label-mdpconnexion{
+        margin-left: 320px;
+    }
+
+    .control-label-remember{
+        margin-left: 240px;
+    }
+
+    .oubli{
+        margin-left: 490px;
+    }
+
+    .btnConnexion{
+        margin-left: 400px;
+    }
 }
 
 /* Medium devices (desktops, 992px and up) */
@@ -498,6 +526,26 @@ footer a:hover{
         margin-right: 25px;
     }
 
+    .control-label-emailconnexion{
+        margin-left:564px;
+    }
+
+    .control-label-mdpconnexion{
+        margin-left: 425px;
+    }
+
+    .control-label-remember{
+        margin-left: 50px;
+    }
+
+    .oubli{
+        margin-left: 530px;
+    }
+
+    .btnConnexion{
+        margin-left: 480px;
+    }
+
 }
 
 /* Large devices (large desktops, 1200px and up) */
@@ -565,6 +613,26 @@ footer a:hover{
 
     .btnInscr{
         margin-right: 25px;
+    }
+
+    .control-label-emailconnexion{
+        margin-left:620px;
+    }
+
+    .control-label-mdpconnexion{
+        margin-left: 465px;
+    }
+
+    .control-label-remember{
+        margin-left: 50px;
+    }
+
+    .oubli{
+        margin-left: 600px;
+    }
+
+    .btnConnexion{
+        margin-left: 480px;
     }
 
 }
