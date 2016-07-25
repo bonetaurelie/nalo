@@ -14,14 +14,14 @@
         {{ form_errors(form) }}
 
         <div class="form-group">
-            {{ form_label(form.email, "Adresse email", {'label_attr': {'class': 'col-md-offset-3 col-lg-4 col-md-4 col-sm-offset-3 col-sm-4 col-xs-offset-4 col-xs-4 control-label-emailoubli'}}) }}
+            {{ form_label(form.email, "Adresse email", {'label_attr': {'class': 'col-md-pull-1 col-lg-2 col-md-4 col-sm-pull-1 col-sm-4 col-xs-6 control-label-emailoubli'}}) }}
             {{ form_errors(form.email) }}
 
-            <div class="col-lg-offset-3 col-md-offset-3 col-sm-offset-3 col-lg-6 col-md-6 col-sm-6 col-sm-offset-5 col-xs-offset-2 col-xs-8">
+            <div class="col-lg-offset-3 col-md-offset-3 col-lg-6 col-md-6 col-sm-6 col-sm-offset-3 col-xs-offset-2 col-xs-8">
                 {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
             </div>
         </div>
-    <div class="reinit col-md-offset-4 col-sm-offset-4 col-xs-offset-3 col-lg-4 col-md-4 col-sm-6 col-xs-offset-5 col-xs-7">
+    <div class="reinit col-md-pull-1 col-sm-pull-1 col-xs-offset-2 col-lg-4 col-md-6 col-sm-6 col-xs-7">
         {{ form_widget(form.Valider, {'attr': {'class': 'btn-lg btn-default'}}) }}
     </div>
     </div>
