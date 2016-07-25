@@ -50,5 +50,9 @@ oc_core_profil:
     path:    /profil
     defaults: {_controller: OCCoreBundle:Default:profil}
 
+oc_core_confirmation:
+    path:    /confirmation
+    defaults: {_controller: OCCoreBundle:Default:confirmation}
+
 
 
