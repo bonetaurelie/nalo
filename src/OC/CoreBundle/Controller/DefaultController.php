@@ -136,5 +136,9 @@ class DefaultController extends Controller
     public function validationsAction(){
         return $this->render('OCCoreBundle:Default:validations.html.twig');
     }
+
+    public function detailValidationAction(){
+        return $this->render('OCCoreBundle:Default:detailObsValidation.html.twig');
+    }
 }
 
