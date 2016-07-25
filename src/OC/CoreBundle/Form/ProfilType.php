@@ -21,12 +21,10 @@ class ProfilType extends AbstractType
         $builder
             ->add('prenom',TextType::class)
             ->add('nom',TextType::class)
-            ->add('emailactu',EmailType::class)
             ->add('emailnew',EmailType::class)
-            ->add('Modifier',SubmitType::class,array('label'=>'Modifier l\'email'))
             ->add('mdpnew',PasswordType::class)
             ->add('confmdp',PasswordType::class)
-            ->add('Valider',SubmitType::class,array('label'=>'Modifier le mot de passe'))
+            ->add('Valider',SubmitType::class)
         ;
     }
     
