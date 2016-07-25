@@ -58,5 +58,9 @@ oc_core_validations:
     path:    /validations
     defaults: {_controller: OCCoreBundle:Default:validations}
 
+oc_core_detailValidation:
+    path:    /detailValidation
+    defaults: {_controller: OCCoreBundle:Default:detailValidation}
+
 
 
