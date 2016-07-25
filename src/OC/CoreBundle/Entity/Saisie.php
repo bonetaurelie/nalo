@@ -27,21 +27,7 @@ class Saisie
      * @ORM\Column(name="date", type="date")
      */
     private $date;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="departement", type="string", length=255)
-     */
-    private $departement;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="commune", type="string", length=255)
-     */
-    private $commune;
-
+    
     /**
      * @var string
      *
