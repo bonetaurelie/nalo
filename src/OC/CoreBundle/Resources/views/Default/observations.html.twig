@@ -1,8 +1,49 @@
 {% extends "OCCoreBundle::layout.html.twig" %}
 
 {% block title %}
-    {{ parent() }} - Observations
+    {{ parent() }} - Mes observations
 {% endblock %}
 
 {% block body %}
+    <div class="container ">
+        <ul id="menu">
+            <li>
+                <p>BERNARD LOISEAU</p>
+                <p>Naturaliste</p>
+            </li>
+            <li>
+                <a href="{{ path('oc_core_profil') }}">Profil</a>
+            </li>
+            <li>
+                <a href="{{ path('oc_core_observations') }}">Mes observations à valider</a>
+            </li>
+            <li>
+                <a href="#">Validations</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="blockobs">
+        <h1 class="titreobs col-md-offset-4 col-xs-offset-1">MES OBSERVATIONS</h1>
+
+        <div class="legende col-md-offset-4 col-xs-offset-1">
+            <span><img src="">Observations validées</span><br>
+            <span><img src="">Observations en attente de validation</span><br>
+            <span><img src="">Observation rejetée</span><br>
+        </div>
+
+
+        <div class="tableau col-md-offset-3 col-md-9">
+            <table class="table table-bordered table-responsive table-hover">
+                <tr>
+                    <td>Date</td>
+                    <td>Commune</td>
+                    <td>Espèce</td>
+                    <td>Statut</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
 {% endblock %}
