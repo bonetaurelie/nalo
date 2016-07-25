@@ -23,9 +23,8 @@ class SaisieType extends AbstractType
         $builder
             ->add('date', DateType::class,array(
                 'widget'=>'single_text', 'format' => 'dd/MM/y'))
-            ->add('departement',ChoiceType::class)
-            ->add('commune',ChoiceType::class)
-            ->add('lieu',ChoiceType::class)
+            ->add('lieu',TextType::class)
+            ->add('Valider',SubmitType::class)
             ->add('especebis',TextType::class)
             ->add('espece',ChoiceType::class)
             ->add('indiv',IntegerType::class)
