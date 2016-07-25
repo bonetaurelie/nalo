@@ -38,13 +38,6 @@ class Profil
     /**
      * @var string
      *
-     * @ORM\Column(name="emailactu", type="string", length=255)
-     */
-    private $emailactu;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="emailnew", type="string", length=255)
      */
     private $emailnew;
@@ -120,30 +113,6 @@ class Profil
     public function getNom()
     {
         return $this->nom;
-    }
-
-    /**
-     * Set emailactu
-     *
-     * @param string $emailactu
-     *
-     * @return Profil
-     */
-    public function setEmailactu($emailactu)
-    {
-        $this->emailactu = $emailactu;
-
-        return $this;
-    }
-
-    /**
-     * Get emailactu
-     *
-     * @return string
-     */
-    public function getEmailactu()
-    {
-        return $this->emailactu;
     }
 
     /**
