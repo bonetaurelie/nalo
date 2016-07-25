@@ -7,6 +7,7 @@ use OC\CoreBundle\Form\ConnexionType;
 use OC\CoreBundle\Form\ContactType;
 use OC\CoreBundle\Form\InscriptionType;
 use OC\CoreBundle\Form\NewMdpType;
+use OC\CoreBundle\Form\ProfilType;
 use OC\CoreBundle\Form\RechercheType;
 use OC\CoreBundle\Form\ReinitialisationType;
 use OC\CoreBundle\Form\SaisieType;
@@ -120,7 +121,12 @@ class DefaultController extends Controller
     }
     
     public function profilAction(){
-        return $this->render('OCCoreBundle:Default:profil.html.twig');
+        $form=  $this->get('form.factory')->create(ProfilType::class);
+
+        return $this->render('OCCoreBundle:Default:profil.html.twig', array(
+            'form' => $form->createView(),
+        ));
+        
     }
 }
 
