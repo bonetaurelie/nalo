@@ -627,6 +627,14 @@ footer a:hover{
         margin-top: 40px;
     }
 
+    .control-label-espece{
+        margin-left: 640px;
+    }
+
+    .control-label-indiv{
+        margin-left: -90px;
+    }
+
     /*contact*/
     .contacter{
         padding-top: 100px;
@@ -740,7 +748,6 @@ footer a:hover{
         margin-left: 0px;
         margin-top: 110px;
         background-color: #689F38;
-        padding-bottom: 500px;
         color: white;
         width:260px;
         height: 100%;
@@ -760,22 +767,16 @@ footer a:hover{
     }
 
     .profil{
-        margin-top: -1450px;
     }
 
     .identite{
-        margin-left: 150px;
-        margin-bottom: 80px;
+
     }
 
     .formProfil{
         margin-left: 250px;
-        margin-top: -50px;
     }
 
-    .titremdp{
-
-    }
 
     .titreadmail{
         margin-left: -10px;
