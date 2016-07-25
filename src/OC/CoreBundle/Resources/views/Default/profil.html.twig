@@ -5,4 +5,95 @@
 {% endblock %}
 
 {% block body %}
+
+    <div class="container ">
+        <ul id="menu">
+            <li>
+                <p>BERNARD LOISEAU</p>
+                <p>Naturaliste</p>
+            </li>
+            <li>
+                <a href="{{ path('oc_core_profil') }}">Profil</a>
+            </li>
+            <li>
+                <a href="#">Mes observations à valider</a>
+            </li>
+            <li>
+                <a href="#">Validations</a>
+            </li>
+        </ul>
+    </div>
+
+    <h1 class="profil col-lg-offset-3 col-md-offset-4 col-sm-offset-1 col-xs-offset-1">MON PROFIL</h1>
+    <h2 class="identite text-center">Identite</h2>
+
+    <div class="formProfil col-md-9">
+
+        {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+
+        {{ form_errors(form) }}
+
+        <div class="form-group">
+            {{ form_label(form.prenom, "Prenom", {'label_attr': {'class': 'col-lg-6 col-sm-8 col-sm-pull-1 col-xs-offset-4 col-xs-8 control-label-firstname'}}) }}
+            {{ form_errors(form.prenom) }}
+
+            <div class="col-lg-4 col-sm-offset-3 col-sm-5 col-xs-offset-3 col-xs-7">
+                {{ form_widget(form.prenom, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+
+        <div class="form-group">
+            {{ form_label(form.nom, "Nom", {'label_attr': {'class': 'col-sm-pull-1 col-sm-4 col-xs-offset-4 col-xs-8 control-label-name'}}) }}
+            {{ form_errors(form.nom) }}
+
+            <div class="col-sm-offset-3 col-sm-5 col-xs-offset-3 col-xs-7">
+                {{ form_widget(form.nom, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+
+        <div class="blockmail col-md-6">
+            <h3 class="titreadmail col-md-8 col-sm-4 col-sm-offset-4 col-xs-offset-3 col-xs-4 ">Adresse e-mail</h3>
+
+            <div class="form-group">
+                {{ form_label(form.emailnew, "Nouvel e-mail", {'label_attr': {'class': 'col-md-pull-4 col-md-8 col-sm-pull-1 col-sm-4 col-xs-offset-4 col-xs-8 control-label-formconf'}}) }}
+                {{ form_errors(form.emailnew) }}
+
+                <div class="col-md-pull-3 col-md-8 col-sm-offset-3 col-sm-5 col-xs-offset-3 col-xs-7">
+                    {{ form_widget(form.emailnew, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+        </div>
+
+
+        <div class="blockmdp col-md-6">
+            <h3 class="titremdp col-md-8 col-sm-4 col-sm-offset-4">Mot de passe</h3>
+            <div class="form-group">
+                {{ form_label(form.mdpnew, "Nouveau mot de passe", {'label_attr': {'class': 'col-md-pull-1 col-md-8 col-sm-pull-1 col-sm-4 col-xs-offset-4 col-xs-8 control-label-formmdp'}}) }}
+                {{ form_errors(form.mdpnew) }}
+
+                <div class=" col-md-8 col-sm-offset-3 col-sm-5 col-xs-offset-3 col-xs-7">
+                    {{ form_widget(form.mdpnew, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.confmdp, "Confirmez le mot de passe", {'label_attr': {'class': 'col-md-pull-1 col-md-8 col-sm-pull-1 col-sm-4 col-xs-offset-4 col-xs-8 control-label-formconfmdp'}}) }}
+                {{ form_errors(form.confmdp) }}
+
+                <div class=" col-md-8 col-sm-offset-3 col-sm-5 col-xs-offset-3 col-xs-7">
+                    {{ form_widget(form.confmdp, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+
+            <div class="modifmdp col-lg-offset-5 col-md-offset-5 col-sm-offset-5 col-lg-4 col-md-4 col-sm-5 col-xs-7">
+                {{ form_widget(form.Valider, {'attr': {'class': 'btn-lg btn-default'}}) }}
+            </div>
+        </div>
+
+    </div>
+
+    {{ form_rest(form) }}
+
+    {{ form_end(form) }}
+
 {% endblock %}
