@@ -322,7 +322,11 @@ footer a:hover{
     }
 
     .control-label-emailoubli{
-        margin-left: 230px;
+        margin-left: 200px;
+    }
+
+    .reinit{
+        margin-left: 100px;
     }
 
     /*menu tableau de bord*/
@@ -585,6 +589,16 @@ footer a:hover{
         padding-bottom: 200px;
     }
 
+    /*nouveau mdp*/
+    .control-label-newmdp{
+        margin-left: 230px;
+    }
+
+    .control-label-confnewmdp{
+        margin-left: 230px;
+    }
+
+
 }
 
 /* Medium devices (desktops, 992px and up) */
@@ -786,6 +800,11 @@ footer a:hover{
         margin-top: -1430px;
     }
 
+    /*detail recherche*/
+    .info{
+        margin-top: -380px;
+    }
+
 }
 
 /* Large devices (large desktops, 1200px and up) */
@@ -882,11 +901,11 @@ footer a:hover{
     }
 
     .reinit{
-        margin-left: 360px;
+        margin-left: 460px;
     }
 
     .control-label-emailoubli{
-        margin-left: 440px;
+        margin-left: 540px;
     }
 
     /*menu tableau de bord*/
@@ -929,6 +948,25 @@ footer a:hover{
     .tableau{
         padding-bottom: 400px;
     }
+
+    /*detail recherche*/
+    .info{
+        margin-top: -380px;
+    }
+
+    /*nouveau mdp*/
+    .control-label-newmdp{
+        margin-left: 430px;
+    }
+
+    .control-label-confnewmdp{
+        margin-left: 430px;
+    }
+
+    .changement{
+        margin-left: 550px;
+    }
+
 
 }
 
