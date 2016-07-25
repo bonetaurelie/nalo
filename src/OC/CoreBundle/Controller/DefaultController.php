@@ -132,5 +132,9 @@ class DefaultController extends Controller
     public function confirmationAction(){
         return $this->render('OCCoreBundle:Default:confirmation.html.twig');
     }
+
+    public function validationsAction(){
+        return $this->render('OCCoreBundle:Default:validations.html.twig');
+    }
 }
 
