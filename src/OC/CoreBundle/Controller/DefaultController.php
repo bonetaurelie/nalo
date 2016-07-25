@@ -128,5 +128,9 @@ class DefaultController extends Controller
         ));
         
     }
+
+    public function confirmationAction(){
+        return $this->render('OCCoreBundle:Default:confirmation.html.twig');
+    }
 }
 
