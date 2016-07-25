@@ -215,12 +215,16 @@ ul .pagination li a.active{
     padding-top: 80px;
     margin-bottom: 50px;
 }
+/*profil*/
+.profil{
+    margin-top: -650px;
+}
+
 
 /*Mentions légales*/
 .mentions{
     padding-top: 100px;
 }
-
 .mentions1{
     padding-bottom: 50px;
 }
@@ -260,30 +264,9 @@ footer a:hover{
 }
 
 @media (max-width: 768px) {
+    /*accueil*/
     .button{
         margin-left: 230px;
-    }
-
-    .footer1{
-        margin-right: -80px;
-    }
-
-    .footer2{
-        margin-right: -110px;
-    }
-
-    .saisie{
-        margin-top: 40px;
-        margin-bottom: 20px;
-    }
-
-    .consult{
-        margin-bottom: 40px;
-    }
-
-    .carte{
-        margin-bottom: 20px;
-        margin-top: 20px;
     }
 
     .titreHeader{
@@ -295,6 +278,32 @@ footer a:hover{
         margin-top: -60px;
     }
 
+    /*footer*/
+    .footer1{
+        margin-right: -80px;
+    }
+
+    .footer2{
+        margin-right: -110px;
+    }
+
+    /*saisie*/
+    .saisie{
+        margin-top: 40px;
+        margin-bottom: 20px;
+    }
+
+
+    .consult{
+        margin-bottom: 40px;
+    }
+
+    .carte{
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+
+    /*oubli mot de passe*/
     .oubli{
         margin-left: 360px;
     }
@@ -307,16 +316,81 @@ footer a:hover{
         margin-left: 230px;
     }
 
+    /*menu tableau de bord*/
+    .container{
+        margin-top:50px;
+        background-color: #689F38;
+        color: white;
+        width:100%;
+        height: 150px;
+        margin-bottom: 700px;
+    }
+
+    #menu li{
+        display: inline;
+        padding-right :0px;
+        padding-left: 5px;
+        border-right: solid 2px black;
+    }
+
+    #menu ul{
+        padding-left: -10px;
+    }
+
+    #menu a{
+        color:white;
+    }
+
+    #menu a:hover{
+        text-decoration: none;
+    }
+
+    .profil{
+        padding-top: -400px;
+    }
+
+
+    .identite{
+        padding-bottom: -200px;
+    }
+
+
+    .titremdp{
+        margin-left: 150px;
+    }
+
+    .blockmail{
+        padding-top: 20px;
+    }
+
+    .blockmdp{
+        padding-top: 20px;
+    }
+
+    .modifmdp{
+        margin-left: 220px;
+    }
 
 }
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
 
+    /*accueil*/
     .button{
         margin-left: 300px;
     }
 
+    .titreHeader{
+        margin-top: -140px;
+    }
+
+    .btnHeader{
+        margin-left: 350px;
+        margin-top: -50px;
+    }
+
+    /*footer*/
     .footer1{
         margin-right: -95px;
     }
@@ -325,6 +399,7 @@ footer a:hover{
         margin-right: -95px;
     }
 
+    /*saisie*/
     .saisie{
         margin-top: 40px;
         margin-bottom: 20px;
@@ -339,22 +414,31 @@ footer a:hover{
         margin-top: 20px;
     }
 
+    .enregistrement{
+        padding-top: 140px;
+    }
+
+    /*contact*/
     .contacter{
         padding-top: 100px;
     }
 
+    /*association*/
     .assoc{
         margin-top: 120px;
     }
 
+    /*inscription*/
     .inscription {
         padding-top: 120px;
     }
 
+    /*connexion*/
     .connexion{
         padding-top: 120px;
     }
 
+    /*reinitialisation*/
     .mdp{
         padding-top: 120px;
     }
@@ -363,6 +447,7 @@ footer a:hover{
         padding-top: 120px;
     }
 
+    /*recherche*/
     .recherche{
         padding-top: 120px;
     }
@@ -371,19 +456,7 @@ footer a:hover{
         padding-top: 120px;
     }
 
-    .enregistrement{
-        padding-top: 140px;
-    }
-
-    .titreHeader{
-        margin-top: -140px;
-    }
-
-    .btnHeader{
-        margin-left: 350px;
-        margin-top: -50px;
-    }
-
+    /*inscription*/
     .control-label-prenom{
         margin-left: 247px;
     }
@@ -425,6 +498,7 @@ footer a:hover{
         margin-left: 240px;
     }
 
+    /*oubli mdp*/
     .oubli{
         margin-left: 490px;
     }
@@ -440,11 +514,46 @@ footer a:hover{
     .control-label-emailoubli{
         margin-left: 330px;
     }
+
+    /*menu tableau de bord*/
+    .container{
+        margin-top:100px;
+        background-color: #689F38;
+        color: white;
+        width:100%;
+        height: 150px;
+        margin-bottom: 700px;
+    }
+
+    #menu li{
+        display: inline;
+        padding-right :0px;
+        padding-left: 5px;
+        border-right: solid 2px black;
+    }
+
+    #menu ul{
+        padding-left: -10px;
+    }
+
+    #menu a{
+        color:white;
+    }
+
+    #menu a:hover{
+        text-decoration: none;
+    }
+
+    .profil{
+        padding-top: -400px;
+    }
+
 }
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width:992px) {
 
+    /*footer*/
     .footer1{
         margin-right: 45px;
     }
@@ -453,10 +562,12 @@ footer a:hover{
         margin-right: -30px;
     }
 
+    /*accueil*/
     .button{
         margin-bottom: 40px;
     }
 
+    /*saisie*/
     .saisie{
         margin-right: 150px;
     }
@@ -465,18 +576,17 @@ footer a:hover{
         margin-top: 40px;
     }
 
+    /*contact*/
     .contacter{
         padding-top: 100px;
     }
 
+    /*association*/
     .assoc{
         margin-top: 120px;
     }
 
-    .inscription {
-        padding-top: 120px;
-    }
-
+    /*connexion*/
     .connexion{
         padding-top: 120px;
     }
@@ -488,6 +598,8 @@ footer a:hover{
     .newmdp{
         padding-top: 120px;
     }
+
+    /*recherche*/
     .recherche{
         padding-top: 120px;
     }
@@ -506,6 +618,11 @@ footer a:hover{
     }
 
     .enregistrement{
+        padding-top: 120px;
+    }
+
+    /*inscription*/
+    .inscription {
         padding-top: 120px;
     }
 
@@ -550,6 +667,7 @@ footer a:hover{
         margin-left: 50px;
     }
 
+    /*oubli mot de passe*/
     .oubli{
         margin-left: 530px;
     }
@@ -566,11 +684,58 @@ footer a:hover{
         margin-left: 380px;
     }
 
+    /*menu tabeau de bord*/
+    .container{
+        margin-left: 0px;
+        margin-top: 110px;
+        background-color: #689F38;
+        padding-bottom: 600px;
+        color: white;
+        width:260px;
+        height: 100%;
+    }
+
+    #menu li{
+        display: inherit;
+        border: hidden;
+    }
+
+    #menu a{
+        color:white;
+    }
+
+    #menu a:hover{
+        color: #DCEDC8;
+    }
+
+    .profil{
+        margin-top: -1450px;
+    }
+
+    .identite{
+        margin-left: 150px;
+        margin-bottom: 80px;
+    }
+
+    .formProfil{
+        margin-left: 250px;
+        margin-top: -50px;
+    }
+
+    .titremdp{
+
+    }
+
+    .titreadmail{
+        margin-left: -10px;
+    }
+
 }
 
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
 
+    /*footer*/
     .footer1{
         margin-right: 75px;
     }
@@ -579,6 +744,7 @@ footer a:hover{
         margin-right: 75px;
     }
 
+    /*accueil*/
     .button{
         margin-bottom: 40px;
         margin-left: 500px;
@@ -588,6 +754,7 @@ footer a:hover{
         margin-bottom: 50px;
     }
 
+    /*saisie*/
     .saisie{
         margin-top: 40px;
         margin-right: 100px;
@@ -597,6 +764,7 @@ footer a:hover{
         margin-top: 40px;
     }
 
+    /*recherche*/
     .result{
         margin-top: 40px;
     }
@@ -606,6 +774,7 @@ footer a:hover{
         margin-left: -125px;
     }
 
+    /*inscription*/
     .control-label-prenom{
         margin-left: 530px;
     }
@@ -647,6 +816,7 @@ footer a:hover{
         margin-left: 50px;
     }
 
+    /*oubli mdp*/
     .oubli{
         margin-left: 600px;
     }
@@ -661,6 +831,34 @@ footer a:hover{
 
     .control-label-emailoubli{
         margin-left: 440px;
+    }
+
+    /*menu tableau de bord*/
+    .container{
+        margin-top: 75px;
+        background-color: #689F38;
+        color: white;
+        width:260px;
+        height: 100%;
+        padding-bottom: 550px;
+        margin-bottom: 215px;
+    }
+
+    #menu li{
+        display: inherit;
+        border: hidden;
+    }
+
+    #menu a{
+        color:white;
+    }
+
+    #menu a:hover{
+        text-decoration: none;
+    }
+
+    .profil{
+        margin-top: -900px;
     }
 
 }
