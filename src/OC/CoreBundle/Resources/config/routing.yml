@@ -54,5 +54,9 @@ oc_core_confirmation:
     path:    /confirmation
     defaults: {_controller: OCCoreBundle:Default:confirmation}
 
+oc_core_validations:
+    path:    /validations
+    defaults: {_controller: OCCoreBundle:Default:validations}
+
 
 
