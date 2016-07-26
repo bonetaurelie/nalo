@@ -17,3 +17,8 @@ parameters:
 
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
+    # email to use for send from the site to user or other
+    robot_email:        joe.doe@exemple.com
+    # email to use for receive from the site
+    contact_email:        joe.doe@exemple.com
+
