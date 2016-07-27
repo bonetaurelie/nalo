@@ -5,26 +5,34 @@
 {% endblock %}
 
 {% block body %}
-    <div class="detail">
-        <div class="cartedetail col-lg-offset-1 col-md-offset-1 col-sm-offset-3 col-xs-offset-1 col-lg-6 col-md-6 col-sm-8 col-xs-8">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11380599.83893024!2d-6.7798041561623155!3d45.86197048753587!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd54a02933785731%3A0x6bfd3f96c747d9f7!2sFrance!5e0!3m2!1sfr!2sfr!4v1469306493238" width="500" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
+    <div class="container">
+        <div class="main">
+            <div class="detail">
+                <div class="row">
+                    <div class="cartedetail col-lg-offset-1 col-md-offset-1 col-sm-offset-2 col-xs-offset-1 col-lg-6 col-md-6 col-sm-8 col-xs-8">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11380599.83893024!2d-6.7798041561623155!3d45.86197048753587!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd54a02933785731%3A0x6bfd3f96c747d9f7!2sFrance!5e0!3m2!1sfr!2sfr!4v1469306493238" width="500" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    </div>
+                    <div class="info col-lg-offset-7 col-md-offset-8 col-sm-offset-1 col-xs-offset-2 col-sm-8 col-xs-8">
+                        <h1>Observation du à </h1>
+                        <p>A Lieu-dit       , par      </p>
+                        <h2>Espèce</h2>
+                        <p>Commentaire</p>
+                    </div>
+                    <div class="photos">
+                        <ul>
+                            <li>
+                                <img src="">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <a class="text-center col-lg-push-3 col-md-push-3 col-sm-push-2 col-xs-push-1 col-lg-2 col-md-2 col-sm-2 col-xs-2  btn-lg btn-default" href="#" role="button">Valider</a>
+                <a class="text-center col-lg-push-3 col-md-push-3 col-sm-push-2 col-xs-push-1 col-lg-2 col-md-2 col-sm-2 col-xs-2  btn-lg btn-danger" href="#" role="button">Rejeter</a>
+                <a class="text-center col-lg-push-3 col-md-push-3 col-sm-push-2 col-xs-push-1 col-lg-3 col-md-3 col-sm-4 col-xs-5  btn-lg btn-default" href="{{ path('oc_core_observations') }}" role="button">Retour aux obsersations</a>
+            </div>
         </div>
-        <div class="info col-lg-offset-6 col-md-offset-7  col-sm-offset-3 col-xs-offset-3 col-sm-8 col-xs-8">
-            <h1>Observation du à </h1>
-            <p>A Lieu-dit       , par      </p>
-            <h2>Espèce</h2>
-            <p>Commentaire</p>
-        </div>
-        <div class="photos">
-            <ul>
-                <li>
-                    <img src="">
-                </li>
-            </ul>
-        </div>
-        <a class="text-center col-lg-push-3 col-md-push-3 col-sm-push-3 col-xs-push-3 col-lg-2 col-md-2 col-sm-2 col-xs-2  btn-lg btn-default" href="#" role="button">Valider</a>
-        <a class="text-center col-lg-push-3 col-md-push-3 col-sm-push-3 col-xs-push-3 col-lg-2 col-md-2 col-sm-2 col-xs-2  btn-lg btn-danger" href="#" role="button">Rejeter</a>
-        <a class="text-center col-lg-push-3 col-md-push-3 col-sm-push-3 col-xs-push-3 col-lg-3 col-md-3 col-sm-3 col-xs-3  btn-lg btn-default" href="{{ path('oc_core_observations') }}" role="button">Retour aux obsersations</a>
     </div>
+
 
 {% endblock %}
