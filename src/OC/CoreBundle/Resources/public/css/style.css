@@ -2,8 +2,28 @@ body {
     font-family: 'Lato-Regular';
     color: #212121;
     font-size: 20px;
+    height:100%;
+    margin: 0;
+    padding: 0;
 }
 
+html{
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#wrap{
+    height: auto;
+    margin: 0 auto;
+}
+
+.main{
+    width:100%;
+    min-height:300px;
+    margin:0 0 75px 0;
+    padding:0;
+}
 
 @font-face {
     font-family: 'Lato-Regular';
@@ -54,11 +74,9 @@ padding-left: 125px;
 }
 
 /*accueil*/
-
-.header img{
+.photoheader{
     width:100%;
-    height: auto;
-    margin-top: -480px;
+    margin-top: -475px;
 }
 
 .titreHeader{
@@ -90,8 +108,9 @@ padding-left: 125px;
     color: white;
 }
 
-.nao i{
-    padding-right: 20px;
+.photoheader img{
+    width:100%;
+    margin-left: 0;
 }
 
 
@@ -111,7 +130,6 @@ padding-left: 125px;
     padding-bottom: 25px;
     border-bottom: solid 1px ;
     width: 450px;
-    margin-bottom: 50px;
 }
 
 .obs h3{
@@ -216,8 +234,21 @@ ul .pagination li a.active{
     margin-bottom: 50px;
 }
 /*profil*/
-.profil{
-    margin-top: -650px;
+
+#menu{
+    margin-top: 75px;
+    background-color: #689F38;
+    color: white;
+    width:260px;
+    height: 100%;
+}
+
+#menu a{
+    color:white;
+}
+
+#menu a:hover{
+    text-decoration: none;
 }
 
 /*mes observations*/
@@ -241,11 +272,12 @@ ul .pagination li a.active{
 
 /*footer*/
 footer {
+    margin:-75px auto -10px;
     background-color: #689F38;
-    margin-top: 100px;
-    margin-bottom: -5px;
-    height: 75px;
+    bottom: 0;
+    left:0;
     width: 100%;
+    height: 75px;
     display: inline-block;
     font-size: 15px;
 }
@@ -330,15 +362,6 @@ footer a:hover{
     }
 
     /*menu tableau de bord*/
-    .container{
-        margin-top:50px;
-        background-color: #689F38;
-        color: white;
-        width:100%;
-        height: 150px;
-        margin-bottom: 700px;
-    }
-
     #menu li{
         display: inline;
         padding-right :0px;
@@ -348,14 +371,6 @@ footer a:hover{
 
     #menu ul{
         padding-left: -10px;
-    }
-
-    #menu a{
-        color:white;
-    }
-
-    #menu a:hover{
-        text-decoration: none;
     }
 
     .profil{
@@ -543,15 +558,6 @@ footer a:hover{
     }
 
     /*menu tableau de bord*/
-    .container{
-        margin-top:100px;
-        background-color: #689F38;
-        color: white;
-        width:100%;
-        height: 150px;
-        margin-bottom: 700px;
-    }
-
     #menu li{
         display: inline;
         padding-right :0px;
@@ -561,14 +567,6 @@ footer a:hover{
 
     #menu ul{
         padding-left: -10px;
-    }
-
-    #menu a{
-        color:white;
-    }
-
-    #menu a:hover{
-        text-decoration: none;
     }
 
     .profil{
@@ -744,33 +742,9 @@ footer a:hover{
     }
 
     /*menu tabeau de bord*/
-    .container{
-        margin-left: 0px;
-        margin-top: 110px;
-        background-color: #689F38;
-        color: white;
-        width:260px;
-        height: 100%;
-    }
-
-    #menu li{
+    #menu li {
         display: inherit;
         border: hidden;
-    }
-
-    #menu a{
-        color:white;
-    }
-
-    #menu a:hover{
-        color: #DCEDC8;
-    }
-
-    .profil{
-    }
-
-    .identite{
-
     }
 
     .formProfil{
@@ -910,27 +884,10 @@ footer a:hover{
     }
 
     /*menu tableau de bord*/
-    .container{
-        margin-top: 75px;
-        background-color: #689F38;
-        color: white;
-        width:260px;
-        height: 100%;
-        padding-bottom: 700px;
-        margin-bottom: 215px;
-    }
 
     #menu li{
         display: inherit;
         border: hidden;
-    }
-
-    #menu a{
-        color:white;
-    }
-
-    #menu a:hover{
-        text-decoration: none;
     }
 
     .profil{
