@@ -5,48 +5,53 @@
 {% endblock %}
 
 {% block body %}
-    <h1 class="connexion text-center">CONNEXION</h1>
+    <div class="container">
+        <div class="main">
+            <h1 class="connexion text-center">CONNEXION</h1>
 
-    <div class="col-lg-6 col-md-6">
-        {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
-        {{ form_errors(form) }}
+            <div class="col-lg-6 col-md-6">
+                {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+                {{ form_errors(form) }}
 
-        <div class="form-group">
-            {{ form_label(form.email, "Votre e-mail", {'label_attr': {'class': 'col-md-offset-10 col-sm-pull-4 col-lg-8 col-md-8 col-sm-8 col-xs-offset-2 col-xs-8 control-label-emailconnexion'}}) }}
-            {{ form_errors(form.email) }}
+                <div class="form-group">
+                    {{ form_label(form.email, "Votre e-mail", {'label_attr': {'class': 'col-md-offset-10 col-sm-pull-4 col-lg-8 col-md-8 col-sm-8 col-xs-offset-2 col-xs-8 control-label-emailconnexion'}}) }}
+                    {{ form_errors(form.email) }}
 
-            <div class="col-lg-offset-8 col-md-offset-8 col-sm-offset-3 col-lg-8 col-md-8 col-sm-6 col-xs-offset-2 col-xs-8">
-                {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+                    <div class="col-lg-offset-8 col-md-offset-8 col-sm-offset-3 col-lg-8 col-md-8 col-sm-6 col-xs-offset-2 col-xs-8">
+                        {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.password, "Votre mot de passe", {'label_attr': {'class': 'col-md-offset-8 col-sm-pull-1 col-lg-8 col-md-8 col-sm-6 col-xs-offset-2 col-xs-8 control-label-mdpconnexion'}}) }}
+                    {{ form_errors(form.password) }}
+
+                    <div class="col-lg-offset-8 col-md-offset-8 col-sm-offset-3 col-lg-8 col-md-8 col-sm-6 col-xs-offset-2 col-xs-8">
+                        {{ form_widget(form.password, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.remember, "Se souvenir de moi", {'label_attr': {'class': 'col-md-push-7 col-sm-offset-1 col-xs-offset-2 col-lg-5 col-md-6 col-sm-5 col-xs-8 control-label-remember'}}) }}
+                    {{ form_errors(form.remember) }}
+
+                    <div class="col-lg-offset-1 col-md-push-7 col-sm-pull-2 col-xs-pull-2 col-lg-1 col-md-2 col-sm-1 col-xs-1">
+                        {{ form_widget(form.remember, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+
+                <div class="btnConnexion col-lg-4 col-lg-push-1 col-md-pull-3 col-sm-pull-2 col-xs-pull-1 col-md-5 col-sm-5 col-xs-5">
+                    {{ form_widget(form.Connecter, {'attr': {'class': ' btn-default'}}) }}
+                </div>
+
+                <a class="oubli col-md-offset-7 col-sm-offset-2 col-xs-offset-2 col-lg-8 col-md-8 col-sm-8 col-xs-8" href="{{ path('oc_core_mdpoublie') }}">Mot de passe oublié?</a>
+
+                {{ form_rest(form) }}
+
+                {{ form_end(form) }}
             </div>
+            <a class="col-lg-offset-4 col-md-offset-4 col-sm-offset-3 col-xs-offset-2 col-lg-8 col-md-8 col-sm-8 col-xs-8 " href="{{ path('oc_core_inscription') }}">Pas encore inscrit?</a>
         </div>
-
-        <div class="form-group">
-            {{ form_label(form.password, "Votre mot de passe", {'label_attr': {'class': 'col-md-offset-8 col-sm-pull-1 col-lg-8 col-md-8 col-sm-6 col-xs-offset-2 col-xs-8 control-label-mdpconnexion'}}) }}
-            {{ form_errors(form.password) }}
-
-            <div class="col-lg-offset-8 col-md-offset-8 col-sm-offset-3 col-lg-8 col-md-8 col-sm-6 col-xs-offset-2 col-xs-8">
-                {{ form_widget(form.password, {'attr': {'class': 'form-control'}}) }}
-            </div>
-        </div>
-
-        <div class="form-group">
-            {{ form_label(form.remember, "Se souvenir de moi", {'label_attr': {'class': 'col-md-push-7 col-sm-offset-1 col-xs-offset-2 col-lg-5 col-md-5 col-sm-5 col-xs-8 control-label-remember'}}) }}
-            {{ form_errors(form.remember) }}
-
-            <div class="col-lg-offset-1 col-md-push-7 col-sm-pull-2 col-xs-pull-2 col-lg-1 col-md-2 col-sm-1 col-xs-1">
-                {{ form_widget(form.remember, {'attr': {'class': 'form-control'}}) }}
-            </div>
-        </div>
-
-        <div class="btnConnexion col-lg-5 col-md-5 col-sm-5 col-xs-5">
-            {{ form_widget(form.Connecter, {'attr': {'class': ' btn-default'}}) }}
-        </div>
-
-        <a class="oubli col-md-offset-7 col-sm-offset-2 col-xs-offset-2 col-lg-8 col-md-8 col-sm-8 col-xs-8" href="{{ path('oc_core_mdpoublie') }}">Mot de passe oublié?</a>
-
-        {{ form_rest(form) }}
-
-        {{ form_end(form) }}
     </div>
-    <a class="col-lg-offset-4 col-md-offset-4 col-sm-offset-3 col-xs-offset-2 col-lg-8 col-md-8 col-sm-8 col-xs-8 " href="{{ path('oc_core_inscription') }}">Pas encore inscrit?</a>
+
 {% endblock %}
