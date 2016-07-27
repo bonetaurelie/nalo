@@ -5,77 +5,81 @@
 {% endblock %}
 
 {% block body %}
-    <h1 class="inscription text-center">INSCRIPTION</h1>
-    <p class="text-justify col-lg-offset-2 col-md-offset-2 col-sm-offset-2 col-xs-offset-2 col-lg-8 col-md-8 col-sm-8 col-xs-8">Pour soumettre une observation, il est nécessaire de s'inscrire. Si vous êtes un naturaliste professionnel, vous devrez valider les observations des autres utilisateurs. Cochez la case correspondante lors de votre inscription.</p>
+    <div class="container">
+        <div class="main">
+            <h1 class="inscription text-center">INSCRIPTION</h1>
+            <p class="text-justify col-lg-offset-2 col-md-offset-2 col-sm-offset-2 col-xs-offset-2 col-lg-8 col-md-8 col-sm-8 col-xs-8">Pour soumettre une observation, il est nécessaire de s'inscrire. Si vous êtes un naturaliste professionnel, vous devrez valider les observations des autres utilisateurs. Cochez la case correspondante lors de votre inscription.</p>
 
-    <div class="formInscription">
-        {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+            <div class="formInscription">
+                {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
 
-        {{ form_errors(form) }}
+                {{ form_errors(form) }}
 
-        <div class="form-group prenom">
-            {{ form_label(form.prenom, "Prénom", {'label_attr': {'class': 'col-lg-5 col-md-pull-1 col-md-5 col-sm-offset-1 col-sm-4 col-xs-offset-3 col-xs-4 control-label-prenom'}}) }}
-            {{ form_errors(form.prenom) }}
+                <div class="form-group prenom">
+                    {{ form_label(form.prenom, "Prénom", {'label_attr': {'class': 'col-lg-5 col-md-pull-1 col-md-5 col-sm-offset-1 col-sm-4 col-xs-offset-3 col-xs-4 control-label-prenom'}}) }}
+                    {{ form_errors(form.prenom) }}
 
-            <div class="col-lg-offset-4 col-md-offset-3 col-sm-offset-3 col-lg-4 col-md-6 col-sm-6 col-sm-offset-5 col-xs-offset-2 col-xs-8">
-                {{ form_widget(form.prenom, {'attr': {'class': 'form-control'}}) }}
+                    <div class="col-lg-offset-4 col-md-offset-3 col-sm-offset-3 col-lg-4 col-md-6 col-sm-6 col-sm-offset-5 col-xs-offset-2 col-xs-8">
+                        {{ form_widget(form.prenom, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+
+                <div class="form-group nom">
+                    {{ form_label(form.nom, "Nom", {'label_attr': {'class': 'col-lg-5 col-md-5 col-sm-offset-1 col-sm-4 col-xs-offset-3 col-xs-4 control-label-nom '}}) }}
+                    {{ form_errors(form.nom) }}
+
+                    <div class="col-lg-offset-4 col-md-offset-3 col-sm-offset-3 col-lg-4 col-md-6 col-sm-6 col-sm-offset-5 col-xs-offset-2 col-xs-8">
+                        {{ form_widget(form.nom, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+
+                <div class="form-group email">
+                    {{ form_label(form.email, "Adresse email", {'label_attr': {'class': ' col-md-offset-1 col-lg-5 col-md-5 col-sm-offset-2 col-sm-4 col-xs-offset-3 col-xs-4 control-label-email'}}) }}
+                    {{ form_errors(form.email) }}
+
+                    <div class="col-lg-offset-4 col-md-offset-3 col-sm-offset-3 col-lg-4 col-md-6 col-sm-6 col-sm-offset-5 col-xs-offset-2 col-xs-8">
+                        {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+
+                <div class="form-group mdpform">
+                    {{ form_label(form.password, "Mot de passe", {'label_attr': {'class': 'col-md-offset-1 col-lg-5 col-md-5 col-sm-offset-2 col-sm-4 col-xs-offset-3 col-xs-4 control-label-mdpform'}}) }}
+                    {{ form_errors(form.password) }}
+
+                    <div class="col-lg-offset-4 col-md-offset-3 col-sm-offset-3 col-lg-4 col-md-6 col-sm-6 col-sm-offset-5 col-xs-offset-2 col-xs-8">
+                        {{ form_widget(form.password, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+
+                <div class="form-group confmdp">
+                    {{ form_label(form.confirm, "Confirmez votre mot de passe", {'label_attr': {'class': 'col-md-offset-3 col-lg-5 col-md-5 col-sm-offset-2 col-sm-6 col-xs-offset-3 col-xs-7 control-label-confmdp'}}) }}
+                    {{ form_errors(form.confirm) }}
+
+                    <div class="col-lg-offset-4 col-md-offset-3 col-sm-offset-3 col-lg-4 col-md-6 col-sm-6 col-sm-offset-5 col-xs-offset-2 col-xs-8">
+                        {{ form_widget(form.confirm, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+
+                <div class="form-group pro">
+                    <div class="col-lg-offset-4 col-md-offset-3 col-lg-1 col-md-1 col-sm-1 col-sm-offset-3 col-xs-offset-2 col-xs-1">
+                        {{ form_widget(form.pro, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+
+                    {{ form_label(form.pro, "Je suis un naturaliste professionnel", {'label_attr': {'class': 'col-lg-6 col-md-6 col-md-pull-1 col-sm-pull-1 col-sm-6 col-xs-7 control-label-pro'}}) }}
+                    {{ form_errors(form.pro) }}
+
+
+                </div>
+
+                <div class="btnInscr col-md-offset-5 col-sm-offset-5 col-xs-offset-4 col-lg-4 col-md-4 col-sm-6 col-xs-7">
+                    {{ form_widget(form.Envoyer, {'attr': {'class': 'btn-lg btn-default'}}) }}
+                </div>
             </div>
-        </div>
 
-        <div class="form-group nom">
-            {{ form_label(form.nom, "Nom", {'label_attr': {'class': 'col-lg-5 col-md-5 col-sm-offset-1 col-sm-4 col-xs-offset-3 col-xs-4 control-label-nom '}}) }}
-            {{ form_errors(form.nom) }}
+            {{ form_rest(form) }}
 
-            <div class="col-lg-offset-4 col-md-offset-3 col-sm-offset-3 col-lg-4 col-md-6 col-sm-6 col-sm-offset-5 col-xs-offset-2 col-xs-8">
-                {{ form_widget(form.nom, {'attr': {'class': 'form-control'}}) }}
-            </div>
-        </div>
-
-        <div class="form-group email">
-            {{ form_label(form.email, "Adresse email", {'label_attr': {'class': ' col-md-offset-1 col-lg-5 col-md-5 col-sm-offset-2 col-sm-4 col-xs-offset-3 col-xs-4 control-label-email'}}) }}
-            {{ form_errors(form.email) }}
-
-            <div class="col-lg-offset-4 col-md-offset-3 col-sm-offset-3 col-lg-4 col-md-6 col-sm-6 col-sm-offset-5 col-xs-offset-2 col-xs-8">
-                {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
-            </div>
-        </div>
-
-        <div class="form-group mdpform">
-            {{ form_label(form.password, "Mot de passe", {'label_attr': {'class': 'col-md-offset-1 col-lg-5 col-md-5 col-sm-offset-2 col-sm-4 col-xs-offset-3 col-xs-4 control-label-mdpform'}}) }}
-            {{ form_errors(form.password) }}
-
-            <div class="col-lg-offset-4 col-md-offset-3 col-sm-offset-3 col-lg-4 col-md-6 col-sm-6 col-sm-offset-5 col-xs-offset-2 col-xs-8">
-                {{ form_widget(form.password, {'attr': {'class': 'form-control'}}) }}
-            </div>
-        </div>
-
-        <div class="form-group confmdp">
-            {{ form_label(form.confirm, "Confirmez votre mot de passe", {'label_attr': {'class': 'col-md-offset-3 col-lg-5 col-md-5 col-sm-offset-2 col-sm-6 col-xs-offset-3 col-xs-7 control-label-confmdp'}}) }}
-            {{ form_errors(form.confirm) }}
-
-            <div class="col-lg-offset-4 col-md-offset-3 col-sm-offset-3 col-lg-4 col-md-6 col-sm-6 col-sm-offset-5 col-xs-offset-2 col-xs-8">
-                {{ form_widget(form.confirm, {'attr': {'class': 'form-control'}}) }}
-            </div>
-        </div>
-
-        <div class="form-group pro">
-            <div class="col-lg-offset-4 col-md-offset-3 col-lg-1 col-md-1 col-sm-1 col-sm-offset-3 col-xs-offset-2 col-xs-1">
-                {{ form_widget(form.pro, {'attr': {'class': 'form-control'}}) }}
-            </div>
-
-            {{ form_label(form.pro, "Je suis un naturaliste professionnel", {'label_attr': {'class': 'col-lg-6 col-md-6 col-md-pull-1 col-sm-pull-1 col-sm-6 col-xs-7 control-label-pro'}}) }}
-            {{ form_errors(form.pro) }}
-
-
-        </div>
-
-        <div class="btnInscr col-md-offset-5 col-sm-offset-5 col-xs-offset-4 col-lg-4 col-md-4 col-sm-6 col-xs-7">
-            {{ form_widget(form.Envoyer, {'attr': {'class': 'btn-lg btn-default'}}) }}
+            {{ form_end(form) }}
         </div>
     </div>
-
-    {{ form_rest(form) }}
-
-    {{ form_end(form) }}
 
 {% endblock %}
