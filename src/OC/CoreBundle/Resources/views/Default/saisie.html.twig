@@ -13,11 +13,11 @@
 {% block body %}
     <div class="container">
         <div class="main">
-            <div class="enregistrement">
-                <h1 class="text-center">SAISIE D'UNE OBSERVATION</h1>
-                <p class="text-center">Saisissez les informations relatives à votre observation, ajoutez la position sur la carte puis cliquez sur envoyer.</p>
+            <div class="row">
+                <div class="enregistrement">
+                    <h1 class="text-center">SAISIE D'UNE OBSERVATION</h1>
+                    <p class="text-center">Saisissez les informations relatives à votre observation, ajoutez la position sur la carte puis cliquez sur envoyer.</p>
 
-                <div>
                     {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
 
                     {{ form_errors(form) }}
@@ -53,15 +53,15 @@
                     </div>
 
                     <div class="form-group">
-                        {{ form_label(form.espece,"Espèce", {'label_attr': {'class': 'col-lg-2 col-md-2 col-sm-pull-3 col-sm-4 col-xs-offset-4 col-xs-5 control-label'}}) }}
+                        {{ form_label(form.espece,"Espèce", {'label_attr': {'class': 'col-lg-2 col-md-pull-1 col-md-1 col-sm-pull-1 col-sm-4 col-xs-offset-4 col-xs-5 control-label-espece'}}) }}
                         {{ form_errors(form.espece) }}
-                        <div class="col-lg-pull-4 col-lg-3 col-md-pull-4 col-md-3 col-sm-offset-3 col-sm-6 col-xs-offset-3 col-xs-6">
+                        <div class=" col-lg-3 col-md-pull-2 col-md-3 col-sm-offset-3 col-sm-6 col-xs-offset-3 col-xs-6">
                             {{ form_widget(form.espece, {'attr': {'class': 'form-control'}}) }}
                         </div>
                     </div>
 
                     <div class="form-group">
-                        {{ form_label(form.indiv, "Nombre d'individus observés", {'label_attr': {'class': 'col-lg-2 col-md-pull-2 col-md-4 col-sm-4 col-xs-push-3 col-xs-5 control-label'}}) }}
+                        {{ form_label(form.indiv, "Nombre d'individus observés", {'label_attr': {'class': 'col-lg-3 col-md-pull-2 col-md-4 col-sm-4 col-xs-push-3 col-xs-5 control-label-indiv'}}) }}
                         {{ form_errors(form.indiv) }}
 
                         <div class="col-lg-pull-3 col-md-pull-3 col-sm-offset-1 col-lg-2 col-md-3 col-sm-2 col-xs-push-2 col-xs-2">
@@ -86,12 +86,10 @@
                     <div class=" col-lg-push-1 col-lg-6 col-md-8 col-sm-6 col-xs-offset-5 col-xs-6">
                         {{ form_widget(form.Envoyer, {'attr': {'class': 'btn-lg btn-default'}}) }}
                     </div>
+
+                    {{ form_rest(form) }}
+                    {{ form_end(form) }}
                 </div>
-
-                {{ form_rest(form) }}
-
-                {{ form_end(form) }}
-
             </div>
         </div>
     </div>
