@@ -17,7 +17,7 @@
                     <h1 class="text-center">RECHERCHE</h1>
                     <p class="text-center">Saisissez vos critères et consultez vos résultats.</p><br/>
 
-                    <div class="well col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1 col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                    <div class="well col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-1 col-lg-10 col-md-10 col-sm-11 col-xs-10">
                         {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
 
                         {{ form_errors(form) }}
@@ -56,9 +56,9 @@
                         </div>
 
                         <div class="form-group col-lg-6 col-md-6">
-                            {{ form_label(form.especebis, "Sélectionnez une espèce", {'label_attr': {'class': 'col-lg-7 col-md-4 col-sm-6 col-xs-6 control-label'}}) }}
+                            {{ form_label(form.especebis, "Sélectionnez une espèce", {'label_attr': {'class': 'col-lg-7 col-md-6 col-sm-6 col-xs-6 control-label'}}) }}
                             {{ form_errors(form.especebis) }}
-                            <div class="col-lg-5 col-md-8 col-sm-6 col-xs-6">
+                            <div class="col-lg-5 col-md-6 col-sm-6 col-xs-6">
                                 {{ form_widget(form.especebis, {'attr': {'class': 'form-control'}}) }}
                             </div>
                         </div>
