@@ -1,66 +1,66 @@
 oc_core_homepage:
     path:     /
-    defaults: { _controller: OCCoreBundle:Default:index }
+    defaults: { _controller: OCCoreBundle:Main:index }
 
 oc_core_association:
     path:    /association
-    defaults: {_controller: OCCoreBundle:Default:association}
+    defaults: {_controller: OCCoreBundle:Main:association}
 
 oc_core_recherche:
     path:    /recherche
-    defaults: {_controller: OCCoreBundle:Default:recherche}
+    defaults: {_controller: OCCoreBundle:Main:recherche}
 
 oc_core_detailRecherche:
     path:    /detailRecherche
-    defaults: {_controller: OCCoreBundle:Default:detailRecherche}
+    defaults: {_controller: OCCoreBundle:Main:detailRecherche}
 
 oc_core_contact:
     path:    /contact
-    defaults: {_controller: OCCoreBundle:Default:contact}
+    defaults: {_controller: OCCoreBundle:Main:contact}
 
 oc_core_inscription:
     path:    /inscription
-    defaults: {_controller: OCCoreBundle:Default:inscription}
+    defaults: {_controller: OCCoreBundle:Main:inscription}
 
 oc_core_connexion:
     path:    /connexion
-    defaults: {_controller: OCCoreBundle:Default:connexion}
+    defaults: {_controller: OCCoreBundle:Main:connexion}
 
 oc_core_mdpoublie:
     path:    /motdepasse
-    defaults: {_controller: OCCoreBundle:Default:mdpoublie}
+    defaults: {_controller: OCCoreBundle:Main:mdpoublie}
 
 oc_core_newmdp:
     path:    /nouveaumotdepasse
-    defaults: {_controller: OCCoreBundle:Default:newmdp}
+    defaults: {_controller: OCCoreBundle:Main:newmdp}
 
 oc_core_mentions:
     path:    /mentions
-    defaults: {_controller: OCCoreBundle:Default:mentions}
+    defaults: {_controller: OCCoreBundle:Main:mentions}
 
 oc_core_saisie:
     path:    /saisie
-    defaults: {_controller: OCCoreBundle:Default:saisie}
+    defaults: {_controller: OCCoreBundle:Main:saisie}
 
 oc_core_observations:
     path:    /observations
-    defaults: {_controller: OCCoreBundle:Default:observations}
+    defaults: {_controller: OCCoreBundle:Main:observations}
 
 oc_core_profil:
     path:    /profil
-    defaults: {_controller: OCCoreBundle:Default:profil}
+    defaults: {_controller: OCCoreBundle:Main:profil}
 
 oc_core_confirmation:
     path:    /confirmation
-    defaults: {_controller: OCCoreBundle:Default:confirmation}
+    defaults: {_controller: OCCoreBundle:Main:confirmation}
 
 oc_core_validations:
     path:    /validations
-    defaults: {_controller: OCCoreBundle:Default:validations}
+    defaults: {_controller: OCCoreBundle:Main:validations}
 
 oc_core_detailValidation:
     path:    /detailValidation
-    defaults: {_controller: OCCoreBundle:Default:detailValidation}
+    defaults: {_controller: OCCoreBundle:Main:detailValidation}
 
 
 
