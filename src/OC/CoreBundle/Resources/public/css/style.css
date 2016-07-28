@@ -175,7 +175,6 @@ li{
 }
 
 /*inscription*/
-
 .inscription{
     padding-top: 80px;
     margin-bottom: 50px;
@@ -232,23 +231,6 @@ ul .pagination li a.active{
 .enregistrement{
     padding-top: 80px;
     margin-bottom: 50px;
-}
-/*profil*/
-
-#menu{
-    margin-top: 75px;
-    background-color: #689F38;
-    color: white;
-    width:260px;
-    height: 100%;
-}
-
-#menu a{
-    color:white;
-}
-
-#menu a:hover{
-    text-decoration: none;
 }
 
 /*mes observations*/
@@ -357,6 +339,24 @@ footer a:hover{
     }
 
     /*menu tableau de bord*/
+    #menu{
+        margin-top:70px;
+        background-color: #689F38;
+        color: white;
+        width:100%;
+        height: 150px;
+        margin-bottom: 700px;
+    }
+
+    #menu a{
+        color:white;
+    }
+
+    #menu a:hover{
+        text-decoration: none;
+    }
+
+
     #menu li{
         display: inline;
         padding-right :0px;
@@ -369,7 +369,7 @@ footer a:hover{
     }
 
     .profil{
-        padding-top: -400px;
+        margin-top: -650px;
     }
 
 
@@ -408,6 +408,8 @@ footer a:hover{
         padding-bottom: 200px;
     }
 
+    /*validations*/
+
 }
 
 /* Small devices (tablets, 768px and up) */
@@ -441,6 +443,11 @@ footer a:hover{
         margin-top: 40px;
         margin-bottom: 20px;
     }
+
+    .control-label-espece{
+        margin-left: 272px;
+    }
+
 
     .consult{
         margin-bottom: 40px;
@@ -551,11 +558,28 @@ footer a:hover{
     }
 
     /*menu tableau de bord*/
+    #menu {
+        margin-top: 100px;
+        background-color: #689F38;
+        color: white;
+        width: 100%;
+        height: 150px;
+    }
+
+    #menu a{
+        color:white;
+    }
+
+    #menu a:hover{
+        text-decoration: none;
+    }
+
     #menu li{
         display: inline;
         padding-right :0px;
         padding-left: 5px;
         border-right: solid 2px black;
+
     }
 
     #menu ul{
@@ -568,7 +592,7 @@ footer a:hover{
 
     /*mes observation*/
     .titreobs{
-        margin-top: -650px;
+        margin-top: 50px;
     }
 
     .legende{
@@ -619,11 +643,13 @@ footer a:hover{
     }
 
     .control-label-espece{
-        margin-left: 640px;
+        margin-left: 400px;
+        margin-right: -68px;
     }
 
     .control-label-indiv{
-        margin-left: -90px;
+        margin-left: -120px;
+        margin-right: 36px;
     }
 
     /*contact*/
@@ -738,6 +764,24 @@ footer a:hover{
     }
 
     /*menu tabeau de bord*/
+    #menu{
+        margin-top: 110px;
+        background-color: #689F38;
+        color: white;
+        width:260px;
+        min-height: 750px;
+        height: 100%;
+        margin-left:-50px;
+    }
+
+    #menu a{
+        color:white;
+    }
+
+    #menu a:hover{
+        text-decoration: none;
+    }
+
     #menu li {
         display: inherit;
         border: hidden;
@@ -747,6 +791,9 @@ footer a:hover{
         margin-left: 250px;
     }
 
+    .profil{
+        margin-top: -700px;
+    }
 
     .titreadmail{
         margin-left: -10px;
@@ -754,8 +801,8 @@ footer a:hover{
 
     /*mes observation*/
     .titreobs{
-        padding-top: 600px;
-        margin-top: -600px;
+        padding-top: 700px;
+        margin-top: -700px;
     }
 
     .legende{
@@ -763,12 +810,21 @@ footer a:hover{
         padding-bottom: 40px;
     }
 
+    .pagination{
+        padding-bottom: 0px;
+    }
+
     .tableau{
-        margin-bottom: 300px;
+        margin-bottom: 60px;
     }
 
     .blockobs{
         margin-top: -1430px;
+    }
+
+    /*validations*/
+    .tableauval{
+        margin-top: 50px;
     }
 
     /*detail recherche*/
@@ -824,6 +880,17 @@ footer a:hover{
     .consult{
         margin-top: 40px;
     }
+
+    .control-label-espece{
+        margin-left: 510px;
+        margin-right: -210px;
+    }
+
+    .control-label-indiv{
+        margin-left: -80px;
+        margin-right: 80px;
+    }
+
 
     /*recherche*/
     .result{
@@ -898,15 +965,34 @@ footer a:hover{
 
     /*menu tableau de bord*/
 
+    #menu{
+        margin-top: 75px;
+        background-color: #689F38;
+        color: white;
+        width:260px;
+        min-height: 750px;
+        height: 100%;
+        margin-left:-50px;
+    }
+
+    #menu a{
+        color:white;
+    }
+
+    #menu a:hover{
+        text-decoration: none;
+    }
+
     #menu li{
         display: inherit;
         border: hidden;
     }
 
     .profil{
-        margin-top: -900px;
+        margin-top: -700px;
     }
 
+    /*mes observations*/
     .titreobs{
         margin-top: -1100px;
     }
@@ -916,8 +1002,8 @@ footer a:hover{
         padding-bottom: 40px;
     }
 
-    .tableau{
-        padding-bottom: 400px;
+    .pagination{
+        margin-top:-100px ;
     }
 
     /*detail recherche*/
