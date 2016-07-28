@@ -192,7 +192,7 @@ li{
 /*recherche*/
 .recherche{
     padding-top: 80px;
-    margin-bottom: 50px;
+    margin-bottom: 100px;
 }
 
 .result{
@@ -653,6 +653,10 @@ footer a:hover{
         margin-top: 0px;
     }
 
+    .suiteform{
+        padding-top: 90px;
+    }
+
     /*association*/
     .assoc{
         margin-top: 120px;
@@ -861,6 +865,10 @@ footer a:hover{
     /*contact*/
     .carte{
         margin-top: 0px;
+    }
+
+    .suiteform{
+        padding-top: 70px;
     }
 
     /*saisie*/
