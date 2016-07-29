@@ -226,13 +226,8 @@ ul .pagination li a.active{
 
 /*mes observations*/
 .lien{
-    color:#689F38;
+   margin-bottom: 20px;
 }
-
-.lien a:hover{
-    color: #DCEDC8;
-}
-
 
 /*Mentions légales*/
 .mentions{
@@ -401,7 +396,18 @@ footer a:hover{
     }
 
     /*validations*/
+    .titreval{
+        margin-top: -650px;
+        padding-bottom: 20px;
+    }
 
+    .tableauval{
+        margin-top: -500px;
+    }
+
+    .paginationval{
+        margin-top: 60px;
+    }
 }
 
 /* Small devices (tablets, 768px and up) */
@@ -583,8 +589,8 @@ footer a:hover{
     }
 
     /*mes observation*/
-    .titreobs{
-        margin-top: 50px;
+    .blockobs{
+        margin-top: 700px;
     }
 
     .legende{
@@ -596,6 +602,17 @@ footer a:hover{
         padding-bottom: 200px;
     }
 
+    /*validations*/
+    .titreval{
+        padding-bottom: 20px;
+    }
+
+    .paginationval{
+        margin-top: 60px;
+        padding-bottom: 100px;
+    }
+
+
     /*nouveau mdp*/
     .control-label-newmdp{
         margin-left: 230px;
@@ -604,8 +621,6 @@ footer a:hover{
     .control-label-confnewmdp{
         margin-left: 230px;
     }
-
-
 }
 
 /* Medium devices (desktops, 992px and up) */
@@ -743,7 +758,6 @@ footer a:hover{
         margin-left: 50px;
     }
 
-
     /*connexion*/
     .oubli{
         margin-left: 400px;
@@ -796,32 +810,24 @@ footer a:hover{
     }
 
     /*mes observation*/
-    .titreobs{
-        padding-top: 700px;
-        margin-top: -700px;
-    }
-
     .legende{
         padding-top: 50px;
         padding-bottom: 40px;
     }
 
-    .pagination{
-        padding-bottom: 0px;
-    }
-
-    .tableau{
-        margin-bottom: 60px;
-    }
-
     .blockobs{
-        margin-top: -1430px;
+        margin-top: -330px;
+    }
+
+    .pagination{
+        margin-top: -150px;
     }
 
     /*validations*/
-    .tableauval{
-        margin-top: 50px;
+    .blockval{
+        margin-top: -700px;
     }
+
 
     /*detail recherche*/
     .info{
@@ -994,7 +1000,7 @@ footer a:hover{
 
     /*mes observations*/
     .titreobs{
-        margin-top: -1100px;
+        margin-top: -700px;
     }
 
     .legende{
@@ -1004,6 +1010,12 @@ footer a:hover{
 
     .pagination{
         margin-top:-100px ;
+    }
+
+    /*validations*/
+    /*validations*/
+    .blockval{
+        margin-top: -700px;
     }
 
     /*detail recherche*/
@@ -1023,6 +1035,7 @@ footer a:hover{
     .changement{
         margin-left: 550px;
     }
+
 
 
 }
