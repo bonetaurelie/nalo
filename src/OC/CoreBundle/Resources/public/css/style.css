@@ -392,7 +392,7 @@ footer a:hover{
     }
 
     .tableau{
-        padding-bottom: 200px;
+        padding-bottom: 50px;
     }
 
     /*validations*/
@@ -590,7 +590,7 @@ footer a:hover{
 
     /*mes observation*/
     .blockobs{
-        margin-top: 700px;
+        margin-top: 0px;
     }
 
     .legende{
@@ -599,7 +599,7 @@ footer a:hover{
     }
 
     .tableau{
-        padding-bottom: 200px;
+        padding-bottom: 50px;
     }
 
     /*validations*/
@@ -810,17 +810,12 @@ footer a:hover{
     }
 
     /*mes observation*/
-    .legende{
-        padding-top: 50px;
-        padding-bottom: 40px;
-    }
-
     .blockobs{
-        margin-top: -330px;
+        margin-top: -700px;
     }
 
     .pagination{
-        margin-top: -150px;
+        padding-top: 0px;
     }
 
     /*validations*/
@@ -1009,10 +1004,9 @@ footer a:hover{
     }
 
     .pagination{
-        margin-top:-100px ;
+        padding-top: 0px;
     }
 
-    /*validations*/
     /*validations*/
     .blockval{
         margin-top: -700px;
