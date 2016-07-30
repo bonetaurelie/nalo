@@ -2,6 +2,11 @@ body {
     font-family: 'Lato-Regular';
     color: #212121;
     font-size: 20px;
+    height: 100%;
+}
+
+html{
+    height:100%;
 }
 
 #wrap{
@@ -226,7 +231,7 @@ ul .pagination li a.active{
 
 /*mes observations*/
 .lien{
-   margin-bottom: 20px;
+   margin-bottom: 30px;
 }
 
 /*Mentions légales*/
@@ -236,7 +241,6 @@ ul .pagination li a.active{
 .mentions1{
     padding-bottom: 50px;
 }
-
 
 /*footer*/
 footer {
@@ -399,10 +403,6 @@ footer a:hover{
     .titreval{
         margin-top: -650px;
         padding-bottom: 20px;
-    }
-
-    .tableauval{
-        margin-top: -500px;
     }
 
     .paginationval{
@@ -623,6 +623,44 @@ footer a:hover{
     }
 }
 
+@media(max-width:992px){
+    /*tableaux validations et observations*/
+    .responsive-table-line td:before { content: attr(data-title); }
+    .responsive-table-line table,
+    .responsive-table-line thead,
+    .responsive-table-line tbody,
+    .responsive-table-line th,
+    .responsive-table-line td,
+    .responsive-table-line tr {
+        display: block;
+    }
+
+    .responsive-table-line thead tr {
+        display:none;
+    }
+    .responsive-table-line td {
+        position: relative;
+        border: 0px solid transparent;
+        padding-left: 50% !important;
+        white-space: normal;
+        text-align:right;
+    }
+
+    .responsive-table-line td:before {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 45%;
+        height:100%;
+        white-space: nowrap;
+        text-overflow: ellipsis !important;
+        overflow:hidden !important;
+        text-align:left;
+        background-color:#f8f8f8;
+        padding:2px;
+    }
+}
+
 /* Medium devices (desktops, 992px and up) */
 @media (min-width:992px) {
 
@@ -775,7 +813,10 @@ footer a:hover{
 
     /*menu tabeau de bord*/
     #menu{
-        margin-top: 110px;
+        position: fixed;
+        bottom: 0;
+        left: 5px;
+        top:10px;
         background-color: #689F38;
         color: white;
         width:260px;
@@ -811,7 +852,7 @@ footer a:hover{
 
     /*mes observation*/
     .blockobs{
-        margin-top: -700px;
+        margin-top: 150px;
     }
 
     .pagination{
@@ -837,8 +878,6 @@ footer a:hover{
     .control-label-confnewmdp{
         margin-left: 250px;
     }
-
-
 }
 
 /* Large devices (large desktops, 1200px and up) */
@@ -891,7 +930,6 @@ footer a:hover{
         margin-left: -80px;
         margin-right: 80px;
     }
-
 
     /*recherche*/
     .result{
@@ -967,7 +1005,10 @@ footer a:hover{
     /*menu tableau de bord*/
 
     #menu{
-        margin-top: 75px;
+        position: fixed;
+        bottom: 0;
+        left: 5px;
+        top:-35px;
         background-color: #689F38;
         color: white;
         width:260px;
@@ -995,7 +1036,7 @@ footer a:hover{
 
     /*mes observations*/
     .titreobs{
-        margin-top: -700px;
+        margin-top: 100px;
     }
 
     .legende{
@@ -1004,7 +1045,7 @@ footer a:hover{
     }
 
     .pagination{
-        padding-top: 0px;
+        padding-top: 20px;
     }
 
     /*validations*/
@@ -1029,9 +1070,6 @@ footer a:hover{
     .changement{
         margin-left: 550px;
     }
-
-
-
 }
 
 
