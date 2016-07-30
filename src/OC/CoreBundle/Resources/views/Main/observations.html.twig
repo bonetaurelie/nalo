@@ -25,18 +25,19 @@
                 </ul>
             </div>
 
-            <div class="blockobs">
-                <h1 class="titreobs col-md-offset-4 col-xs-offset-1">MES OBSERVATIONS</h1>
+            <div class="row">
+                <div class="blockobs">
+                    <h1 class="titreobs col-md-offset-4 col-xs-offset-1">MES OBSERVATIONS</h1>
 
-                <div class="legende col-md-offset-4 col-xs-offset-1">
-                    <span><img src="">Observations validées</span><br>
-                    <span><img src="">Observations en attente de validation</span><br>
-                    <span><img src="">Observation rejetée</span><br>
-                </div>
+                    <div class="legende col-md-offset-4 col-xs-offset-1">
+                        <span><img src="">Observations validées</span><br>
+                        <span><img src="">Observations en attente de validation</span><br>
+                        <span><img src="">Observation rejetée</span><br>
+                    </div>
 
-                <a class="lien col-md-offset-4 col-xs-offset-1 btn btn-default" href="{{ path('oc_core_saisie') }}" role="button">Ajouter une observation</a>
+                    <a class="lien col-md-offset-4 col-xs-offset-1 btn btn-default" href="{{ path('oc_core_saisie') }}" role="button">Ajouter une observation</a>
 
-                <div class="row">
+
                     <div class="responsive-table-line col-md-push-3 col-md-9" style="margin:0px auto;max-width:700px;">
                         <table class="table table-bordered table-condensed table-body-center" >
                             <thead>
@@ -60,24 +61,23 @@
                             </tbody>
                         </table>
                     </div>
-                </div>
 
-            </div>
-
-                <div class="pagination col-lg-offset-6 col-lg-6 col-md-push-6 col-md-5 col-sm-push-5 col-sm-4 col-xs-push-4 col-xs-6">
-                    <nav>
-                        <ul class="pagination">
-                            <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
-                            <li class="active"><a href="#">1</a></li>
-                            <li><a href="#">2 </a></li>
-                            <li><a href="#">3 </a></li>
-                            <li class="disabled"><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
-                        </ul>
-                    </nav>
+                    <div class="pagination col-lg-offset-6 col-lg-6 col-md-push-6 col-md-5 col-sm-push-5 col-sm-4 col-xs-push-4 col-xs-6">
+                        <nav>
+                            <ul class="pagination">
+                                <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+                                <li class="active"><a href="#">1</a></li>
+                                <li><a href="#">2 </a></li>
+                                <li><a href="#">3 </a></li>
+                                <li class="disabled"><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+                            </ul>
+                        </nav>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
 
 
 {% endblock %}
