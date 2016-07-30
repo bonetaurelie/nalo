@@ -36,30 +36,33 @@
 
                 <a class="lien col-md-offset-4 col-xs-offset-1 btn btn-default" href="{{ path('oc_core_saisie') }}" role="button">Ajouter une observation</a>
 
-                <div class="tableau col-md-offset-3 col-md-9">
-                    <table class="text-center table table-bordered table-responsive table-hover">
-                        <thead>
-                        <tr>
-                            <th>Date</th>
-                            <th>Commune</th>
-                            <th>Espèce</th>
-                            <th>Statut</th>
-                            <th>Actions</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td data-label="Date"></td>
-                            <td data-label="Commune"></td>
-                            <td data-label="Espèce"></td>
-                            <td data-label="Statut"></td>
-                            <td data-label="Actions"><a class="text-center btn btn-warning" href="#" role="button">Modifier</a>
-                                <a class="text-center btn btn-danger" href="{{ path('oc_core_confirmation') }}" role="button">Supprimer</a>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
+                <div class="row">
+                    <div class="responsive-table-line col-md-push-3 col-md-9" style="margin:0px auto;max-width:700px;">
+                        <table class="table table-bordered table-condensed table-body-center" >
+                            <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Commune</th>
+                                <th>Espèce</th>
+                                <th>Statut</th>
+                                <th>Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td data-title="Date">21/07/2016</td>
+                                <td data-title="Commune">Saint-Didier</td>
+                                <td data-title="Espèce">Moineau</td>
+                                <td data-title="Statut">En attente</td>
+                                <td data-title="Actions"><a class="text-center btn btn-warning" href="#" role="button">Modifier</a>
+                                    <a class="text-center btn btn-danger" href="{{ path('oc_core_confirmation') }}" role="button">Supprimer</a></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
+
+            </div>
 
                 <div class="pagination col-lg-offset-6 col-lg-6 col-md-push-6 col-md-5 col-sm-push-5 col-sm-4 col-xs-push-4 col-xs-6">
                     <nav>
