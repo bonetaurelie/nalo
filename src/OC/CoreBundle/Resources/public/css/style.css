@@ -115,7 +115,7 @@ padding-left: 125px;
     border-bottom: solid 1px ;
     width: 400px;
     margin-bottom: 50px;
-    margin-top: 50px;
+    margin-top: 100px;
 }
 
 .obs{
@@ -302,8 +302,8 @@ footer a:hover{
     }
 
     .btnHeader{
-        margin-left: 350px;
-        margin-top: -60px;
+        margin-left: 310px;
+        margin-top: -90px;
     }
 
     /*footer*/
@@ -437,13 +437,17 @@ footer a:hover{
         margin-left: 300px;
     }
 
+    .header{
+        margin-top: 20px;
+    }
+
     .titreHeader{
-        margin-top: -140px;
+        margin-left: 25px;
     }
 
     .btnHeader{
         margin-left: 350px;
-        margin-top: -50px;
+        margin-top: -180px;
     }
 
     /*footer*/
@@ -705,6 +709,15 @@ footer a:hover{
         margin-bottom: 40px;
     }
 
+    .titreHeader{
+        margin-left: 55px;
+
+    }
+
+    .btnHeader{
+        margin-top: -130px;
+    }
+
     /*saisie*/
     .saisie{
         margin-right: 150px;
@@ -938,6 +951,14 @@ footer a:hover{
 
     .accueil{
         margin-bottom: 50px;
+    }
+
+    .header{
+        margin-top: -50px;
+    }
+
+    .titreHeader{
+        margin-left: 20px;
     }
 
     /*contact*/
