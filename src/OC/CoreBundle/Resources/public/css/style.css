@@ -2,25 +2,21 @@ body {
     font-family: 'Lato-Regular';
     color: #212121;
     font-size: 20px;
-    height:100%;
-    margin: 0;
-    padding: 0;
+    height: 100%;
 }
 
 html{
-    min-height: 100%;
-    margin: 0;
-    padding: 0;
+    height:100%;
 }
 
 #wrap{
-    height: auto;
-    margin: 0 auto;
+    min-height:100vh;
+    margin-bottom: 75px;
 }
 
 .main{
+    min-height:100vh;
     width:100%;
-    min-height:700px;
     margin:0 0 75px 0;
     padding:0;
 }
@@ -76,7 +72,6 @@ padding-left: 125px;
 /*accueil*/
 .photoheader{
     width:100%;
-    margin-top: -475px;
 }
 
 .titreHeader{
@@ -111,6 +106,7 @@ padding-left: 125px;
 .photoheader img{
     width:100%;
     margin-left: 0;
+    margin-top: -480px;
 }
 
 
@@ -201,15 +197,11 @@ li{
 /*recherche*/
 .recherche{
     padding-top: 80px;
-    margin-bottom: 50px;
+    margin-bottom: 100px;
 }
 
 .result{
     margin-top: 30px;
-}
-
-ul .pagination li a.active{
-    background-color: #689F38;
 }
 
 /*detaiL de la recherche*/
@@ -233,15 +225,29 @@ ul .pagination li a.active{
     margin-bottom: 50px;
 }
 
-/*mes observations*/
-.lien{
+/*pagination*/
+.pagination> li.active>a{
+    background-color: #689F38;
+    border: #689F38;
+}
+
+.pagination> li.active>a:hover{
+    background-color: #DCEDC8;
+    color: #689F38;
+}
+
+.pagination>li>a{
     color:#689F38;
 }
 
-.lien a:hover{
-    color: #DCEDC8;
+.pagination>li>a:hover{
+    color:#689F38;
 }
 
+/*mes observations*/
+.lien{
+   margin-bottom: 30px;
+}
 
 /*Mentions légales*/
 .mentions{
@@ -251,13 +257,14 @@ ul .pagination li a.active{
     padding-bottom: 50px;
 }
 
-
 /*footer*/
 footer {
-    margin:-75px auto -10px;
+    position: fixed;
+    bottom: 0;
+    margin-top: 75px;
     background-color: #689F38;
     width: 100%;
-    height: 75px;
+    height: 60px;
     display: inline-block;
     font-size: 15px;
 }
@@ -281,7 +288,7 @@ footer a:hover{
 }
 
 .footer {
-    padding-top: 30px;
+    padding-top: 20px;
 }
 
 @media (max-width: 768px) {
@@ -314,6 +321,9 @@ footer a:hover{
         margin-bottom: 20px;
     }
 
+    .result{
+        margin-left: 100px;
+    }
 
     .consult{
         margin-bottom: 40px;
@@ -329,13 +339,13 @@ footer a:hover{
         margin-top: 15px;
     }
 
+    /*oubli mot de passe*/
     .control-label-emailoubli{
-        margin-left: 290px;
+        margin-left: 320px;
     }
 
-    /*oubli mot de passe*/
     .reinit{
-        margin-left: 120px;
+        margin-left: 140px;
     }
 
     /*menu tableau de bord*/
@@ -405,11 +415,18 @@ footer a:hover{
     }
 
     .tableau{
-        padding-bottom: 200px;
+        padding-bottom: 50px;
     }
 
     /*validations*/
+    .titreval{
+        margin-top: -650px;
+        padding-bottom: 20px;
+    }
 
+    .paginationval{
+        padding-top: -30px;
+    }
 }
 
 /* Small devices (tablets, 768px and up) */
@@ -448,7 +465,6 @@ footer a:hover{
         margin-left: 272px;
     }
 
-
     .consult{
         margin-bottom: 40px;
     }
@@ -465,6 +481,15 @@ footer a:hover{
     /*contact*/
     .contacter{
         padding-top: 100px;
+    }
+
+    .control-label-message{
+        margin-left: 140px;
+        margin-right: -20px;
+    }
+
+    .control-label-robot{
+        margin-top: 20px;
     }
 
     /*association*/
@@ -530,12 +555,13 @@ footer a:hover{
         margin-right: 25px;
     }
 
+    /*oubli mdp*/
     .control-label-emailconnexion{
-        margin-left:560px;
+        margin-left:510px;
     }
 
     .control-label-mdpconnexion{
-        margin-left: 320px;
+        margin-left: 260px;
     }
 
     .control-label-remember{
@@ -548,13 +574,12 @@ footer a:hover{
         margin-top: 15px;
     }
 
-    /*oubli mdp*/
     .reinit{
-        margin-left: 190px;
+        margin-left: 205px;
     }
 
     .control-label-emailoubli{
-        margin-left: 370px;
+        margin-left: 390px;
     }
 
     /*menu tableau de bord*/
@@ -591,8 +616,8 @@ footer a:hover{
     }
 
     /*mes observation*/
-    .titreobs{
-        margin-top: 50px;
+    .blockobs{
+        margin-top: 0px;
     }
 
     .legende{
@@ -601,8 +626,19 @@ footer a:hover{
     }
 
     .tableau{
-        padding-bottom: 200px;
+        padding-bottom: 50px;
     }
+
+    /*validations*/
+    .titreval{
+        padding-bottom: 20px;
+    }
+
+    .paginationval{
+        margin-top: 60px;
+        padding-bottom: 100px;
+    }
+
 
     /*nouveau mdp*/
     .control-label-newmdp{
@@ -612,8 +648,44 @@ footer a:hover{
     .control-label-confnewmdp{
         margin-left: 230px;
     }
+}
 
+@media(max-width:992px){
+    /*tableaux validations et observations*/
+    .responsive-table-line td:before { content: attr(data-title); }
+    .responsive-table-line table,
+    .responsive-table-line thead,
+    .responsive-table-line tbody,
+    .responsive-table-line th,
+    .responsive-table-line td,
+    .responsive-table-line tr {
+        display: block;
+    }
 
+    .responsive-table-line thead tr {
+        display:none;
+    }
+    .responsive-table-line td {
+        position: relative;
+        border: 0px solid transparent;
+        padding-left: 50% !important;
+        white-space: normal;
+        text-align:right;
+    }
+
+    .responsive-table-line td:before {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 45%;
+        height:100%;
+        white-space: nowrap;
+        text-overflow: ellipsis !important;
+        overflow:hidden !important;
+        text-align:left;
+        background-color:#f8f8f8;
+        padding:2px;
+    }
 }
 
 /* Medium devices (desktops, 992px and up) */
@@ -661,6 +733,19 @@ footer a:hover{
         margin-top: 0px;
     }
 
+    .suiteform{
+        padding-top: 90px;
+    }
+
+    .control-label-message{
+        margin-left: 75px;
+        margin-right: -160px;
+    }
+
+    .control-label-robot{
+        margin-top: 20px;
+    }
+
     /*association*/
     .assoc{
         margin-top: 120px;
@@ -684,8 +769,10 @@ footer a:hover{
         padding-top: 120px;
     }
 
+    /*saisie*/
     .result{
         margin-top: 40px;
+        margin-left: 220px;
     }
 
     .resulttext{
@@ -707,7 +794,7 @@ footer a:hover{
     }
 
     .control-label-prenom{
-        margin-left: 398px;
+        margin-left: 386px;
     }
 
     .control-label-nom{
@@ -735,20 +822,19 @@ footer a:hover{
         margin-right: 25px;
     }
 
+    /*connexion*/
     .control-label-emailconnexion{
-        margin-left:564px;
+        margin-left:534px;
     }
 
     .control-label-mdpconnexion{
-        margin-left: 425px;
+        margin-left: 371px;
     }
 
     .control-label-remember{
         margin-left: 50px;
     }
 
-
-    /*connexion*/
     .oubli{
         margin-left: 400px;
         margin-top: 15px;
@@ -756,16 +842,19 @@ footer a:hover{
 
     /*oubli mot de passe*/
     .reinit{
-        margin-left: 300px;
+        margin-left: 310px;
     }
 
     .control-label-emailoubli{
-        margin-left: 440px;
+        margin-left: 460px;
     }
 
     /*menu tabeau de bord*/
     #menu{
-        margin-top: 110px;
+        position: fixed;
+        bottom: 0;
+        left: 20px;
+        top:10px;
         background-color: #689F38;
         color: white;
         width:260px;
@@ -792,7 +881,7 @@ footer a:hover{
     }
 
     .profil{
-        margin-top: -700px;
+        margin-top: 150px;
     }
 
     .titreadmail{
@@ -800,32 +889,19 @@ footer a:hover{
     }
 
     /*mes observation*/
-    .titreobs{
-        padding-top: 700px;
-        margin-top: -700px;
-    }
-
-    .legende{
-        padding-top: 50px;
-        padding-bottom: 40px;
+    .blockobs{
+        margin-top: 150px;
     }
 
     .pagination{
-        padding-bottom: 0px;
-    }
-
-    .tableau{
-        margin-bottom: 60px;
-    }
-
-    .blockobs{
-        margin-top: -1430px;
+        padding-top: 0px;
     }
 
     /*validations*/
-    .tableauval{
-        margin-top: 50px;
+    .blockval{
+        margin-top: 150px;
     }
+
 
     /*detail recherche*/
     .info{
@@ -840,8 +916,6 @@ footer a:hover{
     .control-label-confnewmdp{
         margin-left: 250px;
     }
-
-
 }
 
 /* Large devices (large desktops, 1200px and up) */
@@ -871,6 +945,14 @@ footer a:hover{
         margin-top: 0px;
     }
 
+    .suiteform{
+        padding-top: 70px;
+    }
+
+    .control-label-robot{
+        margin-left: 75px;
+    }
+
     /*saisie*/
     .saisie{
         margin-top: 40px;
@@ -891,7 +973,6 @@ footer a:hover{
         margin-right: 80px;
     }
 
-
     /*recherche*/
     .result{
         margin-top: 40px;
@@ -899,12 +980,12 @@ footer a:hover{
 
     .resulttext{
         margin-top: 20px;
-        margin-left: -125px;
     }
+
 
     /*inscription*/
     .control-label-prenom{
-        margin-left: 530px;
+        margin-left: 525px;
     }
 
     .control-label-nom{
@@ -932,19 +1013,19 @@ footer a:hover{
         margin-right: 25px;
     }
 
+    /*connexion*/
     .control-label-emailconnexion{
-        margin-left:620px;
+        margin-left:630px;
     }
 
     .control-label-mdpconnexion{
-        margin-left: 465px;
+        margin-left: 435px;
     }
 
     .control-label-remember{
         margin-left: 50px;
     }
 
-    /*connexion*/
     .oubli{
         margin-top: 15px;
         margin-left: 520px;
@@ -966,7 +1047,10 @@ footer a:hover{
     /*menu tableau de bord*/
 
     #menu{
-        margin-top: 75px;
+        position: fixed;
+        bottom: 0;
+        left: 20px;
+        top:-30px;
         background-color: #689F38;
         color: white;
         width:260px;
@@ -989,12 +1073,12 @@ footer a:hover{
     }
 
     .profil{
-        margin-top: -700px;
+        margin-top:150px;
     }
 
     /*mes observations*/
     .titreobs{
-        margin-top: -1100px;
+        margin-top: 100px;
     }
 
     .legende{
@@ -1002,8 +1086,9 @@ footer a:hover{
         padding-bottom: 40px;
     }
 
-    .pagination{
-        margin-top:-100px ;
+    /*validations*/
+    .blockval{
+        margin-top: 100px;
     }
 
     /*detail recherche*/
@@ -1021,10 +1106,8 @@ footer a:hover{
     }
 
     .changement{
-        margin-left: 550px;
+        margin-left: 520px;
     }
-
-
 }
 
 

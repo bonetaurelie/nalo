@@ -9,9 +9,8 @@
         <div class="main">
             <div class="contacter">
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-lg-12 col-md-12">
                         <h1 class="text-center">CONTACTER L'ASSOCIATION</h1>
-                        <p class="text-center">Si vous avez une question ou une demande, envoyez-nous un message à l'aide du formulaire suivant:</p>
                     </div>
                 </div>
                 {% for message in app.session.flashBag.get("notice") %}
@@ -20,8 +19,11 @@
                 {% for message in app.session.flashBag.get("error") %}
                     {% include '@OCCore/flashMessageBloc.html.twig' with {'type':'danger', 'message': message} %}
                 {% endfor %}
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 text-center">
+
+                <div class="col-lg-6 col-md-6">
+                    <div class="row">
+                        <p class="text-center col-lg-12 col-md-12">Si vous avez une question ou une demande, envoyez-nous un message à l'aide du formulaire suivant:</p>
+
                         {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
                         {{ form_errors(form) }}
 
@@ -42,40 +44,47 @@
                         </div>
 
                         <div class="form-group">
-                            {{ form_label(form.email, "Votre adresse e-mail", {'label_attr': {'class': 'col-lg-offset-2 col-md-pull-2 col-sm-pull-2 col-lg-5 col-md-5 col-sm-5 col-xs-offset-2 col-xs-8 control-label'}}) }}
+                            {{ form_label(form.email, "Votre adresse mail", {'label_attr': {'class': 'col-lg-offset-1 col-md-pull-2 col-sm-pull-2 col-lg-6 col-md-5 col-sm-5 col-xs-offset-2 col-xs-8 control-label'}}) }}
                             <div class="col-lg-offset-1 col-md-offset-1 col-sm-pull-3 col-lg-4 col-md-4 col-sm-3 col-xs-offset-2 col-xs-8">
                                 {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
                                 {{ form_errors(form.email) }}
                             </div>
                         </div>
+                    </div>
+                </div>
 
+                <div class="suiteform col-md-pull-1 col-lg-pull-1 col-lg-6 col-md-6">
+                    <div class="row">
                         <div class="form-group">
-                            {{ form_label(form.message, "Votre message", {'label_attr': {'class': 'col-lg-offset-2 col-md-offset-2 col-sm-pull-2 col-lg-5 col-md-5 col-sm-5 col-xs-offset-2 col-xs-8 control-label'}}) }}
-                            <div class="col-lg-offset-1 col-md-offset-1 col-sm-pull-3 col-lg-4 col-md-4 col-sm-3 col-xs-offset-2 col-xs-8">
+                            {{ form_label(form.message, "Votre message", {'label_attr': {'class': 'col-sm-offset-2 col-lg-5 col-md-5 col-sm-5 col-xs-offset-2 col-xs-8 control-label-message'}}) }}
+                            <div class="col-lg-push-1 col-md-push-1 col-sm-pull-3 col-lg-5 col-md-5 col-sm-3 col-xs-offset-2 col-xs-8">
                                 {{ form_widget(form.message, {'attr': {'class': 'form-control'}}) }}
                                 {{ form_errors(form.message) }}
                             </div>
                         </div>
 
                         <div class="form-group">
-                            {{ form_label(form.recaptcha, "Je ne suis pas un robot", {'label_attr': {'class': 'col-lg-offset-2 col-md-offset-2 col-sm-pull-2 col-lg-5 col-md-5 col-sm-5 col-xs-offset-2 col-xs-8 control-label'}}) }}
-                            <div class="col-lg-offset-1 col-md-offset-1 col-sm-pull-3 col-lg-4 col-md-4 col-sm-3 col-xs-offset-2 col-xs-8">
+                            {{ form_label(form.recaptcha, "Je ne suis pas un robot", {'label_attr': {'class': 'col-lg-offset-2 col-md-offset-2 col-sm-offset-1 col-lg-6 col-md-6 col-sm-5 col-xs-offset-2 col-xs-8 control-label-robot'}}) }}
+                            <div class="col-lg-push-1 col-md-push-1 col-sm-pull-3 col-lg-4 col-md-4 col-sm-3 col-xs-offset-2 col-xs-8">
                                 {{ form_widget(form.recaptcha, {'attr': {'class': 'form-control'}}) }}
                                 {{ form_errors(form.recaptcha) }}
                             </div>
                         </div>
-                        {{ form_widget(form.Envoyer, {'attr': {'class': 'btn btn-default'}}) }}
+                        {{ form_widget(form.Envoyer, {'attr': {'class': 'col-lg-offset-4 col-lg-4 col-md-offset-4 col-md-4 col-sm-offset-6 col-xs-offset-5 btn btn-default'}}) }}
 
                         {{ form_rest(form) }}
 
                         {{ form_end(form) }}
                     </div>
+                </div>
 
-                    <div class="row col-lg-6 col-md-6">
-                        <div class=" carte col-lg-pull-4 col-md-pull-5 col-lg-4 col-md-4 col-sm-offset-3 col-xs-offset-2 col-sm-6 col-xs-6">
+                <div class="col-lg-12 col-md-12">
+                    <div class="row">
+                        <h2 class="text-center">COORDONNEES DE L'ASSOCIATION</h2>
+                        <div class=" carte col-lg-offset-3 col-lg-4 col-md-pull-2 col-md-4 col-sm-offset-3 col-xs-offset-2 col-sm-6 col-xs-6">
                             <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d11430.186855804339!2d5.139300071919783!3d44.257570911188076!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfr!2sfr!4v1469015680600" width="400" height="250" frameborder="0" style="border:0" allowfullscreen></iframe>
                         </div>
-                        <div class="col-lg-offset-1 col-md-offset-1 col-sm-offset-3 col-xs-offset-2 col-lg-4 col-md-4 col-sm-6 col-xs-6" itemscope itemtype="http://schema.org/LocalBusiness">
+                        <div class="col-lg-pull-1 col-md-offset-1 col-sm-offset-3 col-xs-offset-2 col-lg-4 col-md-4 col-sm-6 col-xs-6" itemscope itemtype="http://schema.org/LocalBusiness">
                             <p itemprop="brand"><b>Nos amis les oiseaux</b></p>
                             <p itemprop="address">Rue Edith Piaf <br> 84110 Faucon</p><br/>
                             <p>Tel : <span itemprop="telephone">06.12.34.56.78</span></p>
@@ -85,4 +94,5 @@
             </div>
         </div>
     </div>
+
 {% endblock %}
