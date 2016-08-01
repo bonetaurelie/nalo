@@ -306,6 +306,10 @@ footer a:hover{
         margin-top: -90px;
     }
 
+    .titre{
+        margin-top: 40px;
+    }
+
     /*footer*/
     .footer1{
         margin-right: -80px;
@@ -448,6 +452,10 @@ footer a:hover{
     .btnHeader{
         margin-left: 350px;
         margin-top: -180px;
+    }
+
+    .titre{
+        margin-top: 40px;
     }
 
     /*footer*/
@@ -959,6 +967,10 @@ footer a:hover{
 
     .titreHeader{
         margin-left: 20px;
+    }
+
+    .titre{
+        margin-top: 100px;
     }
 
     /*contact*/
