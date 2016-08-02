@@ -11,7 +11,6 @@ use OC\CoreBundle\Form\RechercheType;
 use OC\CoreBundle\Form\ReinitialisationType;
 use OC\CoreBundle\Form\SaisieType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 
 class MainController extends Controller
@@ -52,7 +51,7 @@ class MainController extends Controller
         $form->handleRequest($request);
 
         //Vérification si le formulaire est valide ou non
-        if($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             //récupération des données du formulaire
             $contact = $form->getData();
 
@@ -63,10 +62,9 @@ class MainController extends Controller
                 'OCCoreBundle:Email:contact.html.twig'
             );
 
-            if(true === $verif){
+            if (true === $verif) {
                 $this->addFlash('notice', 'Merci de nous avoir contacté, nous répondrons à vos questions dans les plus brefs délais.');
-            }
-            else{
+            } else{
                 $this->addFlash('error', "Une erreur est intervenue, si l'erreur persiste veuillez contacter l'administrateur du site.<br />" . $verif);
             }
         }
