@@ -74,3 +74,4 @@ ewz_recaptcha:
     public_key:  %google_recapatcha_site_key%
     private_key: %google_recapatcha_secret_key%
     locale_key:  %kernel.default_locale%
+#    enabled: false
