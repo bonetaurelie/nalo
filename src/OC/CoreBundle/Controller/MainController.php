@@ -11,6 +11,7 @@ use OC\CoreBundle\Form\RechercheType;
 use OC\CoreBundle\Form\ReinitialisationType;
 use OC\CoreBundle\Form\SaisieType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 
 class MainController extends Controller
@@ -48,6 +49,7 @@ class MainController extends Controller
         );
 
         $form = $this->createForm(ContactType::class, $contactDefaultData);
+//        $form->add('Envoyer', SubmitType::class);
         $form->handleRequest($request);
 
         //Vérification si le formulaire est valide ou non
