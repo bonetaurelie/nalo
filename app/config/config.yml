@@ -52,6 +52,7 @@ doctrine:
         default_table_options:
             charset: utf8mb4
             collate: utf8mb4_unicode_ci
+            engine: InnoDB
         # if using pdo_sqlite as your database driver:
         #   1. add the path in parameters.yml
         #     e.g. database_path: "%kernel.root_dir%/data/data.db3"
@@ -76,5 +77,4 @@ swiftmailer:
 ewz_recaptcha:
     public_key:  '%google_recapatcha_site_key%'
     private_key: '%google_recapatcha_secret_key%'
-    locale_key:  %kernel.default_locale%
-    enabled: %ewz_recaptcha_enabled%
+    locale_key:  '%kernel.default_locale%'

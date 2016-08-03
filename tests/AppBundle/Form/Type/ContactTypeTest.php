@@ -2,46 +2,28 @@
 namespace Tests\AppBundle\Form\Type;
 
 use OC\CoreBundle\Form\ContactType;
-use Symfony\Component\Form\Extension\Core\CoreExtension;
-use Symfony\Component\Form\Extension\Validator\Type\FormTypeValidatorExtension;
+use Symfony\Component\Form\PreloadedExtension;
 use Symfony\Component\Form\Test\TypeTestCase;
-use Symfony\Component\Validator\ConstraintViolationList;
-use Symfony\Component\Form\Extension\Validator\ValidatorExtension;
 
 class ContactTypeTest extends TypeTestCase
 {
-    private $validator;
-
+    private $entityManager;
     protected function setUp()
     {
+        // mock any dependencies
+        $this->entityManager = $this->getMock('Doctrine\Common\Persistence\ObjectManager');
         parent::setUp();
-
-        $validator = $this->getMock('\Symfony\Component\Validator\Validator\ValidatorInterface');
-        $validator->method('validate')->will($this->returnValue(new ConstraintViolationList()));
-        $formTypeExtension = new FormTypeValidatorExtension($validator);
-        $coreExtension = new CoreExtension();
-
-        $this->factory = Forms::createFormFactoryBuilder()
-            ->addExtensions($this->getExtensions())
-            ->addExtension($coreExtension)
-            ->addTypeExtension($formTypeExtension)
-            ->getFormFactory();
     }
 
-//    protected function getExtensions()
-//    {
-//        $this->validator = $this->getMock(
-//            'Symfony\Component\Validator\Validator\ValidatorInterface'
-//        );
-//        $this->validator
-//            ->method('validate')
-//            ->will($this->returnValue(new ConstraintViolationList()));
-//
-//        return array(
-//            new ValidatorExtension($this->validator),
-//        );
-//    }
-
+    protected function getExtensions()
+    {
+        // create a type instance with the mocked dependencies
+        $type = new ContactType($this->entityManager);
+        return array(
+// register the type instances with the PreloadedExtension
+            new PreloadedExtension(array($type), array()),
+        );
+    }
 
     public function testSubmitValidData()
     {
@@ -54,7 +36,6 @@ class ContactTypeTest extends TypeTestCase
 
         $form = $this->factory->create(ContactType::class);
 
-//        $object = TestObject::fromArray($formData);
 
         // submit the data to the form directly
         $form->submit($formData);

@@ -18,22 +18,22 @@ class ContactType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('prenom', TextType::class, array(
-            'constraints' => array(new NotBlank())
+            'constraints' => array(new NotBlank(), 'require' => true)
         ))
         ->add('nom', TextType::class, array(
-            'constraints' => array(new NotBlank())
+            'constraints' => array(new NotBlank(), 'require' => true)
         ))
         ->add('email', EmailType::class, array(
-            'constraints' => array(new Email())
+            'constraints' => array(new Email(), 'require' => true)
         ))
         ->add('message', TextareaType::class, array(
-            'constraints' => array(new NotBlank())
+            'constraints' => array(new NotBlank(), 'require' => true)
         ))
-        ->add('recaptcha', EWZRecaptchaType::class, array(
-            'mapped' => false,
-            'constraints' => array(new RecaptchaTrue()),
-//            'error_bubbling' => true
-        ))
+//        ->add('recaptcha', EWZRecaptchaType::class, array(
+//            'mapped' => false,
+//            'constraints' => array(new RecaptchaTrue(), 'require' => true),
+////            'error_bubbling' => true
+//        ))
         ;
     }
 
