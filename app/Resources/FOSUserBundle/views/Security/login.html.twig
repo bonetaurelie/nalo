@@ -1,0 +1,49 @@
+{% extends "@OCCore/layout.html.twig" %}
+
+{#{% trans_default_domain 'FOSUserBundle' %}#}
+
+{% block body %}
+    <div class="container">
+        <div class="main">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="connexion text-center">CONNEXION</h1>
+                    {% if error %}
+                        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-lg-offset-3">
+                    <div class="well">
+                        <div class="row">
+                            <div class="col-lg-8 col-lg-offset-2">
+                                <form action="{{ path("fos_user_security_check") }}" method="post" class="form-horizontal">
+                                    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                                    <div class="form-group">
+                                        <label for="username" class="control-label">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label>
+                                        <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" class="form-control" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="password" class="control-label">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}</label>
+                                        <input type="password" id="password" name="_password" required="required" class="form-control" />
+                                    </div>
+                                    <div class="checkbox">
+                                        <label for="remember_me">
+                                            <input type="checkbox" id="remember_me" name="_remember_me" value="on" />  {{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" class="btn btn-default" />
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <p class="text-right"><a href="#">Mot de passe oublié?</a></p>
+                    </div>
+                    <a class="" href="{{ path('fos_user_registration_register') }}">Pas encore inscrit?</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock body %}
