@@ -1,0 +1,12 @@
+{% form_theme form 'bootstrap_3_horizontal_layout.html.twig' %}
+{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register form-horizontal'}}) }}
+<div class="row well">
+    <div class="col-lg-12">
+        {{ form_widget(form) }}
+        <div>
+            <input type="submit" value="Inscrivez-vous" class="btn-default" />
+        </div>
+    </div>
+
+</div>
+{{ form_end(form) }}

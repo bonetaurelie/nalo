@@ -128,68 +128,17 @@ class MainController extends Controller
         return $this->render('OCCoreBundle:Main:contact.html.twig',
             array('form' => $form->createView()));
     }
-    
-    public function connexionAction(){
-        $form=  $this->get('form.factory')->create(ConnexionType::class);
 
-        return $this->render('OCCoreBundle:Main:connexion.html.twig', array(
-            'form' => $form->createView(),
-        ));
-
-    }
 
     public function mentionsAction(){
         return $this->render('OCCoreBundle:Main:mentions.html.twig');
     }
-    
-    public function saisieAction(){
-        $form=  $this->get('form.factory')->create(SaisieType::class);
 
-        return $this->render('OCCoreBundle:Main:saisie.html.twig', array(
-            'form' => $form->createView(),
-        ));
-        
-    }
     
     public function observationsAction(){
         return $this->render('OCCoreBundle:Main:observations.html.twig');
     }
 
-    public function inscriptionAction(){
-        $form=  $this->get('form.factory')->create(InscriptionType::class);
-
-        return $this->render('OCCoreBundle:Main:inscription.html.twig', array(
-            'form' => $form->createView(),
-        ));
-       
-    }
-    
-    public function mdpoublieAction(){
-        $form=  $this->get('form.factory')->create(ReinitialisationType::class);
-
-        return $this->render('OCCoreBundle:Main:mdpoublie.html.twig', array(
-            'form' => $form->createView(),
-        ));
-
-    }
-
-    public function newmdpAction(){
-        $form=  $this->get('form.factory')->create(NewMdpType::class);
-
-        return $this->render('OCCoreBundle:Main:newmdp.html.twig', array(
-            'form' => $form->createView(),
-        ));
-
-    }
-    
-    public function profilAction(){
-        $form=  $this->get('form.factory')->create(ProfilType::class);
-
-        return $this->render('OCCoreBundle:Main:profil.html.twig', array(
-            'form' => $form->createView(),
-        ));
-        
-    }
 
     public function confirmationAction(){
         return $this->render('OCCoreBundle:Main:confirmation.html.twig');
