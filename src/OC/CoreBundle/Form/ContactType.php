@@ -24,7 +24,7 @@ class ContactType extends AbstractType
             'constraints' => array(new NotBlank())
         ))
         ->add('email', EmailType::class, array(
-            'constraints' => array(new Email())
+            'constraints' => array(new NotBlank(), new Email())
         ))
         ->add('message', TextareaType::class, array(
             'constraints' => array(new NotBlank())

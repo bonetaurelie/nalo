@@ -20,51 +20,47 @@
                     {% include '@OCCore/flashMessageBloc.html.twig' with {'type':'danger', 'message': message} %}
                 {% endfor %}
 
-                {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+                {{ form_start(form) }}
                 {{ form_errors(form) }}
-
-                <div class="col-lg-6 col-md-6">
-                    <div class="row">
-                        <p class="text-center col-lg-12 col-md-12">Si vous avez une question ou une demande, envoyez-nous un message à l'aide du formulaire suivant:</p>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>Si vous avez une question ou une demande, envoyez-nous un message à l'aide du formulaire suivant:</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
                         <div class="form-group">
-                            {{ form_label(form.prenom, "Votre prénom", {'label_attr': {'class': 'col-lg-offset-2 col-md-offset-2 col-sm-pull-2 col-lg-5 col-md-5 col-sm-5 col-xs-offset-2 col-xs-8 control-label'}}) }}
-                            <div class="col-lg-offset-1 col-md-offset-1 col-sm-pull-3 col-lg-4 col-md-4 col-sm-3 col-xs-offset-2 col-xs-8">
+                            {{ form_label(form.prenom, "Votre prénom", {'label_attr': {'class': 'control-label'}}) }}
+                            <div class="">
                                 {{ form_widget(form.prenom, {'attr': {'class': 'form-control'}}) }}
                                 {{ form_errors(form.prenom) }}
                             </div>
                         </div>
-
                         <div class="form-group">
-                            {{ form_label(form.nom, "Votre nom", {'label_attr': {'class': 'col-lg-offset-2 col-md-offset-2 col-sm-pull-2 col-lg-5 col-md-5 col-sm-5 col-xs-offset-2 col-xs-8 control-label'}}) }}
-                            <div class="col-lg-offset-1 col-md-offset-1 col-sm-pull-3 col-lg-4 col-md-4 col-sm-3 col-xs-offset-2 col-xs-8">
+                            {{ form_label(form.nom, "Votre nom", {'label_attr': {'class': 'control-label'}}) }}
+                            <div class="">
                                 {{ form_widget(form.nom, {'attr': {'class': 'form-control'}}) }}
                                 {{ form_errors(form.nom) }}
                             </div>
                         </div>
-
                         <div class="form-group">
-                            {{ form_label(form.email, "Votre adresse mail", {'label_attr': {'class': 'col-lg-offset-1 col-md-pull-2 col-sm-pull-2 col-lg-6 col-md-5 col-sm-5 col-xs-offset-2 col-xs-8 control-label'}}) }}
-                            <div class="col-lg-offset-1 col-md-offset-1 col-sm-pull-3 col-lg-4 col-md-4 col-sm-3 col-xs-offset-2 col-xs-8">
+                            {{ form_label(form.email, "Votre adresse mail", {'label_attr': {'class': 'control-label'}}) }}
+                            <div class="">
                                 {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
                                 {{ form_errors(form.email) }}
                             </div>
                         </div>
-
                     </div>
-                </div>
-                <div class="suiteform col-md-pull-1 col-lg-pull-1 col-lg-6 col-md-6">
-                    <div class="row">
+                    <div class="col-md-6">
                         <div class="form-group">
-                            {{ form_label(form.message, "Votre message", {'label_attr': {'class': 'col-sm-offset-2 col-lg-5 col-md-5 col-sm-5 col-xs-offset-2 col-xs-8 control-label-message'}}) }}
-                            <div class="col-lg-push-1 col-md-push-1 col-sm-pull-3 col-lg-5 col-md-5 col-sm-3 col-xs-offset-2 col-xs-8">
-                                {{ form_widget(form.message, {'attr': {'class': 'form-control'}}) }}
+                            {{ form_label(form.message, "Votre message", {'label_attr': {'class': 'control-label'}}) }}
+                            <div class="">
+                                {{ form_widget(form.message, {'attr': {'class': 'form-control', 'style': 'height:103px;'}}) }}
                                 {{ form_errors(form.message) }}
                             </div>
                         </div>
-
                         <div class="form-group">
-                            {{ form_label(form.recaptcha, "Je ne suis pas un robot", {'label_attr': {'class': 'col-lg-offset-2 col-md-offset-2 col-sm-offset-1 col-lg-6 col-md-6 col-sm-5 col-xs-offset-2 col-xs-8 control-label-robot'}}) }}
-                            <div class="col-lg-push-1 col-md-push-1 col-sm-pull-3 col-lg-4 col-md-4 col-sm-3 col-xs-offset-2 col-xs-8">
+                            <div class="">
                                 {{ form_widget(form.recaptcha, { 'attr': {
                                     'options' : {
                                         'theme': 'light',
@@ -75,14 +71,10 @@
                                 {{ form_errors(form.recaptcha) }}
                             </div>
                         </div>
-
-                        {{ form_rest(form) }}
-
                         <button type="submit" class="col-lg-offset-4 col-lg-4 col-md-offset-4 col-md-4 col-sm-offset-6 col-xs-offset-5 btn btn-default">Envoyer</button>
-
-
                     </div>
                 </div>
+                {{ form_rest(form) }}
                 {{ form_end(form) }}
 
                 <div class="col-lg-12 col-md-12">

@@ -11,7 +11,6 @@ use OC\CoreBundle\Form\RechercheType;
 use OC\CoreBundle\Form\ReinitialisationType;
 use OC\CoreBundle\Form\SaisieType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 
 class MainController extends Controller
@@ -38,42 +37,43 @@ class MainController extends Controller
         return $this->render('OCCoreBundle:Main:detailRecherche.html.twig');
     }
 
+    /**
+     * Page contact
+     *
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function contactAction(Request $request){
         //Création des données vides pour le formulaire de contact, pas besoin de créer une entité pour ça
-        $contactDefaultData = array(
-            'prenom'    => '',
-            'nom'       => '',
-            'email'     => '',
-            'message'   => '',
-            'recaptcha' => false,
-        );
+        $contactDefaultData = array('prenom' => '','nom' => '','email' => '', 'message' => '', 'recaptcha' => false,);
 
         $form = $this->createForm(ContactType::class, $contactDefaultData);
-//        $form->add('Envoyer', SubmitType::class);
         $form->handleRequest($request);
 
         //Vérification si le formulaire est valide ou non
         if ($form->isSubmitted() && $form->isValid()) {
             //récupération des données du formulaire
             $contact = $form->getData();
+            try {
+                //récupération du service d'envoie d'e-mail personnalisé
+                $mailerTpl = $this->get('oc_core.mailer_templating');
+                $mailerTpl->send(
+                    $contact,
+                    "Site NALO : message via la page contact",
+                    $this->getParameter('robot_email'), $this->getParameter('contact_email'),
+                    'OCCoreBundle:Email:contact.html.twig'
+                );
 
-            $verif = $this->sendingEmail(
-                $contact,
-                "Site NALO : message via la page contact",
-                $this->getParameter('robot_email'), $this->getParameter('contact_email'),
-                'OCCoreBundle:Email:contact.html.twig'
-            );
-
-            if (true === $verif) {
                 $this->addFlash('notice', 'Merci de nous avoir contacté, nous répondrons à vos questions dans les plus brefs délais.');
-            } else{
-                $this->addFlash('error', "Une erreur est intervenue, si l'erreur persiste veuillez contacter l'administrateur du site.<br />" . $verif);
+
+            } catch (\Exception $e) {//si il y a une erreur
+                $this->addFlash('error', "Une erreur est intervenue, si l'erreur persiste veuillez contacter l'administrateur du site.");
             }
         }
 
         return $this->render('OCCoreBundle:Main:contact.html.twig', array('form' => $form->createView()));
     }
-    
+
     public function connexionAction(){
         $form=  $this->get('form.factory')->create(ConnexionType::class);
 
@@ -146,26 +146,6 @@ class MainController extends Controller
 
     public function detailValidationAction(){
         return $this->render('OCCoreBundle:Main:detailObsValidation.html.twig');
-    }
-
-    private function sendingEmail(array $tplVariables, $subject, $from, $to, $template)
-    {
-        try {
-            //récupération du service d'envoie d'e-mail personnalisé
-            $mailerTpl = $this->get('oc_core.mailer_templating');
-            $mailerTpl->send(
-                $tplVariables,
-                $subject,
-                $from,
-                $to,
-                $template
-            );
-
-           return true;
-
-        } catch (\Exception $e) {//si il y a une erreur, on la retourne
-            return $e->getMessage();
-        }
     }
 }
 
