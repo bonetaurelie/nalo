@@ -1,0 +1,37 @@
+{% extends 'OCCoreBundle::layout.html.twig' %}
+
+{% block title %}
+    {{ parent() }} - Profil
+{% endblock %}
+
+{% block body %}
+    <div class="container ">
+        <div class="main">
+            <div class="row">
+                <ul id="menu">
+                    <li>
+                        <p>BERNARD LOISEAU</p>
+                        <p>Naturaliste</p>
+                    </li>
+                    <li>
+                        <a href="{{ path('oc_core_profil') }}">Profil</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('oc_core_observations') }}">Mes observations à valider</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('oc_core_validations') }}">Validations</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="blockprofil">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="profil text-center">MON PROFIL</h1>
+                <h2 class="identite text-center">Identité</h2>
+            </div>
+        </div>
+    </div>
+{% endblock %}

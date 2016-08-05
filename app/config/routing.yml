@@ -2,5 +2,9 @@ oc_core:
     resource: "@OCCoreBundle/Resources/config/routing.yml"
     prefix:   /
 
+oc_user:
+    resource: "@OCUserBundle/Controller/"
+    type:     annotation
+
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"

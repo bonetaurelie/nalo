@@ -2,6 +2,7 @@
 
 namespace OC\CoreBundle\Services;
 
+use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\Templating\EngineInterface;
 
 /**
@@ -44,6 +45,7 @@ class MailerTemplating
      */
     public function send(array $bodyContents, $subject, $from, $to, $template, $contentType = 'text/html'){
         $body = $this->templating->render($template, $bodyContents);
+
 
         $message = \Swift_Message::newInstance()
             ->setContentType('text/html')
