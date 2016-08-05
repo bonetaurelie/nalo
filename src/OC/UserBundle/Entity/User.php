@@ -14,6 +14,9 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class User extends BaseUser
 {
+    const ROLE_USER_NAME = "Amateur";
+    const ROLE_PRO_NAME = "Naturaliste";
+
     /**
      * @ORM\Id()
      * @ORM\Column(type="integer")
@@ -37,15 +40,26 @@ class User extends BaseUser
     protected $createAt;
 
     /**
-     * @ORM\Column(type="string", length=32, nullable=true, name="key")
+     * @ORM\Column(type="string", length=32, nullable=true, name="key_change")
      */
-    protected $key;
+    protected $keyChange;
+
+
+    protected $rolePro;
 
     public function __construct()
     {
         parent::__construct();
 
         $this->createAt = new \DateTime();
+        $this->roles = array('ROLE_USER');
+        $this->enabled = true;
+        $this->rolePro = false;
+    }
+
+    public function setEmail($email){
+        $this->email = $email;
+        $this->username = $email;
     }
 
     /**
@@ -142,5 +156,31 @@ class User extends BaseUser
     public function getKey()
     {
         return $this->key;
+    }
+
+    /**
+     * @param bool $rolePro
+     */
+    public function setRolePro($rolePro)
+    {
+        $this->rolePro = $rolePro;
+
+        return $this;
+    }
+
+    /**
+     * @param bool $rolePro
+     */
+    public function getRolePro()
+    {
+        return $this->rolePro;
+    }
+
+    public function getFullNameRole(){
+        if($this->hasRole('ROLE_PRO')){
+            return self::ROLE_PRO_NAME;
+        }
+
+        return self::ROLE_USER_NAME;
     }
 }

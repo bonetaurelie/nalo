@@ -35,9 +35,12 @@
             {{ form_errors(form.plainPassword.second) }}
         </div>
     </div>
+    {{ form_widget(form.rolePro, {'label': 'Je suis un naturaliste professionnel'}) }}
     <div class="checkbox">
         <label>
-            <input type="checkbox" name="role_pro" value="on"> Je suis un naturaliste professionnel
+
+            {#<input type="checkbox" name="roles[]" value="ROLE_PRO"> Je suis un naturaliste professionnel#}
+            {{ form_errors(form.rolePro) }}
         </label>
     </div>
     <button type="submit" class="btn btn-default">Inscrivez-vous</button>

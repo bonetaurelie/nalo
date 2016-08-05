@@ -10,17 +10,19 @@
             <div class="row">
                 <ul id="menu">
                     <li>
-                        <p>BERNARD LOISEAU</p>
-                        <p>Naturaliste</p>
+                        <p>{{ app.user.lastName }} {{ app.user.firstName }}</p>
+                        <p>{{ app.user.getFullNameRole }}</p>
                     </li>
                     <li>
-                        <a href="{{ path('oc_core_profil') }}">Profil</a>
+                        <a href="{{ path('oc_user_profil') }}">Profil</a>
                     </li>
                     <li>
-                        <a href="{{ path('oc_core_observations') }}">Mes observations à valider</a>
+                        {#{{ path('oc_core_observations') }}#}
+                        <a href="#">Mes observations à valider</a>
                     </li>
                     <li>
-                        <a href="{{ path('oc_core_validations') }}">Validations</a>
+                        {#{{ path('oc_core_validations') }}#}
+                        <a href="#">Validations</a>
                     </li>
                 </ul>
             </div>
