@@ -44,34 +44,12 @@ class MainController extends Controller
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function contactAction(Request $request){
-        //Création des données vides pour le formulaire de contact, pas besoin de créer une entité pour ça
-        $contactDefaultData = array('prenom' => '','nom' => '','email' => '', 'message' => '', 'recaptcha' => false,);
+        //Récupération du formulaire de contact
+        $contactBusiness =  $this->get('oc_core.business_contact');
+        //Traitement du formulaire et envoie d'un e-mail si validé
+        $contactBusiness->formTreatmentAndSendMail($request);
 
-        $form = $this->createForm(ContactType::class, $contactDefaultData);
-        $form->handleRequest($request);
-
-        //Vérification si le formulaire est valide ou non
-        if ($form->isSubmitted() && $form->isValid()) {
-            //récupération des données du formulaire
-            $contact = $form->getData();
-            try {
-                //récupération du service d'envoie d'e-mail personnalisé
-                $mailerTpl = $this->get('oc_core.mailer_templating');
-                $mailerTpl->send(
-                    $contact,
-                    "Site NALO : message via la page contact",
-                    $this->getParameter('robot_email'), $this->getParameter('contact_email'),
-                    'OCCoreBundle:Email:contact.html.twig'
-                );
-
-                $this->addFlash('notice', 'Merci de nous avoir contacté, nous répondrons à vos questions dans les plus brefs délais.');
-
-            } catch (\Exception $e) {//si il y a une erreur
-                $this->addFlash('error', "Une erreur est intervenue, si l'erreur persiste veuillez contacter l'administrateur du site.");
-            }
-        }
-
-        return $this->render('OCCoreBundle:Main:contact.html.twig', array('form' => $form->createView()));
+        return $this->render('OCCoreBundle:Main:contact.html.twig', array('form' => $contactBusiness->getFormView()));
     }
 
     public function connexionAction(){
