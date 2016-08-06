@@ -1,0 +1,12 @@
+user:
+    firstName:
+        not_blank:  'Veuillez renseigner un prénom.'
+    lastName:
+        not_blank:  'Veuillez renseigner un nom.'
+    email:
+        not_blank: 'Veuillez renseigner un e-mail.'
+        not_valid: 'Veuillez renseigner un e-mail valide.'
+        not_unique: 'L''e-mail saisi est déjà utilisé sur un autre compte.'
+    plainPassword:
+        not_blank: 'Veuillez renseigner un mot de passe.'
+        not_valid: 'Format non conforme.'

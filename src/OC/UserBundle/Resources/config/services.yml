@@ -5,4 +5,4 @@ services:
             - { name: form.type, alias: app_user_registration }
     oc_user.business.registration:
         class: OC\UserBundle\Business\Registration
-        arguments: ["@form.factory", "@fos_user.user_manager", "@event_dispatcher", "@session.flash_bag", "@router"]
+        arguments: ["@form.factory", "@fos_user.user_manager", "@event_dispatcher", "@session", "@router", "@security.token_storage"]

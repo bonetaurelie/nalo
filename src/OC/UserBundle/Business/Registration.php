@@ -3,7 +3,6 @@
 namespace OC\UserBundle\Business;
 
 
-use FOS\UserBundle\Event\FilterUserResponseEvent;
 use FOS\UserBundle\Event\FormEvent;
 use FOS\UserBundle\Event\GetResponseUserEvent;
 use FOS\UserBundle\FOSUserEvents;
@@ -12,10 +11,13 @@ use OC\UserBundle\Form\RegistrationType;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Form\FormFactory;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Session\Flash\FlashBag;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Routing\Router;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage;
+use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
+use FOS\UserBundle\Event\FilterUserResponseEvent;
 
 class Registration
 {
@@ -35,9 +37,9 @@ class Registration
     private $dispatcher;
 
     /**
-     * @var FlashBag
+     * @var Session
      */
-    private $flashBag;
+    private $session;
 
     /**
      * @var Router
@@ -53,21 +55,24 @@ class Registration
      * Registration constructor.
      * @param FormFactory $formFactory
      * @param UserManager $userManager
-     * @param EventDispatcher $dispatcher
-     * @param FlashBag $flashBag
+     * @param EventDispatcherInterface $dispatcher
+     * @param Session $session
+     * @param Router $router
+     * @param TokenStorage $tokenStorage
      */
-    public function __construct
-    (
+    public function __construct(
         FormFactory $formFactory,
         UserManager $userManager,
         EventDispatcherInterface $dispatcher,
-        FlashBag $flashBag,
-        Router $router
+        Session $session,
+        Router $router,
+        TokenStorage $tokenStorage
     ){
         $this->userManager = $userManager;
         $this->dispatcher = $dispatcher;
-        $this->flashBag = $flashBag;
+        $this->session = $session;
         $this->router = $router;
+        $this->tokenStorage = $tokenStorage;
 
         $this->user = $this->userManager->createUser();
 
@@ -105,6 +110,9 @@ class Registration
             //récupération des données du formulaire
             $this->userManager->updateUser($this->user);
 
+            $this->login();
+
+            $this->dispatcher->dispatch(FOSUserEvents::REGISTRATION_COMPLETED, new FilterUserResponseEvent($this->user, $request, new Response()));
 //            if (null === $response = $event->getResponse()) {
 //                $url =  $this->router->generate('oc_core_homepage');
 //                $response = new RedirectResponse($url);
@@ -116,5 +124,12 @@ class Registration
         }
 
         return false;
+    }
+
+    private function login()
+    {
+        $token = new UsernamePasswordToken($this->user, null, 'main', $this->user->getRoles());
+        $this->tokenStorage->setToken($token);
+        $this->session->set('_security_main', serialize($token));
     }
 }

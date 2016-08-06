@@ -1,0 +1,35 @@
+{% extends 'OCCoreBundle::layout.html.twig' %}
+
+{% block title %}
+    {{ parent() }} - votre espace
+{% endblock %}
+
+{% block body %}
+    <div class="container ">
+        <div class="main">
+            <div class="row">
+                <ul id="menu">
+                    <li>
+                        <p>{{ app.user.lastName }} {{ app.user.firstName }}</p>
+                        <p>{{ app.user.getFullNameRole }}</p>
+                    </li>
+                    <li>
+                        <a href="{{ path('fos_user_profile_show') }}">Profil</a>
+                    </li>
+                    <li>
+                        {#{{ path('oc_core_observations') }}#}
+                        <a href="#">Mes observations à valider</a>
+                    </li>
+                    <li>
+                        {#{{ path('oc_core_validations') }}#}
+                        <a href="#">Validations</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="blockprofil">
+                {% block body_member_space %}
+                {% endblock body_member_space %}
+            </div>
+        </div>
+    </div>
+{% endblock body %}

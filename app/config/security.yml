@@ -23,9 +23,18 @@ security:
         main:
             pattern: ^/
             form_login:
+                login_path: /connexion
                 provider: fos_userbundle
                 csrf_token_generator: security.csrf.token_manager
-            logout: true
+                remember_me:  true
+                always_use_default_target_path : true
+                default_target_path: /profil
+                use_referer : true
+#            remember_me:
+#                key:          %secret%
+            logout:
+              path: /deconnexion
+              target: /
             anonymous: true
             # activate different ways to authenticate
 

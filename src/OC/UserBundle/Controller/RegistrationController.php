@@ -20,7 +20,7 @@ class RegistrationController extends BaseController
         $submit = $registration->formTreatment($request);
 
         if(true === $submit){
-            $this->redirectToRoute('oc_user_profil');
+            return $this->redirectToRoute('fos_user_profile_show');
         }
 
         return $this->render('FOSUserBundle:Registration:register.html.twig', array(

@@ -48,10 +48,10 @@
                         <li><a href="{{path('oc_core_recherche')}}">RECHERCHE</a></li>
                         <li><a href="{{path('oc_core_contact')}}">CONTACT</a></li>
                         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                            <li><a href="{{path('oc_user_profil')}}">MON PROFIL</a></li>
+                            <li><a href="{{path('fos_user_profile_show')}}">MON PROFIL</a></li>
                             <li><a href="{{path('fos_user_security_logout')}}">DECONNEXION</a></li>
                         {% else %}
-                            <li><a href="{{path('fos_user_registration_register')}}">INSCRIPTION</a></li>
+                            <li><a href="{{path('oc_user_register')}}">INSCRIPTION</a></li>
                             <li><a href="{{path('fos_user_security_login')}}">CONNEXION</a></li>
 
                         {% endif %}

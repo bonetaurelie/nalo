@@ -13,12 +13,7 @@
                         <h1 class="text-center">CONTACTER L'ASSOCIATION</h1>
                     </div>
                 </div>
-                {% for message in app.session.flashBag.get("notice") %}
-                    {% include '@OCCore/flashMessageBloc.html.twig' with {'type':'info', 'message': message} %}
-                {% endfor %}
-                {% for message in app.session.flashBag.get("error") %}
-                    {% include '@OCCore/flashMessageBloc.html.twig' with {'type':'danger', 'message': message} %}
-                {% endfor %}
+                {% include '@OCCore/flashMessage/flashMessageBloc.html.twig'  %}
 
                 {{ form_start(form) }}
                 {{ form_errors(form) }}
