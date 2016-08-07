@@ -1,0 +1,16 @@
+{% trans_default_domain 'FOSUserBundle' %}
+{% block subject %}
+    {% autoescape false %}
+        {{ 'registration.email.subject'|trans({'%firstName%': user.firstName, '%lastName%': user.lastName, '%confirmationUrl%': confirmationUrl}) }}
+    {% endautoescape %}
+{% endblock %}
+{% block body_text %}
+    {% autoescape false %}
+        {{ 'registration.email.message'|trans({'%firstName%': user.firstName, '%confirmationUrl%': confirmationUrl}) }}
+    {% endautoescape %}
+{% endblock %}
+{% block body_html %}
+    {% autoescape false %}
+        {{ 'registration.email.message_html'|trans({'%firstName%': user.firstName, '%confirmationUrl%': confirmationUrl}) }}
+    {% endautoescape %}
+{% endblock %}

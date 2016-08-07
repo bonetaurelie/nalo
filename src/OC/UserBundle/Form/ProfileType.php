@@ -38,7 +38,7 @@ class ProfileType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'validation_groups' => array('profile_edit'),
+            'validation_groups' => array('Profile'),
         ));
     }
 
@@ -47,8 +47,14 @@ class ProfileType extends AbstractType
         return 'FOS\UserBundle\Form\Type\ProfileFormType';
     }
 
-    public function getName()
-    {
-        return 'ocuser_bundle_profile_type';
-    }
+	public function getBlockPrefix()
+	{
+		return 'ocuser_bundle_profile_type';
+	}
+
+	// For Symfony 2.x
+	public function getName()
+	{
+		return $this->getBlockPrefix();
+	}
 }

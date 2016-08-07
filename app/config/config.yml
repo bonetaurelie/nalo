@@ -91,7 +91,12 @@ fos_user:
     registration:
         form:
             type: OC\UserBundle\Form\RegistrationType
+        confirmation:
+            enabled: true
+            template: '%kernel.root_dir%/Resources/FOSUserBundle/views/Email/confirmation.email.twig'
     resetting:
+        form:
+            type: OC\UserBundle\Form\ResettingType
         email:
             template: '%kernel.root_dir%/Resources/FOSUserBundle/views/Email/password_resetting.email.twig'
     profile:

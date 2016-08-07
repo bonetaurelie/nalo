@@ -5,14 +5,12 @@ namespace OC\UserBundle\Entity;
 use Symfony\Component\Validator\Constraints as Assert;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * Class User
  * @package OC\UserBundle\Entity
  * @ORM\Table(name="nalo_user")
  * @ORM\Entity(repositoryClass="OC\UserBundle\Repository\UserRepository")
- * @UniqueEntity("email", message="user.email.not_unique")
  */
 class User extends BaseUser
 {
@@ -28,25 +26,18 @@ class User extends BaseUser
 
     /**
      * @ORM\Column(type="string", length=255, nullable=false, name="first_name")
-     * @Assert\NotBlank(message="user.firstName.not_blank", groups={"registration", "profile_edit"})
+     * @Assert\NotBlank(message="user.firstName.not_blank", groups={"Registration", "Profile"})
      */
     protected $firstName;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=false, name="last_name")
-     * @Assert\NotBlank(message="user.lastName.not_blank", groups={"registration", "profile_edit"})
+     * @Assert\NotBlank(message="user.lastName.not_blank", groups={"Registration", "Profile"})
      */
     protected $lastName;
 
     /**
-     * @Assert\Email(message="user.email.not_valid", groups={"registration", "profile_edit"})
-     * @Assert\NotBlank(message="user.email.not_blank", groups={"registration", "profile_edit"})
-     */
-    protected $email;
-
-    /**
-     * @Assert\NotBlank(message="user.plainPassword.not_blank", groups={"registration"})
-     * @Assert\Regex(pattern="/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-;]).{6,}$/", match=true, message="user.plainPassword.not_valid", groups={"registration", "profile_edit"})
+     * @Assert\Regex(pattern="/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$/", match=true, message="user.plainPassword.not_valid", groups={"Registration", "Profile", "Resetting"})
      */
     protected $plainPassword;
 
@@ -173,7 +164,9 @@ class User extends BaseUser
      */
     public function setRolePro($rolePro)
     {
-        $this->rolePro = $rolePro;
+        if(true === $rolePro){
+        	$this->roles = array('ROLE_PRO');
+        }
 
         return $this;
     }

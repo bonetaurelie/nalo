@@ -42,7 +42,7 @@ class RegistrationType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'validation_groups' => array('registration'),
+            'validation_groups' => array('Registration'),
         ));
     }
 
@@ -51,8 +51,14 @@ class RegistrationType extends AbstractType
         return 'FOS\UserBundle\Form\Type\RegistrationFormType';
     }
 
-    public function getName()
-    {
-        return 'ocuser_bundle_registration_type';
-    }
+	public function getBlockPrefix()
+	{
+		return 'ocuser_bundle_registration_type';
+	}
+
+	// For Symfony 2.x
+	public function getName()
+	{
+		return $this->getBlockPrefix();
+	}
 }
