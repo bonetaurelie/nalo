@@ -47,7 +47,7 @@
                         <li><a href="{{path('oc_core_association')}}">L'ASSOCIATION</a></li>
                         <li><a href="{{path('oc_core_recherche')}}">RECHERCHE</a></li>
                         <li><a href="{{path('oc_core_contact')}}">CONTACT</a></li>
-                        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                             <li><a href="{{path('fos_user_profile_edit')}}">MON PROFIL</a></li>
                             <li><a href="{{path('fos_user_security_logout')}}">DECONNEXION</a></li>
                         {% else %}

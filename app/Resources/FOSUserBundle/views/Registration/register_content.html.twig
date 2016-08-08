@@ -1,41 +1,10 @@
 {% trans_default_domain 'FOSUserBundle' %}
 <p><em class="text-info">{{ 'registration.text_password_format'|trans }}</em></p>
 {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register form-horizontal'}}) }}
-    <div class="form-group">
-        {{ form_label(form.firstName, null, {'label_attr': {'class': 'control-label'}}) }}
-        <div class="">
-            {{ form_widget(form.firstName, {'attr': {'class': 'form-control'}}) }}
-            {{ form_errors(form.firstName) }}
-        </div>
-    </div>
-    <div class="form-group">
-        {{ form_label(form.lastName, null, {'label_attr': {'class': 'control-label'}}) }}
-        <div class="">
-            {{ form_widget(form.lastName, {'attr': {'class': 'form-control'}}) }}
-            {{ form_errors(form.lastName) }}
-        </div>
-    </div>
-    <div class="form-group">
-        {{ form_label(form.email, null, {'label_attr': {'class': 'control-label'}}) }}
-        <div class="">
-            {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
-            {{ form_errors(form.email) }}
-        </div>
-    </div>
-    <div class="form-group">
-        {{ form_label(form.plainPassword.first, null, {'label_attr': {'class': 'control-label'}}) }}
-        <div class="">
-            {{ form_widget(form.plainPassword.first, {'attr': {'class': 'form-control'}}) }}
-            {{ form_errors(form.plainPassword.first) }}
-        </div>
-    </div>
-    <div class="form-group">
-        {{ form_label(form.plainPassword.second, null, {'label_attr': {'class': 'control-label'}}) }}
-        <div class="">
-            {{ form_widget(form.plainPassword.second, {'attr': {'class': 'form-control'}}) }}
-            {{ form_errors(form.plainPassword.second) }}
-        </div>
-    </div>
-    {{ form_widget(form.rolePro) }}
+    {{ form_row(form.firstName) }}
+    {{ form_row(form.lastName) }}
+    {{ form_row(form.email) }}
+    {{ form_row(form.plainPassword) }}
+    {{ form_row(form.rolePro) }}
     <button type="submit" class="btn btn-default">{{ 'form.subcribeBtn'|trans }}</button>
 {{ form_end(form) }}

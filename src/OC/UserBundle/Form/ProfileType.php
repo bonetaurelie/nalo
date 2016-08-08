@@ -17,10 +17,12 @@ class ProfileType extends AbstractType
             ->add('firstName', TextType::class, array(
                 'label' => 'profile.edit.firstName',
                 'translation_domain' => 'FOSUserBundle',
+	            'required' => false
             ))
             ->add('lastName', TextType::class, array(
                 'label' => 'profile.edit.lastName',
                 'translation_domain' => 'FOSUserBundle',
+	            'required' => false
             ))
             ->remove('username')
             ->remove('current_password')
