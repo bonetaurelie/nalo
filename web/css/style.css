@@ -74,6 +74,14 @@ padding-left: 125px;
     color: #DCEDC8;
 }
 
+.alert-full-top{
+    margin:0;
+    position:absolute;
+    z-index:900;
+    top:58px;
+    width:100%
+}
+
 /*accueil*/
 .photoheader{
     width:100%;
