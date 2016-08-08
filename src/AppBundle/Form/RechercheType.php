@@ -2,6 +2,8 @@
 
 namespace AppBundle\Form;
 
+use AppBundle\Form\Type\SpeciesType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -28,7 +30,14 @@ class RechercheType extends AbstractType
             ->add('geo', ChoiceType::class)
             ->add('commune', ChoiceType::class)
             ->add('especebis',TextType::class)
-            ->add('espece', ChoiceType::class)
+            ->add('species', EntityType::class, array(
+            	'class' => 'AppBundle\Entity\Species',
+	            'choice_label' => 'frenchName',
+	            'placeholder' => 'search.species.placeholder',
+	            'label' => 'search.species.label',
+	            'translation_domain' => 'AppBundle'
+            ))
+
             ->add('Rechercher',SubmitType::class)
         ;
     }

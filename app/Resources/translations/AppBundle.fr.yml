@@ -5,3 +5,7 @@ contact:
     nom: 'Votre nom'
     email: 'Votre adresse e-mail'
     message: 'Votre message'
+search:
+    species:
+        placeholder: 'Toutes les espèces'
+        label: 'Espèce'
