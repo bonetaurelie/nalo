@@ -1,7 +1,0 @@
-services:
-    oc_core.mailer_templating:
-        class: OC\CoreBundle\Services\MailerTemplating
-        arguments: ["@mailer","@templating"]
-    oc_core.business_contact:
-        class: OC\CoreBundle\Business\ContactService
-        arguments: ["@form.factory", "@oc_core.mailer_templating", "@session.flash_bag", "%robot_email%", "%contact_email%"]
