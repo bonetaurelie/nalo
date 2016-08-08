@@ -1,0 +1,23 @@
+services:
+    user.form.registration:
+        class: UserBundle\Form\RegistrationType
+        tags:
+            - { name: form.type, alias: user_bundle_registration_type }
+    user.form.profile:
+        class: UserBundle\Form\ProfileType
+        tags:
+            - { name: form.type, alias: user_bundle_profile_type }
+    user.form.resetting:
+        class: UserBundle\Form\ResettingType
+        tags:
+            - { name: form.type, alias: user_bundle_resetting_type }
+    user.profile_edit_subscriber:
+        class: UserBundle\Subscriber\ProfileEditSubscriber
+        arguments: ['@router']
+        tags:
+            - { name: kernel.event_subscriber}
+    user.resetting_reset_subscriber:
+        class: UserBundle\Subscriber\ResettingResetSubscriber
+        arguments: ['@router']
+        tags:
+            - { name: kernel.event_subscriber}

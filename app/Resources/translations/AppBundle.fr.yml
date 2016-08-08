@@ -1,0 +1,7 @@
+contact:
+    title_page: 'Contacter l''association'
+    text: 'Si vous avez une question ou une demande, envoyez-nous un message à l''aide du formulaire suivant:'
+    prenom: 'Votre prénom'
+    nom: 'Votre nom'
+    email: 'Votre adresse e-mail'
+    message: 'Votre message'

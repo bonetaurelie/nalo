@@ -1,0 +1,7 @@
+services:
+    app.mailer_templating:
+        class: AppBundle\Services\MailerTemplating
+        arguments: ["@mailer","@templating"]
+    app.business_contact:
+        class: AppBundle\Business\ContactService
+        arguments: ["@form.factory", "@app.mailer_templating", "@session.flash_bag", "%robot_email%", "%contact_email%"]

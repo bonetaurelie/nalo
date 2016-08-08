@@ -3,7 +3,7 @@
 namespace Tests\AppBundle\Services;
 
 
-use OC\CoreBundle\Services\MailerTemplating;
+use AppBundle\Services\MailerTemplating;
 
 /**
  *

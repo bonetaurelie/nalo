@@ -1,5 +1,5 @@
-oc_core:
-    resource: "@OCCoreBundle/Resources/config/routing.yml"
+app:
+    resource: "@AppBundle/Resources/config/routing.yml"
     prefix:   /
 
 #oc_user:
@@ -27,7 +27,7 @@ fos_user_registration_register:
     methods:  ['GET', 'POST']
 
 fos_user_register:
-    resource: "@OCUserBundle/Resources/config/routing/registration.xml"
+    resource: "@UserBundle/Resources/config/routing/registration.xml"
     prefix:   /inscription
 
 fos_user_profile_edit:
@@ -36,7 +36,7 @@ fos_user_profile_edit:
     methods:  ['GET', 'POST']
 
 fos_user_resetting:
-    resource: "@OCUserBundle/Resources/config/routing/resetting.xml"
+    resource: "@UserBundle/Resources/config/routing/resetting.xml"
     prefix:   /mot-de-passe-oublie
 #fos_user_change_password:
 #    resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"

@@ -1,4 +1,4 @@
-{% extends "@OCCore/profile.layout.html.twig" %}
+{% extends "profile.layout.html.twig" %}
 {% trans_default_domain 'FOSUserBundle' %}
 {% block title %}
     {{ parent() }} - {{ 'profile.title'|trans }}
@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-lg-6">
             <h1 class="profil">{{ 'profile.title'|trans|upper }}</h1>
-            {% include '@OCCore/flashMessage/flashMessageBloc.html.twig' %}
+            {% include 'flashMessage/flashMessageBloc.html.twig' %}
         </div>
     </div>
     <div class="row">
