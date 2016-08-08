@@ -2,4 +2,45 @@ oc_core:
     resource: "@OCCoreBundle/Resources/config/routing.yml"
     prefix:   /
 
+#oc_user:
+#    resource: "@OCUserBundle/Controller/"
+#    type:     annotation
 
+fos_user_security_login:
+    path: /connexion
+    defaults:  { _controller: FOSUserBundle:Security:login }
+    methods:  ['GET','POST']
+
+fos_user_security_check:
+    path: /login_check
+    defaults:  { _controller: FOSUserBundle:Security:check }
+    methods:  ['POST']
+
+fos_user_security_logout:
+    path: /deconnexion
+    defaults:  { _controller: FOSUserBundle:Security:logout }
+    methods:  ['GET']
+
+fos_user_registration_register:
+    path: /inscription
+    defaults:  { _controller: FOSUserBundle:Registration:register }
+    methods:  ['GET', 'POST']
+
+fos_user_register:
+    resource: "@OCUserBundle/Resources/config/routing/registration.xml"
+    prefix:   /inscription
+
+fos_user_profile_edit:
+    path:   /profil
+    defaults:  { _controller: FOSUserBundle:Profile:edit }
+    methods:  ['GET', 'POST']
+
+fos_user_resetting:
+    resource: "@OCUserBundle/Resources/config/routing/resetting.xml"
+    prefix:   /mot-de-passe-oublie
+#fos_user_change_password:
+#    resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
+#    prefix:   /profil
+
+#fos_user:
+#    resource: "@FOSUserBundle/Resources/config/routing/all.xml"

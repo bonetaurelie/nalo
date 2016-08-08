@@ -1,0 +1,23 @@
+services:
+    oc_user.form.registration:
+        class: OC\UserBundle\Form\RegistrationType
+        tags:
+            - { name: form.type, alias: ocuser_bundle_registration_type }
+    oc_user.form.profile:
+        class: OC\UserBundle\Form\ProfileType
+        tags:
+            - { name: form.type, alias: ocuser_bundle_profile_type }
+    oc_user.form.resetting:
+        class: OC\UserBundle\Form\ResettingType
+        tags:
+            - { name: form.type, alias: ocuser_bundle_resetting_type }
+    oc_user.profile_edit_subscriber:
+        class: OC\UserBundle\Subscriber\ProfileEditSubscriber
+        arguments: ['@router']
+        tags:
+            - { name: kernel.event_subscriber}
+    oc_user.resetting_reset_subscriber:
+        class: OC\UserBundle\Subscriber\ResettingResetSubscriber
+        arguments: ['@router']
+        tags:
+            - { name: kernel.event_subscriber}

@@ -21,6 +21,8 @@ parameters:
     robot_email:        joe.doe@exemple.com
     # email to use for receive from the site
     contact_email:        joe.doe@exemple.com
+    # sender name
+    sender_name: contact
     # google reCAPTCHA key
     google_recapatcha_site_key: the_key_for_the_public_part
     google_recapatcha_secret_key: the_key_for_the_server_part

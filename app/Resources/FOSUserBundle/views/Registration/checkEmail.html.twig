@@ -1,0 +1,25 @@
+{% extends "@OCCore/layout.html.twig" %}
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block body %}
+    <div class="container">
+        <div class="main">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <h1 class="inscription text-center">{{ 'registration.check_email_title'|trans|upper }}</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-lg-offset-3">
+                    <div class="well">
+                        <div class="row">
+                            <div class="col-lg-8 col-lg-offset-2">
+                                <p>{{ 'registration.check_email'|trans({'%email%': user.email}) }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock body %}

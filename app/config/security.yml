@@ -1,20 +1,45 @@
 # To get started with security, check out the documentation:
 # http://symfony.com/doc/current/book/security.html
 security:
+    encoders:
+        FOS\UserBundle\Model\UserInterface: bcrypt
+
+    role_hierarchy:
+        ROLE_PRO:   ROLE_USER
+
 
     # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
     providers:
-        in_memory:
-            memory: ~
+#        in_memory:
+#            memory: ~
+        fos_userbundle:
+            id: fos_user.user_provider.username_email
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
-
         main:
-            anonymous: ~
+            pattern: ^/
+            form_login:
+                login_path: /connexion
+                provider: fos_userbundle
+                csrf_token_generator: security.csrf.token_manager
+                remember_me:  true
+                always_use_default_target_path : true
+                default_target_path: /profil
+                use_referer : true
+#            remember_me:
+#                key:          %secret%
+            logout:
+              path: /deconnexion
+              target: /
+            anonymous: true
+            remember_me:
+                secret: '%secret%'
+                lifetime: 604800 #une semaine en seconde
+                path: /
             # activate different ways to authenticate
 
             # http_basic: ~
@@ -22,3 +47,10 @@ security:
 
             # form_login: ~
             # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
+    access_control:
+#        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY}
+        - { path: ^/connexion, role: IS_AUTHENTICATED_ANONYMOUSLY}
+#        - { path: ^/registrer, role: IS_AUTHENTICATED_ANONYMOUSLY}
+        - { path: ^/isncription, role: IS_AUTHENTICATED_ANONYMOUSLY}
+        - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY}
+        - { path: ^/profil, role: IS_AUTHENTICATED_REMEMBERED}

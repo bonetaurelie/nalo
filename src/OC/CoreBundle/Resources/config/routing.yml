@@ -18,22 +18,6 @@ oc_core_contact:
     path:    /contact
     defaults: {_controller: OCCoreBundle:Main:contact}
 
-oc_core_inscription:
-    path:    /inscription
-    defaults: {_controller: OCCoreBundle:Main:inscription}
-
-oc_core_connexion:
-    path:    /connexion
-    defaults: {_controller: OCCoreBundle:Main:connexion}
-
-oc_core_mdpoublie:
-    path:    /motdepasse
-    defaults: {_controller: OCCoreBundle:Main:mdpoublie}
-
-oc_core_newmdp:
-    path:    /nouveaumotdepasse
-    defaults: {_controller: OCCoreBundle:Main:newmdp}
-
 oc_core_mentions:
     path:    /mentions
     defaults: {_controller: OCCoreBundle:Main:mentions}
@@ -45,14 +29,6 @@ oc_core_saisie:
 oc_core_observations:
     path:    /observations
     defaults: {_controller: OCCoreBundle:Main:observations}
-
-oc_core_profil:
-    path:    /profil
-    defaults: {_controller: OCCoreBundle:Main:profil}
-
-oc_core_confirmation:
-    path:    /confirmation
-    defaults: {_controller: OCCoreBundle:Main:confirmation}
 
 oc_core_validations:
     path:    /validations

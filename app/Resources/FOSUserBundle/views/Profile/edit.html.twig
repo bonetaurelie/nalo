@@ -1,0 +1,22 @@
+{% extends "@OCCore/profile.layout.html.twig" %}
+{% trans_default_domain 'FOSUserBundle' %}
+{% block title %}
+    {{ parent() }} - {{ 'profile.title'|trans }}
+{% endblock title %}
+{% block body_member_space %}
+    <div class="row">
+        <div class="col-lg-6">
+            <h1 class="profil">{{ 'profile.title'|trans|upper }}</h1>
+            {% include '@OCCore/flashMessage/flashMessageBloc.html.twig' %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 well">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    {% include "FOSUserBundle:Profile:edit_content.html.twig" %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock body_member_space %}

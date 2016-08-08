@@ -1,0 +1,33 @@
+{% extends "@OCCore/layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block title %}
+    {{ parent() }} - {{ 'registration.confirmed_title'|trans }}
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="main">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <h1 class="inscription text-center">{{ 'registration.confirmed_title'|trans|upper }}</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-lg-offset-3">
+                    <div class="well">
+                        <div class="row">
+                            <div class="col-lg-8 col-lg-offset-2">
+                                <p>{{ 'registration.confirmed'|trans({'%firstName%': user.firstName}) }}</p>
+                                {% if targetUrl %}
+                                    <p><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock body %}

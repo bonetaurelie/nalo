@@ -49,10 +49,10 @@ class MainControllerTest extends WebTestCase
 
         $crawler = $client->submit($form);
 
-        $this->assertContains("Cette valeur ne doit pas être vide.", $crawler->filter("#contact_prenom + ul li")->text());
-        $this->assertContains("Cette valeur ne doit pas être vide.", $crawler->filter("#contact_nom + ul li")->text());
-        $this->assertContains("Cette valeur ne doit pas être vide.", $crawler->filter("#contact_email + ul li")->text());
-        $this->assertContains("Cette valeur ne doit pas être vide.", $crawler->filter("#contact_message + ul li")->text());
+        $this->assertContains("Cette valeur ne doit pas être vide.", $crawler->filter("#contact_prenom + .help-block ul li")->text());
+        $this->assertContains("Cette valeur ne doit pas être vide.", $crawler->filter("#contact_nom + .help-block ul li")->text());
+        $this->assertContains("Cette valeur ne doit pas être vide.", $crawler->filter("#contact_email + .help-block ul li")->text());
+        $this->assertContains("Cette valeur ne doit pas être vide.", $crawler->filter("#contact_message + .help-block ul li")->text());
     }
 
     /**
@@ -75,10 +75,10 @@ class MainControllerTest extends WebTestCase
         //Cette valeur ne doit pas être vide.
         //Vous devez cocher la case "Je ne suis pas un robot" -> le recaptcha ne peut pas être testé avec un robot :-)
 
-        $this->assertContains("Cette valeur ne doit pas être vide.", $crawler->filter("#contact_prenom + ul li")->text());
-        $this->assertContains("Cette valeur ne doit pas être vide.", $crawler->filter("#contact_nom + ul li")->text());
-        $this->assertContains("Cette valeur n'est pas une adresse email valide.", $crawler->filter("#contact_email + ul li")->text());
-        $this->assertContains("Cette valeur ne doit pas être vide.", $crawler->filter("#contact_message + ul li")->text());
+        $this->assertContains("Cette valeur ne doit pas être vide.", $crawler->filter("#contact_prenom + .help-block ul li")->text());
+        $this->assertContains("Cette valeur ne doit pas être vide.", $crawler->filter("#contact_nom + .help-block ul li")->text());
+        $this->assertContains("Cette valeur n'est pas une adresse email valide.", $crawler->filter("#contact_email + .help-block ul li")->text());
+        $this->assertContains("Cette valeur ne doit pas être vide.", $crawler->filter("#contact_message + .help-block ul li")->text());
 
     }
 

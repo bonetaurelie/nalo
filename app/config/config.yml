@@ -37,7 +37,8 @@ twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
 #    globals:
-
+    form_themes:
+        - bootstrap_3_layout.html.twig
 # Doctrine Configuration
 doctrine:
     dbal:
@@ -74,6 +75,30 @@ swiftmailer:
 
 # ewz_recaptcha
 ewz_recaptcha:
-    public_key:  '%google_recapatcha_site_key%'
-    private_key: '%google_recapatcha_secret_key%'
-    locale_key:  '%kernel.default_locale%'
+    public_key:  %google_recapatcha_site_key%
+    private_key: %google_recapatcha_secret_key%
+    locale_key:  %kernel.default_locale%
+
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: OC\UserBundle\Entity\User
+    service:
+        mailer: fos_user.mailer.twig_swift
+    from_email:
+        address: '%robot_email%'
+        sender_name: '%sender_name%'
+    registration:
+        form:
+            type: OC\UserBundle\Form\RegistrationType
+        confirmation:
+            enabled: true
+            template: '%kernel.root_dir%/Resources/FOSUserBundle/views/Email/confirmation.email.twig'
+    resetting:
+        form:
+            type: OC\UserBundle\Form\ResettingType
+        email:
+            template: '%kernel.root_dir%/Resources/FOSUserBundle/views/Email/password_resetting.email.twig'
+    profile:
+        form:
+            type: OC\UserBundle\Form\ProfileType

@@ -1,0 +1,60 @@
+security:
+    login:
+        title: 'CONNEXION'
+        email: 'E-mail'
+        forgot_password_text_link: 'Mot de passe oublié?'
+        inscription_text_link: 'Pas encore inscrit?'
+registration:
+    title: 'Inscription'
+    text: 'Pour soumettre une observation, il est nécessaire de s''inscrire. Si vous êtes un naturaliste professionnel, vous devrez valider les observations des autres utilisateurs. Cochez la case correspondante lors de votre inscription.'
+    text_password_format: 'Le mot de passe doit être unique composé de 6 caractères au minimum avec  au moins 1 chiffre, 1 caractère spécial (#?!@$%^&*-) et 1 majuscule'
+    flash:
+        user_created: 'Bienvenue sur notre site!'
+    check_email_title: 'VALIDATION DE VOTRE COMPTE'
+    email:
+        subject: 'Bienvenue %firstName% %lastName% !'
+        message: "Bonjour %firstName% !\n\nPour valider votre compte utilisateur, merci de vous rendre sur %confirmationUrl%\n\nCordialement,\nL'équipe NALO.\n"
+        message_html: "Bonjour %firstName% !<br><br>Pour valider votre compte utilisateur, merci de vous rendre sur %confirmationUrl%<br><br>Cordialement,<br>L'équipe NALO.<br>"
+    confirmed_title: 'VOTRE COMTPE EST VALIDE'
+    confirmed: 'Félicitations %firstName%, votre compte est maintenant activé.'
+    back: 'Retour à la page d''accueil.'
+resetting:
+    title: 'Réinitialisation du mot de passe'
+    request:
+        email: 'E-mail'
+    reset:
+        title: 'CHANGEMENT MOT DE PASSE'
+    email:
+        subject: 'Réinitialisation de votre mot de passe'
+        message: >
+                  Bonjour %firstName% %lastName% !
+                  <br /><br />
+                  Pour réinitialiser votre mot de passe, merci de vous rendre sur %confirmationUrl%
+                  <br /><br />
+                  Cordialement,
+                  <br />
+                  L'équipe NALO.
+                  <br />
+    check_email:
+        title : 'Confirmation de changement de mot de passe'
+profile:
+    title: 'MON PROFIL'
+    edit:
+        subtitle:
+          identify: 'Identité'
+          connexion: 'Infos de connexion'
+        firstName: 'Prénom'
+        lastName: 'Nom'
+form:
+    group_name: 'Nom du groupe'
+    username: 'Nom d''utilisateur'
+    email: 'Adresse e-mail'
+    current_password: 'Mot de passe actuel'
+    password: 'Mot de passe'
+    password_confirmation: 'Confirmation du mot de passe'
+    new_password: 'Nouveau mot de passe'
+    new_password_confirmation: 'Confirmation du nouveau mot de passe'
+    firstName: 'Prénom'
+    lastName: 'Nom'
+    rolePro: 'Je suis un naturaliste professionnel'
+    subcribeBtn: 'Inscrivez-vous'
