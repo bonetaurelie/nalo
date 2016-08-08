@@ -2,7 +2,7 @@
     {% include 'flashMessage/flashMessageContent.html.twig' with {'type':'info', 'message': message} %}
 {% endfor %}
 {% for message in app.session.flashBag.get("success") %}
-    {% include 'flashMessage/flashMessageContent.html.twig' with {'type':'info', 'message': message} %}
+    {% include 'flashMessage/flashMessageContent.html.twig' with {'type':'success', 'message': message} %}
 {% endfor %}
 {% for message in app.session.flashBag.get("error") %}
     {% include 'flashMessage/flashMessageContent.html.twig' with {'type':'danger', 'message': message} %}
