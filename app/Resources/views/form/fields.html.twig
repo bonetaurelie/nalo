@@ -1,19 +1,7 @@
 {% block species_widget %}
     {% spaceless %}
-        {% if expanded %}
-            <ul {{ block('widget_container_attributes') }}>
-                {% for child in form %}
-                    <li>
-                        {{ form_widget(child) }}
-                        {{ form_label(child) }}
-                    </li>
-                {% endfor %}
-            </ul>
-        {% else %}
-            {# just let the choice widget render the select tag #}
-            <input type="text" id="filter_{{ id }}" data-choice-field-name="{{ id }}">
-            {{ block('choice_widget') }}
-        {% endif %}
+        <div class="col-lg-4"><input type="text" id="filter_{{ id }}" data-choice-field-name="{{ id }}">&nbsp;<i class="glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="top" title="Permet de filtrer le sélecteur d'espèces"></i></div>
+        <div class="col-lg-4">{{ block('choice_widget') }}</div>
     {% endspaceless %}
     <script type="text/javascript">
         var filterElement = document.getElementById('filter_{{ id }}');
@@ -29,10 +17,9 @@
             console.log(typeof(choiceList.options));
             for(var i =0;i < choiceList.options.length; i++){
                 option =   choiceList.options[i];
-
                 option.style.display = 'none';
                 if(contain.test(option.text)){
-                    option.style.display = 'inline';
+                    option.style.display = 'block';
                 }
             }
         });

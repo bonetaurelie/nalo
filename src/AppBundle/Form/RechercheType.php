@@ -3,6 +3,7 @@
 namespace AppBundle\Form;
 
 use AppBundle\Form\Type\SpeciesType;
+use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\AbstractType;
@@ -29,10 +30,13 @@ class RechercheType extends AbstractType
             ))
             ->add('geo', ChoiceType::class)
             ->add('commune', ChoiceType::class)
-            ->add('especebis',TextType::class)
             ->add('species', SpeciesType::class, array(
             	'class' => 'AppBundle\Entity\Species',
 	            'choice_label' => 'frenchName',
+                'query_builder' => function (EntityRepository $er) {
+                    return $er->createQueryBuilder('e')
+                        ->orderBy('e.frenchName', 'ASC');
+                },
 	            'placeholder' => 'search.species.placeholder',
 	            'label' => 'search.species.label',
 	            'translation_domain' => 'AppBundle'

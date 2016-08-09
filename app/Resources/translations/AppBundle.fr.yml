@@ -8,4 +8,4 @@ contact:
 search:
     species:
         placeholder: 'Toutes les espèces'
-        label: 'Espèce'
+        label: 'Sélectionnez une espèce'

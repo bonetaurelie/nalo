@@ -12,6 +12,10 @@ use AppBundle\Entity\Species;
 
 class LoadSpeciesData implements FixtureInterface, ContainerAwareInterface
 {
+    const LB_NOM_VER_COLUMN_NUM = 13;
+    const LB_NOM_COLUMN_NUM = 9;
+    const LB_AUTEUR_COLUMN_NUM = 10;
+
 	/**
 	 * The dependency injection container.
 	 *
@@ -31,29 +35,36 @@ class LoadSpeciesData implements FixtureInterface, ContainerAwareInterface
 
 	public function load(ObjectManager $manager)
 	{
-		/** @var KernelInterface $kernel */
-//		$kernel = $this->container->get('kernel');
-//
 		$root =  $this->container->getParameter('kernel.root_dir').'/';
-//
+
 		$csv =Reader::createFromPath( $root . 'Resources/dataSources/TAXREF_utf8.csv');
 		$csv->setDelimiter(';');
-////get the first row, usually the CSV header
-//		$headers = $csv->fetchOne();
 
-		$res = $csv->setOffset(1)->fetchAll();//->setLimit(25)
+    	$res = $csv->setOffset(1)->fetchAll();//->setLimit(25)
 
-//		var_dump($headers);
+        $alreadyAdd = [];
 
 		foreach($res as $row){
+		    //on récupère les colonnes qu'on a besoin dans les champs qui corresponds
+		    $frenchName = $row[self::LB_NOM_VER_COLUMN_NUM];
+		    $latinName  = $row[self::LB_NOM_COLUMN_NUM];
+		    $author  = $row[self::LB_AUTEUR_COLUMN_NUM];
+
+            //on filtre pour éviter les doublons et les champs vide
+		    if(in_array($frenchName,$alreadyAdd) || empty($frenchName)){
+		        continue;
+            }
+            //on ajoute le nom dans le tableau qui sert de filtre
+            array_push($alreadyAdd,$frenchName);
+
+            //et enfin on ajoute l'espèce dans l'application
 			$species = new Species();
-			$species->setFrenchName($row[12]); // NOM VALIDE nom valide
-			$species->setLatinName($row[9]); //LB_NAME nom latin
-			$species->setAuthor($row[10]); // LB_AUTEUR
+			$species->setFrenchName($frenchName);
+			$species->setLatinName($latinName);
+			$species->setAuthor($author);
 
 			$manager->persist($species);
 		}
-
 
 		$manager->flush();
 	}

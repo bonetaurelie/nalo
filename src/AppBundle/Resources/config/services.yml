@@ -8,4 +8,4 @@ services:
     app.form.type.species:
         class: AppBundle\Form\Type\SpeciesType
         tags:
-            - { name: form.type, alias: tel}
+            - { name: form.type, alias: species}
