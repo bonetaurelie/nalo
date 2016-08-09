@@ -1,57 +1,37 @@
 <?php
 namespace AppBundle\Form\Type;
 
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Doctrine\ORM\EntityRepository;
+use SimpleFilterListEntityBundle\Form\Type\SimpleFilterType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\FormInterface;
-use Symfony\Component\Form\FormView;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\PropertyAccess\PropertyAccessorInterface;
 
 class SpeciesType extends AbstractType
 {
-
-	/**
-	 * @var PropertyAccessorInterface
-	 */
-	private $propertyAccessor;
-
-	/**
-	 * @param PropertyAccessorInterface $propertyAccessor
-	 */
-	function __construct(PropertyAccessorInterface $propertyAccessor)
-	{
-		$this->propertyAccessor = $propertyAccessor;
-	}
-
-	/**
-	 * @param FormView      $view
-	 * @param FormInterface $form
-	 * @param array         $options
-	 */
-	public function finishView(FormView $view, FormInterface $form, array $options)
-	{
-		parent::finishView($view, $form, $options);
-
-		$view->vars['popover_title'] = $options['popover_title'];
-		$view->vars['popover_content'] = $options['popover_content'];
-	}
-
     public function configureOptions(OptionsResolver $resolver)
     {
-	    parent::configureOptions($resolver);
+        parent::configureOptions($resolver);
 
-	    $resolver->setDefaults(
-		    array(
-			    'popover_title' => '',
-			    'popover_content' => '',
-		    )
-	    );
+        $resolver->setDefaults(
+            array(
+                'class' => 'AppBundle\Entity\Species',
+                'choice_label' => 'frenchName',
+                'query_builder' => function (EntityRepository $er) {
+                    return $er->createQueryBuilder('e')
+                        ->orderBy('e.frenchName', 'ASC');
+                },
+                'placeholder' => 'search.species.placeholder',
+                'label' => 'search.species.label',
+                'popover_title' => 'search.species.popover_title',
+                'popover_content' => 'search.species.popover_content',
+                'translation_domain' => 'AppBundle'
+            )
+        );
     }
 
 	public function getParent()
 	{
-		return EntityType::class;
+		return SimpleFilterType::class;
 	}
 
 	public function getBlockPrefix()

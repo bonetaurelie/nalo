@@ -24,5 +24,24 @@ class SimpleFilterListEntityExtension extends Extension
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
+
+        $this->registerWidget($container);
+    }
+
+    /**
+     * Registers the form widget.
+     */
+    protected function registerWidget(ContainerBuilder $container)
+    {
+        $templatingEngines = $container->getParameter('templating.engines');
+
+        if (in_array('twig', $templatingEngines)) {
+            $formRessource = 'SimpleFilterListEntityBundle:Form:filter_list_widget.html.twig';
+
+            $container->setParameter('twig.form.resources', array_merge(
+                $container->getParameter('twig.form.resources'),
+                array($formRessource)
+            ));
+        }
     }
 }

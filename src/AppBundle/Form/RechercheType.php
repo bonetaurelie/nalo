@@ -31,21 +31,7 @@ class RechercheType extends AbstractType
             ))
             ->add('geo', ChoiceType::class)
             ->add('commune', ChoiceType::class)
-            ->add('species', SpeciesType::class, array(
-            	'class' => 'AppBundle\Entity\Species',
-	            'choice_label' => 'frenchName',
-                'query_builder' => function (EntityRepository $er) {
-                    return $er->createQueryBuilder('e')
-                        ->orderBy('e.frenchName', 'ASC');
-                },
-	            'placeholder' => 'search.species.placeholder',
-	            'label' => 'search.species.label',
-	            'popover_title' => 'search.species.popover_title',
-	            'popover_content' => 'search.species.popover_content',
-	            'translation_domain' => 'AppBundle'
-            ))
-
-//            ->add('Rechercher',SubmitType::class)
+            ->add('species', SpeciesType::class)
         ;
     }
     

@@ -19,7 +19,7 @@ class SimpleFilterType extends AbstractType
 	/**
 	 * @param PropertyAccessorInterface $propertyAccessor
 	 */
-	function __construct(PropertyAccessorInterface $propertyAccessor)
+	public function __construct(PropertyAccessorInterface $propertyAccessor)
 	{
 		$this->propertyAccessor = $propertyAccessor;
 	}

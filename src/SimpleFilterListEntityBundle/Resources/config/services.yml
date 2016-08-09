@@ -1,6 +1,6 @@
 services:
-    simple_filter_list_entity.form.type.simple_filter:
-        class: SimpleFilterListEntityBundle\Form\Type\FilterListType
+    simple_filter_list_entity.form.type:
+        class: SimpleFilterListEntityBundle\Form\Type\SimpleFilterType
         arguments: ['@property_accessor']
         tags:
-            - { name: form.type, alias: filter_list}
+            - { name: form.type}

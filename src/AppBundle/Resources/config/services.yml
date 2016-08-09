@@ -7,6 +7,5 @@ services:
         arguments: ["@form.factory", "@app.mailer_templating", "@session.flash_bag", "%robot_email%", "%contact_email%"]
     app.form.type.species:
         class: AppBundle\Form\Type\SpeciesType
-        arguments: ['@property_accessor']
         tags:
             - { name: form.type, alias: species}
