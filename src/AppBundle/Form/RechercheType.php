@@ -4,6 +4,7 @@ namespace AppBundle\Form;
 
 use AppBundle\Form\Type\SpeciesType;
 use Doctrine\ORM\EntityRepository;
+use SimpleFilterListEntityBundle\Form\Type\SimpleFilterType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\AbstractType;
@@ -39,10 +40,12 @@ class RechercheType extends AbstractType
                 },
 	            'placeholder' => 'search.species.placeholder',
 	            'label' => 'search.species.label',
+	            'popover_title' => 'search.species.popover_title',
+	            'popover_content' => 'search.species.popover_content',
 	            'translation_domain' => 'AppBundle'
             ))
 
-            ->add('Rechercher',SubmitType::class)
+//            ->add('Rechercher',SubmitType::class)
         ;
     }
     

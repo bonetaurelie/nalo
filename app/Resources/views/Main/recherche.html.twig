@@ -74,8 +74,8 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-12 text-center">
-                            {{ form_widget(form.Rechercher, {'attr': {'class': 'btn-lg btn-default'}}) }}
                             {{ form_rest(form) }}
+                            <button type="submit" class="btn-lg btn-default">{{ 'search.submit'|trans({}, 'AppBundle')|upper }}</button>
                         </div>
                     </div>
                     {{ form_end(form) }}
@@ -134,7 +134,7 @@
                 autoclose: true
             });
 
-            $('[data-toggle="tooltip"]').tooltip();
+            $('[data-toggle="popover"]').popover({'trigger':'hover'});
         });
     </script>
 {% endblock %}

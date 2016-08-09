@@ -1,5 +1,5 @@
 <?php
-namespace AppBundle\Form\Type;
+namespace SimpleFilterListEntityBundle\Form\Type;
 
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -8,7 +8,7 @@ use Symfony\Component\Form\FormView;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\PropertyAccess\PropertyAccessorInterface;
 
-class SpeciesType extends AbstractType
+class SimpleFilterType extends AbstractType
 {
 
 	/**
@@ -56,6 +56,6 @@ class SpeciesType extends AbstractType
 
 	public function getBlockPrefix()
 	{
-		return 'species';
+		return 'filter_list';
 	}
 }
