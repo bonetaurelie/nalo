@@ -30,7 +30,7 @@ class RechercheType extends AbstractType
             ->add('geo', ChoiceType::class)
             ->add('commune', ChoiceType::class)
             ->add('especebis',TextType::class)
-            ->add('species', EntityType::class, array(
+            ->add('species', SpeciesType::class, array(
             	'class' => 'AppBundle\Entity\Species',
 	            'choice_label' => 'frenchName',
 	            'placeholder' => 'search.species.placeholder',

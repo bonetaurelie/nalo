@@ -11,7 +11,30 @@
             </ul>
         {% else %}
             {# just let the choice widget render the select tag #}
+            <input type="text" id="filter_{{ id }}" data-choice-field-name="{{ id }}">
             {{ block('choice_widget') }}
         {% endif %}
     {% endspaceless %}
+    <script type="text/javascript">
+        var filterElement = document.getElementById('filter_{{ id }}');
+        filterElement.addEventListener("keyup", function(){
+            var value = this.value;
+
+            var contain = new RegExp(value,"gi");
+
+            console.log(contain);
+
+            var choiceList = document.getElementById('{{ id }}');
+
+            console.log(typeof(choiceList.options));
+            for(var i =0;i < choiceList.options.length; i++){
+                option =   choiceList.options[i];
+
+                option.style.display = 'none';
+                if(contain.test(option.text)){
+                    option.style.display = 'inline';
+                }
+            }
+        });
+    </script>
 {% endblock %}
