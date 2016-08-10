@@ -6,9 +6,16 @@ contact:
     email: 'Votre adresse e-mail'
     message: 'Votre message'
 search:
-    species:
-        placeholder: 'Toutes les espèces'
-        label: 'Sélectionnez une espèce'
-        popover_title: 'Filtrage des espèces'
-        popover_content: 'Ce champ permet de filtrer la liste des espèces. Par exemple : tapez "canard" et la liste contiendra que les noms de canard'
+    title_page: 'Recherche'
+    subtitle_page: 'Saisissez vos critères et consultez vos résultats.'
+    period_label: 'Période'
+    period_selector_first_label: 'Entre le '
+    period_selector_second_label: 'et le '
+    country_label: 'Sélectionnez un critère géographique'
+    town_label: 'Sélectionnez une commune'
     submit: 'Rechercher'
+species:
+    placeholder: 'Toutes les espèces'
+    label: 'Sélectionnez une espèce'
+    popover_title: 'Filtrage des espèces'
+    popover_content: 'Ce champ permet de filtrer la liste des espèces. Par exemple : tapez "canard" et la liste contiendra que les noms de canard'

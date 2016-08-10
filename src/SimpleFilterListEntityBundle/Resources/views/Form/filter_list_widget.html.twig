@@ -1,31 +1,32 @@
 {% block filter_list_widget %}
     {% spaceless %}
-        <div class="col-lg-4">
+        <div class="{{ filter_css_class }}">
             <input type="text" id="filter_{{ id }}" data-choice-field-name="{{ id }}">
            &nbsp;
-            <i class="glyphicon glyphicon-info-sign text-info" data-container="body" data-toggle="popover" data-placement="top" title="{{ popover_title|trans({}, translation_domain) }}" data-content="{{ popover_content|trans({}, translation_domain) }}"></i>
+            <i class="glyphicon glyphicon-info-sign text-info" id="popover_{{ id }}" data-container="body" data-toggle="popover" data-placement="top" title="{{ popover_title|trans({}, translation_domain) }}" data-content="{{ popover_content|trans({}, translation_domain) }}"></i>
         </div>
-        <div class="col-lg-4">{{ block('choice_widget') }}</div>
+        <div class="{{ filter_choice_css_class }}">{{ block('choice_widget') }}</div>
     {% endspaceless %}
-    <script type="text/javascript">
-        var filterElement = document.getElementById('filter_{{ id }}');
-        filterElement.addEventListener("keyup", function(){
-            var value = this.value;
-
-            var contain = new RegExp(value,"gi");
-
-            console.log(contain);
-
-            var choiceList = document.getElementById('{{ id }}');
-
-            console.log(typeof(choiceList.options));
-            for(var i =0;i < choiceList.options.length; i++){
-                option =   choiceList.options[i];
-                option.style.display = 'none';
-                if(contain.test(option.text)){
-                    option.style.display = 'block';
-                }
-            }
-        });
-    </script>
 {% endblock filter_list_widget %}
+{% block form_javascript %}
+    <script type="text/javascript">
+        if(typeof($) === 'undefined'){
+            alert('{{ 'filter_list.jquery_missing_message'|trans({}, 'FilterList') }}');
+        }
+        else{
+            var $filterElement = $('#filter_{{ id }}');
+            $filterElement.on('keyup', function(){
+                var value = $(this).val();
+                var contain = new RegExp(value,"gi");
+                var $choiceList = $('#{{ id }}');
+                $choiceList.find('option').css('display', 'none');
+                $choiceList.find('option').filter(function(){
+                    return contain.test($(this).text());
+                }).css('display', 'block');
+            });
+
+            $('#popover_{{ id }}').popover({'trigger':'hover'});
+        }
+
+    </script>
+{% endblock form_javascript %}

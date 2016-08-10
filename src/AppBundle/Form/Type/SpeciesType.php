@@ -20,10 +20,10 @@ class SpeciesType extends AbstractType
                     return $er->createQueryBuilder('e')
                         ->orderBy('e.frenchName', 'ASC');
                 },
-                'placeholder' => 'search.species.placeholder',
-                'label' => 'search.species.label',
-                'popover_title' => 'search.species.popover_title',
-                'popover_content' => 'search.species.popover_content',
+                'placeholder' => 'species.placeholder',
+                'label' => 'species.label',
+                'popover_title' => 'species.popover_title',
+                'popover_content' => 'species.popover_content',
                 'translation_domain' => 'AppBundle'
             )
         );

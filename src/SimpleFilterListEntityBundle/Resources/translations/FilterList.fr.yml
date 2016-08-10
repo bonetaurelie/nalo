@@ -1,0 +1,2 @@
+filter_list:
+    jquery_missing_message: 'FilterList nécessiste la librairie Js Jquery et bootstrap 3.2 pour fonctionner'
