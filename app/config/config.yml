@@ -21,6 +21,9 @@ framework:
     #serializer:      { enable_annotations: true }
     templating:
         engines: ['twig']
+#        form:
+#            resources:
+
     default_locale:  "%locale%"
     trusted_hosts:   ~
     trusted_proxies: ~
@@ -39,6 +42,7 @@ twig:
 #    globals:
     form_themes:
         - bootstrap_3_layout.html.twig
+
 # Doctrine Configuration
 doctrine:
     dbal:

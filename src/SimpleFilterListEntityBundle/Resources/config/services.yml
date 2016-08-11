@@ -1,0 +1,11 @@
+services:
+    simple_filter_list_entity.form.type:
+        class: SimpleFilterListEntityBundle\Form\Type\SimpleFilterType
+        arguments: ['@property_accessor']
+        tags:
+            - { name: form.type}
+    simple_filter_list_entity.twig.extension.form:
+        class: SimpleFilterListEntityBundle\Twig\Extension\FormExtension
+        arguments: ['@twig.form.renderer']
+        tags:
+            - { name: twig.extension}

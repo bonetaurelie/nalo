@@ -17,6 +17,7 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new \FOS\UserBundle\FOSUserBundle(),
             new EWZ\Bundle\RecaptchaBundle\EWZRecaptchaBundle(),
+            new SimpleFilterListEntityBundle\SimpleFilterListEntityBundle(),
             new AppBundle\AppBundle(),
             new UserBundle\UserBundle(),
         ];
@@ -26,6 +27,7 @@ class AppKernel extends Kernel
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
+	        $bundles[] = new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle();
         }
 
         return $bundles;
