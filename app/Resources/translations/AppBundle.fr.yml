@@ -18,4 +18,4 @@ species:
     placeholder: 'Toutes les espèces'
     label: 'Sélectionnez une espèce'
     popover_title: 'Filtrage des espèces'
-    popover_content: 'Ce champ permet de filtrer la liste des espèces. Par exemple : tapez "canard" et la liste contiendra que les noms de canard'
+    popover_content: 'Ce champ permet de filtrer la liste des espèces. Par exemple : tapez "canard" et la liste contiendra que des canards'
