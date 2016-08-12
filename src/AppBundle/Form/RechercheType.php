@@ -2,6 +2,10 @@
 
 namespace AppBundle\Form;
 
+use AppBundle\Form\Type\SpeciesType;
+use Doctrine\ORM\EntityRepository;
+use SimpleFilterListEntityBundle\Form\Type\SimpleFilterType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -27,9 +31,7 @@ class RechercheType extends AbstractType
             ))
             ->add('geo', ChoiceType::class)
             ->add('commune', ChoiceType::class)
-            ->add('especebis',TextType::class)
-            ->add('espece', ChoiceType::class)
-            ->add('Rechercher',SubmitType::class)
+            ->add('species', SpeciesType::class)
         ;
     }
     

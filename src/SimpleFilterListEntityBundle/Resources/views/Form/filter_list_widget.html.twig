@@ -1,0 +1,32 @@
+{% block filter_list_widget %}
+    {% spaceless %}
+        <div class="{{ filter_css_class }}">
+            <input type="text" id="filter_{{ id }}" data-choice-field-name="{{ id }}">
+           &nbsp;
+            <i class="glyphicon glyphicon-info-sign text-info" id="popover_{{ id }}" data-container="body" data-toggle="popover" data-placement="top" title="{{ popover_title|trans({}, translation_domain) }}" data-content="{{ popover_content|trans({}, translation_domain) }}"></i>
+        </div>
+        <div class="{{ filter_choice_css_class }}">{{ block('choice_widget') }}</div>
+    {% endspaceless %}
+{% endblock filter_list_widget %}
+{% block form_javascript %}
+    <script type="text/javascript">
+        if(typeof($) === 'undefined'){
+            alert('{{ 'filter_list.jquery_missing_message'|trans({}, 'FilterList') }}');
+        }
+        else{
+            var $filterElement = $('#filter_{{ id }}');
+            $filterElement.on('keyup', function(){
+                var value = $(this).val();
+                var contain = new RegExp(value,"gi");
+                var $choiceList = $('#{{ id }}');
+                $choiceList.find('option').css('display', 'none');
+                $choiceList.find('option').filter(function(){
+                    return contain.test($(this).text());
+                }).css('display', 'block');
+            });
+
+            $('#popover_{{ id }}').popover({'trigger':'hover'});
+        }
+
+    </script>
+{% endblock form_javascript %}
