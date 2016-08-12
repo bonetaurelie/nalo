@@ -42,6 +42,7 @@ twig:
 #    globals:
     form_themes:
         - bootstrap_3_layout.html.twig
+        - 'DependentFormsBundle:Form:fields.html.twig'
 
 # Doctrine Configuration
 doctrine:
@@ -106,3 +107,14 @@ fos_user:
     profile:
         form:
             type: UserBundle\Form\ProfileType
+
+dependent_forms:
+    dependent_forms:
+        city_by_department:
+            class: AppBundle\Entity\locality\City
+            parent_property: department
+            property: adminName
+#            role: ROLE_USER
+            no_result_msg: 'Pas de ville trouvée pour ce département'
+            order_property: adminName
+            order_direction: ASC

@@ -38,9 +38,6 @@ fos_user_profile_edit:
 fos_user_resetting:
     resource: "@UserBundle/Resources/config/routing/resetting.xml"
     prefix:   /mot-de-passe-oublie
-#fos_user_change_password:
-#    resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
-#    prefix:   /profil
 
-#fos_user:
-#    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+anacona16_dependent_forms:
+    resource: '@DependentFormsBundle/Resources/config/routing.xml'

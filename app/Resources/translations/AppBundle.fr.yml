@@ -19,3 +19,5 @@ species:
     label: 'Sélectionnez une espèce'
     popover_title: 'Filtrage des espèces'
     popover_content: 'Ce champ permet de filtrer la liste des espèces. Par exemple : tapez "canard" et la liste contiendra que des canards'
+locality:
+    choice_city: 'Choisir une ville'
