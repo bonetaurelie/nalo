@@ -31,18 +31,18 @@
                                     <label class="control-label">{{ 'search.period_label'|trans }}</label>
                                 </div>
                                 <div class="form-group col-lg-4">
-                                    {{ form_label(form.datedebut, ('search.period_selector_first_label'|trans), {'label_attr': {'class': 'col-lg-4'}}) }}
-                                    {{ form_errors(form.datedebut) }}
+                                    {{ form_label(form.startDate, ('search.period_selector_first_label'|trans), {'label_attr': {'class': 'col-lg-4'}}) }}
+                                    {{ form_errors(form.startDate) }}
                                     <div class="input-group col-lg-8">
-                                        {{ form_widget(form.datedebut) }}
+                                        {{ form_widget(form.startDate) }}
                                         <div class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></div>
                                     </div>
                                 </div>
                                 <div class="form-group col-lg-4">
-                                    {{ form_label(form.datefin, ('search.period_selector_second_label'|trans), {'label_attr': {'class': 'col-lg-4'}}) }}
-                                    {{ form_errors(form.datefin) }}
+                                    {{ form_label(form.endDate, ('search.period_selector_second_label'|trans), {'label_attr': {'class': 'col-lg-4'}}) }}
+                                    {{ form_errors(form.endDate) }}
                                     <div class="input-group col-lg-8">
-                                        {{ form_widget(form.datefin) }}
+                                        {{ form_widget(form.endDate) }}
                                         <div class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></div>
                                     </div>
                                 </div>
@@ -50,19 +50,19 @@
                         </div>
                         <div class="row">
                             <div class="form-group col-lg-12">
-                                {{ form_label(form.geo, ('search.country_label'|trans), {'label_attr': {'class': 'col-lg-4'}}) }}
-                                {{ form_errors(form.geo) }}
+                                {{ form_label(form.department, ('search.country_label'|trans), {'label_attr': {'class': 'col-lg-4'}}) }}
+                                {{ form_errors(form.department) }}
                                 <div class="col-lg-8">
-                                    {{ form_widget(form.geo) }}
+                                    {{ form_widget(form.department) }}
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="form-group col-lg-12">
-                                {{ form_label(form.commune, ('search.town_label'|trans), {'label_attr': {'class': 'col-lg-4'}}) }}
-                                {{ form_errors(form.commune) }}
+                                {{ form_label(form.city, ('search.town_label'|trans), {'label_attr': {'class': 'col-lg-4'}}) }}
+                                {{ form_errors(form.city) }}
                                 <div class="col-lg-8">
-                                    {{ form_widget(form.commune) }}
+                                    {{ form_widget(form.city, {'attr': {'class': 'form-control'}}) }}
                                 </div>
                             </div>
                         </div>
@@ -95,7 +95,7 @@
                         <ul>
                             <li>
                                 <h2>Date</h2>
-                                <h3>Commune</h3>
+                                <h3>city</h3>
                                 <p>Espèce</p>
                             </li>
                         </ul>
@@ -125,12 +125,12 @@
     <script type="text/javascript">
 
         $(function () {
-            $('#recherche_datedebut').datepicker({
+            $('#recherche_startDate').datepicker({
                 format: "dd/mm/yyyy",
                 language: "fr",
                 autoclose: true
             });
-            $('#recherche_datefin').datepicker({
+            $('#recherche_endDate').datepicker({
                 format: "dd/mm/yyyy",
                 language: "fr",
                 autoclose: true
