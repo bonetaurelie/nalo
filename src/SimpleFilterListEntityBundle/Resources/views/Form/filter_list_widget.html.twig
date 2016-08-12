@@ -14,19 +14,20 @@
             alert('{{ 'filter_list.jquery_missing_message'|trans({}, 'FilterList') }}');
         }
         else{
-            var $filterElement = $('#filter_{{ id }}');
-            $filterElement.on('keyup', function(){
-                var value = $(this).val();
-                var contain = new RegExp(value,"gi");
-                var $choiceList = $('#{{ id }}');
-                $choiceList.find('option').css('display', 'none');
-                $choiceList.find('option').filter(function(){
-                    return contain.test($(this).text());
-                }).css('display', 'block');
+            $(function(){
+                var $filterElement = $('#filter_{{ id }}');
+                $filterElement.on('keyup', function(){
+                    var value = $(this).val();
+                    var contain = new RegExp(value,"gi");
+                    var $choiceList = $('#{{ id }}');
+                    $choiceList.find('option').css('display', 'none');
+                    $choiceList.find('option').filter(function(){
+                        return contain.test($(this).text());
+                    }).css('display', 'block');
+                });
+
+                $('#popover_{{ id }}').popover({'trigger':'hover'});
             });
-
-            $('#popover_{{ id }}').popover({'trigger':'hover'});
         }
-
     </script>
 {% endblock form_javascript %}
