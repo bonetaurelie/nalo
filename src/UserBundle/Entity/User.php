@@ -61,6 +61,7 @@ class User extends BaseUser
     public function setEmail($email){
         $this->email = $email;
         $this->username = $email;
+	    return $this;
     }
 
     /**

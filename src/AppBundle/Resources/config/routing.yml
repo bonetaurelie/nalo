@@ -22,13 +22,13 @@ app_mentions:
     path:    /mentions
     defaults: {_controller: AppBundle:Main:mentions}
 
-app_saisie:
-    path:    /saisie
-    defaults: {_controller: AppBundle:Main:saisie}
+#app_saisie:
+#    path:    /saisie
+#    defaults: {_controller: AppBundle:Main:saisie}
 
-app_observations:
-    path:    /observations
-    defaults: {_controller: AppBundle:Main:observations}
+#app_observations:
+#    path:    /observations
+#    defaults: {_controller: AppBundle:Main:observations}
 
 app_validations:
     path:    /validations
@@ -37,6 +37,10 @@ app_validations:
 app_detailValidation:
     path:    /detailValidation
     defaults: {_controller: AppBundle:Main:detailValidation}
+
+app_observations:
+    resource: "@AppBundle/Controller/ObservationController.php"
+    type:     annotation
 
 
 
