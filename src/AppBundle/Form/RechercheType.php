@@ -37,9 +37,8 @@ class RechercheType extends AbstractType
             ))
             ->add('city', DependentFormsType::class, array(
             	'entity_alias' => 'city_by_department',
-	            'empty_value' => 'locality.choice_city',
+	            'empty_value' => 'Choisir une ville',
 	            'parent_field' => 'department',
-	            'translation_domain' => 'AppBundle'
             ))
             ->add('species', SpeciesType::class)
         ;
