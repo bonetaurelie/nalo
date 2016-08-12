@@ -18,6 +18,7 @@ class AppKernel extends Kernel
             new \FOS\UserBundle\FOSUserBundle(),
             new EWZ\Bundle\RecaptchaBundle\EWZRecaptchaBundle(),
             new SimpleFilterListEntityBundle\SimpleFilterListEntityBundle(),
+	        new Anacona16\Bundle\DependentFormsBundle\DependentFormsBundle(),
             new AppBundle\AppBundle(),
             new UserBundle\UserBundle(),
         ];
