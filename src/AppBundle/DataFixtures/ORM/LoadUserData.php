@@ -32,7 +32,7 @@ class LoadUserData implements FixtureInterface, ContainerAwareInterface
 				->setFirstName($fakeUser->firstName)
 				->setLastName($fakeUser->lastName)
 				->setEmail($fakeUser->email)
-				->setRoles(array())
+				->setRoles(array($fakeUser->role))
 				->setEnabled(true)
 				->setPlainPassword($fakeUser->plainpassword)
 			;

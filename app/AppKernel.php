@@ -19,6 +19,7 @@ class AppKernel extends Kernel
             new EWZ\Bundle\RecaptchaBundle\EWZRecaptchaBundle(),
             new SimpleFilterListEntityBundle\SimpleFilterListEntityBundle(),
 	        new Anacona16\Bundle\DependentFormsBundle\DependentFormsBundle(),
+	        new \Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new AppBundle\AppBundle(),
             new UserBundle\UserBundle(),
         ];

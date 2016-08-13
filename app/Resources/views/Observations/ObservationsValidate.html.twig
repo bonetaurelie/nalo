@@ -1,22 +1,14 @@
 {% extends "profile.layout.html.twig" %}
 
 {% block title %}
-    {{ parent() }} - Mes observations
+    {{ parent() }} - OBSERVATIONS A VALIDER
 {% endblock %}
 
 {% block body_member_space %}
     <div class="row">
         <div class="blockobs">
-            <h1 class="titreobs col-md-offset-4 col-xs-offset-1">MES OBSERVATIONS</h1>
-
-            <div class="legende col-md-offset-4 col-xs-offset-1">
-                <em><img src="">Observations validées</em><br>
-                <em><img src="">Observations en attente de validation</em><br>
-                <em><img src="">Observation rejetée</em><br>
-            </div>
-
-            <a class="lien col-md-offset-4 col-xs-offset-1 btn btn-default" href="{{ path('app_observations_add') }}" role="button">Ajouter une observation</a>
-
+            <h1 class="titreval col-md-offset-4 col-xs-offset-1">OBSERVATIONS A VALIDER</h1>
+            <p class="tri col-xs-offset-6 col-sm-5 col-md-offset-6 col-lg-offset-6">Afficher la liste par:</p>
 
             <div class="responsive-table-line">
                 <table class="table table-bordered table-condensed table-body-center">
@@ -25,7 +17,6 @@
                         <th>Date</th>
                         <th>Commune</th>
                         <th>Espèce</th>
-                        <th>Statut</th>
                         <th>Actions</th>
                     </tr>
                     </thead>
@@ -35,13 +26,7 @@
                         <td>{{ observation.datetimeObservation|date('d/m/Y') }}</td>
                         <td>{{ observation.locality.adminName }}</td>
                         <td>{{ observation.species.frenchName }}</td>
-                        <td>{{ observation.state }}</td>
-                        <td data-title="Actions">
-                            {% if observation.state is constant('STATE_STANDBY', observation) or observation.state is constant('STATE_REFUSED', observation) %}
-                            <a class="text-center btn btn-warning" href="#" role="button">Modifier</a>
-                            <a class="text-center btn btn-danger" href="#" role="button">Supprimer</a>
-                                {% endif %}
-                        </td>
+                        <td data-title="Actions"><a class="text-center btn btn-default" href="#" role="button">Voir</a></td>
                     </tr>
                     {% endfor %}
                     </tbody>

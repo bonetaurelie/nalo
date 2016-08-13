@@ -20,10 +20,12 @@
                         {#{{ path('oc_core_observations') }}#}
                         <a href="{{ path('app_observations_list') }}">Mes observations</a>
                     </li>
+                    {% if is_granted('ROLE_PRO') %}
                     <li>
                         {#{{ path('oc_core_validations') }}#}
-                        <a href="#">Validations</a>
+                        <a href="{{ path('app_observations_validate') }}">Validations</a>
                     </li>
+                    {% endif %}
                 </ul>
             </div>
             <div class="blockprofil">

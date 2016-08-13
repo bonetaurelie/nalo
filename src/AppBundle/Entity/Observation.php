@@ -2,9 +2,9 @@
 
 namespace AppBundle\Entity;
 
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 use UserBundle\Entity\User;
-use UserBundle\UserBundle;
 
 /**
  * Class Observation
@@ -44,40 +44,53 @@ class Observation
 	/**
 	 * @var \AppBundle\Entity\locality\City
 	 * @ORM\ManyToOne(targetEntity="\AppBundle\Entity\locality\City")
+	 * @ORM\JoinColumn(nullable=false)
 	 */
 	protected $locality;
 
 	/**
 	 * @var \UserBundle\Entity\User
 	 * @ORM\ManyToOne(targetEntity="UserBundle\Entity\User")
+	 * @ORM\JoinColumn(nullable=false)
 	 */
 	protected $author;
 
 	/**
 	 * @var \AppBundle\Entity\Species
 	 * @ORM\ManyToOne(targetEntity="\AppBundle\Entity\Species")
+	 * @ORM\JoinColumn(nullable=false)
 	 */
 	protected $species;
 
 	/**
 	 * @var integer
 	 * @ORM\Column(type="integer", length=3)
+	 * @Assert\Length(min=1, max=3, minMessage="observations.form.error.minNbIndividual", maxMessage="observations.form.error.minNbIndividual")
 	 */
 	protected $nbIndividual;
 
 	/**
 	 * @var string
 	 * @ORM\Column(type="text")
+	 * @Assert\NotBlank()
 	 */
 	protected $comment;
 
 	/**
 	 * @var interger
 	 * @ORM\Column(type="integer", length=1)
+	 * @Assert\NotBlank()
 	 */
 	protected $state;
 
-    /**
+	public function __construct()
+	{
+		$this->state = self::STATE_STANDBY;//par défaut l'état de l'observation est "en attente"
+
+		$this->datetimeObservation = new \DateTime();
+	}
+
+	/**
      * Get id
      *
      * @return integer

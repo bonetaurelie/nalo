@@ -15,6 +15,8 @@ use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 class ObservationType extends AbstractType
@@ -36,12 +38,13 @@ class ObservationType extends AbstractType
 					return $er->createQueryBuilder('d')
 						->orderBy('d.adminName', 'ASC');
 				},
+				"mapped" => false,
 				'label_attr' => ['class' => 'label-control col-lg-4'],
 				'attr' => ['class' => 'form-control col-lg-8'],
 				'label' => 'observations.form.department',
 				'translation_domain' => 'AppBundle'
 			))
-			->add('city', DependentFormsType::class, array(
+			->add('locality', DependentFormsType::class, array(
 				'entity_alias' => 'city_by_department',
 				'empty_value' => 'Choisir une ville',
 				'parent_field' => 'department',
@@ -50,7 +53,22 @@ class ObservationType extends AbstractType
 				'label' => 'observations.form.city',
 				'translation_domain' => 'AppBundle'
 			))
-			->add('species', SpeciesType::class)
+			->add('species', SpeciesType::class, array(
+				'filter_css_class' => 'col-lg-5 no-padding',
+				'filter_choice_css_class' => 'col-lg-6 no-padding',
+			))
+			->add('nbIndividual', IntegerType::class, array(
+				'label_attr' => ['class' => 'label-control col-lg-4'],
+				'label' => 'observations.form.nb_individual',
+				'translation_domain' => 'AppBundle',
+				'attr' => ['form_group_class' => 'col-lg-1']
+			))
+			->add('comment', TextareaType::class, array(
+				'label_attr' => ['class' => 'label-control col-lg-4'],
+				'attr' => ['class' => 'form-control col-lg-8', 'style' => 'height:150px'],
+				'label' => 'observations.form.comment',
+				'translation_domain' => 'AppBundle'
+			))
 		;
 	}
 }

@@ -694,6 +694,10 @@ footer a:hover{
     .control-label-confnewmdp{
         margin-left: 230px;
     }
+
+    .no-padding{
+        padding: 0;
+    }
 }
 
 @media(max-width:992px){

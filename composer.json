@@ -30,7 +30,8 @@
         "incenteev/composer-parameter-handler": "^2.0",
         "excelwebzone/recaptcha-bundle": "3.0.x-dev",
         "friendsofsymfony/user-bundle": "~2.0@dev",
-        "anacona16/dependent-forms-bundle": "^1.0"
+        "anacona16/dependent-forms-bundle": "^1.0",
+        "knplabs/knp-paginator-bundle": "^2.5"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
