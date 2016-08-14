@@ -81,4 +81,23 @@ class ObservationController extends Controller
 
 		return $this->render(':Observations:list.html.twig', ['observations' => $lastObservations]);
 	}
+
+    /**
+     * @param Request $request
+     * @Route("/recherche", name="app_observations_search")
+     */
+	public function search(Request $request)
+    {
+        $observation = $this->get('app.business_observation');
+        $form = $observation->getSearchForm();
+
+        $resultats = $observation->getResultats($request);
+
+        dump($resultats);
+
+        return $this->render(':Observations:search.html.twig', array(
+            'form' => $form->createView(),
+            'resultats' => $resultats
+        ));
+    }
 }

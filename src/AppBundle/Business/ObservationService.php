@@ -5,6 +5,7 @@ namespace AppBundle\Business;
 
 use AppBundle\Entity\Observation;
 use AppBundle\Form\ObservationType;
+use AppBundle\Form\RechercheType;
 use AppBundle\Services\MailerTemplating;
 use Doctrine\ORM\EntityManager;
 use FOS\UserBundle\Model\UserInterface;
@@ -44,6 +45,11 @@ class ObservationService
 	private $paginator;
 
 	private $fromMail;
+
+    /**
+     * @var Form
+     */
+    private $searchForm;
 
 	public function __construct(FormFactory $formFactory, MailerTemplating $mailer,FlashBag $flashBag, EntityManager $manager, PaginatorInterface $paginator, $fromMail)
 	{
@@ -167,4 +173,37 @@ class ObservationService
 			Observation::DEFAULT_ITEMS_BY_PAGE/*limit per page*/
 		);
 	}
+
+	public function getSearchForm()
+    {
+        $this->searchForm =  $this->formFactory->create(RechercheType::class);
+        return $this->searchForm;
+    }
+
+	public function getResultats(Request $request)
+    {
+        if(null === $this->searchForm){
+            throw new \Exception("Use getSearchForm before!");
+        }
+
+        dump("suis la");
+
+        if($this->searchForm->isSubmitted() && $this->searchForm->isValid()){
+            dump(true);
+            $query = $this->em->getRepository('AppBundle:Observation')->search(
+                $request->get('startDate'),
+                $request->get('endDate'),
+                $request->get('city'),
+                $request->get('species')
+            );
+
+            return $this->paginator->paginate(
+                $query,
+                $request->query->getInt('page', 1),
+                Observation::DEFAULT_ITEMS_BY_PAGE
+            );
+        }
+
+        return null;
+    }
 }

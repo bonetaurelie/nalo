@@ -6,9 +6,9 @@ app_association:
     path:    /association
     defaults: {_controller: AppBundle:Main:association}
 
-app_recherche:
-    path:    /recherche
-    defaults: {_controller: AppBundle:Main:recherche}
+#app_recherche:
+#    path:    /recherche
+#    defaults: {_controller: AppBundle:Main:recherche}
 
 app_detailRecherche:
     path:    /detailRecherche

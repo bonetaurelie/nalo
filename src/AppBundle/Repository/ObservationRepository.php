@@ -9,6 +9,7 @@
 namespace AppBundle\Repository;
 
 
+use AppBundle\Entity\Species;
 use Doctrine\ORM\EntityRepository;
 use FOS\UserBundle\Model\UserInterface;
 
@@ -40,4 +41,19 @@ class ObservationRepository extends EntityRepository
 
 		return $query;
 	}
+
+	public function search(\DateTime $startDate, \DateTime $endDate, City $city, Species $species, $orders = array('o.datetimeObservation' => 'ASC'))
+    {
+        $query = $this->createQueryBuilder("o")
+            ->andWhere("o.datetimeObservation >= :startDate")->setParameter('startDate', $startDate)
+            ->andWhere("o.datetimeObservation <= :endDate")->setParameter('endDate', $endDate)
+            ->andWhere("o.locality = :locality")->setParameter('locality', $city)
+            ->andWhere("o.species = :species")->setParameter('species', $species)
+        ;
+        foreach ($orders as $field => $order){
+            $query->addOrderBy($field, $order);
+        }
+
+        return $query;
+    }
 }
