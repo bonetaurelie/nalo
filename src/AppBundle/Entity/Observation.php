@@ -12,7 +12,7 @@ use UserBundle\Entity\User;
  *
  * Représente une observation
  *
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\ObservationRepository")
  * @ORM\table(name="nalo_observation")
  */
 class Observation
@@ -26,6 +26,10 @@ class Observation
 
 	const STATE_VALIDATED   = 2;
 	const STATE_REFUSED     = 3;
+
+	const DEFAULT_ITEMS_BY_PAGE = 10;
+
+
 
 	/**
 	 * @var integer
@@ -88,6 +92,8 @@ class Observation
 		$this->state = self::STATE_STANDBY;//par défaut l'état de l'observation est "en attente"
 
 		$this->datetimeObservation = new \DateTime();
+
+		$this->nbIndividual = 1;
 	}
 
 	/**

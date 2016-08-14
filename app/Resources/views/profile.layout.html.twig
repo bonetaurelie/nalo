@@ -1,7 +1,7 @@
 {% extends 'layout.html.twig' %}
-
+{% trans_default_domain 'AppBundle' %}
 {% block title %}
-    {{ parent() }} - votre espace
+    {{ parent() }} - {{ 'profile.common.title' |trans }}
 {% endblock %}
 
 {% block body %}
@@ -14,16 +14,14 @@
                         <p>{{ app.user.getFullNameRole }}</p>
                     </li>
                     <li>
-                        <a href="{{ path('fos_user_profile_edit') }}">Profil</a>
+                        <a href="{{ path('fos_user_profile_edit') }}">{{ 'profile.common.profile_link' |trans }}</a>
                     </li>
                     <li>
-                        {#{{ path('oc_core_observations') }}#}
-                        <a href="{{ path('app_observations_list') }}">Mes observations</a>
+                        <a href="{{ path('app_observations_list') }}">{{ 'profile.common.my_observations_link' |trans }}</a>
                     </li>
                     {% if is_granted('ROLE_PRO') %}
                     <li>
-                        {#{{ path('oc_core_validations') }}#}
-                        <a href="{{ path('app_observations_validate') }}">Validations</a>
+                        <a href="{{ path('app_observations_validate') }}">{{ 'profile.common.observations_validate_link' |trans }}</a>
                     </li>
                     {% endif %}
                 </ul>

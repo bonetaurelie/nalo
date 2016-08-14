@@ -1,0 +1,5 @@
+<li data-id="species-{{ observation.id }}" data-gps-longitude="{{ observation.locality.longitude }}" data-gps-latitude="{{ observation.locality.latitude }}" >
+    <h4 class="text-right">{{ observation.species.frenchName }}</h4>
+    <p class="text-right">Le {{ observation.datetimeObservation|date('d/m/Y à H:m') }}</p>
+    <p class="text-right">{{ observation.locality.adminName }} ({{ observation.locality.department.departmentCode }})</p>
+</li>

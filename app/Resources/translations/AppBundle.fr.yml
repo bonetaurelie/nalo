@@ -14,6 +14,41 @@ search:
     country_label: 'Sélectionnez un critère géographique'
     town_label: 'Sélectionnez une commune'
     submit: 'Rechercher'
+profile:
+    common:
+        title: 'Votre espace'
+        profile_link: 'Profil'
+        my_observations_link: 'Mes observations'
+        observations_validate_link: 'Observations à valider'
+observations:
+    my_observations_page:
+        title: 'Mes observations'
+        legends:
+            standby: 'Observation en attente de validation'
+            validated: 'Observation validée'
+            refused: 'Observation rejetée'
+        add_bouton: 'Ajouter une observation'
+        table:
+            header:
+                date: 'Date'
+                city: 'Commune'
+                species: 'Espèce'
+                state: 'Status'
+                action: 'Action'
+        action_buttons:
+            edit: 'Modifier'
+            delete: 'Supprimer'
+    add_page:
+        title: 'Saisie d''une observation'
+        subtitle: 'Saississez les informations relatives à votre observation, ajoutez la position sur la carte puis cliquez sur envoyer'
+    form:
+        datetime: 'Date et heure de l''observation'
+        department: 'Selectionner le département'
+        city: 'Selectionner la commune'
+        nb_individual: 'Nombre d''individu observé'
+        comment: 'Commentaire'
+        add_submit: 'Envoyer'
+# formType
 species:
     placeholder: 'Toutes les espèces'
     label: 'Sélectionnez une espèce'

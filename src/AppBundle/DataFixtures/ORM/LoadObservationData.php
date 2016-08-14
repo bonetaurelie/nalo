@@ -27,7 +27,7 @@ class LoadObservationData implements FixtureInterface, OrderedFixtureInterface
 				'species'   => $this->manager->getRepository('AppBundle:Species')->findOneBy(array('frenchName' => 'Aigle royal')),
 				'datetimeObservation'   => new \DateTime(),
 				'nbIndividual'   => rand(1,10),
-				'comment'   => "commantaire ".rand(1,10),
+				'comment'   => "commentaire ".rand(1,10),
 				'state'   => rand(0,3)
 			);
 	}

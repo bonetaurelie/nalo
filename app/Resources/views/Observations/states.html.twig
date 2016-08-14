@@ -1,0 +1,7 @@
+<i class="glyphicon {% if observation.state is constant('STATE_STANDBY', observation) or observation.state is constant('STATE_IN_STUDY', observation) %}
+glyphicon glyphicon-refresh text-warning
+{% elseif observation.state is constant('STATE_VALIDATED', observation)  %}
+glyphicon glyphicon-ok text-success
+{% elseif observation.state is constant('STATE_REFUSED', observation)  %}
+glyphicon glyphicon-remove text-danger
+{% endif %}"></i>

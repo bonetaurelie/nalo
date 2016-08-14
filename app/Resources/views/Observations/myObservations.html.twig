@@ -1,45 +1,47 @@
 {% extends "profile.layout.html.twig" %}
-
+{% trans_default_domain 'AppBundle' %}
 {% block title %}
-    {{ parent() }} - Mes observations
+    {{ parent() }} - {{ 'observations.my_observations_page.title'|trans }}
 {% endblock %}
 
 {% block body_member_space %}
     <div class="row">
         <div class="blockobs">
-            <h1 class="titreobs col-md-offset-4 col-xs-offset-1">MES OBSERVATIONS</h1>
+            <h1 class="titreobs col-md-offset-4 col-xs-offset-1">{{ 'observations.my_observations_page.title'|trans|upper }}</h1>
 
             <div class="legende col-md-offset-4 col-xs-offset-1">
-                <em><img src="">Observations validées</em><br>
-                <em><img src="">Observations en attente de validation</em><br>
-                <em><img src="">Observation rejetée</em><br>
+                <em><i class="glyphicon glyphicon-refresh text-warning"></i> {{ 'observations.my_observations_page.legends.standby'|trans }}</em><br>
+                <em><i class="glyphicon glyphicon-ok text-success"></i> {{ 'observations.my_observations_page.legends.validated'|trans }}</em><br>
+                <em><i class="glyphicon glyphicon-remove text-danger"></i> {{ 'observations.my_observations_page.legends.refused'|trans }}</em><br>
             </div>
 
-            <a class="lien col-md-offset-4 col-xs-offset-1 btn btn-default" href="{{ path('app_observations_add') }}" role="button">Ajouter une observation</a>
+            <a class="lien btn btn-default" href="{{ path('app_observations_add') }}" role="button">{{ 'observations.my_observations_page.add_bouton'|trans }}</a>
 
 
             <div class="responsive-table-line">
                 <table class="table table-bordered table-condensed table-body-center">
                     <thead>
                     <tr>
-                        <th>Date</th>
-                        <th>Commune</th>
-                        <th>Espèce</th>
-                        <th>Statut</th>
-                        <th>Actions</th>
+                        <th width="15%" class="text-center">{{ 'observations.my_observations_page.table.header.date'|trans }}</th>
+                        <th width="30%">{{ 'observations.my_observations_page.table.header.city'|trans }}</th>
+                        <th width="30%">{{ 'observations.my_observations_page.table.header.species'|trans }}</th>
+                        <th width="10%" class="text-center">{{ 'observations.my_observations_page.table.header.state'|trans }}</th>
+                        <th width="15%" class="text-center">{{ 'observations.my_observations_page.table.header.action'|trans }}</th>
                     </tr>
                     </thead>
                     <tbody>
                     {% for observation in pagination %}
                     <tr>
-                        <td>{{ observation.datetimeObservation|date('d/m/Y') }}</td>
-                        <td>{{ observation.locality.adminName }}</td>
-                        <td>{{ observation.species.frenchName }}</td>
-                        <td>{{ observation.state }}</td>
-                        <td data-title="Actions">
+                        <td class="text-center">{{ observation.datetimeObservation|date('d/m/Y') }}</td>
+                        <td data-title="Actions">{{ observation.locality.adminName }}</td>
+                        <td data-title="Actions">{{ observation.species.frenchName }}</td>
+                        <td class="text-center" data-title="Actions">
+                            {% include ':Observations:states.html.twig' with {'observation': observation} %}
+                        </td>
+                        <td data-title="Actions" class="text-center">
                             {% if observation.state is constant('STATE_STANDBY', observation) or observation.state is constant('STATE_REFUSED', observation) %}
-                            <a class="text-center btn btn-warning" href="#" role="button">Modifier</a>
-                            <a class="text-center btn btn-danger" href="#" role="button">Supprimer</a>
+                            <a class="text-center btn btn-warning" href="{{ path('app_observations_edit', {'id': observation.id}) }}" role="button" title="{{ 'observations.my_observations_page.action_buttons.edit'|trans }}"><i class="glyphicon glyphicon-edit"></i></a>
+                            <a class="text-center btn btn-danger" href="#" role="button"  title="{{ 'observations.my_observations_page.action_buttons.delete'|trans }}"><i class="glyphicon glyphicon-trash"></i></a>
                                 {% endif %}
                         </td>
                     </tr>
@@ -48,21 +50,9 @@
                 </table>
             </div>
             {# display navigation #}
-            <div class="navigation">
+            <div class="navigation pull-right">
                 {{ knp_pagination_render(pagination) }}
             </div>
-            {#<div class="pagination col-lg-offset-6 col-lg-6 col-md-push-6 col-md-5 col-sm-push-5 col-sm-4 col-xs-push-4 col-xs-6">#}
-                {#<nav>#}
-                    {#<ul class="pagination">#}
-                        {#<li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>#}
-                        {#<li><a href="#">1</a></li>#}
-                        {#<li><a href="#">2 </a></li>#}
-                        {#<li><a href="#">3 </a></li>#}
-                        {#<li class="disabled"><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>#}
-                    {#</ul>#}
-                {#</nav>#}
-            {#</div>#}
         </div>
     </div>
-
 {% endblock body_member_space %}

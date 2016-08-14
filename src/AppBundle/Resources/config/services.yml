@@ -5,6 +5,9 @@ services:
     app.business_contact:
         class: AppBundle\Business\ContactService
         arguments: ["@form.factory", "@app.mailer_templating", "@session.flash_bag", "%robot_email%", "%contact_email%"]
+    app.business_observation:
+        class: AppBundle\Business\ObservationService
+        arguments: ["@form.factory", "@app.mailer_templating", "@session.flash_bag", "@doctrine.orm.entity_manager", "@knp_paginator", "%robot_email%"]
     app.form.type.species:
         class: AppBundle\Form\Type\SpeciesType
         tags:
