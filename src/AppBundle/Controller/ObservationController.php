@@ -93,8 +93,6 @@ class ObservationController extends Controller
 
         $resultats = $observation->getResultats($request);
 
-        dump($resultats);
-
         return $this->render(':Observations:search.html.twig', array(
             'form' => $form->createView(),
             'resultats' => $resultats

@@ -1,5 +1,5 @@
 {% extends "layout.html.twig" %}
-
+{% form_theme form with ['bootstrap_3_layout.html.twig'] %}
 {% trans_default_domain 'AppBundle' %}
 
 {% block stylesheet %}
@@ -10,7 +10,7 @@
 {% block title %}
     {{ parent() }} - {{ 'search.title_page'|trans }}
 {% endblock %}
-
+{% form_theme form with ['bootstrap_3_horizontal_layout.html.twig'] %}
 {% block body %}
     <div class="container">
         <div class="main">
@@ -26,7 +26,6 @@
                     {{ form_errors(form) }}
                     <div class="well col-lg-12">
                         <div class="row">
-                            <div class="col-lg-12">
                                 <div class="form-group col-lg-4">
                                     <label class="control-label">{{ 'search.period_label'|trans }}</label>
                                 </div>
@@ -44,25 +43,26 @@
                                         {{ form_widget(form.endDate) }}
                                     </div>
                                 </div>
-                            </div>
                         </div>
                         <div class="row">
-                            <div class="form-group col-lg-12">
-                                {{ form_label(form.department, ('search.country_label'|trans), {'label_attr': {'class': 'col-lg-4'}}) }}
-                                {{ form_errors(form.department) }}
-                                <div class="col-lg-8">
-                                    {{ form_widget(form.department) }}
-                                </div>
-                            </div>
+                            {{ form_row(form.department) }}
+                            {#<div class="form-group col-lg-12">#}
+                                {#{{ form_label(form.department, ('search.country_label'|trans), {'label_attr': {'class': 'col-lg-4'}}) }}#}
+                                {#{{ form_errors(form.department) }}#}
+                                {#<div class="col-lg-8">#}
+                                    {#{{ form_widget(form.department) }}#}
+                                {#</div>#}
+                            {#</div>#}
                         </div>
                         <div class="row">
-                            <div class="form-group col-lg-12">
-                                {{ form_label(form.city, ('search.town_label'|trans), {'label_attr': {'class': 'col-lg-4'}}) }}
-                                {{ form_errors(form.city) }}
-                                <div class="col-lg-8">
-                                    {{ form_widget(form.city, {'attr': {'class': 'form-control'}}) }}
-                                </div>
-                            </div>
+                            {{ form_row(form.city, {'attr': {'class': 'form-control'}}) }}
+                            {#<div class="form-group col-lg-12">#}
+                                {#{{ form_label(form.city, ('search.town_label'|trans), {'label_attr': {'class': 'col-lg-4'}}) }}#}
+                                {#{{ form_errors(form.city) }}#}
+                                {#<div class="col-lg-8">#}
+                                    {#{{ form_widget(form.city, {'attr': {'class': 'form-control'}}) }}#}
+                                {#</div>#}
+                            {#</div>#}
                         </div>
                         <div class="row">
                             {{ form_row(form.species) }}
@@ -86,25 +86,23 @@
 
                     <div class="row col-lg-6 col-md-6">
                         <div class="resulttext col-lg-push-4 col-md-push-5 col-sm-offset-2 col-xs-offset-2 col-lg-8 col-md-6 col-sm-10 col-xs-6">
-                            <ul>
-                                <li>
-                                    <h2>Date</h2>
-                                    <h3>city</h3>
-                                    <p>Espèce</p>
-                                </li>
-                            </ul>
+                            {% include ':Observations:list.html.twig' with {'observations' : resultats} %}
+                            {#<ul>#}
+                                {#<li>#}
+                                    {#<h2>Date</h2>#}
+                                    {#<h3>city</h3>#}
+                                    {#<p>Espèce</p>#}
+                                {#</li>#}
+                            {#</ul>#}
                         </div>
 
                         <nav class="col-lg-offset-5 col-md-offset-7 col-lg-5 col-md-6 hidden-sm hidden-xs">
-                            <ul class="pagination">
-                                <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
-                                <li><a href="#">1</a></li>
-                                <li><a href="#">2 </a></li>
-                                <li><a href="#">3 </a></li>
-                                <li class="disabled"><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
-                            </ul>
+                            {# display navigation #}
+                            <div class="navigation pull-right">
+                                {{ knp_pagination_render(resultats) }}
+                            </div>
                         </nav>
-                        <a class="text-center col-xs-offset-4 col-sm-4 col-xs-4 hidden-lg hidden-md btn-lg btn-default" href="#" role="button">Resultats suivants</a>
+                        {#<a class="text-center col-xs-offset-4 col-sm-4 col-xs-4 hidden-lg hidden-md btn-lg btn-default" href="#" role="button">Resultats suivants</a>#}
                     </div>
                 {% endif %}
             </div>

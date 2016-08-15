@@ -186,15 +186,20 @@ class ObservationService
             throw new \Exception("Use getSearchForm before!");
         }
 
-        dump("suis la");
+	    $this->searchForm->handleRequest($request);
 
         if($this->searchForm->isSubmitted() && $this->searchForm->isValid()){
-            dump(true);
+
+	        $search = (object) $this->searchForm->getData();
+
+	        $city = $this->em->getRepository('AppBundle:locality\City')->find($search->city);
+	        $species = $this->em->getRepository('AppBundle:Species')->find( $search->species);
+
             $query = $this->em->getRepository('AppBundle:Observation')->search(
-                $request->get('startDate'),
-                $request->get('endDate'),
-                $request->get('city'),
-                $request->get('species')
+	            $search->startDate,
+	            $search->endDate,
+	            $city,
+	            $species
             );
 
             return $this->paginator->paginate(

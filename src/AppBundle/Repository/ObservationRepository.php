@@ -9,6 +9,7 @@
 namespace AppBundle\Repository;
 
 
+use AppBundle\Entity\locality\City;
 use AppBundle\Entity\Species;
 use Doctrine\ORM\EntityRepository;
 use FOS\UserBundle\Model\UserInterface;
