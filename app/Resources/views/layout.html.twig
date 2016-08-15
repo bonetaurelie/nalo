@@ -94,5 +94,43 @@
         </div>
     </div>
 </footer>
+<script type="text/javascript">
+    var map;
+    function initMap() {
+        // Create a map object and specify the DOM element for display.
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: 44.038589, lng: 5.040528},
+            scrollwheel: false,
+            zoom: 4
+        });
+
+        var country = "France";
+        var geocoder = new google.maps.Geocoder();
+
+        geocoder.geocode( {'address' : country}, function(results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                map.setCenter(results[0].geometry.location);
+            }
+        });
+
+        $(function(){
+            var observationsList = $('#observations-list');
+
+            observationsList.find('li').each(function(){
+                var lat =  parseFloat($(this).data('latitude'));
+                var long = parseFloat($(this).data('latitude'));
+
+                var marker = new google.maps.Marker({
+                    position: {lat: lat, lng: long},
+                    map: map,
+                    title: 'test!'
+                });
+            });
+        });
+
+
+    }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key={{ google_map_key }}&callback=initMap"></script>
 </body>
 </html>
