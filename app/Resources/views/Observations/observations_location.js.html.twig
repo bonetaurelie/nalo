@@ -1,0 +1,37 @@
+{% if zoom is not defined %}
+    {% set zoom = 12 %}
+{% endif %}
+{% if latitude is not defined %}
+    {% set latitude = 45.8629838 %}
+{% endif %}
+{% if zoom is not defined %}
+    {% set zoom = 12 %}
+{% endif %}
+{% if longitude is not defined %}
+    {% set longitude = 6.7669772 %}
+{% endif %}
+<script src="https://maps.googleapis.com/maps/api/js?key={{ google_map_key }}"></script>
+<script type="text/javascript">
+    $(function(){
+        initMap();
+    });
+
+    var map;
+
+    function initMap() {
+        // Create a map object and specify the DOM element for display.
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: {{ latitude }}, lng: {{ longitude }}},
+            scrollwheel: false,
+            zoom: {{ zoom }}
+        });
+    }
+
+    function setMarker(title, lat, lgt){
+        new google.maps.Marker({
+            position: {lat: lat, lng: lgt},
+            map: map,
+            title: title
+        });
+    }
+</script>

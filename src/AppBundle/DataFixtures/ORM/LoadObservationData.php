@@ -21,14 +21,21 @@ class LoadObservationData implements FixtureInterface, OrderedFixtureInterface
 
 	private function getFakeObservation()
 	{
+		$towns = ['Le Thor', 'Saint-Martin-du-Frêne', 'Biarritz'];
+		$species = ['Canard d\'Eaton', 'Bernache à ventre pâle', 'Martinet de Cayenne ', 'Aigle royal'];
+		$dateStr = '2016-08-'.str_pad(rand(1,31),2,'0', STR_PAD_LEFT).' '.str_pad(rand(0,23),2,'0', STR_PAD_LEFT).':'.str_pad(rand(0,59),2,'0', STR_PAD_LEFT);
+
+		$state = rand(0,3);
+		$state = $state == 1?0:$state;//ignore pour le moment le status "En cours"
+
 		return (object) array(
-				'locality' => $this->manager->getRepository('AppBundle:locality\City')->findOneBy(array('adminName'=> 'Le Thor')),
+				'locality' => $this->manager->getRepository('AppBundle:locality\City')->findOneBy(array('adminName'=> $towns[rand(0,2)])),
 				'author'   => $this->manager->getRepository('UserBundle:User')->findOneBy(array('email'=> 'test.amateur@test.fr')),
-				'species'   => $this->manager->getRepository('AppBundle:Species')->findOneBy(array('frenchName' => 'Aigle royal')),
-				'datetimeObservation'   => new \DateTime(),
+				'species'   => $this->manager->getRepository('AppBundle:Species')->findOneBy(array('frenchName' => $species[rand(0,3)])),
+				'datetimeObservation'   => \DateTime::createFromFormat('Y-m-d H:i', $dateStr),
 				'nbIndividual'   => rand(1,10),
 				'comment'   => "commentaire ".rand(1,10),
-				'state'   => rand(0,3)
+				'state'   => $state
 			);
 	}
 

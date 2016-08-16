@@ -1,14 +1,14 @@
 {% extends "profile.layout.html.twig" %}
 
 {% block title %}
-    {{ parent() }} - OBSERVATIONS A VALIDER
+    {{ parent() }} - {{ 'observations.validation.tovalidate.title'|trans }}
 {% endblock %}
 
 {% block body_member_space %}
     <div class="row">
         <div class="blockobs">
             <h1 class="titreval col-md-offset-4 col-xs-offset-1">OBSERVATIONS A VALIDER</h1>
-            <p class="tri col-xs-offset-6 col-sm-5 col-md-offset-6 col-lg-offset-6">Afficher la liste par:</p>
+            {#<p class="tri col-xs-offset-6 col-sm-5 col-md-offset-6 col-lg-offset-6">Afficher la liste par:</p>#}
 
             <div class="responsive-table-line">
                 <table class="table table-bordered table-condensed table-body-center">
@@ -26,7 +26,7 @@
                         <td>{{ observation.datetimeObservation|date('d/m/Y') }}</td>
                         <td>{{ observation.locality.adminName }}</td>
                         <td>{{ observation.species.frenchName }}</td>
-                        <td data-title="Actions"><a class="text-center btn btn-default" href="#" role="button">Voir</a></td>
+                        <td data-title="Actions"><a class="text-center btn btn-default" href="{{ path('app_observation_validate', {'id': observation.id }) }}" role="button">Voir</a></td>
                     </tr>
                     {% endfor %}
                     </tbody>

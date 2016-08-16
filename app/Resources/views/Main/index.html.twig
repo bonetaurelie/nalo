@@ -31,9 +31,10 @@
 
             <div class="row obs">
                 <h2 class="observations text-center col-lg-offset-4 col-md-offset-4 col-sm-offset-3 col-xs-offset-2  col-lg-4 col-md-4 col-sm-6 col-xs-2">DERNIERES OBSERVATIONS</h2>
-                <div class="carte col-lg-offset-1 col-md-offset-1 col-lg-4 col-md-4 hidden-sm hidden-xs">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d5647781.620328719!2d2.951989442325457!3d46.275949317535904!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfr!2sfr!4v1469042707453" width="500" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
-                </div>
+                <div id="map" class="carte col-lg-offset-1 col-md-offset-1 col-lg-4 col-md-4 hidden-sm hidden-xs"></div>
+                {#<div class="carte col-lg-offset-1 col-md-offset-1 col-lg-4 col-md-4 hidden-sm hidden-xs">#}
+                    {#<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d5647781.620328719!2d2.951989442325457!3d46.275949317535904!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfr!2sfr!4v1469042707453" width="500" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>#}
+                {#</div>#}
                 <div class="col-lg-offset-2 col-md-offset-3 col-sm-offset-2 col-xs-offset-2 col-lg-5 col-md-4 col-sm-10 col-xs-10">
                     <h3 class="dos">Derniers oiseaux observés</h3>
                     {{ render(controller('AppBundle:Observation:lastObservationsValidate', {'nbItems' : 4 })) }}
@@ -41,5 +42,23 @@
             </div>
         </div>
     </div>
-
 {% endblock %}
+{% block javascript %}
+    {{ parent() }}
+    {% include ':Observations:observations_location.js.html.twig' with {'zoom': 4} %}
+    <script type="text/javascript">
+        $(function(){
+            var observationsList = $('#observations-list');
+
+            console.log(observationsList.find('li').length);
+            observationsList.find('li').each(function() {
+                console.log($(this).data('latitude') + ' - ' + $(this).data('longitude'));
+                var lat = parseFloat($(this).data('latitude'));
+                var lgt = parseFloat($(this).data('longitude'));
+                var title = $(this).data('title');
+
+                setMarker(title, lat, lgt);
+            });
+        });
+    </script>
+{% endblock javascript %}

@@ -36,7 +36,7 @@
                         <td data-title="Actions">{{ observation.locality.adminName }}</td>
                         <td data-title="Actions">{{ observation.species.frenchName }}</td>
                         <td class="text-center" data-title="Actions">
-                            {% include ':Observations:states.html.twig' with {'observation': observation} %}
+                            {% include ':Observations/treatment:states.html.twig' with {'observation': observation} %}
                         </td>
                         <td data-title="Actions" class="text-center">
                             {% if observation.state is constant('STATE_STANDBY', observation) or observation.state is constant('STATE_REFUSED', observation) %}

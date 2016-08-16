@@ -1,0 +1,50 @@
+{% extends "layout.html.twig" %}
+{% form_theme form 'bootstrap_3_horizontal_layout.html.twig' %}
+{% trans_default_domain 'AppBundle' %}
+{% block title %}
+    {{ parent() }} - Détail de l'observation à valider
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="main">
+            <div class="detail">
+                {% include ':Observations:detail.block.html.twig' with {'observation': observation } %}
+
+                {{ form_start(form, {'action': path('app_observation_save_vote', {'id': observation.id})}) }}
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        {{ form_row(form.comment, {'label': ('observations.form.validate.comment'|trans)}) }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        {{ form_row(form.valid, {'label': ('observations.form.validate.valid'|trans), 'attr': {'class': 'btn-large btn-default'}}) }}
+                    </div>
+                    <div class="col-lg-4">
+                        {{ form_row(form.refuse, {'label': ('observations.form.validate.refuse'|trans), 'attr': {'class': 'btn-large btn-danger'}}) }}
+                    </div>
+                    <div class="col-lg-4">
+                        <a class="text-center btn-lg btn-default" href="{{ path('app_observations_validate') }}" role="button">Retour aux obsersations</a>
+                    </div>
+                </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascript %}
+    {{ parent() }}
+    {% include ':Observations:observations_location.js.html.twig' with {'zoom': 15, 'latitude': observation.locality.latitude, 'longitude': observation.locality.longitude } %}
+    <script type="text/javascript">
+        $(function(){
+            var $observation = $('#observation');
+            var lat = parseFloat($observation.data('latitude'));
+            var lgt = parseFloat($observation.data('longitude'));
+            var title = $observation.find('h1').text();
+
+            setMarker(title, lat, lgt);
+        });
+    </script>
+{% endblock %}

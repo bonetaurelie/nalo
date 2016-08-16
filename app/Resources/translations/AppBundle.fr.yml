@@ -5,6 +5,8 @@ contact:
     nom: 'Votre nom'
     email: 'Votre adresse e-mail'
     message: 'Votre message'
+email:
+    sign: 'L''association NALO'
 search:
     title_page: 'Recherche'
     subtitle_page: 'Saisissez vos critères et consultez vos résultats.'
@@ -48,6 +50,16 @@ observations:
         nb_individual: 'Nombre d''individu observé'
         comment: 'Commentaire'
         add_submit: 'Envoyer'
+    validation:
+        email_confirm_vote:
+            hello: 'Bonjour, %fullname%'
+            your_observation_has: 'Votre observation à été %vote%.'
+            following_link_text: 'Vous pouvez voir votre observation sur le lien suivant : '
+            link_text: 'Voir votre annonce'
+            comment_text: 'Voici le commentaire laissé par le professionnel :'
+        list_to_validate:
+            title: 'Observations a valider'
+
 # formType
 species:
     placeholder: 'Toutes les espèces'

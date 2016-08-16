@@ -187,4 +187,9 @@ class User extends BaseUser
 
         return self::ROLE_USER_NAME;
     }
+
+    public function getFullName()
+    {
+    	return $this->firstName.' '.$this->lastName;
+    }
 }

@@ -41,6 +41,7 @@ twig:
     strict_variables: "%kernel.debug%"
     globals:
         google_map_key: "%google_map_key%"
+        locale: "%locale%"
     form_themes:
         - bootstrap_3_layout.html.twig
         - 'DependentFormsBundle:Form:fields.html.twig'

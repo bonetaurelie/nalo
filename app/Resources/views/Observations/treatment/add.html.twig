@@ -16,7 +16,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="well">
-                        {% include 'Observations/form.html.twig' %}
+                        {% include ':Observations/treatment:form.html.twig' %}
                     </div>
                 </div>
             </div>
@@ -33,7 +33,7 @@
     <script src="{{ asset('js/plugins/datetimepicker/jquery.datetimepicker.full.min.js') }}"></script>
     <script type="text/javascript">
         $(function(){
-            $.datetimepicker.setLocale('fr');
+            $.datetimepicker.setLocale('{{ locale }}');
 
             $('#observation_datetimeObservation_date').datetimepicker({
                 format: "Y-m-d",

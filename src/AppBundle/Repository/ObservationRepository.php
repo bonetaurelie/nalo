@@ -10,6 +10,7 @@ namespace AppBundle\Repository;
 
 
 use AppBundle\Entity\locality\City;
+use AppBundle\Entity\Observation;
 use AppBundle\Entity\Species;
 use Doctrine\ORM\EntityRepository;
 use FOS\UserBundle\Model\UserInterface;
@@ -46,9 +47,10 @@ class ObservationRepository extends EntityRepository
 	public function search(\DateTime $startDate, \DateTime $endDate, City $city, Species $species, $orders = array('o.datetimeObservation' => 'ASC'))
     {
         $query = $this->createQueryBuilder("o")
+	        ->where("o.state = :state")->setParameter('state', Observation::STATE_VALIDATED)
             ->andWhere("o.datetimeObservation >= :startDate")->setParameter('startDate', $startDate)
             ->andWhere("o.datetimeObservation <= :endDate")->setParameter('endDate', $endDate)
-            ->andWhere("o.locality = :locality")->setParameter('locality', $city)
+            ->andWhere("o.locality = :locality")->setParameter('locality', $city->getId())//besoin de prendre l'id car bug avec la session
             ->andWhere("o.species = :species")->setParameter('species', $species)
         ;
         foreach ($orders as $field => $order){

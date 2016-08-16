@@ -83,7 +83,7 @@
                             {#</ul>#}
                         </div>
 
-                        <nav class="col-lg-offset-5 col-md-offset-7 col-lg-5 col-md-6 hidden-sm hidden-xs">
+                        <nav class="">
                             {# display navigation #}
                             <div class="navigation pull-right">
                                 {{ knp_pagination_render(resultats) }}
@@ -99,6 +99,7 @@
 
 {% block javascript %}
     {{ parent() }}
+
     <script src="{{ asset ('js/plugins/bootstrap-datepicker.min.js') }}"></script>
     <script type="text/javascript">
 
@@ -113,9 +114,25 @@
                 language: "fr",
                 autoclose: true
             });
-
-
         });
    </script>
+   {% include ':Observations:observations_location.js.html.twig' with {'gps': gps} %}
    {{ form_javascript(form.species) }}
+
+    <script type="text/javascript">
+        $(function(){
+            var observationsList = $('#observations-list');
+
+            console.log(observationsList.find('li').length);
+            observationsList.find('li').each(function() {
+                console.log($(this).data('latitude') + ' - ' + $(this).data('longitude'));
+                var lat = parseFloat($(this).data('latitude'));
+                var lgt = parseFloat($(this).data('longitude'));
+                var title = $(this).data('title');
+
+                setMarker(title, lat, lgt);
+            });
+        });
+    </script>
+
 {% endblock %}
