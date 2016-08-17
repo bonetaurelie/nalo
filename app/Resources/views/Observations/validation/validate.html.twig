@@ -2,7 +2,7 @@
 {% form_theme form 'bootstrap_3_horizontal_layout.html.twig' %}
 {% trans_default_domain 'AppBundle' %}
 {% block title %}
-    {{ parent() }} - Détail de l'observation à valider
+    {{ parent() }} - {{ 'observations.to_validate.title'|trans }}
 {% endblock %}
 
 {% block body %}
@@ -26,7 +26,7 @@
                         {{ form_row(form.refuse, {'label': ('observations.form.validate.refuse'|trans), 'attr': {'class': 'btn-large btn-danger'}}) }}
                     </div>
                     <div class="col-lg-4">
-                        <a class="text-center btn-lg btn-default" href="{{ path('app_observations_validate') }}" role="button">Retour aux obsersations</a>
+                        <a class="text-center btn-lg btn-default" href="{{ path('app_observations_validate') }}" role="button">{{ 'observations.to_validate.return_btn'|trans }}</a>
                     </div>
                 </div>
                 {{ form_end(form) }}

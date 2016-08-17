@@ -23,6 +23,18 @@ profile:
         my_observations_link: 'Mes observations'
         observations_validate_link: 'Observations à valider'
 observations:
+    detail:
+        title: 'Observation du %date% à %hour%'
+        subtitle: 'A %locality%, par %author%'
+    list:
+        date_text: 'Le %date% à %hour%'
+    table:
+        header:
+            date: 'Date'
+            city: 'Commune'
+            species: 'Espèce'
+            state: 'Status'
+            action: 'Action'
     my_observations_page:
         title: 'Mes observations'
         legends:
@@ -30,13 +42,7 @@ observations:
             validated: 'Observation validée'
             refused: 'Observation rejetée'
         add_bouton: 'Ajouter une observation'
-        table:
-            header:
-                date: 'Date'
-                city: 'Commune'
-                species: 'Espèce'
-                state: 'Status'
-                action: 'Action'
+
         action_buttons:
             edit: 'Modifier'
             delete: 'Supprimer'
@@ -59,6 +65,9 @@ observations:
             comment_text: 'Voici le commentaire laissé par le professionnel :'
         list_to_validate:
             title: 'Observations a valider'
+        to_validate:
+            title: 'Détail de l'observation à valider'
+            return_btn: 'Retour aux obsersations'
 
 # formType
 species:
@@ -71,3 +80,5 @@ locality:
 #knp pagination
 Previous: 'Précédent'
 Next: 'Suivant'
+previous_resulats: 'Résultats précédents'
+nexts_resulats: 'Résultats suivants'

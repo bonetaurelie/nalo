@@ -1,5 +1,5 @@
-<li data-id="species-{{ observation.id }}" data-title="{{ observation.species.frenchName }}, le {{ observation.datetimeObservation|date('d/m/Y à H:m') }}" data-longitude="{{ observation.locality.longitude }}" data-latitude="{{ observation.locality.latitude }}" >
+<li data-id="species-{{ observation.id }}" data-title="{{ observation.species.frenchName }}, {{ 'observations.list.date_text'|trans({'date': observation.datetimeObservation|date('d/m/Y'), 'hour': observation.datetimeObservation|date('H:i') })|lower }}" data-longitude="{{ observation.locality.longitude }}" data-latitude="{{ observation.locality.latitude }}" >
     <h4 class="text-right"><a href="{{ path('app_observation_detail', {'id': observation.id }) }}">{{ observation.species.frenchName }}</a></h4>
-    <p class="text-right">Le {{ observation.datetimeObservation|date('d/m/Y à H:m') }}</p>
+    <p class="text-right">{{ 'observations.list.date_text'|trans({'date': observation.datetimeObservation|date('d/m/Y'), 'hour': observation.datetimeObservation|date('H:i') }) }}</p>
     <p class="text-right">{{ observation.locality.adminName }} ({{ observation.locality.department.departmentCode }})</p>
 </li>
