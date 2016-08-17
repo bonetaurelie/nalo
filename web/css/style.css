@@ -806,6 +806,18 @@ footer a:hover{
         margin-top: 120px;
     }
 
+    .imgoiseau{
+        float:left;
+        margin-top: -320px;
+
+    }
+
+    .presentation {
+        float:right;
+        margin-right: 100px;
+    }
+
+
     /*connexion*/
     .connexion{
         padding-top: 120px;
@@ -1007,6 +1019,17 @@ footer a:hover{
     .titre{
         margin-top: 100px;
     }
+    
+    /*association*/
+    .imgoiseau{
+        float:left;
+        margin-top: -325px;
+    }
+
+    .presentation {
+        margin-right: 250px;
+    }
+
 
     /*contact*/
     .carte{
