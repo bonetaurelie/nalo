@@ -18,7 +18,113 @@
         {{ form_row(form.species) }}
         {{ form_row(form.nbIndividual) }}
         {{ form_row(form.comment) }}
+        <div></div>
+        {#{{ form_row(form.images) }}#}
+        {#{% block _images_entry_widget %}#}
+        {#{{ form_label(form.images) }}#}
+        {#<div class="col-lg-6">#}
+        {#{{ form_errors(form.images) }}#}
+        {#{{ form_widget(form.images) }}#}
+        {#</div>#}
+        {#{% endblock %}#}
+
+        <div class="row">
+            <div class="col-lg-12"></div>
+
+            {#<ul>#}
+            {#{% for imagelField in form.images %}#}
+            {#<li>#}
+            {#{{ form_errors(imagelField) }}#}
+            {#{{ form_widget(imagelField) }}#}
+            {#</li>#}
+            {#{% endfor %}#}
+            {#</ul>#}
+
+        </div>
+
+
+    </div>
+    <div class="col-lg-12">
+        <h2>Photos</h2>
+        <ul class="images" id="observation_images" data-prototype="{{ form_widget(form.images.vars.prototype)|e('html_attr') }}">
+            {% for image in form.images %}
+                <li>
+                    <div class="row">
+                        <h3 class="col-lg-6">Photo n° {{ loop.index }}</h3>
+                        <div class="col-lg-6 text-right">
+                            <a href="#" class="delete-image btn btn-danger">Supprimer</a>
+                        </div>
+                    </div>
+                    {{ form_row(image.alt, {'label_attr': {'class': 'col-lg-4'}}) }}
+                    {{ form_row(image.file, {'label_attr': {'class': 'col-lg-4'}}) }}
+                </li>
+            {% endfor %}
+        </ul>
+        <a href="#" id="add-another-image" class="btn-large btn-default">Add another image</a>
+    </div>
+    <div class="col-lg-12">
         <button type="submit" class="btn btn-default">{{ 'observations.form.add_submit'|trans }}</button>
     </div>
+
 </div>
+
+
+
 {{ form_end(form) }}
+<script type="text/javascript">
+    $(function(){
+        var $container = $('#observation_images');
+        var index = $container.find('li').length;
+
+        $('#add-another-image').click(function(e){
+            addImage($container);
+
+            e.preventDefault();
+
+            return false;
+        });
+
+        if (index == 0) {
+            addImage($container);
+        }
+
+        function addImage($container)
+        {
+            var dataPrototype = $container.attr('data-prototype').replace(/__name__/g,        index);
+
+            var template = '<li>' +
+                                '<div class="row">' +
+                                    '<h3 class="col-lg-6">Photo n° '+(index+1)+'</h3>' +
+                                    '<div class="col-lg-6 text-right">'+
+                                        '<a href="#" class="delete-image btn btn-danger">Supprimer</a>'+
+                                    '</div>' +
+                                '</div>' +
+                                dataPrototype+
+                            '</li>';
+
+
+            var $prototype = $(template);
+
+            $container.append($prototype);
+
+            // Incrémentation du compteur de photo
+            index++;
+        }
+
+        $('.delete-image').on('click', function(e){
+            if(confirm("Êtes-vous sûr de vouloir supprimer cette photo?")){
+                $(this).parents('li').remove();
+            }
+
+            e.preventDefault();
+            return false;
+        });
+
+        function displayOrNotAddImage(){
+            var nbElements = $container.find('li').length;
+            if(nbElements > 4){
+                $('#add-another-image').css('display', 'none');
+            }
+        }
+    });
+</script>

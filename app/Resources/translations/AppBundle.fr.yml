@@ -57,6 +57,8 @@ observations:
         comment: 'Commentaire'
         add_submit: 'Envoyer'
     validation:
+        valid: 'validée'
+        refuse: 'Rejetée'
         email_confirm_vote:
             hello: 'Bonjour, %fullname%'
             your_observation_has: 'Votre observation à été %vote%.'
@@ -66,8 +68,16 @@ observations:
         list_to_validate:
             title: 'Observations a valider'
         to_validate:
-            title: 'Détail de l'observation à valider'
+            title: 'Détail de l''observation à valider'
             return_btn: 'Retour aux obsersations'
+            form_label_comment: 'Saisir un commentaire'
+            form_btn_valid: 'Valider l''observation'
+            form_btn_refuse: 'Rejeter l''observation'
+        validate:
+            valid_message: 'Merci d''avoir validée l''observation, l''auteur a été averti!'
+            refuse_message: 'L''observation à été rejetée, l''auteur a été averti!'
+            subject_valid: 'Votre observation de l''espèce "%species%" du %date%  a été validée'
+            subject_refuse: 'Votre observation de l''espèce "%species%" du %date%  a été refusée'
 
 # formType
 species:

@@ -3,9 +3,10 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Observation;
-use AppBundle\Form\ValidateObservationType;
+
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
@@ -46,9 +47,11 @@ class ObservationTreatmentController extends Controller
 	}
 
 	/**
-	 * @Route("/edit-une-observation/{id}", name="app_observations_edit", requirements={"id": "\d+"})
+	 * @Route("/editer-une-observation/{id}", name="app_observations_edit", requirements={"id": "\d+"})
 	 * @ParamConverter("observation", class="AppBundle:Observation")
-	 * @Security("has_role('ROLE_USER')")
+	 * @Security("user == observation.getAuthor()")
+	 *
+	 * @return Response
 	 */
 	public function editObservationAction(Request $request, Observation $observation)
 	{
@@ -63,5 +66,17 @@ class ObservationTreatmentController extends Controller
 		return $this->render(':Observations/treatment:edit.html.twig', array(
 			'form' => $observationHandler->getFormView()
 		));
+	}
+
+	/**
+	 *
+	 * @Route("/supprimer-une-observation/{id]", name="app_observation_del", requirements={"id":"\d+"})
+	 * @ParamConverter("observation", class="AppBundle:Observation")
+	 * @Security("has_role('ROLE_USER')")
+	 * @return Response
+	 */
+	public function deleteObservatonAction()
+	{
+		return new Response("En attente");
 	}
 }

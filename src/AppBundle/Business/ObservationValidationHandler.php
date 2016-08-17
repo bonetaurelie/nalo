@@ -155,11 +155,11 @@ class ObservationValidationHandler
 	public function saveVote(Observation $observation, $vote)
 	{
 		if(true === $vote){
-			$message = $this->translator-> trans('observations.validate.valid_message', array(), 'AppBundle');
+			$message = $this->translator-> trans('observations.validation.validate.valid_message', array(), 'AppBundle');
 			$state = Observation::STATE_VALIDATED;
 		}
 		else{
-			$message = $this->translator->trans('observations.validate.refuse_message', array(), 'AppBundle');
+			$message = $this->translator->trans('observations.validation.validate.refuse_message', array(), 'AppBundle');
 			$state = Observation::STATE_REFUSED;
 		}
 
@@ -191,15 +191,15 @@ class ObservationValidationHandler
 	public function sendConfirmVoteMail(Observation $observation, $vote, $comment)
 	{
 		$subjectVariables = array(
-			'datetime' => $observation->getDatetimeObservation(),
-			'speciesName' => $observation->getSpecies()->getFrenchName(),
+			'%date%' => $observation->getDatetimeObservation()->format('d/m/Y'),
+			'%species%' => $observation->getSpecies()->getFrenchName(),
 		);
 
 		if(true === $vote){
-			$subject = $this->translator->trans('observations.validate.subject_valid', $subjectVariables, 'AppBundle');
+			$subject = $this->translator->trans('observations.validation.validate.subject_valid', $subjectVariables, 'AppBundle');
 		}
 		else{
-			$subject = $this->translator->trans('observations.validate.subject_refuse', $subjectVariables, 'AppBundle');
+			$subject = $this->translator->trans('observations.validation.validate.subject_refuse', $subjectVariables, 'AppBundle');
 		}
 
 		$this->mailer->send(

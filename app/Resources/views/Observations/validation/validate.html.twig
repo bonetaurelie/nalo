@@ -15,18 +15,18 @@
 
                 <div class="row">
                     <div class="col-lg-12">
-                        {{ form_row(form.comment, {'label': ('observations.form.validate.comment'|trans)}) }}
+                        {{ form_row(form.comment, {'label': ('observations.validation.to_validate.form_label_comment'|trans)}) }}
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-4">
-                        {{ form_row(form.valid, {'label': ('observations.form.validate.valid'|trans), 'attr': {'class': 'btn-large btn-default'}}) }}
+                        {{ form_row(form.valid, {'label': ('observations.validation.to_validate.form_btn_valid'|trans), 'attr': {'class': 'btn-large btn-default'}}) }}
                     </div>
                     <div class="col-lg-4">
-                        {{ form_row(form.refuse, {'label': ('observations.form.validate.refuse'|trans), 'attr': {'class': 'btn-large btn-danger'}}) }}
+                        {{ form_row(form.refuse, {'label': ('observations.validation.to_validate.form_btn_refuse'|trans), 'attr': {'class': 'btn-large btn-danger'}}) }}
                     </div>
                     <div class="col-lg-4">
-                        <a class="text-center btn-lg btn-default" href="{{ path('app_observations_validate') }}" role="button">{{ 'observations.to_validate.return_btn'|trans }}</a>
+                        <a class="text-center btn-lg btn-default" href="{{ path('app_observations_validate') }}" role="button">{{ 'observations.validation.to_validate.return_btn'|trans }}</a>
                     </div>
                 </div>
                 {{ form_end(form) }}

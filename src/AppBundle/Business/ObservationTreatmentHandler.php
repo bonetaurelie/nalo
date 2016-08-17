@@ -53,7 +53,15 @@ class ObservationTreatmentHandler
 	 */
 	private $paginator;
 
+	/**
+	 * @var string
+	 */
 	private $fromMail;
+
+	/**
+	 * @var Observation
+	 */
+	private $originalObservation;
 
 
 	public function __construct(FormFactory $formFactory, MailerTemplating $mailer,Session $session, EntityManager $manager, PaginatorInterface $paginator, $fromMail)
@@ -110,6 +118,9 @@ class ObservationTreatmentHandler
 
 	public function createEditform(Observation $observation)
 	{
+		dump($observation->getImages()->count());
+		$this->originalObservation = $observation;
+
 		$this->createForm($observation);
 		$department = $this->em->getRepository('AppBundle:locality\Department')->find($observation->getLocality()->getDepartment());
 
@@ -122,17 +133,40 @@ class ObservationTreatmentHandler
 	}
 
 
-	public function formTreatment(Request $request, $user){
+	public function formTreatment(Request $request, UserInterface $user){
 		$this->form->handleRequest($request);
 
 		//Vérification si le formulaire est valide ou non
 		if ($this->form->isSubmitted() && $this->form->isValid()) {
 			//récupération des données du formulaire
 			$observation = $this->form->getData();
+//
+//			$originalObs = $this->em->getRepository('AppBundle:Observation')->find($observation);
+//
+//			dump($this->originalObservation->getImages()->count());
 
+//			foreach($originalObs->getImages() as $originImage){
+//
+//				dump($observation->getImages()->contains($originImage));
+//
+//				if(!$observation->getImages()->contains($originImage)){
+//					$this->em->remove($originImage);
+//				}
+//			}
+
+			foreach ($observation->getImages() as $image){
+				$image->setObservation($observation);
+			}
 
 			try{
 				$observation->setAuthor($user);
+
+				$observation->setState(Observation::STATE_STANDBY);//Remet en validation si changement
+
+				//Si l'utilisateur est un professionnel on valide directement l'observation
+				if($user->hasRole('ROLE_PRO')){
+					$observation->setState(Observation::STATE_VALIDATED);
+				}
 
 				$this->em->persist($observation);
 				$this->em->flush();

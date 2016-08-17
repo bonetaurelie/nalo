@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new SimpleFilterListEntityBundle\SimpleFilterListEntityBundle(),
 	        new Anacona16\Bundle\DependentFormsBundle\DependentFormsBundle(),
 	        new \Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+	        new Vich\UploaderBundle\VichUploaderBundle(),
             new AppBundle\AppBundle(),
             new UserBundle\UserBundle(),
         ];

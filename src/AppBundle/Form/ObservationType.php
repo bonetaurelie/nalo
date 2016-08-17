@@ -14,10 +14,12 @@ use AppBundle\Form\Type\SpeciesType;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class ObservationType extends AbstractType
 {
@@ -69,6 +71,23 @@ class ObservationType extends AbstractType
 				'label' => 'observations.form.comment',
 				'translation_domain' => 'AppBundle'
 			))
+			->add('images', CollectionType::class, array(
+				'required' => false,
+				'entry_type' => ImageType::class,
+				'allow_add' => true,
+//				'by_reference' => false,
+				'allow_delete' => true,
+				'prototype' => true,
+//				'block_name' => 'image_widget',
+			))
 		;
+	}
+
+	public function configureOptions(OptionsResolver $resolver)
+	{
+		$resolver->setDefaults(array(
+			'data_class' => 'AppBundle\Entity\Observation',
+		));
+
 	}
 }

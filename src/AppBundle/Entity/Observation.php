@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 use UserBundle\Entity\User;
@@ -28,8 +29,6 @@ class Observation
 	const STATE_REFUSED     = 3;
 
 	const DEFAULT_ITEMS_BY_PAGE = 10;
-
-
 
 	/**
 	 * @var integer
@@ -81,6 +80,13 @@ class Observation
 	protected $comment;
 
 	/**
+	 * @var ArrayCollection
+	 *
+	 * @ORM\OneToMany(targetEntity="AppBundle\Entity\Image", mappedBy="observation", cascade={"persist", "remove"}, orphanRemoval=true)
+	 */
+	protected $images;
+
+	/**
 	 * @var interger
 	 * @ORM\Column(type="integer", length=1)
 	 * @Assert\NotBlank()
@@ -94,6 +100,8 @@ class Observation
 		$this->datetimeObservation = new \DateTime();
 
 		$this->nbIndividual = 1;
+
+		$this->images = new ArrayCollection();
 	}
 
 	/**
@@ -272,5 +280,42 @@ class Observation
     public function getDatetimeObservation()
     {
         return $this->datetimeObservation;
+    }
+
+    /**
+     * Add image
+     *
+     * @param \AppBundle\Entity\Image $image
+     *
+     * @return Observation
+     */
+    public function addImage(\AppBundle\Entity\Image $image)
+    {
+	    $image->setObservation($this);
+
+    	$this->images[] = $image;
+
+        return $this;
+    }
+
+    /**
+     * Remove image
+     *
+     * @param \AppBundle\Entity\Image $image
+     */
+    public function removeImage(\AppBundle\Entity\Image $image)
+    {
+        $this->images->removeElement($image);
+	    $image->setObservation(null);
+    }
+
+    /**
+     * Get images
+     *
+     * @return \Doctrine\Common\Collections\ArrayCollection
+     */
+    public function getImages()
+    {
+        return $this->images;
     }
 }
