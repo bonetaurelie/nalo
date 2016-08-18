@@ -14,7 +14,10 @@
         <ul>
             {% for image in observation.images %}
             <li>
-                <img src="{{ vich_uploader_asset(image, 'file') }}" alt="{{ image.alt }}" />
+                {#<img src="{{ vich_uploader_asset(image, 'file')|imagine_filter('my_thumb') }}" alt="{{ image.alt }}" />#}
+                <img src="{{ '/uploads/57b4a4aba932c.jpg'|imagine_filter('my_thumb') }}" alt="{{ image.alt }}" />
+
+                {#<img src="{{ vich_uploader_asset(image, 'file') }}" alt="{{ image.alt }}" />#}
             </li>
             {% endfor %}
         </ul>

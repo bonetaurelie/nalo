@@ -46,8 +46,7 @@ twig:
         - bootstrap_3_layout.html.twig
         - 'DependentFormsBundle:Form:fields.html.twig'
         - "Form/fields.html.twig"
-        - 'VichUploaderBundle:Form:fields.html.twig'
-        -
+        - 'Form/vich_fields.html.twig'
 
 # Doctrine Configuration
 doctrine:
@@ -145,3 +144,16 @@ vich_uploader:
             inject_on_load:     false
             delete_on_update:   true
             delete_on_remove:   true
+liip_imagine:
+    resolvers:
+        default:
+            web_path:
+                web_root: %kernel.root_dir%/../web
+                cache_prefix: media/cache
+
+    filter_sets:
+        cache: ~
+        my_thumb:
+            quality: 90
+            filters:
+                thumbnail: { size: [120, 90], mode: outbound }
