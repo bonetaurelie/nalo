@@ -46,7 +46,8 @@ class Image
 
 
 	/**
-	 * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Observation", inversedBy="Images", cascade={"persist"})
+	 * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Observation", inversedBy="images")
+	 * @ORM\JoinColumn(name="observation_id", referencedColumnName="id")
 	 */
 	protected $observation;
 

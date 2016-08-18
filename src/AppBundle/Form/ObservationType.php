@@ -79,6 +79,8 @@ class ObservationType extends AbstractType
 				'allow_delete' => true,
 				'prototype' => true,
 //				'block_name' => 'image_widget',
+				'label' => 'observations.form.image.title',
+				'translation_domain' => 'AppBundle'
 			))
 		;
 	}
