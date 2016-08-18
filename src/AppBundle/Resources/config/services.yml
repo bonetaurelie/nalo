@@ -10,7 +10,7 @@ services:
         arguments: ["@form.factory", "@app.mailer_templating", "@session", "@doctrine.orm.entity_manager", "@knp_paginator", "%robot_email%"]
     app.business_observation_treatment:
         class: AppBundle\Business\ObservationTreatmentHandler
-        arguments: ["@form.factory", "@app.mailer_templating", "@session", "@doctrine.orm.entity_manager", "@knp_paginator", "%robot_email%"]
+        arguments: ["@form.factory", "@app.mailer_templating", "@session", "@doctrine.orm.entity_manager", "@knp_paginator", "@translator", "%robot_email%"]
     app.business_observation_validation:
         class: AppBundle\Business\ObservationValidationHandler
         arguments: ["@form.factory", "@app.mailer_templating", "@session", "@doctrine.orm.entity_manager", "@knp_paginator", "@translator", "%robot_email%"]

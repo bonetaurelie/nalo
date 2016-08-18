@@ -30,6 +30,8 @@ class Observation
 
 	const DEFAULT_ITEMS_BY_PAGE = 10;
 
+	const NUM_PICTURES_MAX  = 4;
+
 	/**
 	 * @var integer
 	 * @ORM\Id()

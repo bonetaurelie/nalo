@@ -47,6 +47,7 @@ twig:
         - 'DependentFormsBundle:Form:fields.html.twig'
         - "Form/fields.html.twig"
         - 'VichUploaderBundle:Form:fields.html.twig'
+        -
 
 # Doctrine Configuration
 doctrine:

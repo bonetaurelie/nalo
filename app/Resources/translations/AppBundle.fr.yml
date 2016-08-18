@@ -13,7 +13,7 @@ search:
     period_label: 'Période'
     period_selector_first_label: 'Entre le '
     period_selector_second_label: 'et le '
-    country_label: 'Sélectionnez un critère géographique'
+    department_label: 'Sélectionnez un critère géographique'
     town_label: 'Sélectionnez une commune'
     submit: 'Rechercher'
 profile:
@@ -49,6 +49,9 @@ observations:
     add_page:
         title: 'Saisie d''une observation'
         subtitle: 'Saississez les informations relatives à votre observation, ajoutez la position sur la carte puis cliquez sur envoyer'
+    edit_page:
+        title: 'Modifier votre observation'
+        subtitle: ''
     form:
         datetime: 'Date et heure de l''observation'
         department: 'Selectionner le département'
@@ -56,6 +59,14 @@ observations:
         nb_individual: 'Nombre d''individu observé'
         comment: 'Commentaire'
         add_submit: 'Envoyer'
+        image:
+            title: 'Photos'
+            label: 'Photo n°'
+            alt: 'Légende'
+            file: 'Télécharger votre photo'
+            delete_btn: 'Supprimer'
+            add_btn: 'Ajouter une nouvelle photo'
+            delete_confirm_message: 'Êtes-vous sûr de vouloir supprimer cette photo?'
     validation:
         valid: 'validée'
         refuse: 'Rejetée'
@@ -78,7 +89,12 @@ observations:
             refuse_message: 'L''observation à été rejetée, l''auteur a été averti!'
             subject_valid: 'Votre observation de l''espèce "%species%" du %date%  a été validée'
             subject_refuse: 'Votre observation de l''espèce "%species%" du %date%  a été refusée'
-
+    treatment:
+        record_success_message: 'L''observation a été enregistrée avec succès!'
+        record_error_message: 'Une erreur est intervenue, veuillez recommencer, si l''erreur persiste, veuillez contacter l''administrateur du site!'
+        you_are_not_author_message: 'Vous n''êtes pas l''auteur de cette observation!'
+        delete_success_message: 'l''observation %date% a été supprimée avec succès!'
+        delete_error_message: 'une erreur est intervenue lors de la suppression!'
 # formType
 species:
     placeholder: 'Toutes les espèces'

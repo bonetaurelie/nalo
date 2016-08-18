@@ -1,6 +1,9 @@
 {% extends "layout.html.twig" %}
 {% form_theme form with ['bootstrap_3_horizontal_layout.html.twig'] %}
-
+{% form_theme form _self %}
+{% block form_group_class -%}
+    col-lg-8
+{%- endblock form_group_class %}
 {% trans_default_domain 'AppBundle' %}
 
 {% block stylesheet %}
@@ -11,7 +14,7 @@
 {% block title %}
     {{ parent() }} - {{ 'search.title_page'|trans }}
 {% endblock %}
-{% form_theme form with ['bootstrap_3_horizontal_layout.html.twig'] %}
+
 {% block body %}
     <div class="container">
         <div class="main">
@@ -27,7 +30,7 @@
                     {{ form_errors(form) }}
                     <div class="well col-lg-12">
                         <div class="row">
-                                <div class="form-group col-lg-4">
+                                <div class="form-group col-lg-4 text-right">
                                     <label class="control-label">{{ 'search.period_label'|trans }}</label>
                                 </div>
                                 <div class="form-group col-lg-4">
@@ -46,10 +49,10 @@
                                 </div>
                         </div>
                         <div class="row">
-                            {{ form_row(form.department) }}
+                            {{ form_row(form.department, {'label': ('search.department_label'|trans), 'label_attr': {'class': 'col-lg-4'}, 'attr': {'form_group_class': 'col-lg-8'} }) }}
                         </div>
                         <div class="row">
-                            {{ form_row(form.city, {'attr': {'class': 'form-control'}}) }}
+                            {{ form_row(form.city, {'label': ('search.town_label'|trans), 'attr': {'class': 'form-control'}}) }}
                         </div>
                         <div class="row">
                             {{ form_row(form.species) }}
@@ -67,7 +70,6 @@
                 {% if resultats is not null %}
                     <div class="row col-lg-6 col-md-6">
                         <div id="map" style=" width:500px;height:350px">
-                            {#<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11377536.803269157!2d-6.785122310328994!3d45.87693233762985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd54a02933785731%3A0x6bfd3f96c747d9f7!2sFrance!5e0!3m2!1sfr!2sfr!4v1469293260473" width="500" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>#}
                         </div>
                     </div>
 
@@ -109,23 +111,26 @@
             });
         });
    </script>
-   {% include ':Observations:observations_location.js.html.twig' with {'gps': gps} %}
+    {% if resultats is not null %}
+       {% include ':Observations:observations_location.js.html.twig' with {'zoom':4, 'latitude': 48.856614 , 'longitude': 2.352222 } %}
+        <script type="text/javascript">
+            $(function(){
+                var observationsList = $('#observations-list');
+
+                console.log(observationsList.find('li').length);
+                observationsList.find('li').each(function() {
+                    console.log($(this).data('latitude') + ' - ' + $(this).data('longitude'));
+                    var lat = parseFloat($(this).data('latitude'));
+                    var lgt = parseFloat($(this).data('longitude'));
+                    var title = $(this).data('title');
+
+                    setMarker(title, lat, lgt);
+                });
+            });
+        </script>
+    {% endif %}
    {{ form_javascript(form.species) }}
 
-    <script type="text/javascript">
-        $(function(){
-            var observationsList = $('#observations-list');
 
-            console.log(observationsList.find('li').length);
-            observationsList.find('li').each(function() {
-                console.log($(this).data('latitude') + ' - ' + $(this).data('longitude'));
-                var lat = parseFloat($(this).data('latitude'));
-                var lgt = parseFloat($(this).data('longitude'));
-                var title = $(this).data('title');
-
-                setMarker(title, lat, lgt);
-            });
-        });
-    </script>
 
 {% endblock %}

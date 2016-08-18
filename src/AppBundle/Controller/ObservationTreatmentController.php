@@ -70,13 +70,16 @@ class ObservationTreatmentController extends Controller
 
 	/**
 	 *
-	 * @Route("/supprimer-une-observation/{id]", name="app_observation_del", requirements={"id":"\d+"})
+	 * @Route("/supprimer-une-observation/{id}", name="app_observation_del", requirements={"id":"\d+"})
 	 * @ParamConverter("observation", class="AppBundle:Observation")
 	 * @Security("has_role('ROLE_USER')")
 	 * @return Response
 	 */
-	public function deleteObservatonAction()
+	public function deleteObservatonAction(Observation $observation)
 	{
-		return new Response("En attente");
+		$observationHandler = $this->get('app.business_observation_treatment');
+		$observationHandler->remove($observation, $this->getUser());
+
+		return $this->redirectToRoute('app_observations_list');
 	}
 }

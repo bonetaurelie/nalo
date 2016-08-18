@@ -20,6 +20,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\Flash\FlashBag;
 use Symfony\Component\HttpFoundation\Session\Session;
 use FOS\UserBundle\Model\UserInterface;
+use Symfony\Component\Translation\Translator;
+use Symfony\Component\Translation\TranslatorInterface;
+use UserBundle\Entity\User;
 
 class ObservationTreatmentHandler
 {
@@ -54,17 +57,17 @@ class ObservationTreatmentHandler
 	private $paginator;
 
 	/**
+	 * @var TranslatorInterface
+	 */
+	private $translator;
+
+
+	/**
 	 * @var string
 	 */
 	private $fromMail;
 
-	/**
-	 * @var Observation
-	 */
-	private $originalObservation;
-
-
-	public function __construct(FormFactory $formFactory, MailerTemplating $mailer,Session $session, EntityManager $manager, PaginatorInterface $paginator, $fromMail)
+	public function __construct(FormFactory $formFactory, MailerTemplating $mailer,Session $session, EntityManager $manager, PaginatorInterface $paginator, TranslatorInterface $translator, $fromMail)
 	{
 		//récupération du service form.factory
 		$this->formFactory = $formFactory;
@@ -78,6 +81,8 @@ class ObservationTreatmentHandler
 		$this->em = $manager;
 
 		$this->paginator = $paginator;
+
+		$this->translator = $translator;
 
 		//initialisation de l'e-mail d'envoie
 		$this->fromMail = $fromMail;
@@ -118,9 +123,6 @@ class ObservationTreatmentHandler
 
 	public function createEditform(Observation $observation)
 	{
-		dump($observation->getImages()->count());
-		$this->originalObservation = $observation;
-
 		$this->createForm($observation);
 		$department = $this->em->getRepository('AppBundle:locality\Department')->find($observation->getLocality()->getDepartment());
 
@@ -140,19 +142,6 @@ class ObservationTreatmentHandler
 		if ($this->form->isSubmitted() && $this->form->isValid()) {
 			//récupération des données du formulaire
 			$observation = $this->form->getData();
-//
-//			$originalObs = $this->em->getRepository('AppBundle:Observation')->find($observation);
-//
-//			dump($this->originalObservation->getImages()->count());
-
-//			foreach($originalObs->getImages() as $originImage){
-//
-//				dump($observation->getImages()->contains($originImage));
-//
-//				if(!$observation->getImages()->contains($originImage)){
-//					$this->em->remove($originImage);
-//				}
-//			}
 
 			foreach ($observation->getImages() as $image){
 				$image->setObservation($observation);
@@ -171,16 +160,40 @@ class ObservationTreatmentHandler
 				$this->em->persist($observation);
 				$this->em->flush();
 
-				$this->flashBag->add('success', "L'observation a été enregistrée avec succès!");
+				$this->flashBag->add('success', $this->translator->trans("observations.treatment.record_success_message", [], 'AppBundle') );
 
 				return true;
 			}
 			catch(Exception $e){
-				$this->flashBag->add('error', "Une erreur est intervenue, veuillez recommencer, si l'erreur persiste, veuillez contacter l'administrateur du site!");
+				$this->flashBag->add('error', $this->translator->trans("observations.treatment.record_error_message", [], 'AppBundle'));
 
 				return false;
 			}
 
 		}
+	}
+
+	public function remove(Observation $observation, UserInterface $user)
+	{
+		if($observation->getAuthor() !== $user){
+			$this->flashBag->add("error", $this->translator->trans("observations.treatment.you_are_not_author_message", [], 'AppBundle'));
+
+			return false;
+		}
+
+		try{
+			$this->em->remove($observation);
+			$this->em->flush();
+
+			$this->flashBag->add("success", $this->translator->trans("observations.treatment.delete_success_message", ['%date%' => $observation->getDatetimeObservation()->format('d/m/y')], 'AppBundle'));
+
+			return true;
+		}
+		catch(\Exception $e){
+			$this->flashBag->add("error", $this->translator->trans("observations.treatment.delete_error_message", [], 'AppBundle'));
+
+			return false;
+		}
+
 	}
 }

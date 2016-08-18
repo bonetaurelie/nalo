@@ -172,4 +172,9 @@ class ObservationHandler
             )
         ) ;
     }
+
+    public function verifVisibility(Observation $observation)
+    {
+		return $observation->getState() === Observation::STATE_VALIDATED;
+    }
 }

@@ -12,10 +12,11 @@
     {% if observation.images.count() > 0 %}
     <div class="photos">
         <ul>
-            {% for image in images %}
+            {% for image in observation.images %}
             <li>
                 <img src="{{ vich_uploader_asset(image, 'file') }}" alt="{{ image.alt }}" />
             </li>
+            {% endfor %}
         </ul>
     </div>
     {% endif %}

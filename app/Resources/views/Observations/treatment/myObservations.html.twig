@@ -41,7 +41,7 @@
                         <td data-title="Actions" class="text-center">
                             {% if observation.state is constant('STATE_STANDBY', observation) or observation.state is constant('STATE_REFUSED', observation) %}
                             <a class="text-center btn btn-warning" href="{{ path('app_observations_edit', {'id': observation.id}) }}" role="button" title="{{ 'observations.my_observations_page.action_buttons.edit'|trans }}"><i class="glyphicon glyphicon-edit"></i></a>
-                            <a class="text-center btn btn-danger" href="#" role="button"  title="{{ 'observations.my_observations_page.action_buttons.delete'|trans }}"><i class="glyphicon glyphicon-trash"></i></a>
+                            <a class="text-center btn btn-danger delete-obs" href="{{ path('app_observation_del', {'id': observation.id}) }}" role="button"  title="{{ 'observations.my_observations_page.action_buttons.delete'|trans }}"><i class="glyphicon glyphicon-trash"></i></a>
                                 {% endif %}
                         </td>
                     </tr>
@@ -56,3 +56,33 @@
         </div>
     </div>
 {% endblock body_member_space %}
+{% block javascript %}
+    {{ parent() }}
+    <script type="text/javascript">
+        $(function(){
+            $('.delete-obs').on('click', function(e){
+                var href = $(this).attr('href');
+                bootbox.dialog({
+                    message: 'Êtes-vous sûr de vouloir supprimer cette observation ?',
+                    title: 'Question',
+                    buttons:{
+                        cancel:{
+                            label: 'Annuler'
+                        },
+                        delete:{
+                            label: 'Supprimer',
+                            className: 'btn btn-danger',
+                            callback: function(){
+                                window.location.href = href;
+                            }
+                        }
+                    }
+                });
+
+                e.preventDefault();
+                return false;
+            });
+
+        });
+    </script>
+{% endblock %}
