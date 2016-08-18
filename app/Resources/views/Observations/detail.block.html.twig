@@ -9,18 +9,22 @@
         <h2>{{ observation.species.frenchName }} ({{ observation.species.latinName }})</h2>
         <p>{{ observation.comment }}</p>
     </div>
-    {% if observation.images.count() > 0 %}
-    <div class="photos">
-        <ul>
-            {% for image in observation.images %}
-            <li>
-                {#<img src="{{ vich_uploader_asset(image, 'file')|imagine_filter('my_thumb') }}" alt="{{ image.alt }}" />#}
-                <img src="{{ '/uploads/57b4a4aba932c.jpg'|imagine_filter('my_thumb') }}" alt="{{ image.alt }}" />
-
-                {#<img src="{{ vich_uploader_asset(image, 'file') }}" alt="{{ image.alt }}" />#}
-            </li>
-            {% endfor %}
-        </ul>
-    </div>
-    {% endif %}
 </div>
+{% if observation.images.count() > 0 %}
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="photos">
+                <ul style="display:flex;flex-direction:row;justify-content: space-around;">
+                    {% for image in observation.images %}
+                        <li>
+                            {#<img src="{{ vich_uploader_asset(image, 'file')|imagine_filter('my_thumb') }}" alt="{{ image.alt }}" />#}
+                            <img src="{{ '/uploads/57b4a4aba932c.jpg'|imagine_filter('my_thumb') }}" alt="{{ image.alt }}" />
+
+                            {#<img src="{{ vich_uploader_asset(image, 'file') }}" alt="{{ image.alt }}" />#}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endif %}
