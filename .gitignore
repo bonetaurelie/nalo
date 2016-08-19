@@ -20,3 +20,4 @@ composer.lock
 *.tmp
 .idea
 web/uploads
+web/media
