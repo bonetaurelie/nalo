@@ -61,7 +61,7 @@ observations:
         add_submit: 'Envoyer'
         image:
             title: 'Photos'
-            label: 'Photo n°'
+            label: 'Photo n° __num__'
             alt: 'Légende'
             file: 'Télécharger votre photo'
             delete_btn: 'Supprimer'

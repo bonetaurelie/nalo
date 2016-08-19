@@ -8,6 +8,7 @@
 
 namespace AppBundle\Business;
 
+use AppBundle\Entity\Image;
 use AppBundle\Entity\Observation;
 use AppBundle\Form\ObservationType;
 use AppBundle\Services\MailerTemplating;

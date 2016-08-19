@@ -75,13 +75,18 @@ class ObservationType extends AbstractType
 				'required' => false,
 				'entry_type' => ImageType::class,
 				'allow_add' => true,
-//				'by_reference' => false,
+				'by_reference' => false,
 				'allow_delete' => true,
 				'prototype' => true,
-//				'block_name' => 'image_widget',
 				'label' => 'observations.form.image.title',
-				'translation_domain' => 'AppBundle'
-			))
+				'translation_domain' => 'AppBundle',
+                'entry_options'  => array(
+                    'required'  => false,
+                    'attr'      => array('class' => 'image-box'),
+                    'label' => 'observations.form.image.label',
+                    'translation_domain' => 'AppBundle',
+                )
+            ))
 		;
 	}
 

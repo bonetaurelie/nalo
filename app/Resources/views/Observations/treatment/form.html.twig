@@ -7,6 +7,7 @@
         {{ block('form_widget_simple') }}
     </div>
 {% endblock %}
+
 {{ form_start(form) }}
 <div class="row">
     <div class="col-lg-12">
@@ -19,16 +20,22 @@
     </div>
     <div class="col-lg-12">
         <h2>{{ 'observations.form.image.title'|trans }}</h2>
-        <div class="images" id="observation_images" data-prototype="{{ form_row(form.images.vars.prototype)|e('html_attr') }}">
-            {% for image in form.images %}
-                <div class="picture" id="photo-{{ loop.index }}">
-                    <p class="text-right"><a href="#" class="delete-image btn btn-danger"><i class="glyphicon glyphicon-trash"></i> {{ 'observations.form.image.delete_btn'|trans }}</a></p>
-                    {{ form_row(image, {'label': ( 'observations.form.image.label'|trans ~ ' ' ~ loop.index) }) }}
-                </div>
-            {% endfor %}
-        </div>
+        {{ form_widget(form.images) }}
+        {#{% if form.images|length > 0 %}#}
+        {#<div class="images" id="observation_images" data-prototype="{{ form_row(form.images.vars.prototype)|e('html_attr') }}">#}
+            {#{% for image in form.images %}#}
+                {#<div class="picture" id="photo-{{ loop.index }}">#}
+                    {#<p class="text-right"><a href="#" class="delete-image btn btn-danger"><i class="glyphicon glyphicon-trash"></i> {{ 'observations.form.image.delete_btn'|trans }}</a></p>#}
+                    {#{{ form_row(image, {'label': ( 'observations.form.image.label'|trans ~ ' ' ~ loop.index) }) }}#}
+                {#</div>#}
+            {#{% endfor %}#}
+        {#</div>#}
+        {#{% else %}#}
+            {#{{ form_widget(form.images) }}#}
+        {#{% endif %}#}
         <a href="#" id="add-another-image" class="btn-large btn-default pull-right">{{ 'observations.form.image.add_btn'|trans }}</a>
     </div>
+    {{ form_rest(form) }}
     <div class="col-lg-12">
         <button type="submit" class="btn btn-default">{{ 'observations.form.add_submit'|trans }}</button>
     </div>
@@ -38,7 +45,12 @@
 <script type="text/javascript">
     $(function(){
         var $container = $('#observation_images');
-        var index = $container.find('div.picture').length;
+        var index = $container.find('> div').length;
+
+        //si des blocks images sont déjà présent
+        if(index > 0){
+            redefineAll();
+        }
 
         $('#add-another-image').click(function(e){
             addImage($container);
@@ -48,38 +60,25 @@
             return false;
         });
 
-        if (index == 0) {
-            addImage($container);
-        }
-
+        /**
+         * Ajout un block image
+         */
         function addImage($container)
         {
-            var currentIndex = $('#observation_images').find('div.picture').length;
-
-
-            var prototype =  $container.attr('data-prototype')
-                            .replace(/__name__label__/g, '{{ 'observations.form.image.label'|trans|e('js') }} <span class="counter">' + (currentIndex+1) + '</span>')
-                            .replace(/__name__/g, index)
-                 ;
-
-            var template = '<div class="picture" id="photo-'+index+'">'
-                                + '<p class="text-right"><a href="#" class="delete-image btn btn-danger"><i class="glyphicon glyphicon-trash"></i> {{ 'observations.form.image.delete_btn'|trans|e('js') }}</a></p>'
-                                +prototype
-                            +'</div>';
-
-            var $prototype = $(template);
-
+            var prototype =  $container.attr('data-prototype').replace(/__name__/g, index);
+            $prototype = $(prototype);
             $container.append($prototype);
 
             // Incrémentation du compteur de photo
             index++;
 
+            redefineCounter($prototype);
+            addDeleteBtn($prototype);
             displayOrNotAddImage();
         }
 
         $(document).on('click', '.delete-image', function(e){
             var $delBtn = $(this);
-
 
             bootbox.dialog({
                 message: '{{ 'observations.form.image.delete_confirm_message'|trans|e('js') }}',
@@ -92,9 +91,9 @@
                         label: 'Supprimer',
                         className: 'btn btn-danger',
                         callback: function(){
-                            $delBtn.parents('div.picture').remove();
+                            $delBtn.parents('div.form-group').remove();
                             displayOrNotAddImage();
-                            redefineCounter();
+                            redefineAll();
                         }
                     }
                 }
@@ -108,7 +107,7 @@
          * Limite le nombre d'ajout de photos
          */
         function displayOrNotAddImage(){
-            var nbElements = $('#observation_images').find('div.picture').length;
+            var nbElements = $container.find('> div').length;
 
             $('#add-another-image').css('display', 'inline');
 
@@ -118,18 +117,43 @@
         }
 
         /**
-         * Redéfinie les numéros des photos
+         * Redéfinie le numéro du block image
          */
-        function redefineCounter(){
-            var $picturesForm = $('#observation_images').find('div.picture');
+        function redefineCounter($imageBlock){
+            var counter = ($imageBlock.index() + 1);
+            var counterHmtl = '<span class="counter">'+ counter +'</span>';
+            var $label = $imageBlock.find('> label');
+            //Vérifie si le block image vient du prototype ou s'il est déjà affiché dans la page
+            if( /__num__/.test($label.html())){
+                var textLabel = $label.html();
+                textLabel = textLabel.replace('__num__', counterHmtl);
+                $label.html(textLabel);
+            }
+            else{
+                $label.find('.counter').text(counter);
+            }
+        }
 
-            var i= 1;
+        /**
+         * Ajoute un bouton supprimer au block image
+         * @param $imageBlock
+         */
+        function addDeleteBtn($imageBlock){
+            //verification si le bouton est déjà présent ou pas
+            var test = $imageBlock.find('.delete-image').html();
+            if(typeof(test) === 'undefined'){
+                //S'il n'est pas présent on l'ajoute
+                var deleteBtn = '<p class="text-right"><a href="#" class="delete-image btn btn-danger"><i class="glyphicon glyphicon-trash"></i> {{ 'observations.form.image.delete_btn'|trans|e('js') }}</a></p>';
+                $imageBlock.prepend(deleteBtn);
+            }
+        }
 
-            $picturesForm.each(function(){
-                $(this).find('.counter').text(i);
-
-                i++;
+        function redefineAll(){
+            $container.find('> div').each(function(){
+                redefineCounter($(this));
+                addDeleteBtn($(this));
             });
         }
+
     });
 </script>
