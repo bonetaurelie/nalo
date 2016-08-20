@@ -16,8 +16,10 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -46,7 +48,7 @@ class ObservationType extends AbstractType
 				'label' => 'observations.form.department',
 				'translation_domain' => 'AppBundle'
 			))
-			->add('locality', DependentFormsType::class, array(
+			->add('city', DependentFormsType::class, array(
 				'entity_alias' => 'city_by_department',
 				'empty_value' => 'Choisir une ville',
 				'parent_field' => 'department',
@@ -55,6 +57,10 @@ class ObservationType extends AbstractType
 				'label' => 'observations.form.city',
 				'translation_domain' => 'AppBundle'
 			))
+            ->add('locality', TextType::class, array(
+                'label' => 'observations.form.locality',
+                'translation_domain' => 'AppBundle'
+            ))
 			->add('species', SpeciesType::class, array(
 				'filter_css_class' => 'col-lg-5 no-padding',
 				'filter_choice_css_class' => 'col-lg-6 no-padding',
@@ -87,6 +93,8 @@ class ObservationType extends AbstractType
                     'translation_domain' => 'AppBundle',
                 )
             ))
+            ->add('longitude', HiddenType::class)
+            ->add('latitude', HiddenType::class)
 		;
 	}
 

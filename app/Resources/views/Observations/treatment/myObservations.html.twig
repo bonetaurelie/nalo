@@ -33,7 +33,7 @@
                     {% for observation in pagination %}
                     <tr>
                         <td class="text-center">{{ observation.datetimeObservation|date('d/m/Y') }}</td>
-                        <td data-title="Actions">{{ observation.locality.adminName }}</td>
+                        <td data-title="Actions">{{ observation.city.adminName }}</td>
                         <td data-title="Actions">{{ observation.species.frenchName }}</td>
                         <td class="text-center" data-title="Actions">
                             {% include ':Observations/treatment:states.html.twig' with {'observation': observation} %}

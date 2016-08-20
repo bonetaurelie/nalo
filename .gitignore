@@ -21,3 +21,5 @@ composer.lock
 .idea
 web/uploads
 web/media
+Supprimerait var/cache/
+Supprimerait var/sessions/

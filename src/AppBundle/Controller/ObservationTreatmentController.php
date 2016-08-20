@@ -6,6 +6,7 @@ use AppBundle\Entity\Observation;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -82,4 +83,31 @@ class ObservationTreatmentController extends Controller
 
 		return $this->redirectToRoute('app_observations_list');
 	}
+
+    /**
+     * @Route("/json_get_city", name="app_observations_ajax_get_city_by_name")
+     * @Security("has_role('ROLE_USER')")
+     */
+	public function jsonCityByNameAction(Request $request){
+	    $name = $request->get('name', null);
+
+        if(null === $name){
+            return new JsonResponse(array("error" => "name parameter is missing!"));
+        }
+
+        $city = $this->getDoctrine()->getRepository("AppBundle:locality\\City")->findOneByAdminName($name);
+
+
+        if(null === $city){
+            return new JsonResponse(array("error" => "City not found!"));
+        }
+
+
+        $data = new \stdClass();
+        $data->name = $city->getAdminName();
+        $data->id   = $city->getid();
+        $data->department_id = $city->getDepartment()->getId();
+
+        return new JsonResponse($data);
+    }
 }

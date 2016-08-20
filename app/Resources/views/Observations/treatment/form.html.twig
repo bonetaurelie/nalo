@@ -12,27 +12,36 @@
 <div class="row">
     <div class="col-lg-12">
         {{ form_row(form.datetimeObservation) }}
-        {{ form_row(form.department)}}
-        {{ form_row(form.locality) }}
-        {{ form_row(form.species) }}
-        {{ form_row(form.nbIndividual) }}
-        {{ form_row(form.comment) }}
     </div>
+</div>
+<div class="row">
+    {{ form_row(form.department)}}
+</div>
+<div class="row">
+    {{ form_row(form.city) }}
+</div>
+<div class="row">
+    {{ form_row(form.locality) }}
+</div>
+<div class="row">
+    <div class="form-group">
+        <label class="col-lg-4 control-label">{{ 'observations.form.map_position'|trans }}<br /><small>{{ 'observations.form.coordinates'|trans }} : <span id="display_coordinates"></span></small></label>
+        <div id="map" class="col-lg-6" style="height: 400px"></div>
+    </div>
+</div>
+<div class="row">
+    {{ form_row(form.species) }}
+</div>
+<div class="row">
+    {{ form_row(form.nbIndividual) }}
+</div>
+<div class="row">
+    {{ form_row(form.comment) }}
+</div>
+<div class="row">
     <div class="col-lg-12">
         <h2>{{ 'observations.form.image.title'|trans }}</h2>
         {{ form_widget(form.images) }}
-        {#{% if form.images|length > 0 %}#}
-        {#<div class="images" id="observation_images" data-prototype="{{ form_row(form.images.vars.prototype)|e('html_attr') }}">#}
-            {#{% for image in form.images %}#}
-                {#<div class="picture" id="photo-{{ loop.index }}">#}
-                    {#<p class="text-right"><a href="#" class="delete-image btn btn-danger"><i class="glyphicon glyphicon-trash"></i> {{ 'observations.form.image.delete_btn'|trans }}</a></p>#}
-                    {#{{ form_row(image, {'label': ( 'observations.form.image.label'|trans ~ ' ' ~ loop.index) }) }}#}
-                {#</div>#}
-            {#{% endfor %}#}
-        {#</div>#}
-        {#{% else %}#}
-            {#{{ form_widget(form.images) }}#}
-        {#{% endif %}#}
         <a href="#" id="add-another-image" class="btn-large btn-default pull-right">{{ 'observations.form.image.add_btn'|trans }}</a>
     </div>
     {{ form_rest(form) }}
@@ -40,120 +49,29 @@
         <button type="submit" class="btn btn-default">{{ 'observations.form.add_submit'|trans }}</button>
     </div>
 </div>
-
 {{ form_end(form) }}
+
+{# script JS d'initialisation des variables utilisées dans les fichiers JS @todo A modifier quand transformation des script JS en plugin Jquery #}
 <script type="text/javascript">
-    $(function(){
-        var $container = $('#observation_images');
-        var index = $container.find('> div').length;
+    //variables pour le script d'ajout/suppression de photo
+    var messageImageConfirmationDelete = '{{ 'observations.form.image.delete_confirm_message'|trans|e('js') }}';
+    var messageImageConfirmationTitle = '{{ 'observations.form.image.delete_confirm_title'|trans|e('js') }}';
+    var cancelBtnLabel = '{{ 'observations.form.image.cancel_btn'|trans|e('js') }}';
+    var delBtnLabel = '{{ 'observations.form.image.delete_btn'|trans|e('js') }}';
+    //variable pour le script de géolocalisation
+    var messageSelectCityBefore = '{{ 'observations.form.messageSelectCityBefore'|trans|e('js') }}';
+    var messagelocalityCoordinatesNotFound =  '{{ 'observations.form.messageLocalityCoordinatesNotFound'|trans|e('js') }}';
+    var messageLocalityNotFound = '{{ 'observations.form.messageLocalityNotFound'|trans|e('js') }}';
+    var defaultLatitude = {{ france_location.latitude }};
+    var defaultLongitude = {{ france_location.longitude }};
+    var defaultScrollwheel = true;
+    var defaultZoom = 5;
 
-        //si des blocks images sont déjà présent
-        if(index > 0){
-            redefineAll();
-        }
-
-        $('#add-another-image').click(function(e){
-            addImage($container);
-
-            e.preventDefault();
-
-            return false;
-        });
-
-        /**
-         * Ajout un block image
-         */
-        function addImage($container)
-        {
-            var prototype =  $container.attr('data-prototype').replace(/__name__/g, index);
-            $prototype = $(prototype);
-            $container.append($prototype);
-
-            // Incrémentation du compteur de photo
-            index++;
-
-            redefineCounter($prototype);
-            addDeleteBtn($prototype);
-            displayOrNotAddImage();
-        }
-
-        $(document).on('click', '.delete-image', function(e){
-            var $delBtn = $(this);
-
-            bootbox.dialog({
-                message: '{{ 'observations.form.image.delete_confirm_message'|trans|e('js') }}',
-                title: 'Question',
-                buttons:{
-                    cancel:{
-                        label: 'Annuler'
-                    },
-                    delete:{
-                        label: 'Supprimer',
-                        className: 'btn btn-danger',
-                        callback: function(){
-                            $delBtn.parents('div.form-group').remove();
-                            displayOrNotAddImage();
-                            redefineAll();
-                        }
-                    }
-                }
-            });
-
-            e.preventDefault();
-            return false;
-        });
-
-        /**
-         * Limite le nombre d'ajout de photos
-         */
-        function displayOrNotAddImage(){
-            var nbElements = $container.find('> div').length;
-
-            $('#add-another-image').css('display', 'inline');
-
-            if(nbElements > 3){
-                $('#add-another-image').css('display', 'none');
-            }
-        }
-
-        /**
-         * Redéfinie le numéro du block image
-         */
-        function redefineCounter($imageBlock){
-            var counter = ($imageBlock.index() + 1);
-            var counterHmtl = '<span class="counter">'+ counter +'</span>';
-            var $label = $imageBlock.find('> label');
-            //Vérifie si le block image vient du prototype ou s'il est déjà affiché dans la page
-            if( /__num__/.test($label.html())){
-                var textLabel = $label.html();
-                textLabel = textLabel.replace('__num__', counterHmtl);
-                $label.html(textLabel);
-            }
-            else{
-                $label.find('.counter').text(counter);
-            }
-        }
-
-        /**
-         * Ajoute un bouton supprimer au block image
-         * @param $imageBlock
-         */
-        function addDeleteBtn($imageBlock){
-            //verification si le bouton est déjà présent ou pas
-            var test = $imageBlock.find('.delete-image').html();
-            if(typeof(test) === 'undefined'){
-                //S'il n'est pas présent on l'ajoute
-                var deleteBtn = '<p class="text-right"><a href="#" class="delete-image btn btn-danger"><i class="glyphicon glyphicon-trash"></i> {{ 'observations.form.image.delete_btn'|trans|e('js') }}</a></p>';
-                $imageBlock.prepend(deleteBtn);
-            }
-        }
-
-        function redefineAll(){
-            $container.find('> div').each(function(){
-                redefineCounter($(this));
-                addDeleteBtn($(this));
-            });
-        }
-
-    });
+    var urlJsonGetCityByName = '{{ path('app_observations_ajax_get_city_by_name') }}';
 </script>
+{# Chargement du fichier js qui traite l'ajout/suppression des photos #}
+<script type="text/javascript" src="{{ asset('js/app/observations/edit_images.js') }}"></script>
+{# Chargement de l'API Google Map #}
+<script src="https://maps.googleapis.com/maps/api/js?key={{ google_map_key }}"></script>
+{# Chargement du fichier js qui traite la géolocalisation sur la carte #}
+<script type="text/javascript" src="{{ asset('js/app/observations/edit_geolocalisation.js') }}"></script>

@@ -51,7 +51,25 @@ class Observation
 	 * @ORM\ManyToOne(targetEntity="\AppBundle\Entity\locality\City")
 	 * @ORM\JoinColumn(nullable=false)
 	 */
-	protected $locality;
+	protected $city;
+
+    /**
+     * @var string
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $locality;
+
+    /**
+     * @var float
+     * @ORM\Column(type="float", length=15, scale=10)
+     */
+    protected $longitude;
+
+    /**
+     * @var float
+     * @ORM\Column(type="float", length=15, scale=10)
+     */
+    protected $latitude;
 
 	/**
 	 * @var \UserBundle\Entity\User
@@ -189,27 +207,27 @@ class Observation
     }
 
     /**
-     * Set locality
+     * Set city
      *
      * @param \AppBundle\Entity\locality\City $locality
      *
      * @return Observation
      */
-    public function setLocality(\AppBundle\Entity\locality\City $locality = null)
+    public function setCity(\AppBundle\Entity\locality\City $city = null)
     {
-        $this->locality = $locality;
+        $this->city = $city;
 
         return $this;
     }
 
     /**
-     * Get locality
+     * Get city
      *
      * @return \AppBundle\Entity\locality\City
      */
-    public function getLocality()
+    public function getCity()
     {
-        return $this->locality;
+        return $this->city;
     }
 
     /**
@@ -319,5 +337,77 @@ class Observation
     public function getImages()
     {
         return $this->images;
+    }
+
+    /**
+     * Set locality
+     *
+     * @param string
+     *
+     * @return Observation
+     */
+    public function setLocality($locality)
+    {
+        $this->locality = $locality;
+
+        return $this;
+    }
+
+    /**
+     * Get locality
+     *
+     * @return string
+     */
+    public function getLocality()
+    {
+        return $this->locality;
+    }
+
+    /**
+     * Set longitude
+     *
+     * @param string $longitude
+     *
+     * @return Observation
+     */
+    public function setLongitude($longitude)
+    {
+        $this->longitude = $longitude;
+
+        return $this;
+    }
+
+    /**
+     * Get longitude
+     *
+     * @return string
+     */
+    public function getLongitude()
+    {
+        return $this->longitude;
+    }
+
+    /**
+     * Set latitude
+     *
+     * @param string $latitude
+     *
+     * @return Observation
+     */
+    public function setLatitude($latitude)
+    {
+        $this->latitude = $latitude;
+
+        return $this;
+    }
+
+    /**
+     * Get latitude
+     *
+     * @return string
+     */
+    public function getLatitude()
+    {
+        return $this->latitude;
     }
 }

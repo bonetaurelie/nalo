@@ -1,14 +1,11 @@
 {% if zoom is not defined %}
-    {% set zoom = 12 %}
+    {% set zoom = france_location.zoom %}
 {% endif %}
 {% if latitude is not defined %}
-    {% set latitude = 45.8629838 %}
-{% endif %}
-{% if zoom is not defined %}
-    {% set zoom = 12 %}
+    {% set latitude = france_location.latitude %}
 {% endif %}
 {% if longitude is not defined %}
-    {% set longitude = 6.7669772 %}
+    {% set longitude = france_location.longitude %}
 {% endif %}
 <script src="https://maps.googleapis.com/maps/api/js?key={{ google_map_key }}"></script>
 <script type="text/javascript">
@@ -34,4 +31,6 @@
             title: title
         });
     }
+
+
 </script>

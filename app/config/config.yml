@@ -42,6 +42,10 @@ twig:
     globals:
         google_map_key: "%google_map_key%"
         locale: "%locale%"
+        france_location:
+            latitude: 45.8629838
+            longitude: 6.7669772
+            zoom: 12
     form_themes:
         - bootstrap_3_layout.html.twig
         - 'DependentFormsBundle:Form:fields.html.twig'

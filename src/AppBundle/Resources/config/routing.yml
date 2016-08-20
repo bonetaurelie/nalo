@@ -31,4 +31,3 @@ app_observations_validation:
     resource: "@AppBundle/Controller/ObservationValidationController.php"
     type:     annotation
 
-
