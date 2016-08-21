@@ -173,6 +173,7 @@ padding-left: 125px;
 
 .carte{
     padding-bottom: 20px;
+    height: 400px;
 }
 
 .dos{
@@ -693,6 +694,10 @@ footer a:hover{
 
     .control-label-confnewmdp{
         margin-left: 230px;
+    }
+
+    .no-padding{
+        padding: 0;
     }
 }
 

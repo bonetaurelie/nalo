@@ -5,15 +5,105 @@ contact:
     nom: 'Votre nom'
     email: 'Votre adresse e-mail'
     message: 'Votre message'
+email:
+    sign: 'L''association NALO'
 search:
     title_page: 'Recherche'
     subtitle_page: 'Saisissez vos critères et consultez vos résultats.'
     period_label: 'Période'
     period_selector_first_label: 'Entre le '
     period_selector_second_label: 'et le '
-    country_label: 'Sélectionnez un critère géographique'
+    department_label: 'Sélectionnez un critère géographique'
     town_label: 'Sélectionnez une commune'
     submit: 'Rechercher'
+profile:
+    common:
+        title: 'Votre espace'
+        profile_link: 'Profil'
+        my_observations_link: 'Mes observations'
+        observations_validate_link: 'Observations à valider'
+observations:
+    detail:
+        title: 'Observation du %date% à %hour%'
+        subtitle: 'A %locality%, par %author%'
+    list:
+        date_text: 'Le %date% à %hour%'
+    table:
+        header:
+            date: 'Date'
+            city: 'Commune'
+            species: 'Espèce'
+            state: 'Status'
+            action: 'Action'
+    my_observations_page:
+        title: 'Mes observations'
+        legends:
+            standby: 'Observation en attente de validation'
+            validated: 'Observation validée'
+            refused: 'Observation rejetée'
+        add_bouton: 'Ajouter une observation'
+
+        action_buttons:
+            edit: 'Modifier'
+            delete: 'Supprimer'
+    add_page:
+        title: 'Saisie d''une observation'
+        subtitle: 'Saississez les informations relatives à votre observation, ajoutez la position sur la carte puis cliquez sur envoyer'
+    edit_page:
+        title: 'Modifier votre observation'
+        subtitle: ''
+    form:
+        messageSelectCityBefore: 'Veuillez sélectionner une ville avant!'
+        messageLocalityCoordinatesNotFound: 'Les coordonnés du lieu n''ont pas été trouvé, veuillez réessayer!'
+        messageLocalityNotFound: 'Le lieu n''a pas été trouvé, veuillez réessayer!'
+        datetime: 'Date et heure de l''observation'
+        department: 'Selectionner le département'
+        city: 'Selectionner la commune'
+        locality: 'Saisir le lieu dit'
+        map_position: 'Ou cliquez sur la carte'
+        coordinates: 'Coordonnées du lieu'
+        nb_individual: 'Nombre d''individu observé'
+        comment: 'Commentaire'
+        add_submit: 'Envoyer'
+        image:
+            title: 'Photos'
+            label: 'Photo n° __num__'
+            alt: 'Légende'
+            file: 'Télécharger votre photo'
+            cancel_btn: 'Annuler'
+            delete_btn: 'Supprimer'
+            add_btn: 'Ajouter une nouvelle photo'
+            delete_confirm_message: 'Êtes-vous sûr de vouloir supprimer cette photo?'
+            delete_confirm_title: 'Question'
+    validation:
+        valid: 'validée'
+        refuse: 'Rejetée'
+        email_confirm_vote:
+            hello: 'Bonjour, %fullname%'
+            your_observation_has: 'Votre observation à été %vote%.'
+            following_link_text: 'Vous pouvez voir votre observation sur le lien suivant : '
+            link_text: 'Voir votre annonce'
+            comment_text: 'Voici le commentaire laissé par le professionnel :'
+        list_to_validate:
+            title: 'Observations a valider'
+        to_validate:
+            title: 'Détail de l''observation à valider'
+            return_btn: 'Retour aux obsersations'
+            form_label_comment: 'Saisir un commentaire'
+            form_btn_valid: 'Valider l''observation'
+            form_btn_refuse: 'Rejeter l''observation'
+        validate:
+            valid_message: 'Merci d''avoir validée l''observation, l''auteur a été averti!'
+            refuse_message: 'L''observation à été rejetée, l''auteur a été averti!'
+            subject_valid: 'Votre observation de l''espèce "%species%" du %date%  a été validée'
+            subject_refuse: 'Votre observation de l''espèce "%species%" du %date%  a été refusée'
+    treatment:
+        record_success_message: 'L''observation a été enregistrée avec succès!'
+        record_error_message: 'Une erreur est intervenue, veuillez recommencer, si l''erreur persiste, veuillez contacter l''administrateur du site!'
+        you_are_not_author_message: 'Vous n''êtes pas l''auteur de cette observation!'
+        delete_success_message: 'l''observation %date% a été supprimée avec succès!'
+        delete_error_message: 'une erreur est intervenue lors de la suppression!'
+# formType
 species:
     placeholder: 'Toutes les espèces'
     label: 'Sélectionnez une espèce'
@@ -21,3 +111,8 @@ species:
     popover_content: 'Ce champ permet de filtrer la liste des espèces. Par exemple : tapez "canard" et la liste contiendra que des canards'
 locality:
     choice_city: 'Choisir une ville'
+#knp pagination
+Previous: 'Précédent'
+Next: 'Suivant'
+previous_resulats: 'Résultats précédents'
+nexts_resulats: 'Résultats suivants'

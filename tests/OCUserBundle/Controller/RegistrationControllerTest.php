@@ -47,7 +47,7 @@ class fos_user_registration_formControllerTest extends WebTestCase
 		$crawler = $client->request('GET','/inscription');
 		$form = $crawler->selectButton('Inscrivez-vous')->form();
 
-		$form['fos_user_registration_form[email]'] = 'test@þest.fr';
+		$form['fos_user_registration_form[email]'] = 'test.amateur@test.fr';
 
 		$crawler = $client->submit($form);
 

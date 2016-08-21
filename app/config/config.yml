@@ -39,10 +39,18 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
-#    globals:
+    globals:
+        google_map_key: "%google_map_key%"
+        locale: "%locale%"
+        france_location:
+            latitude: 45.8629838
+            longitude: 6.7669772
+            zoom: 12
     form_themes:
         - bootstrap_3_layout.html.twig
         - 'DependentFormsBundle:Form:fields.html.twig'
+        - "Form/fields.html.twig"
+        - 'Form/vich_fields.html.twig'
 
 # Doctrine Configuration
 doctrine:
@@ -118,3 +126,42 @@ dependent_forms:
             no_result_msg: 'Pas de ville trouvée pour ce département'
             order_property: adminName
             order_direction: ASC
+
+knp_paginator:
+    page_range: 5                      # default page range used in pagination control
+    default_options:
+        page_name: page                # page query parameter name
+        sort_field_name: sort          # sort field query parameter name
+        sort_direction_name: direction # sort direction query parameter name
+        distinct: true                 # ensure distinct results, useful when ORM queries are using GROUP BY statements
+    template:
+        pagination: :Pagination:twitter_bootstrap_v3_pagination.html.twig     # sliding pagination controls template
+        sortable: KnpPaginatorBundle:Pagination:sortable_link.html.twig # sort link template
+
+vich_uploader:
+    db_driver: orm
+    mappings:
+        observation_image:
+            uri_prefix:         /uploads
+            upload_destination: %kernel.root_dir%/../web/uploads/
+            namer:              vich_uploader.namer_uniqid
+            inject_on_load:     false
+            delete_on_update:   true
+            delete_on_remove:   true
+liip_imagine:
+    resolvers:
+        default:
+            web_path:
+                web_root: %kernel.root_dir%/../web
+                cache_prefix: media/cache
+
+    filter_sets:
+        cache: ~
+        thumb:
+            quality: 90
+            filters:
+                thumbnail: { size: [120, 90], mode: outbound }
+        preview:
+            quality: 90
+            filters:
+                thumbnail: { size: [240, 180], mode: outbound }

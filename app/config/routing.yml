@@ -41,3 +41,6 @@ fos_user_resetting:
 
 anacona16_dependent_forms:
     resource: '@DependentFormsBundle/Resources/config/routing.xml'
+
+_liip_imagine:
+    resource: "@LiipImagineBundle/Resources/config/routing.xml"

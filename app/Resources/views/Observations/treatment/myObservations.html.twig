@@ -1,0 +1,88 @@
+{% extends "profile.layout.html.twig" %}
+{% trans_default_domain 'AppBundle' %}
+{% block title %}
+    {{ parent() }} - {{ 'observations.my_observations_page.title'|trans }}
+{% endblock %}
+
+{% block body_member_space %}
+    <div class="row">
+        <div class="blockobs">
+            <h1 class="titreobs col-md-offset-4 col-xs-offset-1">{{ 'observations.my_observations_page.title'|trans|upper }}</h1>
+
+            <div class="legende col-md-offset-4 col-xs-offset-1">
+                <em><i class="glyphicon glyphicon-refresh text-warning"></i> {{ 'observations.my_observations_page.legends.standby'|trans }}</em><br>
+                <em><i class="glyphicon glyphicon-ok text-success"></i> {{ 'observations.my_observations_page.legends.validated'|trans }}</em><br>
+                <em><i class="glyphicon glyphicon-remove text-danger"></i> {{ 'observations.my_observations_page.legends.refused'|trans }}</em><br>
+            </div>
+
+            <a class="lien btn btn-default" href="{{ path('app_observations_add') }}" role="button">{{ 'observations.my_observations_page.add_bouton'|trans }}</a>
+
+
+            <div class="responsive-table-line">
+                <table class="table table-bordered table-condensed table-body-center">
+                    <thead>
+                    <tr>
+                        <th width="15%" class="text-center">{{ 'observations.table.header.date'|trans }}</th>
+                        <th width="30%">{{ 'observations.table.header.city'|trans }}</th>
+                        <th width="30%">{{ 'observations.table.header.species'|trans }}</th>
+                        <th width="10%" class="text-center">{{ 'observations.table.header.state'|trans }}</th>
+                        <th width="15%" class="text-center">{{ 'observations.table.header.action'|trans }}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for observation in pagination %}
+                    <tr>
+                        <td class="text-center">{{ observation.datetimeObservation|date('d/m/Y') }}</td>
+                        <td data-title="Actions">{{ observation.city.adminName }}</td>
+                        <td data-title="Actions">{{ observation.species.frenchName }}</td>
+                        <td class="text-center" data-title="Actions">
+                            {% include ':Observations/treatment:states.html.twig' with {'observation': observation} %}
+                        </td>
+                        <td data-title="Actions" class="text-center">
+                            {% if observation.state is constant('STATE_STANDBY', observation) or observation.state is constant('STATE_REFUSED', observation) %}
+                            <a class="text-center btn btn-warning" href="{{ path('app_observations_edit', {'id': observation.id}) }}" role="button" title="{{ 'observations.my_observations_page.action_buttons.edit'|trans }}"><i class="glyphicon glyphicon-edit"></i></a>
+                            <a class="text-center btn btn-danger delete-obs" href="{{ path('app_observation_del', {'id': observation.id}) }}" role="button"  title="{{ 'observations.my_observations_page.action_buttons.delete'|trans }}"><i class="glyphicon glyphicon-trash"></i></a>
+                                {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {# display navigation #}
+            <div class="navigation pull-right">
+                {{ knp_pagination_render(pagination) }}
+            </div>
+        </div>
+    </div>
+{% endblock body_member_space %}
+{% block javascript %}
+    {{ parent() }}
+    <script type="text/javascript">
+        $(function(){
+            $('.delete-obs').on('click', function(e){
+                var href = $(this).attr('href');
+                bootbox.dialog({
+                    message: 'Êtes-vous sûr de vouloir supprimer cette observation ?',
+                    title: 'Question',
+                    buttons:{
+                        cancel:{
+                            label: 'Annuler'
+                        },
+                        delete:{
+                            label: 'Supprimer',
+                            className: 'btn btn-danger',
+                            callback: function(){
+                                window.location.href = href;
+                            }
+                        }
+                    }
+                });
+
+                e.preventDefault();
+                return false;
+            });
+
+        });
+    </script>
+{% endblock %}

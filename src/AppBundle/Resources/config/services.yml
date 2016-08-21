@@ -3,8 +3,17 @@ services:
         class: AppBundle\Services\MailerTemplating
         arguments: ["@mailer","@templating"]
     app.business_contact:
-        class: AppBundle\Business\ContactService
+        class: AppBundle\Business\ContactHandler
         arguments: ["@form.factory", "@app.mailer_templating", "@session.flash_bag", "%robot_email%", "%contact_email%"]
+    app.business_observation:
+        class: AppBundle\Business\ObservationHandler
+        arguments: ["@form.factory", "@app.mailer_templating", "@session", "@doctrine.orm.entity_manager", "@knp_paginator", "%robot_email%"]
+    app.business_observation_treatment:
+        class: AppBundle\Business\ObservationTreatmentHandler
+        arguments: ["@form.factory", "@app.mailer_templating", "@session", "@doctrine.orm.entity_manager", "@knp_paginator", "@translator", "%robot_email%"]
+    app.business_observation_validation:
+        class: AppBundle\Business\ObservationValidationHandler
+        arguments: ["@form.factory", "@app.mailer_templating", "@session", "@doctrine.orm.entity_manager", "@knp_paginator", "@translator", "%robot_email%"]
     app.form.type.species:
         class: AppBundle\Form\Type\SpeciesType
         tags:

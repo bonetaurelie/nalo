@@ -1,6 +1,7 @@
 <?php
 namespace AppBundle\Entity\locality;
 
+use AppBundle\Entity\ObservableLocalityInterface;
 use Doctrine\ORM\Mapping as ORM;
 
 /**

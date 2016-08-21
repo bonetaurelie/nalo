@@ -6,10 +6,6 @@ app_association:
     path:    /association
     defaults: {_controller: AppBundle:Main:association}
 
-app_recherche:
-    path:    /recherche
-    defaults: {_controller: AppBundle:Main:recherche}
-
 app_detailRecherche:
     path:    /detailRecherche
     defaults: {_controller: AppBundle:Main:detailRecherche}
@@ -22,21 +18,16 @@ app_mentions:
     path:    /mentions
     defaults: {_controller: AppBundle:Main:mentions}
 
-app_saisie:
-    path:    /saisie
-    defaults: {_controller: AppBundle:Main:saisie}
 
 app_observations:
-    path:    /observations
-    defaults: {_controller: AppBundle:Main:observations}
+    resource: "@AppBundle/Controller/ObservationController.php"
+    type:     annotation
 
-app_validations:
-    path:    /validations
-    defaults: {_controller: AppBundle:Main:validations}
+app_observations_treatment:
+    resource: "@AppBundle/Controller/ObservationTreatmentController.php"
+    type:     annotation
 
-app_detailValidation:
-    path:    /detailValidation
-    defaults: {_controller: AppBundle:Main:detailValidation}
-
-
+app_observations_validation:
+    resource: "@AppBundle/Controller/ObservationValidationController.php"
+    type:     annotation
 

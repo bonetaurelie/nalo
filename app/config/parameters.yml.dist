@@ -26,4 +26,5 @@ parameters:
     # google reCAPTCHA key
     google_recapatcha_site_key: the_key_for_the_public_part
     google_recapatcha_secret_key: the_key_for_the_server_part
+    google_map_key: key_for_google_map_use
 

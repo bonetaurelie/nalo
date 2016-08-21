@@ -1,0 +1,14 @@
+{% trans_default_domain 'AppBundle' %}
+{% if vote == true %}
+    {% set voteStr = ('observations.validation.valid'|trans) %}
+{% else %}
+    {% set voteStr = ('observations.validation.refuse'|trans) %}
+{% endif %}
+<p>
+    {{ 'observations.validation.email_confirm_vote.hello'|trans({'%fullname%': observation.author.fullName}) }}<br /><br />
+    {{ 'observations.validation.email_confirm_vote.your_observation_has'|trans({'%vote%':voteStr}) }}<br />
+    {{ 'observations.validation.email_confirm_vote.following_link_text'|trans }} <a href="{{ url('app_observation_detail', {'id': observation.id}) }}">{{ 'observations.validation.email_confirm_vote.link_text'|trans }}</a><br /><br />
+    {{ 'observations.validation.email_confirm_vote.comment_text'|trans }}<br /><br />
+    {{ comment }}<br /><br />
+    {{ 'email.sign'|trans }}
+</p>
