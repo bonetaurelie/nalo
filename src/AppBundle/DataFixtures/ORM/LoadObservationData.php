@@ -13,28 +13,36 @@ use AppBundle\Entity\Observation;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\ORM\EntityManager;
 
 class LoadObservationData implements FixtureInterface, OrderedFixtureInterface
 {
-
+    /**
+     * @var EntityManager
+     */
 	private $manager;
 
 	private function getFakeObservation()
 	{
 		$towns = ['Le Thor', 'Saint-Martin-du-Frêne', 'Biarritz'];
 		$species = ['Canard d\'Eaton', 'Bernache à ventre pâle', 'Martinet de Cayenne ', 'Aigle royal'];
-		$dateStr = '2016-08-'.str_pad(rand(1,31),2,'0', STR_PAD_LEFT).' '.str_pad(rand(0,23),2,'0', STR_PAD_LEFT).':'.str_pad(rand(0,59),2,'0', STR_PAD_LEFT);
+		$dateStr = '2016-08-'.str_pad(mt_rand(1,31),2,'0', STR_PAD_LEFT).' '.str_pad(mt_rand(0,23),2,'0', STR_PAD_LEFT).':'.str_pad(mt_rand(0,59),2,'0', STR_PAD_LEFT);
 
-		$state = rand(0,3);
+		$state = mt_rand(0,3);
 		$state = $state == 1?0:$state;//ignore pour le moment le status "En cours"
 
+        $city = $this->manager->getRepository('AppBundle:locality\City')->findOneBy(array('adminName'=> $towns[mt_rand(0,2)]));
+
 		return (object) array(
-				'locality' => $this->manager->getRepository('AppBundle:locality\City')->findOneBy(array('adminName'=> $towns[rand(0,2)])),
+				'city' => $city,
+                'locality' => 'lieu dit  '.mt_rand(1,10),
+                'longitude' => $city->getLongitude(),
+                'latitude' => $city->getLatitude(),
 				'author'   => $this->manager->getRepository('UserBundle:User')->findOneBy(array('email'=> 'test.amateur@test.fr')),
-				'species'   => $this->manager->getRepository('AppBundle:Species')->findOneBy(array('frenchName' => $species[rand(0,3)])),
+				'species'   => $this->manager->getRepository('AppBundle:Species')->findOneBy(array('frenchName' => $species[mt_rand(0,3)])),
 				'datetimeObservation'   => \DateTime::createFromFormat('Y-m-d H:i', $dateStr),
-				'nbIndividual'   => rand(1,10),
-				'comment'   => "commentaire ".rand(1,10),
+				'nbIndividual'   => mt_rand(1,10),
+				'comment'   => "commentaire ".mt_rand(1,10),
 				'state'   => $state
 			);
 	}
@@ -62,6 +70,9 @@ class LoadObservationData implements FixtureInterface, OrderedFixtureInterface
 		foreach ($fakeObservations as $fakeObservation){
 			$observation = new Observation();
 			$observation
+				->setCity($fakeObservation->city)
+				->setLongitude($fakeObservation->longitude)
+				->setLatitude($fakeObservation->latitude)
 				->setLocality($fakeObservation->locality)
 				->setAuthor($fakeObservation->author)
 				->setSpecies($fakeObservation->species)

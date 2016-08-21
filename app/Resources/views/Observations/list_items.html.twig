@@ -1,7 +1,7 @@
 {# si le lieu dit est renseigné on prend les coordonnées de celui-ci sinon on prend les coordonnées de la ville #}
 {% if observation.locality is not null %}
-    {% set longitude = observation.locality.longitude %}
-    {% set latitude = observation.locality.latitude   %}
+    {% set longitude = observation.longitude %}
+    {% set latitude = observation.latitude   %}
 {% else %}
     {% set longitude = observation.city.longitude   %}
     {% set latitude = observation.city.latitude   %}
