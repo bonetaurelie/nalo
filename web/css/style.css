@@ -475,6 +475,14 @@ footer a:hover{
         padding-bottom: 20px;
     }
 
+    .detail{
+        margin-top: -50px;
+    }
+
+    .retourliste{
+        margin-top: 150px;
+    }
+
     .paginationval{
         padding-top: -30px;
     }
@@ -701,6 +709,14 @@ footer a:hover{
     .paginationval{
         margin-top: 60px;
         padding-bottom: 100px;
+    }
+
+    .detail{
+        margin-top: -50px;
+    }
+
+    .retourliste{
+        margin-top: 180px;
     }
 
 
@@ -1002,6 +1018,14 @@ footer a:hover{
         margin-top: 150px;
     }
 
+    .detail{
+        margin-top: -50px;
+    }
+
+    .retourliste{
+        margin-top: 150px;
+    }
+
 
     /*detail recherche*/
     .info{
@@ -1219,6 +1243,14 @@ footer a:hover{
     /*validations*/
     .blockval{
         margin-top: 100px;
+    }
+
+    .detail{
+        margin-top: -50px;
+    }
+
+    .retourliste{
+        margin-top: 150px;
     }
 
     /*detail recherche*/
