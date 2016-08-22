@@ -7,8 +7,17 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class ObservationControllerTest extends WebTestCase
 {
+	const MY_OBSERVATIONS_ROUTE = '/mes-observations';
+	const ADD_OBSERVATION_ROUTE = '/ajouter-une-observation';
+	const EDIT_OBSERVATION_ROUTE = '/edit-une-observation/{id}';
+	const DELETE_OBSERVATION_ROUTE = '/supprimer-une-observation/{id}';
 
-	public function connexionClient(Client $client)
+	/**
+	 * Récupération d'un compte utlisateur amateur
+	 *
+	 * @param Client $client
+	 */
+	public function connexionCompteAmateur(Client $client)
 	{
 		$crawler = $client->request('GET', '/connexion');
 
@@ -20,28 +29,72 @@ class ObservationControllerTest extends WebTestCase
 		$client->submit($form);
 	}
 
-	public function getObservationsUrlList()
+
+	/**
+	 * test l'accès au détail d'une observation via la page d'accueil
+	 */
+	public function testDetailObsAccessByHomePage()
 	{
-		return ['/mes-observations', '/ajouter-une-observation'];
+		echo "test l'accès au détail d'une observation via la page d'accueil \r\n";
+
+		$client = static::createClient();
+
+		$crawler = $client->request('GET', '/');//accès page d'accueil
+
+		$obLink = $crawler->filter("#observations-list li")->eq(0)->filter("h4 a")->link();
+
+		$client->click($obLink);
+
+
+		$this->assertEquals(200, $client->getResponse()->getStatusCode());
 	}
+
 
     /**
      * Vérifie que les pages liés aux observations s'affichent bien
      */
-    public function testAccessViews()
+    public function testAccessMyObservation()
     {
 	    $client = static::createClient();
 
-	    $this->connexionClient($client);
+	    $this->connexionCompteAmateur($client);
 
-	    foreach ($this->getObservationsUrlList() as $url){
-	    	echo "accès url : ".$url."\r\n";
-		    $client->request('GET', $url);
-		    $this->assertEquals(200, $client->getResponse()->getStatusCode());
-	    }
-    }
+	    $url = self::MY_OBSERVATIONS_ROUTE;
 
-    public function testAddObservation(){
+        echo "accès url : ".$url."\r\n";
+	    $client->request('GET', $url);
+	    $this->assertEquals(200, $client->getResponse()->getStatusCode());
 
     }
+
+    public function testAccessAddObservationPage()
+    {
+	    $client = static::createClient();
+
+	    $this->connexionCompteAmateur($client);
+
+	    $url = self::MY_OBSERVATIONS_ROUTE;
+
+	    echo "accès url : ".$url."\r\n";
+	    $client->request('GET', $url);
+	    $this->assertEquals(200, $client->getResponse()->getStatusCode());
+    }
+
+	public function testAccessEditObservationPage()
+	{
+		$client = static::createClient();
+
+		$this->connexionCompteAmateur($client);
+
+		$crawler =  $client->request('GET', '/mes-observations');
+
+
+		$editLInk = $crawler->filter("a[title=Modifier]")->link();
+
+		$client->click($editLInk);
+
+
+		$this->assertEquals(200, $client->getResponse()->getStatusCode());
+
+	}
 }

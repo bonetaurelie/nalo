@@ -125,7 +125,7 @@ class ObservationTreatmentHandler
 	public function createEditform(Observation $observation)
 	{
 		$this->createForm($observation);
-		$department = $this->em->getRepository('AppBundle:locality\Department')->find($observation->getLocality()->getDepartment());
+		$department = $this->em->getRepository('AppBundle:locality\Department')->find($observation->getCity()->getDepartment());
 
 		$this->form->get('department')->setData($department);
 	}

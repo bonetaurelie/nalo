@@ -12,7 +12,7 @@
 {% endblock %}
 {% block javascript %}
     {{ parent() }}
-    {% include ':Observations:observations_location.js.html.twig' with {'zoom': 15, 'latitude': observation.locality.latitude, 'longitude': observation.locality.longitude } %}
+    {% include ':Observations:observations_location.js.html.twig' with {'zoom': 15, 'latitude': observation.latitude, 'longitude': observation.longitude } %}
     <script type="text/javascript">
         $(function(){
             var $observation = $('#observation');
