@@ -146,8 +146,6 @@ padding-left: 125px;
 
 .titre{
     padding-bottom: 25px;
-    border-bottom: solid 1px ;
-    width: 400px;
     margin-bottom: 50px;
     margin-top: 100px;
 }
@@ -158,8 +156,6 @@ padding-left: 125px;
 
 .observations{
     padding-bottom: 25px;
-    border-bottom: solid 1px ;
-    width: 450px;
 }
 
 .obs h3{
