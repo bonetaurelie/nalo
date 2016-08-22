@@ -1,0 +1,13 @@
+{# si le lieu dit est renseigné on prend les coordonnées de celui-ci sinon on prend les coordonnées de la ville #}
+{% if observation.locality is not null %}
+    {% set longitude = observation.longitude %}
+    {% set latitude = observation.latitude   %}
+{% else %}
+    {% set longitude = observation.city.longitude   %}
+    {% set latitude = observation.city.latitude   %}
+{% endif %}
+<li data-id="species-{{ observation.id }}" data-title="{{ observation.species.frenchName }}, {{ 'observations.list.date_text'|trans({'%date%': observation.datetimeObservation|date('d/m/Y'), '%hour%': observation.datetimeObservation|date('H:i') }, 'AppBundle')|lower }}" data-longitude="{{ longitude }}" data-latitude="{{ latitude }}" >
+    <h4 class="text-right"><a href="{{ path('app_observation_detail', {'id': observation.id }) }}">{{ observation.species.frenchName }}</a></h4>
+    <p class="text-right">{{ 'observations.list.date_text'|trans({'%date%': observation.datetimeObservation|date('d/m/Y'), '%hour%': observation.datetimeObservation|date('H:i') }, 'AppBundle') }}</p>
+    <p class="text-right">{{ observation.city.adminName }} ({{ observation.city.department.departmentCode }})</p>
+</li>

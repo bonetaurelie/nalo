@@ -11,7 +11,7 @@
 !/var/sessions
 /var/sessions/*
 !var/sessions/.gitkeep
-!var/SymfonyRequirements.php
+var/SymfonyRequirements.php
 /vendor/
 /web/bundles/
 composer.phar
@@ -19,3 +19,7 @@ composer.lock
 .env
 *.tmp
 .idea
+web/uploads
+web/media
+Supprimerait var/cache/
+Supprimerait var/sessions/

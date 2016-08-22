@@ -1,0 +1,26 @@
+{% extends '::layout.html.twig' %}
+{% block body %}
+    <div class="container">
+        <div class="main">
+            <div class="row">
+                <div class="detail">
+                    {% include ':Observations:detail.block.html.twig' with {'observation': observation } %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascript %}
+    {{ parent() }}
+    {% include ':Observations:observations_location.js.html.twig' with {'zoom': 15, 'latitude': observation.locality.latitude, 'longitude': observation.locality.longitude } %}
+    <script type="text/javascript">
+        $(function(){
+            var $observation = $('#observation');
+            var lat = parseFloat($observation.data('latitude'));
+            var lgt = parseFloat($observation.data('longitude'));
+            var title = $observation.find('h1').text();
+
+            setMarker(title, lat, lgt);
+        });
+    </script>
+{% endblock %}

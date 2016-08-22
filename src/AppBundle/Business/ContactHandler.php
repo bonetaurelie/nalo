@@ -15,7 +15,7 @@ use Symfony\Component\HttpFoundation\Session\Flash\FlashBag;
  *
  * @package OC\CoreBundle\Business
  */
-class ContactService
+class ContactHandler
 {
     private $form;
     private $mailer;

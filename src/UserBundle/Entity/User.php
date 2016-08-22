@@ -61,6 +61,7 @@ class User extends BaseUser
     public function setEmail($email){
         $this->email = $email;
         $this->username = $email;
+	    return $this;
     }
 
     /**
@@ -185,5 +186,10 @@ class User extends BaseUser
         }
 
         return self::ROLE_USER_NAME;
+    }
+
+    public function getFullName()
+    {
+    	return $this->firstName.' '.$this->lastName;
     }
 }

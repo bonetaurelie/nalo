@@ -37,6 +37,8 @@ class SimpleFilterType extends AbstractType
 		$view->vars['popover_content'] = $options['popover_content'];
 		$view->vars['filter_css_class'] = $options['filter_css_class'];
 		$view->vars['filter_choice_css_class'] = $options['filter_choice_css_class'];
+		$view->vars['input_css_class'] = $options['input_css_class'];
+		$view->vars['icon_css_class'] = $options['icon_css_class'];
 	}
 
     public function configureOptions(OptionsResolver $resolver)
@@ -47,8 +49,10 @@ class SimpleFilterType extends AbstractType
 		    array(
 			    'popover_title' => '',
 			    'popover_content' => '',
-			    'filter_css_class' => 'col-lg-4',
-			    'filter_choice_css_class' => 'col-lg-4',
+			    'filter_css_class' => 'col-lg-5',
+			    'filter_choice_css_class' => 'col-lg-6',
+			    'input_css_class' => 'form-control',
+			    'icon_css_class' => 'col-lg-1',
 		    )
 	    );
     }

@@ -40,7 +40,10 @@ class RechercheType extends AbstractType
 	            'empty_value' => 'Choisir une ville',
 	            'parent_field' => 'department',
             ))
-            ->add('species', SpeciesType::class)
+            ->add('species', SpeciesType::class, array(
+                'filter_css_class' => 'col-lg-5 no-padding',
+                'filter_choice_css_class' => 'col-lg-6 no-padding',
+            ))
         ;
     }
     

@@ -1,0 +1,36 @@
+{% if zoom is not defined %}
+    {% set zoom = france_location.zoom %}
+{% endif %}
+{% if latitude is not defined %}
+    {% set latitude = france_location.latitude %}
+{% endif %}
+{% if longitude is not defined %}
+    {% set longitude = france_location.longitude %}
+{% endif %}
+<script src="https://maps.googleapis.com/maps/api/js?key={{ google_map_key }}"></script>
+<script type="text/javascript">
+    $(function(){
+        initMap();
+    });
+
+    var map;
+
+    function initMap() {
+        // Create a map object and specify the DOM element for display.
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: {{ latitude }}, lng: {{ longitude }}},
+            scrollwheel: false,
+            zoom: {{ zoom }}
+        });
+    }
+
+    function setMarker(title, lat, lgt){
+        new google.maps.Marker({
+            position: {lat: lat, lng: lgt},
+            map: map,
+            title: title
+        });
+    }
+
+
+</script>
