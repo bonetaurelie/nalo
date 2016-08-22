@@ -1,4 +1,12 @@
 {% extends "layout.html.twig" %}
+{# si le lieu dit est renseigné on prend les coordonnées de celui-ci sinon on prend les coordonnées de la ville #}
+{% if observation.locality is not null %}
+    {% set longitude = observation.longitude   %}
+    {% set latitude = observation.latitude   %}
+{% else %}
+    {% set longitude = observation.city.longitude   %}
+    {% set latitude = observation.city.latitude   %}
+{% endif %}
 {% form_theme form 'bootstrap_3_horizontal_layout.html.twig' %}
 {% trans_default_domain 'AppBundle' %}
 {% block title %}
@@ -36,7 +44,7 @@
 {% endblock %}
 {% block javascript %}
     {{ parent() }}
-    {% include ':Observations:observations_location.js.html.twig' with {'zoom': 15, 'latitude': observation.locality.latitude, 'longitude': observation.locality.longitude } %}
+    {% include ':Observations:observations_location.js.html.twig' with {'zoom': 15, 'latitude': latitude, 'longitude': longitude } %}
     <script type="text/javascript">
         $(function(){
             var $observation = $('#observation');
