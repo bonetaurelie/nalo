@@ -16,10 +16,12 @@
 {% block body %}
     <div class="container">
         <div class="main">
+
             <div class="row">
-                <div class="retourliste col-lg-offset-6 col-md-offset-5 col-sm-offset-5 col-xs-offset-4">
-                    <a class="text-center btn-lg btn-default" href="{{ path('app_observations_validate') }}" role="button">{{ 'observations.validation.to_validate.return_btn'|trans }}</a>
-                </div>
+                 <div class="retourliste">
+                     <a class="text-center btn-lg btn-default col-lg-offset-6 col-md-offset-6 col-sm-offset-5 col-xs-offset-4" href="{{ path('app_observations_validate') }}" role="button">{{ 'observations.validation.to_validate.return_btn'|trans }}</a>
+
+                 </div>
             </div>
 
             <div class="detail col-md-9">
