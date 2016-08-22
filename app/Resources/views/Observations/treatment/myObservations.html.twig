@@ -33,12 +33,12 @@
                     {% for observation in pagination %}
                     <tr>
                         <td class="text-center">{{ observation.datetimeObservation|date('d/m/Y') }}</td>
-                        <td data-title="Actions">{{ observation.city.adminName }}</td>
-                        <td data-title="Actions">{{ observation.species.frenchName }}</td>
-                        <td class="text-center" data-title="Actions">
+                        <td data-title="Ville">{{ observation.city.adminName }}</td>
+                        <td data-title="Espèce">{{ observation.species.frenchName }}</td>
+                        <td class="text-center" data-title="Status">
                             {% include ':Observations/treatment:states.html.twig' with {'observation': observation} %}
                         </td>
-                        <td data-title="Actions" class="text-center">
+                        <td data-title="Action" class="text-center">
                             {% if observation.state is constant('STATE_STANDBY', observation) or observation.state is constant('STATE_REFUSED', observation) %}
                             <a class="text-center btn btn-warning" href="{{ path('app_observations_edit', {'id': observation.id}) }}" role="button" title="{{ 'observations.my_observations_page.action_buttons.edit'|trans }}"><i class="glyphicon glyphicon-edit"></i></a>
                             <a class="text-center btn btn-danger delete-obs" href="{{ path('app_observation_del', {'id': observation.id}) }}" role="button"  title="{{ 'observations.my_observations_page.action_buttons.delete'|trans }}"><i class="glyphicon glyphicon-trash"></i></a>
