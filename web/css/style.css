@@ -313,6 +313,7 @@ footer p {
 footer a{
     color: white;
 }
+
 footer a:hover{
     text-decoration: none;
     color: #DCEDC8;
@@ -361,14 +362,6 @@ footer a:hover{
         margin-left: 200px;
     }
 
-
-    .footer1{
-        margin-right: -80px;
-    }
-
-    .footer2{
-        margin-right: -110px;
-    }
 
     /*saisie*/
     .saisie{
@@ -764,6 +757,12 @@ footer a:hover{
 @media (min-width:992px) {
 
     /*footer*/
+    footer p {
+        color: white;
+        margin-left: 110px;
+
+    }
+
     .footer1{
         margin-right: 45px;
     }
@@ -1016,12 +1015,14 @@ footer a:hover{
 @media (min-width: 1200px) {
 
     /*footer*/
-    .footer1{
-        margin-right: 75px;
+    footer p {
+        color: white;
+        margin-left: 110px;
+
     }
 
     .footer2{
-        margin-right: 75px;
+        margin-left: -15px;
     }
 
     /*accueil*/
