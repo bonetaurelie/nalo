@@ -486,6 +486,11 @@ footer a:hover{
     .paginationval{
         padding-top: -30px;
     }
+
+    /*detail observation*/
+    .cartedetail{
+        margin-top: 100px;
+    }
 }
 
 /* Small devices (tablets, 768px and up) */
@@ -731,6 +736,11 @@ footer a:hover{
 
     .no-padding{
         padding: 0;
+    }
+
+    /*detail observation*/
+    .cartedetail{
+        margin-top: 100px;
     }
 }
 
@@ -1026,6 +1036,11 @@ footer a:hover{
         margin-top: 150px;
     }
 
+    /*detail observation*/
+    .cartedetail{
+        margin-top: 100px;
+    }
+
 
     /*detail recherche*/
     .info{
@@ -1269,6 +1284,11 @@ footer a:hover{
 
     .changement{
         margin-left: 520px;
+    }
+
+    /*detail observation*/
+    .cartedetail{
+        margin-top: 100px;
     }
 }
 
