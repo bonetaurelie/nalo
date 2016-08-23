@@ -1033,7 +1033,7 @@ footer a:hover{
     }
 
     .commentaires{
-        margin-top: -100px;
+        padding-top: 70px;
         margin-left: 450px;
     }
 
@@ -1267,12 +1267,12 @@ footer a:hover{
     }
 
     .commentaires{
-        margin-top: -100px;
+        margin-top: -250px;
     }
 
     .retourliste{
         margin-top: 150px;
-        margin-bottom: -80px;
+        margin-bottom: px;
     }
 
     /*detail recherche*/

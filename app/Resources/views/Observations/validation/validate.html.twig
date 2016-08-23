@@ -30,7 +30,7 @@
 
                     {{ form_start(form, {'action': path('app_observation_save_vote', {'id': observation.id})}) }}
 
-                    <div class=" commentaires col-lg-6 col-lg-offset-7 col-md-8">
+                    <div class=" commentaires col-lg-6 col-lg-push-2 col-md-8">
                         {{ form_row(form.comment, {'label': ('observations.validation.to_validate.form_label_comment'|trans)}) }}
                     </div>
                 </div>
