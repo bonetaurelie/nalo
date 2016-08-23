@@ -12,13 +12,12 @@ html{
 
 #wrap{
     min-height:100vh;
+    margin-bottom: 75px;
 }
 
 .main{
     min-height:100vh;
-    width:100%;
-    margin:0 0 75px 0;
-    padding:0;
+    margin-bottom: 75px;
 }
 
 @font-face {
@@ -297,6 +296,10 @@ footer {
     text-align: center;
     color: #fff;
     padding-top: 20px;
+    margin-top: 50px;
+    position: fixed;
+    bottom: 0;
+    width: 100%
 }
 
 footer a:hover{
