@@ -1025,11 +1025,16 @@ footer a:hover{
     }
 
     .detail{
-        margin-top: -50px;
+        margin-top: -150px;
     }
 
     .retourliste{
         margin-top: 150px;
+    }
+
+    .commentaires{
+        margin-top: -100px;
+        margin-left: 450px;
     }
 
     /*detail observation*/
@@ -1257,11 +1262,17 @@ footer a:hover{
     }
 
     .detail{
-        margin-top: -50px;
+        padding-top: -100px;
+        margin-left: -100px;
+    }
+
+    .commentaires{
+        margin-top: -100px;
     }
 
     .retourliste{
         margin-top: 150px;
+        margin-bottom: -80px;
     }
 
     /*detail recherche*/
