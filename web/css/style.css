@@ -12,7 +12,6 @@ html{
 
 #wrap{
     min-height:100vh;
-    margin-bottom: 75px;
 }
 
 .main{
@@ -45,10 +44,6 @@ section {
 
 .navbar-default .navbar-collapse{
     background-color: #8BC34A;
-}
-
-.navbar-brand{
-padding-left: 125px;
 }
 
 .navbar-brand img{
@@ -149,26 +144,21 @@ padding-left: 125px;
     margin-top: 100px;
 }
 
-.obs{
-    padding-top: 60px;
-}
-
-.observations{
-    padding-bottom: 25px;
-}
-
-.obs h3{
+.dos {
     color: #689F38;
-    margin-top: -8px;
+    text-align: right;
+}
+
+#map {
+    margin-top: 30px;
 }
 
 .carte{
-    padding-bottom: 20px;
     height: 400px;
 }
 
-.dos{
-    padding-top: 20px;
+.last-obs p {
+    font-size: 80%;
 }
 
 li{
@@ -281,37 +271,17 @@ li{
 
 /*footer*/
 footer {
-    position: fixed;
-    bottom: 0;
-    margin-top: 75px;
     background-color: #8BC34A;
-    width: 100%;
     height: auto;
-    display: inline-block;
     font-size: 15px;
-}
-
-footer p {
-    color: white;
-    margin-left: 110px;
-
-}
-
-footer a{
-    color: white;
+    text-align: center;
+    color: #fff;
+    padding-top: 20px;
 }
 
 footer a:hover{
     text-decoration: none;
     color: #DCEDC8;
-}
-
-.footer3 i{
-    padding-right: 12px;
-}
-
-.footer {
-    padding-top: 20px;
 }
 
 @media (max-width: 768px) {
@@ -332,23 +302,6 @@ footer a:hover{
     .titre{
         margin-top: 40px;
     }
-
-    /*footer*/
-    footer {
-        position: fixed;
-        bottom: 0;
-        margin-top: 75px;
-        background-color: #689F38;
-        width: 100%;
-        height: auto;
-        font-size: 15px;
-    }
-
-    footer p {
-        color: white;
-        margin-left: 200px;
-    }
-
 
     /*saisie*/
     .saisie{
@@ -503,20 +456,6 @@ footer a:hover{
 
     .titre{
         margin-top: 40px;
-    }
-
-    /*footer*/
-    footer p {
-        color: white;
-        margin-left: 350px;
-    }
-
-    .footer1{
-        margin-right: -95px;
-    }
-
-    .footer2{
-        margin-right: -95px;
     }
 
     /*saisie*/
@@ -771,21 +710,6 @@ footer a:hover{
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width:992px) {
-
-    /*footer*/
-    footer p {
-        color: white;
-        margin-left: 110px;
-
-    }
-
-    .footer1{
-        margin-right: 45px;
-    }
-
-    .footer2{
-        margin-right: -30px;
-    }
 
     /*accueil*/
     .button{
@@ -1051,17 +975,6 @@ footer a:hover{
 
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
-
-    /*footer*/
-    footer p {
-        color: white;
-        margin-left: 110px;
-
-    }
-
-    .footer2{
-        margin-left: -15px;
-    }
 
     /*accueil*/
     .button{

@@ -39,7 +39,7 @@
 <div id="wrap">
 <header>
     <nav class="navbar navbar-default navbar-fixed-top">
-            <div class="container-fluid">
+            <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                         <span class="sr-only">Toggle navigation</span>
@@ -78,22 +78,25 @@
 {%  endblock %}
 </div>
 <footer>
-    <div class="footer">
-        <div class="footer1 col-lg-4 col-md-3 col-sm-12 col-xs-12" >
-            <p><a href="{{ path('app_mentions') }}">Mentions légales</a></p>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <p>&copy; Les bronzés font du code || 2016</p>
+            </div>
+            <div class="col-sm-4">
+                <ul class="list-inline">
+                    <li><i class="fa fa-flickr fa-2x"></i>
+                    </li>
+                    <li><i class="fa fa-facebook fa-2x"></i>
+                    </li>
+                    <li><i class="fa fa-twitter fa-2x"></i>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm-4">
+                <p href="{{ path('app_mentions') }}">Mentions légales</p>
+            </div>
         </div>
-
-        <div class="footer3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
-            <p><a href="#"><i class="fa fa-flickr" aria-hidden="true"></i></a>
-                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                <a href="#"><i class="fa fa-twitter"></i></a>
-            </p>
-        </div>
-
-        <div class="footer2 col-lg-5 col-md-5 ccol-sm-12 col-xs-12">
-            <p><a href="#">&copy; Les bronzés font du code - 2016</a></p>
-        </div>
-
     </div>
 </footer>
 <script src="{{ asset('js/plugins/lightbox2/lightbox.min.js') }}"></script>
