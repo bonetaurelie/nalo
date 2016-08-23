@@ -6,13 +6,10 @@
 
 {% block body %}
     <div class="nao">
-        <div class="photoheader">
-            <img src="{{ asset('images/header.png') }}">
-        </div>
         <div class="header">
-            <h1 class="titreHeader col-lg-8 col-md-8 hidden-sm hidden-xs">OBSERVEZ,PARTAGER ET PARTICIPEZ A UN PROGRAMME DE RECHERCHE</h1>
-            <h1 class="titreHeader hidden-lg hidden-md col-sm-8 col-xs-9">OBSERVEZ ET PARTAGEZ!</h1>
-            <a href="{{ path('fos_user_registration_register') }}" class="btnHeader text-center col-lg-2 col-md-pull-3 col-md-2 col-sm-pull-4 col-sm-3 col-xs-pull-5 col-xs-4 btn-lg">Je m'inscris</a>
+            <h1 class="hidden-sm hidden-xs">OBSERVEZ, PARTAGEZ ET PARTICIPEZ<br> À UN PROGRAMME DE RECHERCHE</h1>
+            <h1 class="hidden-lg hidden-md">OBSERVEZ ET PARTAGEZ!</h1>
+            <a href="{{ path('fos_user_registration_register') }}" class="btn btn-brown btn-lg">Je m'inscris !</a>
         </div>
     </div>
 
