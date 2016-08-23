@@ -1,18 +1,30 @@
 {% extends '::layout.html.twig' %}
+{% trans_default_domain 'AppBundle' %}
+{# si le lieu dit est renseigné on prend les coordonnées de celui-ci sinon on prend les coordonnées de la ville #}
+{% if observation.locality is not null %}
+    {% set longitude = observation.longitude   %}
+    {% set latitude = observation.latitude   %}
+{% else %}
+    {% set longitude = observation.city.longitude   %}
+    {% set latitude = observation.city.latitude   %}
+{% endif %}
 {% block body %}
     <div class="container">
         <div class="main">
             <div class="row">
-                <div class="detail">
+                <div class="detail col-lg-9 col-md-9 col-sm-11 col-xs-11 col-xs-offset-1">
                     {% include ':Observations:detail.block.html.twig' with {'observation': observation } %}
                 </div>
+            </div>
+            <div class="row">
+                <a class="text-center btn-lg btn-default col-lg-offset-6 col-md-offset-6 col-sm-offset-6 col-xs-offset-6" href="{{ path('app_homepage') }}" role="button">Retour</a>
             </div>
         </div>
     </div>
 {% endblock %}
 {% block javascript %}
     {{ parent() }}
-    {% include ':Observations:observations_location.js.html.twig' with {'zoom': 15, 'latitude': observation.latitude, 'longitude': observation.longitude } %}
+    {% include ':Observations:observations_location.js.html.twig' with {'zoom': 15, 'latitude': latitude, 'longitude': longitude } %}    <script type="text/javascript">
     <script type="text/javascript">
         $(function(){
             var $observation = $('#observation');
