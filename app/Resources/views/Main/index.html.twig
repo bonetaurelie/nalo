@@ -25,12 +25,12 @@
         <section>
             <div class="row">
                 <h2 class="text-center">DERNIÈRES OBSERVATIONS</h2>
-                <div id="map" class="carte col-sm-6"></div>
+                <div id="map" class="carte col-sm-6 hidden-xs"></div>
                 {#<div class="carte col-lg-offset-1 col-md-offset-1 col-lg-4 col-md-4 hidden-sm hidden-xs">#}
                     {#<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d5647781.620328719!2d2.951989442325457!3d46.275949317535904!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfr!2sfr!4v1469042707453" width="500" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>#}
                 {#</div>#}
                 <div class="col-sm-6">
-                    <h3 class="dos">Derniers oiseaux observés</h3>
+                    <h3 class="dos hidden-xs">Derniers oiseaux observés</h3>
                     <div class="last-obs">
                         {{ render(controller('AppBundle:Observation:lastObservationsValidate', {'nbItems' : 4 })) }}
                     </div>
@@ -41,7 +41,7 @@
 {% endblock %}
 {% block javascript %}
     {{ parent() }}
-    {% include ':Observations:observations_location.js.html.twig' with {'zoom': 4} %}
+    {% include ':Observations:observations_location.js.html.twig' with {'zoom': 5} %}
     <script type="text/javascript">
         $(function(){
             var observationsList = $('#observations-list');

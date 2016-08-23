@@ -146,19 +146,32 @@ section {
 
 .dos {
     color: #689F38;
-    text-align: right;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+section h2 {
+    margin-bottom: 40px;
 }
 
 #map {
-    margin-top: 30px;
+    margin-top: 40px;
 }
 
 .carte{
     height: 400px;
 }
 
-.last-obs p {
+.last-obs {
     font-size: 80%;
+}
+
+.last-obs li {
+    margin: 20px 0;
+}
+
+#observations-list {
+    padding-left: 0;
 }
 
 li{
@@ -272,7 +285,6 @@ li{
 /*footer*/
 footer {
     background-color: #8BC34A;
-    height: auto;
     font-size: 15px;
     text-align: center;
     color: #fff;
@@ -285,19 +297,6 @@ footer a:hover{
 }
 
 @media (max-width: 768px) {
-    /*accueil*/
-    .button{
-        margin-left: 230px;
-    }
-
-    .titreHeader{
-        margin-top: -160px;
-    }
-
-    .btnHeader{
-        margin-left: 310px;
-        margin-top: -90px;
-    }
 
     .titre{
         margin-top: 40px;
@@ -435,24 +434,6 @@ footer a:hover{
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
-
-    /*accueil*/
-    .button{
-        margin-left: 300px;
-    }
-
-    .header{
-        margin-top: 20px;
-    }
-
-    .titreHeader{
-        margin-left: 25px;
-    }
-
-    .btnHeader{
-        margin-left: 350px;
-        margin-top: -180px;
-    }
 
     .titre{
         margin-top: 40px;
@@ -710,20 +691,6 @@ footer a:hover{
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width:992px) {
-
-    /*accueil*/
-    .button{
-        margin-bottom: 40px;
-    }
-
-    .titreHeader{
-        margin-left: 55px;
-
-    }
-
-    .btnHeader{
-        margin-top: -130px;
-    }
 
     /*saisie*/
     .saisie{
