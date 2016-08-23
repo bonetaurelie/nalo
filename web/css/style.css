@@ -27,25 +27,20 @@ html{
     src: url('Lato-Regular.ttf');
 }
 
-.btn-default{
-    border:none;
-    padding: 2px 10px;
-}
-
 /*menu*/
 .navbar{
     font-size: 18px;
 }
 
-
 .navbar-default{
-    background-color: #689F38;
+    background-color: #8BC34A;
     color: white;
     height: 75px;
+    border-bottom: none;
 }
 
 .navbar-default .navbar-collapse{
-    background-color: #689F38;
+    background-color: #8BC34A;
 }
 
 .navbar-brand{
@@ -55,7 +50,6 @@ padding-left: 125px;
 .navbar-brand img{
     margin-top: -5px;
 }
-
 
 #navbar li{
     margin-right: 5px;
@@ -123,7 +117,7 @@ padding-left: 125px;
 
 .btn-default{
     border-radius: 25px 25px 25px 25px;
-    background-color: #689F38;
+    background-color: #8BC34A;
     color: white;
     border: none;
     padding: 2px 10px;
@@ -188,10 +182,6 @@ li{
 .contacter h2{
     padding-top: 30px;
     padding-bottom: 20px;
-}
-
-.btn-default{
-    background-color: #689F38;
 }
 
 /*inscription*/
@@ -286,7 +276,7 @@ footer {
     position: fixed;
     bottom: 0;
     margin-top: 75px;
-    background-color: #689F38;
+    background-color: #8BC34A;
     width: 100%;
     height: auto;
     display: inline-block;
