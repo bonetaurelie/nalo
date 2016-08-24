@@ -25,7 +25,7 @@
                         <td>{{ observation.datetimeObservation|date('d/m/Y') }}</td>
                         <td>{{ observation.city.adminName }}</td>
                         <td>{{ observation.species.frenchName }}</td>
-                        <td data-title="Actions"><a class="text-center btn btn-default" href="{{ path('app_observation_validate', {'id': observation.id }) }}" role="button">Voir</a></td>
+                        <td data-title="Actions"><a class="text-center btn btn-default" href="{{ path('app_observation_validate', {'id': observation.id }) }}" title="{{ 'observations.validation.to_validate.validate_link_btn'|trans }}" role="button">{{ 'observations.validation.to_validate.validate_link_btn'|trans }}</a></td>
                     </tr>
                     {% endfor %}
                     </tbody>

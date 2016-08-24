@@ -92,6 +92,7 @@ observations:
             form_label_comment: 'Saisir un commentaire'
             form_btn_valid: 'Valider l''observation'
             form_btn_refuse: 'Rejeter l''observation'
+            validate_link_btn: 'Valider'
         validate:
             valid_message: 'Merci d''avoir validée l''observation, l''auteur a été averti!'
             refuse_message: 'L''observation à été rejetée, l''auteur a été averti!'
