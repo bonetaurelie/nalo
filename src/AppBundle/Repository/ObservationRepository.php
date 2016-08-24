@@ -50,7 +50,7 @@ class ObservationRepository extends EntityRepository
 	        ->where("o.state = :state")->setParameter('state', Observation::STATE_VALIDATED)
             ->andWhere("o.datetimeObservation >= :startDate")->setParameter('startDate', $startDate)
             ->andWhere("o.datetimeObservation <= :endDate")->setParameter('endDate', $endDate)
-            ->andWhere("o.locality = :locality")->setParameter('locality', $city->getId())//besoin de prendre l'id car bug avec la session
+            ->andWhere("o.city = :city")->setParameter('city', $city->getId())//besoin de prendre l'id car bug avec la session
             ->andWhere("o.species = :species")->setParameter('species', $species)
         ;
         foreach ($orders as $field => $order){

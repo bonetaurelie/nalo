@@ -164,6 +164,8 @@ class ObservationHandler
 	        Observation::DEFAULT_ITEMS_BY_PAGE
         );
 
+	    dump($query);
+
         return (object) array(
             'resultats' => $resultats,
             'gps'      => (object) array(
