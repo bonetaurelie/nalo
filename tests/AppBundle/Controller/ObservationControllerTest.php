@@ -51,7 +51,7 @@ class ObservationControllerTest extends WebTestCase
 
 
     /**
-     * Vérifie que les pages liés aux observations s'affichent bien
+     * Vérifie que la page qui liste les observations écrite par l'utilisateur
      */
     public function testAccessMyObservation()
     {

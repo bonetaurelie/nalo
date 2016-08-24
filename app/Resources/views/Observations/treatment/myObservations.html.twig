@@ -39,10 +39,13 @@
                             {% include ':Observations/treatment:states.html.twig' with {'observation': observation} %}
                         </td>
                         <td data-title="Action" class="text-center">
-                            {% if observation.state is constant('STATE_STANDBY', observation) or observation.state is constant('STATE_REFUSED', observation) %}
+                            {% if observationHandler.canEdit(observation, app.user) %}
+                            {#{% if observation.state is constant('STATE_STANDBY', observation) or observation.state is constant('STATE_REFUSED', observation) %}#}
                             <a class="text-center btn btn-warning" href="{{ path('app_observations_edit', {'id': observation.id}) }}" role="button" title="{{ 'observations.my_observations_page.action_buttons.edit'|trans }}"><i class="glyphicon glyphicon-edit"></i></a>
+                            {% endif %}
+                            {% if observationHandler.canDel(observation, app.user) %}
                             <a class="text-center btn btn-danger delete-obs" href="{{ path('app_observation_del', {'id': observation.id}) }}" role="button"  title="{{ 'observations.my_observations_page.action_buttons.delete'|trans }}"><i class="glyphicon glyphicon-trash"></i></a>
-                                {% endif %}
+                            {% endif %}
                         </td>
                     </tr>
                     {% endfor %}

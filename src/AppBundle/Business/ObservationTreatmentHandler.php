@@ -195,6 +195,51 @@ class ObservationTreatmentHandler
 
 			return false;
 		}
+	}
 
+	/**
+	 * Vérifie que l'utilisateur peut éditer son observation
+	 *
+	 * @param Observation $observation
+	 * @param UserInterface $user
+	 * @return bool
+	 */
+	public function canEdit(Observation $observation, UserInterface $user)
+	{
+		//Si l'utilisateur n'est pas l'auteur de l'observation il ne peut pas l'editer
+		if ($observation->getAuthor() !== $user) {
+			return false;
+		}
+
+		//Si l'utilisateur a un role amateur (n'est pas pro) et que l'observation a été validé, il ne peut pas l'editer
+		if (!$user->hasRole('ROLE_PRO') && $observation->getState() === Observation::STATE_VALIDATED) {
+			return false;
+		}
+
+		//sinon c'est bon il peut éditer
+		return true;
+	}
+
+	/**
+	 * Vérifie que l'utilisateur peut supprimer son observation
+	 *
+	 * @param Observation $observation
+	 * @param UserInterface $user
+	 * @return bool
+	 */
+	public function canDel(Observation $observation, UserInterface $user)
+	{
+		//Si l'utilisateur n'est pas l'auteur de l'observation il ne peut pas l'editer
+		if ($observation->getAuthor() !== $user) {
+			return false;
+		}
+
+		//Si l'utilisateur a un role amateur (n'est pas pro) et que l'observation a été validé, il ne peut pas l'editer
+		if (!$user->hasRole('ROLE_PRO') && $observation->getState() === Observation::STATE_VALIDATED) {
+			return false;
+		}
+
+		//sinon c'est bon il peut éditer
+		return true;
 	}
 }
