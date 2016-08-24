@@ -303,7 +303,7 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
-    z-index: 2;
+    z-index: 10;
 }
 
 footer a {
@@ -392,8 +392,13 @@ footer a:hover{
         padding-left: 2px;
         padding-right: 2px;
     }
+
     .blockobs {
         margin-top: 20px;
+    }
+
+    table {
+        font-size: 85%;
     }
 }
 
