@@ -5,11 +5,12 @@ namespace AppBundle\Business;
 
 use AppBundle\Entity\Observation;
 use AppBundle\Form\ObservationType;
-use AppBundle\Form\RechercheType;
+use AppBundle\Form\SearchType;
 use AppBundle\Services\MailerTemplating;
 use Doctrine\ORM\EntityManager;
 use FOS\UserBundle\Model\UserInterface;
 use Knp\Component\Pager\PaginatorInterface;
+use Symfony\Bundle\FrameworkBundle\Translation\Translator;
 use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\Form\FormFactory;
 use Symfony\Component\Form\Form;
@@ -48,6 +49,7 @@ class ObservationHandler
 	 * @var PaginatorInterface
 	 */
 	private $paginator;
+
 
 	private $fromMail;
 
@@ -88,12 +90,25 @@ class ObservationHandler
 		);
 	}
 
+	/**
+	 * Initialise le formulaire et le renvoie
+	 *
+	 * @return Form|\Symfony\Component\Form\FormInterface
+	 */
 	public function getSearchForm()
     {
-        $this->searchForm =  $this->formFactory->create(RechercheType::class);
+
+        $this->searchForm =  $this->formFactory->create(SearchType::class);
         return $this->searchForm;
     }
 
+	/**
+	 * Met en session les données recherchées
+	 *
+	 * @param Request $request
+	 * @return bool
+	 * @throws \Exception
+	 */
     private function setSearchFormDataToSession(Request $request)
     {
 	    if(null === $this->searchForm){
@@ -102,10 +117,17 @@ class ObservationHandler
 
 	    $this->searchForm->handleRequest($request);
 
-	    if(!$this->searchForm->isSubmitted() || !$this->searchForm->isValid()){
-			return false;
+	    //Si le formulaire est à nouveau soumit on vide le cache de recherche
+	    if($this->searchForm->isSubmitted()){
+		    $this->session->set('search', null);
 
 	    }
+
+		//Si le formulaire n'est pas valide on affiche pas les résultats
+	    if(!$this->searchForm->isValid()){
+			return false;
+	    }
+
 	    $search = (object) $this->searchForm->getData();
 
 	    $this->session->set('search', $search);
@@ -119,6 +141,13 @@ class ObservationHandler
 	    $this->session->set('search', $search);
 	}
 
+
+	/**
+	 *
+	 * Initialise les champs du formulaire avec les infos qui ont été recherchées
+	 *
+	 * @param $data
+	 */
 	public function setSearchFormDataToDisplay($data)
 	{
 		$department = $this->em->getRepository('AppBundle:locality\Department')->find($data->department->getId());
@@ -132,6 +161,12 @@ class ObservationHandler
 		$this->searchForm->get('species')->setData($species);
 	}
 
+	/**
+	 * Récupère les résultats de la recherche si présent
+	 *
+	 * @param Request $request
+	 * @return object
+	 */
 	public function getResultats(Request $request)
     {
     	//On charge les données du formulaire
@@ -163,8 +198,6 @@ class ObservationHandler
 	        $request->query->getInt('page', 1),
 	        Observation::DEFAULT_ITEMS_BY_PAGE
         );
-
-	    dump($query);
 
         return (object) array(
             'resultats' => $resultats,

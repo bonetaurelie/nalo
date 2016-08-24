@@ -13,9 +13,11 @@ search:
     period_label: 'Période'
     period_selector_first_label: 'Entre le '
     period_selector_second_label: 'et le '
+    department_all: 'Toute la France'
     department_label: 'Sélectionnez un critère géographique'
     town_label: 'Sélectionnez une commune'
     submit: 'Rechercher'
+    period_start_superior_end_error: 'La date de début doit être inférieur ou égal à la date de fin'
 profile:
     common:
         title: 'Votre espace'
