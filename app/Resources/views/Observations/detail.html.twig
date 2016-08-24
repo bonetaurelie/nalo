@@ -24,7 +24,7 @@
 {% endblock %}
 {% block javascript %}
     {{ parent() }}
-    {% include ':Observations:observations_location.js.html.twig' with {'zoom': 15, 'latitude': latitude, 'longitude': longitude } %}    <script type="text/javascript">
+    {% include ':Observations:observations_location.js.html.twig' with {'zoom': 15, 'latitude': latitude, 'longitude': longitude } %}
     <script type="text/javascript">
         $(function(){
             var $observation = $('#observation');
