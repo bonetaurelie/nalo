@@ -184,6 +184,10 @@ section h2 {
     margin: 20px 0;
 }
 
+.last-obs a {
+    color: #689F38;
+}
+
 #observations-list {
     padding-left: 0;
 }
