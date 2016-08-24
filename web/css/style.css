@@ -196,13 +196,6 @@ li{
     list-style-type: none;
 }
 
-/*association*/
-.assoc{
-    margin-top: 100px;
-    margin-left: 160px;
-    margin-bottom: 50px;
-}
-
 /*Contact*/
 .contacter{
     padding-top: 80px;
@@ -329,14 +322,17 @@ footer a:hover{
     .header h1 {
         font-size: 23px;
     }
-
 }
-
 
 @media (max-width: 768px) {
 
     .titre{
         margin-top: 40px;
+    }
+
+    .imgoiseau {
+        width: 300px;
+        margin-bottom: 30px;
     }
 
     /*saisie*/
@@ -524,11 +520,6 @@ footer a:hover{
 
     .control-label-robot{
         margin-top: 20px;
-    }
-
-    /*association*/
-    .assoc{
-        margin-top: 120px;
     }
 
     /*inscription*/
@@ -803,23 +794,6 @@ footer a:hover{
         margin-top: 20px;
     }
 
-    /*association*/
-    .assoc{
-        margin-top: 120px;
-    }
-
-    .imgoiseau{
-        float:left;
-        margin-top: -320px;
-
-    }
-
-    .presentation {
-        float:right;
-        margin-right: 100px;
-    }
-
-
     /*connexion*/
     .connexion{
         padding-top: 120px;
@@ -1015,17 +989,6 @@ footer a:hover{
     .titre{
         margin-top: 100px;
     }
-    
-    /*association*/
-    .imgoiseau{
-        float:left;
-        margin-top: -325px;
-    }
-
-    .presentation {
-        margin-right: 250px;
-    }
-
 
     /*contact*/
     .carte{
