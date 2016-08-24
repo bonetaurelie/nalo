@@ -301,12 +301,15 @@ footer {
     background-color: #8BC34A;
     font-size: 15px;
     text-align: center;
-    color: #fff;
     padding-top: 20px;
     margin-top: 50px;
     position: fixed;
     bottom: 0;
     width: 100%
+}
+
+footer a {
+    color: #fff;
 }
 
 footer a:hover{
