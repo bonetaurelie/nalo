@@ -5,13 +5,13 @@
 {% endblock %}
 
 {% block body %}
-    <div class="container ">
+    <div class="container-fluid">
         <div class="main">
             <div class="row">
                 <ul id="menu">
                     <li>
-                        <p>{{ app.user.lastName }} {{ app.user.firstName }}</p>
-                        <p>{{ app.user.getFullNameRole }}</p>
+                        <p class="hidden-xs hidden-sm">{{ app.user.lastName }} {{ app.user.firstName }}</p>
+                        <p class="hidden-xs hidden-sm">{{ app.user.getFullNameRole }}</p>
                     </li>
                     <li>
                         <a href="{{ path('fos_user_profile_edit') }}">{{ 'profile.common.profile_link' |trans }}</a>
