@@ -329,6 +329,14 @@ footer a:hover{
     margin: 30px 0;
 }
 
+.blockobs {
+    margin-top: 50px;
+}
+
+.btn-saisie {
+    margin-top: 100px;
+}
+
 @media (min-width: 545px) {
     #menu{
         background-color: #DCEDC8;
@@ -383,6 +391,9 @@ footer a:hover{
         font-size: 63%;
         padding-left: 2px;
         padding-right: 2px;
+    }
+    .blockobs {
+        margin-top: 20px;
     }
 }
 
@@ -456,10 +467,6 @@ footer a:hover{
     }
 
     /*mes observation*/
-    .titreobs{
-        margin-top: -20px;
-    }
-
     .legende{
         padding-top: 50px;
         padding-bottom: 40px;
@@ -640,10 +647,6 @@ footer a:hover{
     }
 
     /*mes observation*/
-    .blockobs{
-        margin-top: 0;
-    }
-
     .legende{
         padding-top: 50px;
         padding-bottom: 40px;
@@ -900,10 +903,6 @@ footer a:hover{
     }
 
     /*mes observation*/
-    .blockobs{
-        margin-top: 150px;
-    }
-
     .pagination{
         padding-top: 0;
     }
@@ -948,7 +947,7 @@ footer a:hover{
     #menu{
         background-color: #DCEDC8;
         color: #689F38;
-        height: 1150px;
+        height: 2400px;
         width: 250px;
         padding-top: 100px;
         position: absolute;
@@ -1092,10 +1091,6 @@ footer a:hover{
     }
 
     /*mes observations*/
-    .titreobs{
-        margin-top: 100px;
-    }
-
     .legende{
         padding-top: 50px;
         padding-bottom: 40px;
