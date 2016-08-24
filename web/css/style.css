@@ -123,6 +123,9 @@ section {
     margin: 20px;
     border-radius: 25px;
     height: 50px;
+    background-color: #8BC34A;
+    color: #fff;
+    border: none;
 }
 
 #boutons{
@@ -135,20 +138,17 @@ section {
 }
 
 .btn-default{
-    border-radius: 25px 25px 25px 25px;
     background-color: #8BC34A;
-    color: white;
+    color: #fff;
     border: none;
 }
 
 .btn-danger{
-    border-radius: 25px 25px 25px 25px;
     border: none;
     padding: 2px 10px;
 }
 
 .btn-warning{
-    border-radius: 25px 25px 25px 25px;
     border: none;
     padding: 2px 10px;
 }
