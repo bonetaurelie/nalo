@@ -317,6 +317,18 @@ footer a:hover{
     color: #DCEDC8;
 }
 
+@media (max-width: 544px) {
+    .nao {
+        height: 400px;
+    }
+
+    .header h1 {
+        font-size: 23px;
+    }
+
+}
+
+
 @media (max-width: 768px) {
 
     .titre{
