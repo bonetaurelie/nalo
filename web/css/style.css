@@ -960,7 +960,8 @@ footer a:hover{
     }
 
    #menu li {
-        margin-bottom: 15px;
+       margin-bottom: 15px;
+       display: block;
     }
 
    #menu li a {
