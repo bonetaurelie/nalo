@@ -44,7 +44,7 @@ class ObservationRepository extends EntityRepository
 		return $query;
 	}
 
-	public function search(\DateTime $startDate, \DateTime $endDate, City $city, Species $species, $orders = array('o.datetimeObservation' => 'ASC'))
+	public function search(\DateTime $startDate, \DateTime $endDate, City $city = null, Species $species = null, $orders = array('o.datetimeObservation' => 'ASC'))
     {
         $query = $this->createQueryBuilder("o")
 	        ->where("o.state = :state")->setParameter('state', Observation::STATE_VALIDATED)
@@ -55,7 +55,7 @@ class ObservationRepository extends EntityRepository
             $query->andWhere("o.city = :city")->setParameter('city', $city->getId());//besoin de prendre l'id car bug avec la session
         }
 
-        if(null !== $city) {
+        if(null !== $species) {
             $query->andWhere("o.species = :species")->setParameter('species', $species);
         }
 

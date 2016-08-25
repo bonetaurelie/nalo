@@ -21,16 +21,16 @@
              </div>
             <div class="block-detail">
                 {% include ':Observations:detail.block.html.twig' with {'observation': observation } %}
-            </div>
-            {{ form_start(form, {'action': path('app_observation_save_vote', {'id': observation.id})}) }}
-            <div class="commentaire">
-                {{ form_row(form.comment, {'label': ('observations.validation.to_validate.form_label_comment'|trans)}) }}
-            </div>
-            <div class="text-center btn-valider">
+                {{ form_start(form, {'action': path('app_observation_save_vote', {'id': observation.id})}) }}
+                <div class="commentaire">
+                    {{ form_row(form.comment, {'label': ('observations.validation.to_validate.form_label_comment'|trans)}) }}
+                </div>
+                <div class="text-center btn-valider">
                     {{ form_row(form.valid, {'label': ('observations.validation.to_validate.form_btn_valid'|trans), 'attr': {'class': 'btn-lg btn-default'}}) }}
                     {{ form_row(form.refuse, {'label': ('observations.validation.to_validate.form_btn_refuse'|trans), 'attr': {'class': 'btn-lg btn-danger'}}) }}
+                </div>
+                {{ form_end(form) }}
             </div>
-            {{ form_end(form) }}
         </div>
     </div>
 {% endblock %}
