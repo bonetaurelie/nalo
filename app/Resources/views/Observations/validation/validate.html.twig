@@ -7,7 +7,7 @@
     {% set longitude = observation.city.longitude   %}
     {% set latitude = observation.city.latitude   %}
 {% endif %}
-{% form_theme form 'bootstrap_3_horizontal_layout.html.twig' %}
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
 {% trans_default_domain 'AppBundle' %}
 {% block title %}
     {{ parent() }} - {{ 'observations.to_validate.title'|trans }}
@@ -23,8 +23,8 @@
                 {% include ':Observations:detail.block.html.twig' with {'observation': observation } %}
 
                 {{ form_start(form, {'action': path('app_observation_save_vote', {'id': observation.id})}) }}
-                <div class="commentaire col-md-6">
-                    {{ form_row(form.comment, {'label': ('observations.validation.to_validate.form_label_comment'|trans)}) }}
+                <div class="commentaire">
+                {{ form_row(form.comment, {'label': ('observations.validation.to_validate.form_label_comment'|trans)}) }}
                 </div>
             </div>
             <div class="text-center">

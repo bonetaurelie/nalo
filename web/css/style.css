@@ -358,6 +358,10 @@ li{
     margin-top: 80px;
 }
 
+.commentaire {
+    margin-top: 30px;
+}
+
 /*=========================================================================
   MENTIONS LÉGALES
  ========================================================================== */
@@ -973,11 +977,6 @@ footer a:hover{
         margin-top: 150px;
     }
 
-    .commentaire {
-        margin-top: -150px;
-        margin-left: 390px;
-    }
-
     /*nouveau mdp*/
     .control-label-newmdp{
         margin-left: 250px;
@@ -1146,8 +1145,8 @@ footer a:hover{
     }
 
     .commentaire {
-        margin-top: -210px;
-        margin-left: 530px;
+        margin-top: -200px;
+        margin-left: 545px;
     }
 
     /*nouveau mdp*/
