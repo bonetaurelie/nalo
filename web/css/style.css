@@ -70,12 +70,13 @@ section {
 }
 
 .navbar-default .navbar-nav > li > a {
-    color: white;
+    color: #fff;
 }
 
 .navbar-default .navbar-nav > li > a:hover {
     color: #DCEDC8;
-    text-decoration: underline;
+    border-bottom: 2px solid #fff;
+    padding-bottom: 10px;
 }
 
 .navbar-default .navbar-collapse:hover{
