@@ -4,14 +4,10 @@ namespace AppBundle\Business;
 
 
 use AppBundle\Entity\Observation;
-use AppBundle\Form\ObservationType;
 use AppBundle\Form\SearchType;
 use AppBundle\Services\MailerTemplating;
 use Doctrine\ORM\EntityManager;
-use FOS\UserBundle\Model\UserInterface;
 use Knp\Component\Pager\PaginatorInterface;
-use Symfony\Bundle\FrameworkBundle\Translation\Translator;
-use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\Form\FormFactory;
 use Symfony\Component\Form\Form;
 use Symfony\Component\HttpFoundation\Request;
@@ -90,6 +86,11 @@ class ObservationHandler
 		);
 	}
 
+	public function initForm()
+    {
+        $this->searchForm =  $this->formFactory->create(SearchType::class);
+    }
+
 	/**
 	 * Initialise le formulaire et le renvoie
 	 *
@@ -97,50 +98,99 @@ class ObservationHandler
 	 */
 	public function getSearchForm()
     {
+        if(null === $this->searchForm){
+            $this->initForm();
+        }
 
-        $this->searchForm =  $this->formFactory->create(SearchType::class);
         return $this->searchForm;
     }
+
+    /**
+     * Initialise aux valeurs par le formulaire de recherche
+     */
+    public function resetSearchData()
+    {
+        $this->verifInitSeachForm();//verifie que le formulaire soit bien initialisé
+
+        $this->searchForm->get('startDate')->setData(new \DateTime());
+        $this->searchForm->get('endDate')->setData(new \DateTime());
+        $this->session->set('search', null);
+    }
+
+    /**
+     * Traite la validation du formulaire
+     *
+     * @param Request $request
+     */
+    public function searchFormTreatment(Request $request)
+    {
+        $this->verifInitSeachForm();//verifie que le formulaire soit bien initialisé
+
+        $this->searchForm->handleRequest($request);
+
+        if(!$this->searchForm->isSubmitted() || !$this->searchForm->isValid()){
+             return false;
+        }
+
+        $this->setSearchFormDataToSession($this->searchForm->getData());
+
+        return true;
+    }
+
+    /**
+     * Traite les données du formulaire
+     *
+     * @param $formData
+     */
+    public function dataTreatment($formData)
+    {
+        $data = (object) $formData;
+
+        if(null !==  $data->department){
+            $department =  $this->em->getRepository('AppBundle:locality\Department')->find($data->department->getId());
+            $data->department = $department;
+        }
+
+        if(null !==  $data->city){
+            $city =  $this->em->getRepository('AppBundle:locality\City')->find($data->city->getId());
+            $data->city = $city;
+        }
+
+        if(null !==  $data->species){
+            $species =  $this->em->getRepository('AppBundle:Species')->find($data->species->getId());
+            $data->species = $species;
+        }
+
+        return $data;
+    }
+
 
 	/**
 	 * Met en session les données recherchées
 	 *
-	 * @param Request $request
-	 * @return bool
-	 * @throws \Exception
+	 * @param data
+	 * @return void
 	 */
-    private function setSearchFormDataToSession(Request $request)
+    public function setSearchFormDataToSession($data)
     {
-	    if(null === $this->searchForm){
-		    throw new \Exception("Use getSearchForm before!");
-	    }
-
-	    $this->searchForm->handleRequest($request);
-
-	    //Si le formulaire est à nouveau soumit on vide le cache de recherche
-	    if($this->searchForm->isSubmitted()){
-		    $this->session->set('search', null);
-
-	    }
-
-		//Si le formulaire n'est pas valide on affiche pas les résultats
-	    if(!$this->searchForm->isValid()){
-			return false;
-	    }
-
-	    $search = (object) $this->searchForm->getData();
-
-	    $this->session->set('search', $search);
-
-	    $city = $this->em->getRepository('AppBundle:locality\City')->find($search->city);
-	    $species = $this->em->getRepository('AppBundle:Species')->find( $search->species);
-
-		$search->city = $city;
-		$search->species = $species;
-
-	    $this->session->set('search', $search);
+	    $this->session->set('search', $data);
 	}
 
+    /**
+     * Récupère les données recherchées en session
+     *
+     * @return mixed
+     */
+    public function getSearchFormDataToSession()
+    {
+        $data = $this->dataTreatment($this->session->get('search'));
+
+        if(!$this->searchForm->isSubmitted()){
+            $this->hydrateFormFields($data);//si on passe de page en page dans les résultats pour garder les données des champs du formulaire intact
+        }
+
+        return $data;
+    }
 
 	/**
 	 *
@@ -148,17 +198,15 @@ class ObservationHandler
 	 *
 	 * @param $data
 	 */
-	public function setSearchFormDataToDisplay($data)
+	public function hydrateFormFields($data)
 	{
-		$department = $this->em->getRepository('AppBundle:locality\Department')->find($data->department->getId());
-		$city = $this->em->getRepository('AppBundle:locality\City')->find($data->city);
-		$species = $this->em->getRepository('AppBundle:Species')->find( $data->species);
+        $this->verifInitSeachForm();//verifie que le formulaire soit bien initialisé
 
 		$this->searchForm->get('startDate')->setData($data->startDate);
 		$this->searchForm->get('endDate')->setData($data->endDate);
-		$this->searchForm->get('department')->setData($department);
-		$this->searchForm->get('city')->setData($city);
-		$this->searchForm->get('species')->setData($species);
+		$this->searchForm->get('department')->setData($data->department);
+		$this->searchForm->get('city')->setData($data->city);
+		$this->searchForm->get('species')->setData($data->species);
 	}
 
 	/**
@@ -169,47 +217,60 @@ class ObservationHandler
 	 */
 	public function getResultats(Request $request)
     {
-    	//On charge les données du formulaire
-	    $verifSubmit = $this->setSearchFormDataToSession($request);
+        $query = $this->getSearchQuery();
 
-		$search = $this->session->get('search');
-
-	    if(null === $search){
-		    return (object) array(
-			    'resultats' => null,
-			    'gps'      => null
-		    ) ;
+	    if(null === $query){
+		    return null;
 	    }
 
-	    if(false === $verifSubmit && null !== $request->get('page')){
-		    $this->setSearchFormDataToDisplay($search);
-	    }
-
-
-        $query = $this->em->getRepository('AppBundle:Observation')->search(
-            $search->startDate,
-            $search->endDate,
-	        $search->city,
-	        $search->species
-        );
-
-        $resultats = $this->paginator->paginate(
+        return $this->paginator->paginate(
 	        $query,
-	        $request->query->getInt('page', 1),
+            $request->query->getInt('page', 1),
 	        Observation::DEFAULT_ITEMS_BY_PAGE
         );
-
-        return (object) array(
-            'resultats' => $resultats,
-            'gps'      => (object) array(
-                'latitude' => $search->city->getLatitude(),
-	            'longitude' => $search->city->getLongitude()
-            )
-        ) ;
     }
 
+    /**
+     * Récupération de la requête de recherche
+     *
+     * @return \Doctrine\ORM\QueryBuilder|null
+     */
+    public function getSearchQuery()
+    {
+        $search = $this->getSearchFormDataToSession();
+
+        if(null === $search){
+            return null;
+        }
+
+        return $this->em->getRepository('AppBundle:Observation')->search(
+            $search->startDate,
+            $search->endDate,
+            $search->city,
+            $search->species
+        );
+    }
+
+    /**
+     * Vérifie si l'observation peut-être affiché (si elle est valide)
+     *
+     * @param Observation $observation
+     * @return bool
+     */
     public function verifVisibility(Observation $observation)
     {
 		return $observation->getState() === Observation::STATE_VALIDATED;
+    }
+
+    /**
+     * Vérifie si le formulaire est instancié
+     *
+     * @throws \Exception
+     */
+    private function verifInitSeachForm()
+    {
+        if(null === $this->searchForm){
+            throw new \Exception("Use getSearchForm before!");
+        }
     }
 }

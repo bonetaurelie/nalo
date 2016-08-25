@@ -42,6 +42,7 @@ section {
 }
 
 .navbar-default{
+    z-index: 5;
     background-color: #8BC34A;
     color: white;
     height: 75px;
@@ -85,7 +86,7 @@ section {
 .alert-full-top{
     margin:0;
     position:absolute;
-    z-index:900;
+    z-index:5;
     top:58px;
     width:100%
 }

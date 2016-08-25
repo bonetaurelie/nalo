@@ -49,7 +49,7 @@ class SearchType extends AbstractType
             ))
             ->add('department', EntityType::class, array(
             	'class' => 'AppBundle\Entity\locality\Department',
-	            'required' => true,
+	            'required' => false,
 	            'choice_label' => 'adminName',
 	            'placeholder' => 'search.department_all',
 	            'translation_domain' => 'AppBundle',
@@ -59,11 +59,13 @@ class SearchType extends AbstractType
 	            }
             ))
             ->add('city', DependentFormsType::class, array(
+                'required' => false,
             	'entity_alias' => 'city_by_department',
 	            'empty_value' => 'Choisir une ville',
 	            'parent_field' => 'department'
             ))
             ->add('species', SpeciesType::class, array(
+                'required' => false,
                 'filter_css_class' => 'col-lg-5 no-padding',
                 'filter_choice_css_class' => 'col-lg-6 no-padding',
             ))

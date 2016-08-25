@@ -18,6 +18,7 @@ search:
     town_label: 'Sélectionnez une commune'
     submit: 'Rechercher'
     period_start_superior_end_error: 'La date de début doit être inférieur ou égal à la date de fin'
+    no_results: 'Pas de résultats'
 profile:
     common:
         title: 'Votre espace'
