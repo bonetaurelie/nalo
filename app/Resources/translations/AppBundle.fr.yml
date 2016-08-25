@@ -4,7 +4,7 @@ contact:
     prenom: 'Votre prénom'
     nom: 'Votre nom'
     email: 'Votre e-mail'
-    message: 'Votre message'
+    message: 'Message'
 email:
     sign: 'L''association NALO'
 search:
