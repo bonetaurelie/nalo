@@ -1145,8 +1145,16 @@ footer a:hover{
     }
 
     .commentaire {
-        margin-top: -200px;
+        margin-top: -230px;
         margin-left: 545px;
+    }
+
+    .btn-valider {
+        margin-left: 270px;
+    }
+
+    .carte {
+        margin-bottom: 30px;
     }
 
     /*nouveau mdp*/
