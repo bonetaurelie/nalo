@@ -60,7 +60,7 @@ section {
 
 .btn-danger{
     border: none;
-    padding: 2px 10px;
+    padding: 10px 16px;
 }
 
 .btn-warning{
@@ -148,11 +148,14 @@ section {
     color: #fff;
     border-radius: 25px 25px 25px 25px;
     width: 200px;
+    box-shadow: 2px 2px 7px #000;
 }
 
 .btn-brown:hover{
     color: #fff;
     text-decoration: none;
+    /*border: 2px solid #8BC34A;*/
+    transform: scale(1.07);
 }
 
 .nao{
@@ -178,6 +181,7 @@ section {
 
 .btn-action:hover {
     color: #fff;
+    border: 1px solid #fff;
 }
 
 #boutons{
@@ -341,11 +345,17 @@ li{
     color:#689F38;
 }
 
-/*=========================================================================
-  MES OBSERVATIONS
- ========================================================================== */
 .lien{
    margin-bottom: 30px;
+}
+
+
+/*=========================================================================
+  VALIDATION
+ ========================================================================== */
+
+.retourliste{
+    margin-top: 80px;
 }
 
 /*=========================================================================
@@ -563,7 +573,8 @@ footer a:hover{
     }
 
     .retourliste{
-        margin-top: 150px;
+        margin-top: 100px;
+        margin-bottom: 50px;
     }
 
     .paginationval{
@@ -733,11 +744,6 @@ footer a:hover{
     .detail{
         margin-top: -50px;
     }
-
-    .retourliste{
-        margin-top: 180px;
-    }
-
 
     /*nouveau mdp*/
     .control-label-newmdp{
@@ -967,20 +973,10 @@ footer a:hover{
         margin-top: 150px;
     }
 
-    .detail{
+    .commentaire {
         margin-top: -150px;
+        margin-left: 390px;
     }
-
-    .retourliste{
-        margin-top: 150px;
-    }
-
-    .commentaires{
-        padding-top: 70px;
-        margin-left: 450px;
-    }
-
-    /*detail recherche*/
 
     /*nouveau mdp*/
     .control-label-newmdp{
@@ -1149,21 +1145,10 @@ footer a:hover{
         margin-top: 100px;
     }
 
-    .detail{
-        padding-top: -100px;
-        margin-left: -100px;
+    .commentaire {
+        margin-top: -210px;
+        margin-left: 530px;
     }
-
-    .commentaires{
-        margin-top: -250px;
-    }
-
-    .retourliste{
-        margin-top: 150px;
-        margin-bottom: px;
-    }
-
-    /*detail recherche*/
 
     /*nouveau mdp*/
     .control-label-newmdp{
