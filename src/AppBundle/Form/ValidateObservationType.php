@@ -20,6 +20,7 @@ class ValidateObservationType extends AbstractType
     {
         $builder->add('comment', TextareaType::class, array(
         	'required' => false,
+	        'label_attr' => ['class' => 'label-control col-lg-6'],
 	        'attr' => ['class' => 'form-control col-lg-8', 'style' => 'height:150px'],
 	        'label' => 'observations.validate.form.comment',
 	        'translation_domain' => 'AppBundle'

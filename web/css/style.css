@@ -1,5 +1,25 @@
-body {
+/*=========================================================================
+ COLORS
+ ==========================================================================
+  light green: #DCEDC8
+  green:       #8BC34A
+  dark green:  #689F38
+  dark grey:   #212121
+  marron:      #795548
+ ========================================================================== */
+
+
+/*=========================================================================
+ BASIC SETUP
+ ========================================================================== */
+
+@font-face {
     font-family: 'Lato-Regular';
+    src: url('Lato-Regular.ttf');
+}
+
+body {
+    font-family: 'Lato-Regular', sans-serif;
     color: #212121;
     font-size: 20px;
     height: 100%;
@@ -27,16 +47,37 @@ html{
     margin-bottom: 75px;
 }
 
-@font-face {
-    font-family: 'Lato-Regular';
-    src: url('Lato-Regular.ttf');
-}
-
 section {
     margin: 60px 0;
 }
 
-/*menu*/
+.btn-default{
+    background-color: #8BC34A;
+    color: #fff;
+    border: none;
+    margin: 20px 0;
+}
+
+.btn-danger{
+    border: none;
+    padding: 10px 16px;
+}
+
+.btn-warning{
+    border: none;
+    padding: 2px 10px;
+}
+
+.titre{
+    margin-bottom: 50px;
+    margin-top: 100px;
+}
+
+
+/*=========================================================================
+  NAVBAR
+ ========================================================================== */
+
 .navbar{
     font-size: 18px;
 }
@@ -71,12 +112,13 @@ section {
 }
 
 .navbar-default .navbar-nav > li > a {
-    color: white;
+    color: #fff;
 }
 
 .navbar-default .navbar-nav > li > a:hover {
     color: #DCEDC8;
-    text-decoration: underline;
+    border-bottom: 2px solid #fff;
+    padding-bottom: 10px;
 }
 
 .navbar-default .navbar-collapse:hover{
@@ -86,12 +128,14 @@ section {
 .alert-full-top{
     margin:0;
     position:absolute;
-    z-index:5;
+    z-index:1000;
     top:58px;
     width:100%
 }
 
-/*accueil*/
+/*=========================================================================
+  HEADER
+ ========================================================================== */
 
 .header {
     position: absolute;
@@ -102,14 +146,17 @@ section {
 
 .btn-brown{
     background-color: #795548;
-    color: white;
+    color: #fff;
     border-radius: 25px 25px 25px 25px;
     width: 200px;
+    box-shadow: 2px 2px 7px #000;
 }
 
 .btn-brown:hover{
-    color: white;
+    color: #fff;
     text-decoration: none;
+    /*border: 2px solid #8BC34A;*/
+    transform: scale(1.07);
 }
 
 .nao{
@@ -118,6 +165,10 @@ section {
     height: 650px;
     position: relative;
 }
+
+/*=========================================================================
+  ACCUEIL
+ ========================================================================== */
 
 .btn-action {
     width: 250px;
@@ -129,6 +180,11 @@ section {
     border: none;
 }
 
+.btn-action:hover {
+    color: #fff;
+    border: 1px solid #fff;
+}
+
 #boutons{
     text-align: center;
     margin-top: 30px;
@@ -136,27 +192,6 @@ section {
 
 .button i{
     margin-right: 5px;
-}
-
-.btn-default{
-    background-color: #8BC34A;
-    color: #fff;
-    border: none;
-}
-
-.btn-danger{
-    border: none;
-    padding: 2px 10px;
-}
-
-.btn-warning{
-    border: none;
-    padding: 2px 10px;
-}
-
-.titre{
-    margin-bottom: 50px;
-    margin-top: 100px;
 }
 
 .dos {
@@ -197,41 +232,67 @@ li{
     list-style-type: none;
 }
 
-/*Contact*/
-.contacter{
-    padding-top: 80px;
+/*=========================================================================
+  CONTACT
+ ========================================================================== */
+
+.contact{
+    margin: 30px 0 50px;
 }
 
-.contacter h2{
-    padding-top: 30px;
-    padding-bottom: 20px;
+.contacter {
+    margin-top: 100px;
 }
 
-/*inscription*/
+.coordonnees h2 {
+    margin-top: 40px;
+    margin-bottom: 60px;
+}
+
+.adresse {
+    margin-top: -100px;
+}
+
+/*=========================================================================
+  INSCRIPTION
+ ========================================================================== */
+
 .inscription{
     padding-top: 80px;
     margin-bottom: 50px;
 }
 
-/*connexion*/
+/*=========================================================================
+  CONNEXION
+ ========================================================================== */
+
 .connexion{
     padding-top: 80px;
     margin-bottom: 50px;
 }
 
-/* reinitialisation de mdp*/
+/*=========================================================================
+  RÉINITIALISATION MOT DE PASSE
+ ========================================================================== */
+
 .mdp{
     padding-top: 80px;
     margin-bottom: 50px;
 }
 
-/*changement mdp*/
+/*=========================================================================
+  CHANGEMENT MOT DE PASSE
+ ========================================================================== */
+
 .newmdp{
     padding-top: 80px;
     margin-bottom: 50px;
 }
 
-/*recherche*/
+/*=========================================================================
+  RECHERCHE
+ ========================================================================== */
+
 .recherche{
     padding-top: 80px;
     margin-bottom: 100px;
@@ -241,28 +302,40 @@ li{
     margin-top: 30px;
 }
 
-/*detaiL de la recherche*/
-.detail{
-    padding-top: 80px;
-    margin-bottom: 50px;
+/*=========================================================================
+  DÉTAIL DE LA RECHERCHE
+ ========================================================================== */
+
+#observation h1{
+    font-size: 22px;
 }
 
-.info{
-    margin-top: -30px;
-    margin-bottom: 20px;
+#observation h2{
+    font-size: 20px;
+}
+
+.observation {
+    margin-top: 20px;
+    padding-left: 30px;
 }
 
 .photos{
     margin-bottom: 20px;
 }
 
-/*saisie*/
+/*=========================================================================
+  SAISIE
+ ========================================================================== */
+
 .enregistrement{
     padding-top: 50px;
     margin-bottom: 50px;
 }
 
-/*pagination*/
+/*=========================================================================
+  PAGINATION
+ ========================================================================== */
+
 .pagination> li.active>a{
     background-color: #689F38;
     border: #689F38;
@@ -281,12 +354,27 @@ li{
     color:#689F38;
 }
 
-/*mes observations*/
 .lien{
    margin-bottom: 30px;
 }
 
-/*Mentions légales*/
+
+/*=========================================================================
+  VALIDATION
+ ========================================================================== */
+
+.retourliste{
+    margin-top: 80px;
+}
+
+.commentaire {
+    margin-top: 30px;
+}
+
+/*=========================================================================
+  MENTIONS LÉGALES
+ ========================================================================== */
+
 .mentions{
     padding-top: 100px;
 }
@@ -294,7 +382,10 @@ li{
     padding-bottom: 50px;
 }
 
-/*footer*/
+/*=========================================================================
+  FOOTER
+ ========================================================================== */
+
 footer {
     background-color: #8BC34A;
     font-size: 15px;
@@ -304,7 +395,7 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
-    z-index: 2;
+    z-index: 10;
 }
 
 footer a {
@@ -316,7 +407,9 @@ footer a:hover{
     color: #DCEDC8;
 }
 
-/*menu tableau de bord*/
+/*=========================================================================
+  TABLEAU DE BORD
+ ========================================================================== */
 
 #menu a{
     color:#689F38;
@@ -337,6 +430,10 @@ footer a:hover{
 .btn-saisie {
     margin-top: 100px;
 }
+
+/*=========================================================================
+  MEDIA QUERIES
+ ========================================================================== */
 
 @media (min-width: 545px) {
     #menu{
@@ -393,8 +490,13 @@ footer a:hover{
         padding-left: 2px;
         padding-right: 2px;
     }
+
     .blockobs {
         margin-top: 20px;
+    }
+
+    table {
+        font-size: 85%;
     }
 }
 
@@ -483,25 +585,15 @@ footer a:hover{
         padding-bottom: 20px;
     }
 
-    .detail{
-        margin-top: -50px;
-    }
-
     .retourliste{
-        margin-top: 150px;
+        margin-top: 100px;
+        margin-bottom: 50px;
     }
 
     .paginationval{
         padding-top: -30px;
     }
-
-    /*detail observation*/
-    .cartedetail{
-        margin-top: 100px;
-    }
 }
-
-
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
@@ -543,16 +635,7 @@ footer a:hover{
         margin-bottom: 40px;
     }
 
-    .carte{
-        margin-bottom: 20px;
-        margin-top: 20px;
-    }
-
     /*contact*/
-    .contacter{
-        padding-top: 100px;
-    }
-
     .control-label-message{
         margin-left: 140px;
         margin-right: -20px;
@@ -671,11 +754,6 @@ footer a:hover{
         margin-top: -50px;
     }
 
-    .retourliste{
-        margin-top: 180px;
-    }
-
-
     /*nouveau mdp*/
     .control-label-newmdp{
         margin-left: 230px;
@@ -687,11 +765,6 @@ footer a:hover{
 
     .no-padding{
         padding: 0;
-    }
-
-    /*detail observation*/
-    .cartedetail{
-        margin-top: 100px;
     }
 }
 
@@ -776,11 +849,8 @@ footer a:hover{
     }
 
     /*contact*/
-    .contacter{
-        padding-top: 100px;
-    }
 
-    .carte{
+    .adresse {
         margin-top: 0;
     }
 
@@ -913,29 +983,6 @@ footer a:hover{
         margin-top: 150px;
     }
 
-    .detail{
-        margin-top: -150px;
-    }
-
-    .retourliste{
-        margin-top: 150px;
-    }
-
-    .commentaires{
-        padding-top: 70px;
-        margin-left: 450px;
-    }
-
-    /*detail observation*/
-    .cartedetail{
-        margin-top: 100px;
-    }
-
-    /*detail recherche*/
-    .info{
-        margin-top: -380px;
-    }
-
     /*nouveau mdp*/
     .control-label-newmdp{
         margin-left: 250px;
@@ -948,15 +995,16 @@ footer a:hover{
     #menu{
         background-color: #DCEDC8;
         color: #689F38;
-        height: 2400px;
         width: 250px;
-        padding-top: 100px;
-        position: absolute;
-        top: 0;
+        position: fixed;
         bottom: 0;
-        left: 0;
-        display: block;
-        z-index: 1;
+        left: 20px;
+        top:10px;
+        min-height: 750px;
+        height: 100%;
+        margin-left:-50px;
+        padding-top: 100px;
+        padding-left: 20px;
     }
 
    #menu li {
@@ -971,6 +1019,10 @@ footer a:hover{
     #menu li a:hover {
         color: #8BC34A;
     }
+
+    .block-detail {
+        margin: 50px 0 50px 40px;
+    }
 }
 
 /* Large devices (large desktops, 1200px and up) */
@@ -984,10 +1036,6 @@ footer a:hover{
     }
 
     /*contact*/
-    .carte{
-        margin-top: 0;
-    }
-
     .suiteform{
         padding-top: 70px;
     }
@@ -1003,7 +1051,7 @@ footer a:hover{
     }
 
     .enregistrement{
-        margin-top: 0px;
+        margin-top: 0;
     }
 
     .consult{
@@ -1102,23 +1150,17 @@ footer a:hover{
         margin-top: 100px;
     }
 
-    .detail{
-        padding-top: -100px;
-        margin-left: -100px;
+    .commentaire {
+        margin-top: -230px;
+        margin-left: 545px;
     }
 
-    .commentaires{
-        margin-top: -250px;
+    .btn-valider {
+        margin-left: 270px;
     }
 
-    .retourliste{
-        margin-top: 150px;
-        /*margin-bottom: px;*/
-    }
-
-    /*detail recherche*/
-    .info{
-        margin-top: -380px;
+    .carte {
+        margin-bottom: 30px;
     }
 
     /*nouveau mdp*/
@@ -1134,9 +1176,8 @@ footer a:hover{
         margin-left: 520px;
     }
 
-    /*detail observation*/
-    .cartedetail{
-        margin-top: 100px;
+    .block-detail {
+        margin-left : 100px;
     }
 }
 

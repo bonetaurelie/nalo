@@ -1,10 +1,10 @@
 contact:
     title_page: 'Contacter l''association'
-    text: 'Si vous avez une question ou une demande, envoyez-nous un message à l''aide du formulaire suivant:'
+    text: 'Si vous avez une question ou une demande, envoyez-nous un message à l''aide du formulaire suivant :'
     prenom: 'Votre prénom'
     nom: 'Votre nom'
-    email: 'Votre adresse e-mail'
-    message: 'Votre message'
+    email: 'Votre e-mail'
+    message: 'Message'
 email:
     sign: 'L''association NALO'
 search:
@@ -28,7 +28,7 @@ profile:
 observations:
     detail:
         title: 'Observation du %date% à %hour%'
-        subtitle: 'A %locality%, par %author%'
+        subtitle: 'À %locality%, par %author%'
     list:
         date_text: 'Le %date% à %hour%'
     table:
@@ -36,7 +36,7 @@ observations:
             date: 'Date'
             city: 'Commune'
             species: 'Espèce'
-            state: 'Status'
+            state: 'Statut'
             action: 'Action'
     my_observations_page:
         title: 'Mes observations'
@@ -51,21 +51,21 @@ observations:
             delete: 'Supprimer'
     add_page:
         title: 'Saisie d''une observation'
-        subtitle: 'Saississez les informations relatives à votre observation, ajoutez la position sur la carte puis cliquez sur envoyer'
+        subtitle: 'Saississez les informations relatives à votre observation, ajustez la position sur la carte, puis cliquez sur envoyer.'
     edit_page:
         title: 'Modifier votre observation'
         subtitle: ''
     form:
-        messageSelectCityBefore: 'Veuillez sélectionner une ville avant!'
-        messageLocalityCoordinatesNotFound: 'Les coordonnés du lieu n''ont pas été trouvé, veuillez réessayer!'
-        messageLocalityNotFound: 'Le lieu n''a pas été trouvé, veuillez réessayer!'
+        messageSelectCityBefore: 'Veuillez sélectionner une ville avant !'
+        messageLocalityCoordinatesNotFound: 'Les coordonnées du lieu n''ont pas été trouvées, veuillez réessayer !'
+        messageLocalityNotFound: 'Le lieu n''a pas été trouvé, veuillez réessayer !'
         datetime: 'Date et heure de l''observation'
         department: 'Selectionner le département'
         city: 'Selectionner la commune'
-        locality: 'Saisir le lieu dit'
+        locality: 'Saisir le lieu-dit'
         map_position: 'Ou cliquez sur la carte'
         coordinates: 'Coordonnées du lieu'
-        nb_individual: 'Nombre d''individu observé'
+        nb_individual: 'Nombre d''individus observés'
         comment: 'Commentaire'
         add_submit: 'Envoyer'
         image:
@@ -76,19 +76,19 @@ observations:
             cancel_btn: 'Annuler'
             delete_btn: 'Supprimer'
             add_btn: 'Ajouter une nouvelle photo'
-            delete_confirm_message: 'Êtes-vous sûr de vouloir supprimer cette photo?'
+            delete_confirm_message: 'Êtes-vous sûr de vouloir supprimer cette photo ?'
             delete_confirm_title: 'Question'
     validation:
         valid: 'validée'
-        refuse: 'Rejetée'
+        refuse: 'rejetée'
         email_confirm_vote:
-            hello: 'Bonjour, %fullname%'
-            your_observation_has: 'Votre observation à été %vote%.'
-            following_link_text: 'Vous pouvez voir votre observation sur le lien suivant : '
-            link_text: 'Voir votre annonce'
+            hello: 'Bonjour %fullname%,'
+            your_observation_has: 'Votre observation a été %vote%.'
+            following_link_text: 'Vous pouvez consulter votre observation en cliquant sur le lien suivant : '
+            link_text: 'votre observation'
             comment_text: 'Voici le commentaire laissé par le professionnel :'
         list_to_validate:
-            title: 'Observations a valider'
+            title: 'Observations à valider'
         to_validate:
             title: 'Détail de l''observation à valider'
             return_btn: 'Retour aux obsersations'
@@ -97,22 +97,22 @@ observations:
             form_btn_refuse: 'Rejeter l''observation'
             validate_link_btn: 'Valider'
         validate:
-            valid_message: 'Merci d''avoir validée l''observation, l''auteur a été averti!'
-            refuse_message: 'L''observation à été rejetée, l''auteur a été averti!'
-            subject_valid: 'Votre observation de l''espèce "%species%" du %date%  a été validée'
-            subject_refuse: 'Votre observation de l''espèce "%species%" du %date%  a été refusée'
+            valid_message: 'Merci d''avoir validé l''observation, l''auteur a été averti !'
+            refuse_message: 'L''observation a été rejetée, l''auteur a été averti !'
+            subject_valid: 'Votre observation de l''espèce "%species%" du %date% a été validée.'
+            subject_refuse: 'Votre observation de l''espèce "%species%" du %date% a été refusée.'
     treatment:
-        record_success_message: 'L''observation a été enregistrée avec succès!'
-        record_error_message: 'Une erreur est intervenue, veuillez recommencer, si l''erreur persiste, veuillez contacter l''administrateur du site!'
-        you_are_not_author_message: 'Vous n''êtes pas l''auteur de cette observation!'
-        delete_success_message: 'l''observation %date% a été supprimée avec succès!'
-        delete_error_message: 'une erreur est intervenue lors de la suppression!'
+        record_success_message: 'L''observation a été enregistrée avec succès !'
+        record_error_message: 'Une erreur est survenue, merci de reessayer. Si l''erreur persiste, merci de contacter l''administrateur du site !'
+        you_are_not_author_message: 'Vous n''êtes pas l''auteur de cette observation !'
+        delete_success_message: 'L''observation du %date% a été supprimée avec succès !'
+        delete_error_message: 'Une erreur est surrvenue lors de la suppression !'
 # formType
 species:
     placeholder: 'Toutes les espèces'
     label: 'Sélectionnez une espèce'
     popover_title: 'Filtrage des espèces'
-    popover_content: 'Ce champ permet de filtrer la liste des espèces. Par exemple : tapez "canard" et la liste contiendra que des canards'
+    popover_content: 'Ce champ permet de filtrer la liste des espèces. Par exemple : si vous tapez «canard», la liste ne contiendra que des canards.'
 locality:
     choice_city: 'Choisir une ville'
 #knp pagination
