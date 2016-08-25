@@ -1,3 +1,18 @@
+/*=========================================================================
+ COLORS
+ ==========================================================================
+  light green: #DCEDC8
+  green:       #8BC34A
+  dark green:  #689F38
+  dark grey:   #212121
+  marron:      #795548
+ ========================================================================== */
+
+
+/*=========================================================================
+ BASIC SETUP
+ ========================================================================== */
+
 @font-face {
     font-family: 'Lato-Regular';
     src: url('Lato-Regular.ttf');
@@ -36,7 +51,33 @@ section {
     margin: 60px 0;
 }
 
-/*menu*/
+.btn-default{
+    background-color: #8BC34A;
+    color: #fff;
+    border: none;
+    margin: 20px 0;
+}
+
+.btn-danger{
+    border: none;
+    padding: 10px 16px;
+}
+
+.btn-warning{
+    border: none;
+    padding: 2px 10px;
+}
+
+.titre{
+    margin-bottom: 50px;
+    margin-top: 100px;
+}
+
+
+/*=========================================================================
+  NAVBAR
+ ========================================================================== */
+
 .navbar{
     font-size: 18px;
 }
@@ -91,7 +132,9 @@ section {
     width:100%
 }
 
-/*accueil*/
+/*=========================================================================
+  HEADER
+ ========================================================================== */
 
 .header {
     position: absolute;
@@ -102,14 +145,17 @@ section {
 
 .btn-brown{
     background-color: #795548;
-    color: white;
+    color: #fff;
     border-radius: 25px 25px 25px 25px;
     width: 200px;
+    box-shadow: 2px 2px 7px #000;
 }
 
 .btn-brown:hover{
-    color: white;
+    color: #fff;
     text-decoration: none;
+    /*border: 2px solid #8BC34A;*/
+    transform: scale(1.07);
 }
 
 .nao{
@@ -118,6 +164,10 @@ section {
     height: 650px;
     position: relative;
 }
+
+/*=========================================================================
+  ACCUEIL
+ ========================================================================== */
 
 .btn-action {
     width: 250px;
@@ -129,6 +179,11 @@ section {
     border: none;
 }
 
+.btn-action:hover {
+    color: #fff;
+    border: 1px solid #fff;
+}
+
 #boutons{
     text-align: center;
     margin-top: 30px;
@@ -136,28 +191,6 @@ section {
 
 .button i{
     margin-right: 5px;
-}
-
-.btn-default{
-    background-color: #8BC34A;
-    color: #fff;
-    border: none;
-    margin: 20px 0;
-}
-
-.btn-danger{
-    border: none;
-    padding: 2px 10px;
-}
-
-.btn-warning{
-    border: none;
-    padding: 2px 10px;
-}
-
-.titre{
-    margin-bottom: 50px;
-    margin-top: 100px;
 }
 
 .dos {
@@ -198,41 +231,67 @@ li{
     list-style-type: none;
 }
 
-/*Contact*/
-.contacter{
-    padding-top: 80px;
+/*=========================================================================
+  CONTACT
+ ========================================================================== */
+
+.contact{
+    margin: 30px 0 50px;
 }
 
-.contacter h2{
-    padding-top: 30px;
-    padding-bottom: 20px;
+.contacter {
+    margin-top: 100px;
 }
 
-/*inscription*/
+.coordonnees h2 {
+    margin-top: 40px;
+    margin-bottom: 60px;
+}
+
+.adresse {
+    margin-top: -100px;
+}
+
+/*=========================================================================
+  INSCRIPTION
+ ========================================================================== */
+
 .inscription{
     padding-top: 80px;
     margin-bottom: 50px;
 }
 
-/*connexion*/
+/*=========================================================================
+  CONNEXION
+ ========================================================================== */
+
 .connexion{
     padding-top: 80px;
     margin-bottom: 50px;
 }
 
-/* reinitialisation de mdp*/
+/*=========================================================================
+  RÉINITIALISATION MOT DE PASSE
+ ========================================================================== */
+
 .mdp{
     padding-top: 80px;
     margin-bottom: 50px;
 }
 
-/*changement mdp*/
+/*=========================================================================
+  CHANGEMENT MOT DE PASSE
+ ========================================================================== */
+
 .newmdp{
     padding-top: 80px;
     margin-bottom: 50px;
 }
 
-/*recherche*/
+/*=========================================================================
+  RECHERCHE
+ ========================================================================== */
+
 .recherche{
     padding-top: 80px;
     margin-bottom: 100px;
@@ -242,7 +301,10 @@ li{
     margin-top: 30px;
 }
 
-/*detaiL de la recherche*/
+/*=========================================================================
+  DÉTAIL DE LA RECHERCHE
+ ========================================================================== */
+
 #observation h1{
     font-size: 22px;
 }
@@ -260,13 +322,19 @@ li{
     margin-bottom: 20px;
 }
 
-/*saisie*/
+/*=========================================================================
+  SAISIE
+ ========================================================================== */
+
 .enregistrement{
     padding-top: 50px;
     margin-bottom: 50px;
 }
 
-/*pagination*/
+/*=========================================================================
+  PAGINATION
+ ========================================================================== */
+
 .pagination> li.active>a{
     background-color: #689F38;
     border: #689F38;
@@ -285,12 +353,27 @@ li{
     color:#689F38;
 }
 
-/*mes observations*/
 .lien{
    margin-bottom: 30px;
 }
 
-/*Mentions légales*/
+
+/*=========================================================================
+  VALIDATION
+ ========================================================================== */
+
+.retourliste{
+    margin-top: 80px;
+}
+
+.commentaire {
+    margin-top: 30px;
+}
+
+/*=========================================================================
+  MENTIONS LÉGALES
+ ========================================================================== */
+
 .mentions{
     padding-top: 100px;
 }
@@ -298,7 +381,10 @@ li{
     padding-bottom: 50px;
 }
 
-/*footer*/
+/*=========================================================================
+  FOOTER
+ ========================================================================== */
+
 footer {
     background-color: #8BC34A;
     font-size: 15px;
@@ -320,7 +406,9 @@ footer a:hover{
     color: #DCEDC8;
 }
 
-/*menu tableau de bord*/
+/*=========================================================================
+  TABLEAU DE BORD
+ ========================================================================== */
 
 #menu a{
     color:#689F38;
@@ -341,6 +429,10 @@ footer a:hover{
 .btn-saisie {
     margin-top: 100px;
 }
+
+/*=========================================================================
+  MEDIA QUERIES
+ ========================================================================== */
 
 @media (min-width: 545px) {
     #menu{
@@ -493,7 +585,8 @@ footer a:hover{
     }
 
     .retourliste{
-        margin-top: 150px;
+        margin-top: 100px;
+        margin-bottom: 50px;
     }
 
     .paginationval{
@@ -542,10 +635,6 @@ footer a:hover{
     }
 
     /*contact*/
-    .contacter{
-        padding-top: 100px;
-    }
-
     .control-label-message{
         margin-left: 140px;
         margin-right: -20px;
@@ -664,11 +753,6 @@ footer a:hover{
         margin-top: -50px;
     }
 
-    .retourliste{
-        margin-top: 180px;
-    }
-
-
     /*nouveau mdp*/
     .control-label-newmdp{
         margin-left: 230px;
@@ -764,8 +848,9 @@ footer a:hover{
     }
 
     /*contact*/
-    .contacter{
-        padding-top: 100px;
+
+    .adresse {
+        margin-top: 0;
     }
 
     .suiteform{
@@ -896,21 +981,6 @@ footer a:hover{
     .blockval{
         margin-top: 150px;
     }
-
-    .detail{
-        margin-top: -150px;
-    }
-
-    .retourliste{
-        margin-top: 150px;
-    }
-
-    .commentaires{
-        padding-top: 70px;
-        margin-left: 450px;
-    }
-
-    /*detail recherche*/
 
     /*nouveau mdp*/
     .control-label-newmdp{
@@ -1079,21 +1149,18 @@ footer a:hover{
         margin-top: 100px;
     }
 
-    .detail{
-        padding-top: -100px;
-        margin-left: -100px;
+    .commentaire {
+        margin-top: -230px;
+        margin-left: 545px;
     }
 
-    .commentaires{
-        margin-top: -250px;
+    .btn-valider {
+        margin-left: 270px;
     }
 
-    .retourliste{
-        margin-top: 150px;
-        margin-bottom: px;
+    .carte {
+        margin-bottom: 30px;
     }
-
-    /*detail recherche*/
 
     /*nouveau mdp*/
     .control-label-newmdp{
