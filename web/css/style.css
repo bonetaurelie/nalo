@@ -3,6 +3,7 @@ body {
     color: #212121;
     font-size: 20px;
     height: 100%;
+    margin-top: 75px;
 }
 
 html{
@@ -21,14 +22,18 @@ html{
     padding:0;
 }
 
+.main-home{
+    min-height:100vh;
+    margin-bottom: 75px;
+}
+
 @font-face {
     font-family: 'Lato-Regular';
     src: url('Lato-Regular.ttf');
 }
 
-.btn-default{
-    border:none;
-    padding: 2px 10px;
+section {
+    margin: 60px 0;
 }
 
 /*menu*/
@@ -36,25 +41,28 @@ html{
     font-size: 18px;
 }
 
-
 .navbar-default{
-    background-color: #689F38;
+    background-color: #8BC34A;
     color: white;
     height: 75px;
+    border-bottom: none;
 }
 
 .navbar-default .navbar-collapse{
-    background-color: #689F38;
+    background-color: #8BC34A;
 }
 
-.navbar-brand{
-padding-left: 125px;
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #fff;
+}
+
+.navbar-toggle {
+    margin-top: 13px;
 }
 
 .navbar-brand img{
     margin-top: -5px;
 }
-
 
 #navbar li{
     margin-right: 5px;
@@ -83,34 +91,46 @@ padding-left: 125px;
 }
 
 /*accueil*/
-.photoheader{
-    width:100%;
+
+.header {
+    position: absolute;
+    top: 70%;
+    left: 10%;
+    color: #fff;
 }
 
-.titreHeader{
-    margin-top: -240px;
-}
-
-.btnHeader{
-    margin-top: -150px;
+.btn-brown{
     background-color: #795548;
     color: white;
     border-radius: 25px 25px 25px 25px;
+    width: 200px;
 }
 
-.btnHeader:hover{
+.btn-brown:hover{
     color: white;
     text-decoration: none;
 }
 
 .nao{
-    padding-top: 550px;
+    background: url("../images/header2.png") no-repeat center;
+    background-size: cover;
+    height: 650px;
+    position: relative;
 }
 
-.button{
-    margin-bottom: 40px;
+.btn-action {
+    width: 250px;
+    margin: 20px;
+    border-radius: 25px;
+    height: 50px;
+    background-color: #8BC34A;
+    color: #fff;
     border: none;
-    padding: 2px 10px;
+}
+
+#boutons{
+    text-align: center;
+    margin-top: 30px;
 }
 
 .button i{
@@ -118,73 +138,62 @@ padding-left: 125px;
 }
 
 .btn-default{
-    border-radius: 25px 25px 25px 25px;
-    background-color: #689F38;
-    color: white;
+    background-color: #8BC34A;
+    color: #fff;
     border: none;
-    padding: 2px 10px;
 }
 
 .btn-danger{
-    border-radius: 25px 25px 25px 25px;
     border: none;
     padding: 2px 10px;
 }
 
 .btn-warning{
-    border-radius: 25px 25px 25px 25px;
     border: none;
     padding: 2px 10px;
 }
 
-.photoheader img{
-    width:100%;
-    margin-left: 0;
-    margin-top: -480px;
-}
-
-
 .titre{
-    padding-bottom: 25px;
     margin-bottom: 50px;
     margin-top: 100px;
 }
 
-.obs{
-    padding-top: 60px;
-}
-
-.observations{
-    padding-bottom: 25px;
-}
-
-.obs h3{
+.dos {
     color: #689F38;
-    margin-top: -8px;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-.accueil{
-    padding-top: 40px;
+section h2 {
+    margin-bottom: 40px;
+}
+
+#map {
+    margin-top: 40px;
 }
 
 .carte{
-    padding-bottom: 20px;
     height: 400px;
 }
 
-.dos{
-    padding-top: 20px;
+.last-obs {
+    font-size: 80%;
+}
+
+.last-obs li {
+    margin: 20px 0;
+}
+
+.last-obs a {
+    color: #689F38;
+}
+
+#observations-list {
+    padding-left: 0;
 }
 
 li{
     list-style-type: none;
-}
-
-/*association*/
-.assoc{
-    margin-top: 100px;
-    margin-left: 160px;
-    margin-bottom: 50px;
 }
 
 /*Contact*/
@@ -195,10 +204,6 @@ li{
 .contacter h2{
     padding-top: 30px;
     padding-bottom: 20px;
-}
-
-.btn-default{
-    background-color: #689F38;
 }
 
 /*inscription*/
@@ -290,24 +295,19 @@ li{
 
 /*footer*/
 footer {
+    background-color: #8BC34A;
+    font-size: 15px;
+    text-align: center;
+    padding-top: 20px;
+    margin-top: 50px;
     position: fixed;
     bottom: 0;
-    margin-top: 75px;
-    background-color: #689F38;
     width: 100%;
-    height: auto;
-    display: inline-block;
-    font-size: 15px;
+    z-index: 2;
 }
 
-footer p {
-    color: white;
-    margin-left: 110px;
-
-}
-
-footer a{
-    color: white;
+footer a {
+    color: #fff;
 }
 
 footer a:hover{
@@ -315,49 +315,98 @@ footer a:hover{
     color: #DCEDC8;
 }
 
-.footer3 i{
-    padding-right: 12px;
+/*menu tableau de bord*/
+
+#menu a{
+    color:#689F38;
 }
 
-.footer {
-    padding-top: 20px;
+#menu a:hover{
+    text-decoration: none;
+}
+
+.profil-title {
+    margin: 30px 0;
+}
+
+.blockobs {
+    margin-top: 50px;
+}
+
+.btn-saisie {
+    margin-top: 100px;
+}
+
+@media (min-width: 545px) {
+    #menu{
+        background-color: #DCEDC8;
+        color: #689F38;
+        height: 50px;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 0;
+        text-align: center;
+    }
+
+    #menu li{
+        display: inline-block;
+        padding-top: 10px;
+    }
+
+    #menu li a {
+        text-transform: uppercase;
+        font-size: 90%;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+@media (max-width: 544px) {
+    .nao {
+        height: 400px;
+    }
+
+    .header h1 {
+        font-size: 23px;
+    }
+    #menu{
+        background-color: #DCEDC8;
+        color: #689F38;
+        height: 50px;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 0;
+        text-align: center;
+    }
+
+    #menu li{
+        display: inline-block;
+        padding-top: 10px;
+    }
+
+    #menu li a {
+        text-transform: uppercase;
+        font-size: 63%;
+        padding-left: 2px;
+        padding-right: 2px;
+    }
+    .blockobs {
+        margin-top: 20px;
+    }
 }
 
 @media (max-width: 768px) {
-    /*accueil*/
-    .button{
-        margin-left: 230px;
-    }
-
-    .titreHeader{
-        margin-top: -160px;
-    }
-
-    .btnHeader{
-        margin-left: 310px;
-        margin-top: -90px;
-    }
 
     .titre{
         margin-top: 40px;
     }
 
-    /*footer*/
-    footer {
-        position: fixed;
-        bottom: 0;
-        margin-top: 75px;
-        background-color: #689F38;
-        width: 100%;
-        height: auto;
-        font-size: 15px;
+    .imgoiseau {
+        width: 300px;
+        margin-bottom: 30px;
     }
-
-    footer p {
-        color: white;
-        margin-left: 200px;
-    }
-
 
     /*saisie*/
     .saisie{
@@ -396,40 +445,6 @@ footer a:hover{
         margin-left: 140px;
     }
 
-    /*menu tableau de bord*/
-    #menu{
-        margin-top:70px;
-        background-color: #DCEDC8;
-        color: #689F38;
-        width:100%;
-        height: 150px;
-        margin-bottom: 700px;
-    }
-
-    #menu a{
-        color:#689F38;
-    }
-
-    #menu a:hover{
-        text-decoration: none;
-    }
-
-
-    #menu li{
-        display: inline;
-        padding-right :0px;
-        padding-left: 5px;
-        border-right: solid 2px black;
-    }
-
-    #menu ul{
-        padding-left: -10px;
-    }
-
-    .blockprofil{
-        margin-top: -650px;
-    }
-
     .identite{
         padding-bottom: -200px;
     }
@@ -452,10 +467,6 @@ footer a:hover{
     }
 
     /*mes observation*/
-    .titreobs{
-        margin-top: -20px;
-    }
-
     .legende{
         padding-top: 50px;
         padding-bottom: 40px;
@@ -489,43 +500,28 @@ footer a:hover{
     }
 }
 
+
+
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
 
-    /*accueil*/
-    .button{
-        margin-left: 300px;
+    /*navbar*/
+    #navbar {
+        font-size: 78%;
     }
 
-    .header{
-        margin-top: 20px;
+    #navbar li a {
+        padding-left: 5px;
+        padding-right: 5px;
     }
 
-    .titreHeader{
-        margin-left: 25px;
-    }
-
-    .btnHeader{
-        margin-left: 350px;
-        margin-top: -180px;
+    .navbar-brand img{
+        width: 120px;
+        padding-top: 5px;
     }
 
     .titre{
         margin-top: 40px;
-    }
-
-    /*footer*/
-    footer p {
-        color: white;
-        margin-left: 350px;
-    }
-
-    .footer1{
-        margin-right: -95px;
-    }
-
-    .footer2{
-        margin-right: -95px;
     }
 
     /*saisie*/
@@ -563,11 +559,6 @@ footer a:hover{
 
     .control-label-robot{
         margin-top: 20px;
-    }
-
-    /*association*/
-    .assoc{
-        margin-top: 120px;
     }
 
     /*inscription*/
@@ -655,44 +646,7 @@ footer a:hover{
         margin-left: 390px;
     }
 
-    /*menu tableau de bord*/
-    #menu {
-        margin-top: 100px;
-        background-color: #DCEDC8;
-        color:#689F38;
-        width: 100%;
-        height: 150px;
-    }
-
-    #menu a{
-        color:#689F38;
-    }
-
-    #menu a:hover{
-        text-decoration: none;
-    }
-
-    #menu li{
-        display: inline;
-        padding-right :0px;
-        padding-left: 5px;
-        border-right: solid 2px black;
-
-    }
-
-    #menu ul{
-        padding-left: -10px;
-    }
-
-    .profil{
-        padding-top: -400px;
-    }
-
     /*mes observation*/
-    .blockobs{
-        margin-top: 0px;
-    }
-
     .legende{
         padding-top: 50px;
         padding-bottom: 40px;
@@ -741,6 +695,7 @@ footer a:hover{
 }
 
 @media(max-width:992px){
+
     /*tableaux validations et observations*/
     .responsive-table-line td:before { content: attr(data-title); }
     .responsive-table-line table,
@@ -757,7 +712,7 @@ footer a:hover{
     }
     .responsive-table-line td {
         position: relative;
-        border: 0px solid transparent;
+        border: 0 solid transparent;
         padding-left: 50% !important;
         white-space: normal;
         text-align:right;
@@ -765,8 +720,8 @@ footer a:hover{
 
     .responsive-table-line td:before {
         position: absolute;
-        top: 0px;
-        left: 0px;
+        top: 0;
+        left: 0;
         width: 45%;
         height:100%;
         white-space: nowrap;
@@ -781,33 +736,19 @@ footer a:hover{
 /* Medium devices (desktops, 992px and up) */
 @media (min-width:992px) {
 
-    /*footer*/
-    footer p {
-        color: white;
-        margin-left: 110px;
-
+    /*navbar*/
+    #navbar {
+        font-size: 90%;
     }
 
-    .footer1{
-        margin-right: 45px;
+    #navbar li a {
+        padding-left: 15px;
+        padding-right: 15px;
     }
 
-    .footer2{
-        margin-right: -30px;
-    }
-
-    /*accueil*/
-    .button{
-        margin-bottom: 40px;
-    }
-
-    .titreHeader{
-        margin-left: 55px;
-
-    }
-
-    .btnHeader{
-        margin-top: -130px;
+    .navbar-brand img{
+        width: 143px;
+        padding-top: 0;
     }
 
     /*saisie*/
@@ -839,7 +780,7 @@ footer a:hover{
     }
 
     .carte{
-        margin-top: 0px;
+        margin-top: 0;
     }
 
     .suiteform{
@@ -854,23 +795,6 @@ footer a:hover{
     .control-label-robot{
         margin-top: 20px;
     }
-
-    /*association*/
-    .assoc{
-        margin-top: 120px;
-    }
-
-    .imgoiseau{
-        float:left;
-        margin-top: -320px;
-
-    }
-
-    .presentation {
-        float:right;
-        margin-right: 100px;
-    }
-
 
     /*connexion*/
     .connexion{
@@ -970,40 +894,8 @@ footer a:hover{
         margin-left: 460px;
     }
 
-    /*menu tabeau de bord*/
-    #menu{
-        position: fixed;
-        bottom: 0;
-        left: 20px;
-        top:10px;
-        background-color: #DCEDC8;
-        color: #689F38;
-        width:260px;
-        min-height: 750px;
-        height: 100%;
-        margin-left:-50px;
-        padding-top: 20px;
-    }
-
-    #menu a{
-        color:#689F38;
-    }
-
-    #menu a:hover{
-        text-decoration: none;
-    }
-
-    #menu li {
-        display: inherit;
-        border: hidden;
-    }
-
     .formProfil{
         margin-left: 250px;
-    }
-
-    .profil{
-        margin-top: 150px;
     }
 
     .titreadmail{
@@ -1011,12 +903,8 @@ footer a:hover{
     }
 
     /*mes observation*/
-    .blockobs{
-        margin-top: 150px;
-    }
-
     .pagination{
-        padding-top: 0px;
+        padding-top: 0;
     }
 
     /*validations*/
@@ -1042,7 +930,6 @@ footer a:hover{
         margin-top: 100px;
     }
 
-
     /*detail recherche*/
     .info{
         margin-top: -380px;
@@ -1056,58 +943,48 @@ footer a:hover{
     .control-label-confnewmdp{
         margin-left: 250px;
     }
+
+    #menu{
+        background-color: #DCEDC8;
+        color: #689F38;
+        height: 2400px;
+        width: 250px;
+        padding-top: 100px;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        display: block;
+        z-index: 1;
+    }
+
+   #menu li {
+       margin-bottom: 15px;
+       display: block;
+    }
+
+   #menu li a {
+       font-size: 85%;
+   }
+
+    #menu li a:hover {
+        color: #8BC34A;
+    }
 }
 
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
-
-    /*footer*/
-    footer p {
-        color: white;
-        margin-left: 110px;
-
-    }
-
-    .footer2{
-        margin-left: -15px;
-    }
-
-    /*accueil*/
-    .button{
-        margin-bottom: 40px;
-        margin-left: 500px;
-    }
-
-    .accueil{
-        margin-bottom: 50px;
-    }
-
-    .header{
-        margin-top: -50px;
-    }
-
-    .titreHeader{
-        margin-left: 20px;
+    #navbar {
+        font-size: 100%;
     }
 
     .titre{
         margin-top: 100px;
     }
-    
-    /*association*/
-    .imgoiseau{
-        float:left;
-        margin-top: -325px;
-    }
-
-    .presentation {
-        margin-right: 250px;
-    }
-
 
     /*contact*/
     .carte{
-        margin-top: 0px;
+        margin-top: 0;
     }
 
     .suiteform{
@@ -1213,44 +1090,7 @@ footer a:hover{
         margin-left: 560px;
     }
 
-    /*menu tableau de bord*/
-
-    #menu{
-        position: fixed;
-        bottom: 0;
-        left: 20px;
-        top:-30px;
-        background-color: #DCEDC8;
-        color: #689F38;
-        width:260px;
-        min-height: 750px;
-        height: 100%;
-        margin-left:-50px;
-        padding-top: 20px;
-    }
-
-    #menu a{
-        color:#689F38;
-    }
-
-    #menu a:hover{
-        text-decoration: none;
-    }
-
-    #menu li{
-        display: inherit;
-        border: hidden;
-    }
-
-    .profil{
-        margin-top:150px;
-    }
-
     /*mes observations*/
-    .titreobs{
-        margin-top: 100px;
-    }
-
     .legende{
         padding-top: 50px;
         padding-bottom: 40px;

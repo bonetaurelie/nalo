@@ -6,48 +6,42 @@
 
 {% block body %}
     <div class="nao">
-        <div class="photoheader">
-            <img src="{{ asset('images/header.png') }}">
-        </div>
         <div class="header">
-            <h1 class="titreHeader col-lg-8 col-md-8 hidden-sm hidden-xs">OBSERVEZ,PARTAGER ET PARTICIPEZ A UN PROGRAMME DE RECHERCHE</h1>
-            <h1 class="titreHeader hidden-lg hidden-md col-sm-8 col-xs-9">OBSERVEZ ET PARTAGEZ!</h1>
-            <a href="{{ path('fos_user_registration_register') }}" class="btnHeader text-center col-lg-2 col-md-pull-3 col-md-2 col-sm-pull-4 col-sm-3 col-xs-pull-5 col-xs-4 btn-lg">Je m'inscris</a>
+            <h1 class="hidden-sm hidden-xs">OBSERVEZ, PARTAGEZ ET PARTICIPEZ<br> À UN PROGRAMME DE RECHERCHE</h1>
+            <h1 class="hidden-lg hidden-md">OBSERVEZ ET PARTAGEZ!</h1>
+            <a href="{{ path('fos_user_registration_register') }}" class="btn btn-brown btn-lg">Je m'inscris !</a>
         </div>
     </div>
 
-    <div class="container-fluid">
-        <div class="main">
-            <div class="row">
-                <div class="accueil">
-                    <h1 class="titre text-center col-lg-offset-4 col-md-offset-3 col-lg-4 col-md-6 hidden-sm hidden-xs ">NOS AMIS LES OISEAUX</h1>
-                    <p class="text-justify col-lg-offset-2 col-md-pull-1 col-sm-offset-2 col-xs-offset-1 col-lg-9 col-md-10 col-sm-8 col-xs-11">Bienvenue sur notre site associatif et collaboratif qui permet de recueillir des données ornithologiques sur toute la France. Ce site vous permet d'enregistrer simplement et rapidement vos observations d'oiseaux, et de consulter les données recueillies</p>
-                </div>
-                <div class="button">
-                    <a href="{{ path('app_observations_list') }}" class=" text-center saisie col-lg-pull-4 col-md-pull-3 col-sm-pull-2 col-xs-pull-2 btn-lg btn-default col-lg-5 col-md-4 col-sm-10 col-xs-10"><i class="fa fa-pencil" aria-hidden="true"></i>Saisir une observation</a>
-                    <a href="{{ path('app_observations_search') }}" class="text-center consult col-lg-pull-3 col-md-pull-2 col-sm-pull-2 col-xs-pull-2 btn-lg btn-default col-lg-5 col-md-5 col-sm-10 col-xs-10"><i class="fa fa-search" aria-hidden="true"></i>Effectuer une recherche</a>
-                </div>
+    <div class="container main-home">
+        <section>
+            <h2 class="text-center titre">NOS AMIS LES OISEAUX</h2>
+            <p>Bienvenue sur notre site associatif et collaboratif qui permet de recueillir des données ornithologiques sur toute la France. Ce site vous permet d'enregistrer simplement et rapidement vos observations d'oiseaux, et de consulter les données recueillies.</p>
+            <div id="boutons">
+                <a href="{{ path('app_observations_list') }}" class="btn btn-action btn-lg"><i class="fa fa-pencil" aria-hidden="true"></i> Saisir une observation</a>
+                <a href="{{ path('app_observations_search') }}" class="btn btn-action btn-lg"><i class="fa fa-search" aria-hidden="true"></i> Effectuer une recherche</a>
             </div>
-
-            <div class="row obs col-md-12">
-                <h2 class="observations text-center col-lg-offset-2 col-md-pull-2 col-sm-pull-2 col-lg-6 col-md-9 col-sm-10 col-xs-push-1 col-xs-10">DERNIERES OBSERVATIONS</h2>
-                <div id="map" class="carte col-lg-offset-1 col-lg-4 col-md-5 col-xs-8 col-xs-push-2"></div>
+        </section>
+        <section>
+            <div class="row">
+                <h2 class="text-center">DERNIÈRES OBSERVATIONS</h2>
+                <div id="map" class="carte col-sm-6 hidden-xs"></div>
                 {#<div class="carte col-lg-offset-1 col-md-offset-1 col-lg-4 col-md-4 hidden-sm hidden-xs">#}
                     {#<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d5647781.620328719!2d2.951989442325457!3d46.275949317535904!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfr!2sfr!4v1469042707453" width="500" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>#}
                 {#</div>#}
-                <div class="col-sm-push-3 col-xs-push-3 col-md-4 col-lg-4 col-sm-9 col-xs-9">
-                    <h3 class="dos">Derniers oiseaux observés</h3>
-                    <div class="col-xs-9 col-xs-pull-3">
+                <div class="col-sm-6">
+                    <h3 class="dos hidden-xs">Derniers oiseaux observés</h3>
+                    <div class="last-obs">
                         {{ render(controller('AppBundle:Observation:lastObservationsValidate', {'nbItems' : 4 })) }}
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     </div>
 {% endblock %}
 {% block javascript %}
     {{ parent() }}
-    {% include ':Observations:observations_location.js.html.twig' with {'zoom': 4} %}
+    {% include ':Observations:observations_location.js.html.twig' with {'zoom': 5} %}
     <script type="text/javascript">
         $(function(){
             var observationsList = $('#observations-list');
