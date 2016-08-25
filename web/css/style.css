@@ -1,5 +1,10 @@
-body {
+@font-face {
     font-family: 'Lato-Regular';
+    src: url('Lato-Regular.ttf');
+}
+
+body {
+    font-family: 'Lato-Regular', sans-serif;
     color: #212121;
     font-size: 20px;
     height: 100%;
@@ -25,11 +30,6 @@ html{
 .main-home{
     min-height:100vh;
     margin-bottom: 75px;
-}
-
-@font-face {
-    font-family: 'Lato-Regular';
-    src: url('Lato-Regular.ttf');
 }
 
 section {
@@ -141,6 +141,7 @@ section {
     background-color: #8BC34A;
     color: #fff;
     border: none;
+    margin: 20px 0;
 }
 
 .btn-danger{
@@ -241,14 +242,17 @@ li{
 }
 
 /*detaiL de la recherche*/
-.detail{
-    padding-top: 80px;
-    margin-bottom: 50px;
+#observation h1{
+    font-size: 22px;
 }
 
-.info{
-    margin-top: -30px;
-    margin-bottom: 20px;
+#observation h2{
+    font-size: 20px;
+}
+
+.observation {
+    margin-top: 20px;
+    padding-left: 30px;
 }
 
 .photos{
@@ -303,7 +307,7 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
-    z-index: 2;
+    z-index: 10;
 }
 
 footer a {
@@ -392,8 +396,13 @@ footer a:hover{
         padding-left: 2px;
         padding-right: 2px;
     }
+
     .blockobs {
         margin-top: 20px;
+    }
+
+    table {
+        font-size: 85%;
     }
 }
 
@@ -482,10 +491,6 @@ footer a:hover{
         padding-bottom: 20px;
     }
 
-    .detail{
-        margin-top: -50px;
-    }
-
     .retourliste{
         margin-top: 150px;
     }
@@ -493,14 +498,7 @@ footer a:hover{
     .paginationval{
         padding-top: -30px;
     }
-
-    /*detail observation*/
-    .cartedetail{
-        margin-top: 100px;
-    }
 }
-
-
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
@@ -540,11 +538,6 @@ footer a:hover{
 
     .consult{
         margin-bottom: 40px;
-    }
-
-    .carte{
-        margin-bottom: 20px;
-        margin-top: 20px;
     }
 
     /*contact*/
@@ -687,11 +680,6 @@ footer a:hover{
     .no-padding{
         padding: 0;
     }
-
-    /*detail observation*/
-    .cartedetail{
-        margin-top: 100px;
-    }
 }
 
 @media(max-width:992px){
@@ -777,10 +765,6 @@ footer a:hover{
     /*contact*/
     .contacter{
         padding-top: 100px;
-    }
-
-    .carte{
-        margin-top: 0;
     }
 
     .suiteform{
@@ -925,15 +909,7 @@ footer a:hover{
         margin-left: 450px;
     }
 
-    /*detail observation*/
-    .cartedetail{
-        margin-top: 100px;
-    }
-
     /*detail recherche*/
-    .info{
-        margin-top: -380px;
-    }
 
     /*nouveau mdp*/
     .control-label-newmdp{
@@ -947,15 +923,16 @@ footer a:hover{
     #menu{
         background-color: #DCEDC8;
         color: #689F38;
-        height: 2400px;
         width: 250px;
-        padding-top: 100px;
-        position: absolute;
-        top: 0;
+        position: fixed;
         bottom: 0;
-        left: 0;
-        display: block;
-        z-index: 1;
+        left: 20px;
+        top:10px;
+        min-height: 750px;
+        height: 100%;
+        margin-left:-50px;
+        padding-top: 100px;
+        padding-left: 20px;
     }
 
    #menu li {
@@ -970,6 +947,10 @@ footer a:hover{
     #menu li a:hover {
         color: #8BC34A;
     }
+
+    .block-detail {
+        margin: 50px 0 50px 40px;
+    }
 }
 
 /* Large devices (large desktops, 1200px and up) */
@@ -983,10 +964,6 @@ footer a:hover{
     }
 
     /*contact*/
-    .carte{
-        margin-top: 0;
-    }
-
     .suiteform{
         padding-top: 70px;
     }
@@ -1002,7 +979,7 @@ footer a:hover{
     }
 
     .enregistrement{
-        margin-top: 0px;
+        margin-top: 0;
     }
 
     .consult{
@@ -1116,9 +1093,6 @@ footer a:hover{
     }
 
     /*detail recherche*/
-    .info{
-        margin-top: -380px;
-    }
 
     /*nouveau mdp*/
     .control-label-newmdp{
@@ -1133,9 +1107,8 @@ footer a:hover{
         margin-left: 520px;
     }
 
-    /*detail observation*/
-    .cartedetail{
-        margin-top: 100px;
+    .block-detail {
+        margin-left : 100px;
     }
 }
 
