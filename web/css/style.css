@@ -257,8 +257,12 @@ li{
  ========================================================================== */
 
 .inscription{
-    padding-top: 80px;
+    margin-top: 50px;
     margin-bottom: 50px;
+}
+
+.text-inscription {
+    margin-bottom: 30px;
 }
 
 /*=========================================================================
@@ -644,11 +648,6 @@ footer a:hover{
         margin-top: 20px;
     }
 
-    /*inscription*/
-    .inscription {
-        padding-top: 120px;
-    }
-
     /*connexion*/
     .connexion{
         padding-top: 120px;
@@ -904,9 +903,6 @@ footer a:hover{
     }
 
     /*inscription*/
-    .inscription {
-        padding-top: 120px;
-    }
 
     .control-label-prenom{
         margin-left: 386px;
