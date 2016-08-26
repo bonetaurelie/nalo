@@ -97,6 +97,24 @@ section {
     margin-top: 100px;
 }
 
+.text-erreur a {
+    color: #689F38;
+    text-decoration: none;
+}
+
+.text-erreur  a:hover {
+    color: #689F38;
+    text-decoration: underline;
+}
+
+.text-erreur  a:active {
+    color: #689F38;
+    text-decoration: none;
+}
+
+.text-erreur  a:visited {
+    color: #689F38;
+}
 
 /*=========================================================================
   NAVBAR
@@ -179,7 +197,6 @@ section {
 .btn-brown:hover{
     color: #fff;
     text-decoration: none;
-    /*border: 2px solid #8BC34A;*/
     transform: scale(1.07);
 }
 
@@ -516,6 +533,25 @@ footer a:hover{
 }
 
 /*=========================================================================
+  PAGES D'ERREURS
+ ========================================================================== */
+
+.erreur {
+    background: url("../images/404.svg") no-repeat center;
+    background-size: cover;
+    margin-top: -5%;
+    height: 100vh;
+}
+
+.text-erreur {
+    text-align: center;
+    font-size: 24px;
+    position: relative;
+    bottom: 25%;
+}
+
+
+/*=========================================================================
   MEDIA QUERIES
  ========================================================================== */
 
@@ -581,6 +617,10 @@ footer a:hover{
 
     table {
         font-size: 85%;
+    }
+
+    .erreur {
+        margin-top: -25%;
     }
 }
 
