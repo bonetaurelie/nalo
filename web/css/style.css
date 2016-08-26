@@ -97,25 +97,6 @@ section {
     margin-top: 100px;
 }
 
-.text-erreur a {
-    color: #689F38;
-    text-decoration: none;
-}
-
-.text-erreur  a:hover {
-    color: #689F38;
-    text-decoration: underline;
-}
-
-.text-erreur  a:active {
-    color: #689F38;
-    text-decoration: none;
-}
-
-.text-erreur  a:visited {
-    color: #689F38;
-}
-
 /*=========================================================================
   NAVBAR
  ========================================================================== */
@@ -550,6 +531,48 @@ footer a:hover{
     bottom: 25%;
 }
 
+.text-erreur a {
+    color: #689F38;
+    text-decoration: none;
+}
+
+.text-erreur  a:hover {
+    color: #689F38;
+    text-decoration: underline;
+}
+
+.text-erreur  a:active {
+    color: #689F38;
+    text-decoration: none;
+}
+
+.text-erreur  a:visited {
+    color: #689F38;
+}
+
+.text-denied {
+    color: #D0021B;
+}
+
+.text-denied a {
+    color: #D0021B;
+    text-decoration: underline;
+}
+
+.denied {
+    background: url("../images/403.svg") no-repeat center;
+    background-size: cover;
+    margin-top: -5%;
+    height: 100vh;
+}
+
+.text-denied {
+    text-align: center;
+    font-size: 30px;
+    position: relative;
+    bottom: 40%;
+}
+
 
 /*=========================================================================
   MEDIA QUERIES
@@ -621,6 +644,16 @@ footer a:hover{
 
     .erreur {
         margin-top: -25%;
+    }
+
+    .denied {
+        margin-top: -35%;
+    }
+
+    .text-denied {
+        font-size: 20px;
+        margin-left: 15px;
+        margin-right: 15px;
     }
 }
 
