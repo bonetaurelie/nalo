@@ -6,14 +6,14 @@
     {% set longitude = observation.city.longitude   %}
     {% set latitude = observation.city.latitude   %}
 {% endif %}
-<li data-id="species-{{ observation.id }}" data-title="{{ observation.species.frenchName }}, {{ 'observations.list.date_text'|trans({'%date%': observation.datetimeObservation|date('d/m/Y'), '%hour%': observation.datetimeObservation|date('H:i') }, 'AppBundle')|lower }}" data-longitude="{{ longitude }}" data-latitude="{{ latitude }}" >
+<li class="result-list" data-id="species-{{ observation.id }}" data-title="{{ observation.species.frenchName }}, {{ 'observations.list.date_text'|trans({'%date%': observation.datetimeObservation|date('d/m/Y'), '%hour%': observation.datetimeObservation|date('H:i') }, 'AppBundle')|lower }}" data-longitude="{{ longitude }}" data-latitude="{{ latitude }}" >
     <h4 class="text-center">
-        <a href="{{ path('app_observation_detail', {'id': observation.id }) }}">{{ observation.nbIndividual }} {{ observation.species.frenchName }} ({{ observation.species.latinName }})</a>
+        <a class="obs-result" href="{{ path('app_observation_detail', {'id': observation.id }) }}">{{ observation.nbIndividual }} {{ observation.species.frenchName }} (<em>{{ observation.species.latinName }}</em>)</a>
         {% if observation.images|length > 0 %}
             <i class="glyphicon  glyphicon-picture"><span class="badge">{{ observation.images|length }}</span></i>
         {% endif %}
     </h4>
     <p class="text-center">{{ 'observations.list.date_text'|trans({'%date%': observation.datetimeObservation|localizeddate('full', 'none', locale), '%hour%': observation.datetimeObservation|date('H:i') }, 'AppBundle') }}</p>
     <p class="text-center">{{ observation.city.adminName }} ({{ observation.city.department.departmentCode }})</p>
-    <p class="text-center">- {{ observation.author.firstName }} {{ observation.author.lastName }}</p>
+    <p class="text-center">{{ observation.author.firstName }} {{ observation.author.lastName }}</p>
 </li>
