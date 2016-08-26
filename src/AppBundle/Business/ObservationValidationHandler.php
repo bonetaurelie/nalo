@@ -174,7 +174,7 @@ class ObservationValidationHandler
 			return true;
 		}
 		catch(Exception $e){
-			$this->flashBag->add('error', "Une erreur est intervenue, veuillez recommencer, si l'erreur persiste, veuillez contacter l'administrateur du site!");
+			$this->flashBag->add('error', "Une erreur est survenue, veuillez réessayer. Si l'erreur persiste, merci de contacter l'administrateur du site !");
 
 			return false;
 		}
