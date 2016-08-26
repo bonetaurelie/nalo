@@ -60,6 +60,26 @@ section {
 
 .btn-default:hover {
     background-color: #689F38;
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn-default:focus {
+    background-color: #8BC34A;
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn-default:active {
+    background-color: #8BC34A;
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn-default:active:focus {
+    background-color: #8BC34A;
+    color: #fff;
+    text-decoration: none;
 }
 
 .btn-danger{
