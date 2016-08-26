@@ -21,10 +21,9 @@
              </div>
             <div class="block-detail">
                 {% include ':Observations:detail.block.html.twig' with {'observation': observation } %}
-
                 {{ form_start(form, {'action': path('app_observation_save_vote', {'id': observation.id})}) }}
                 <div class="commentaire">
-                {{ form_row(form.comment, {'label': ('observations.validation.to_validate.form_label_comment'|trans)}) }}
+                    {{ form_row(form.comment, {'label': ('observations.validation.to_validate.form_label_comment'|trans)}) }}
                 </div>
                 <div class="text-center btn-valider">
                     {{ form_row(form.valid, {'label': ('observations.validation.to_validate.form_btn_valid'|trans), 'attr': {'class': 'btn-lg btn-default'}}) }}

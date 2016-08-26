@@ -13,7 +13,7 @@ class ObservationValidationController extends Controller
 {
 	/**
 	 * @Route("/observations-a-valider", name="app_observations_validate")
-	 * @Security("has_role('ROLE_USER')")
+	 * @Security("has_role('ROLE_PRO')")
 	 */
 	public function ObservationsValidateAction(Request $request)
 	{

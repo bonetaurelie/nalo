@@ -1,14 +1,17 @@
 {% trans_default_domain 'AppBundle' %}
-{# personnalise la taille du champ nb d'individu #}
+{% form_theme form with ['bootstrap_3_horizontal_layout.html.twig'] %}
+ {#personnalise la taille du champ nb d'individu#}
 {% form_theme form _self %}
 {% block integer_widget %}
-    <div class="col-lg-1 no-padding">
+    <div class="col-lg-2 no-padding">
         {% set type = type|default('number') %}
         {{ block('form_widget_simple') }}
     </div>
 {% endblock %}
 
 {{ form_start(form) }}
+    {#{{ form_errors(form.longitude) }}#}
+    {#{{ form_errors(form.latitude) }}#}
 <div class="row">
     <div class="col-lg-12">
         {{ form_row(form.datetimeObservation) }}
@@ -44,6 +47,8 @@
         {{ form_widget(form.images) }}
         <a href="#" id="add-another-image" class="btn btn-large btn-default pull-right">{{ 'observations.form.image.add_btn'|trans }}</a>
     </div>
+    {{ form_widget(form.longitude) }}
+    {{ form_widget(form.latitude) }}
     {{ form_rest(form) }}
     <div class="col-lg-12 text-center btn-saisie">
         <button type="submit" class="btn-lg btn-default">{{ 'observations.form.add_submit'|trans }}</button>
