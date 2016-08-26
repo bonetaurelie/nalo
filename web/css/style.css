@@ -310,12 +310,29 @@ li{
  ========================================================================== */
 
 .recherche{
-    padding-top: 80px;
-    margin-bottom: 100px;
+    margin-top: 50px;
 }
 
 .result{
     margin-top: 30px;
+}
+
+.obs-result {
+    color: #689F38;
+    font-size: 20px;
+}
+
+.resulttext {
+    font-size: 17px;
+    margin-top: 30px;
+}
+.result-list {
+    margin-bottom: 30px;
+}
+
+.map-recherche {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /*=========================================================================
@@ -698,9 +715,6 @@ footer a:hover{
     }
 
     /*recherche*/
-    .recherche{
-        padding-top: 120px;
-    }
 
     .detail{
         padding-top: 120px;
@@ -914,19 +928,11 @@ footer a:hover{
     }
 
     /*recherche*/
-    .recherche{
-        padding-top: 120px;
-    }
 
     /*saisie*/
     .result{
         margin-top: 40px;
         margin-left: 220px;
-    }
-
-    .resulttext{
-        margin-top: 20px;
-        margin-left: -40px;
     }
 
     .detail{
@@ -1106,11 +1112,6 @@ footer a:hover{
     .result{
         margin-top: 40px;
     }
-
-    .resulttext{
-        margin-top: 20px;
-    }
-
 
     /*inscription*/
     .control-label-prenom{
