@@ -118,5 +118,5 @@ locality:
 #knp pagination
 Previous: 'Précédent'
 Next: 'Suivant'
-previous_resulats: 'Résultats précédents'
-nexts_resulats: 'Résultats suivants'
+previous_results: 'Précédents'
+nexts_results: 'Suivants'
