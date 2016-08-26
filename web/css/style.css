@@ -348,6 +348,10 @@ li{
     margin-bottom: 20px;
 }
 
+.gps {
+    font-size: 16px;
+}
+
 /*=========================================================================
   SAISIE
  ========================================================================== */
@@ -565,7 +569,6 @@ footer a:hover{
     }
 
     .carte{
-        margin-bottom: 20px;
         margin-top: 20px;
     }
 
@@ -1183,10 +1186,6 @@ footer a:hover{
 
     .btn-valider {
         margin-left: -560px;
-    }
-
-    .carte {
-        margin-bottom: 30px;
     }
 
     /*nouveau mdp*/
