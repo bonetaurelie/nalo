@@ -25,6 +25,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\DateTime;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\Valid;
 
 class ObservationType extends AbstractType
 {
@@ -93,6 +94,7 @@ class ObservationType extends AbstractType
 			->add('images', CollectionType::class, array(
 				'required' => false,
 				'entry_type' => ImageType::class,
+				'constraints' => [new Valid()],
 				'allow_add' => true,
 				'by_reference' => false,
 				'allow_delete' => true,
