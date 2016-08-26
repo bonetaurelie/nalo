@@ -13,9 +13,12 @@ search:
     period_label: 'Période'
     period_selector_first_label: 'Entre le '
     period_selector_second_label: 'et le '
+    department_all: 'Toute la France'
     department_label: 'Sélectionnez un critère géographique'
     town_label: 'Sélectionnez une commune'
     submit: 'Rechercher'
+    period_start_superior_end_error: 'La date de début doit être inférieur ou égal à la date de fin'
+    no_results: 'Pas de résultats'
 profile:
     common:
         title: 'Votre espace'
@@ -92,6 +95,7 @@ observations:
             form_label_comment: 'Saisir un commentaire'
             form_btn_valid: 'Valider l''observation'
             form_btn_refuse: 'Rejeter l''observation'
+            validate_link_btn: 'Valider'
         validate:
             valid_message: 'Merci d''avoir validé l''observation, l''auteur a été averti !'
             refuse_message: 'L''observation a été rejetée, l''auteur a été averti !'

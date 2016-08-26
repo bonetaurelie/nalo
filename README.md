@@ -9,6 +9,9 @@ Cette application est faite sous Symfony 3 en Framework back avec Twitter Bootst
 ##Prérequis
 
 Serveur PHP 5.6 mininum, Apache 2.4, MySql 5.6 et Linux (Ubuntu 14.04 ou 16.04)
+Extensions PHP nécessaires : GD, Intl
+
+Dans le php.ini, il faut activé le paramètre : intl.default.locale  = fr-FR
 
 ##Installation
 
@@ -40,8 +43,8 @@ Dans la racine de l'application taper : `php bin/console doctrine:fixtures`
 Ces jeux de données mettent en place :
 
 1. 2 utilisateurs :
-    1. un compte amateur : tesst.amateur@test.fr / test1A-
-    2. un compte professionnel : tesst.professionnel@test.fr / test1P-
+    1. un compte amateur : test.amateur@test.fr / test1A-
+    2. un compte professionnel : test.professionnel@test.fr / test1P-
 2. Une liste des oiseaux connus
 3. la liste des départements et des villes françaises.
 4. une liste aléatoire de 20 observations situés dans différentes villes avec différents status attribuées au compte amateur ci-dessus.

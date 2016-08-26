@@ -14,6 +14,11 @@ services:
     app.business_observation_validation:
         class: AppBundle\Business\ObservationValidationHandler
         arguments: ["@form.factory", "@app.mailer_templating", "@session", "@doctrine.orm.entity_manager", "@knp_paginator", "@translator", "%robot_email%"]
+    app.form.type.search:
+        class: AppBundle\Form\SearchType
+        arguments: ["@translator.default"]
+        tags:
+            - { name: form.type }
     app.form.type.species:
         class: AppBundle\Form\Type\SpeciesType
         tags:

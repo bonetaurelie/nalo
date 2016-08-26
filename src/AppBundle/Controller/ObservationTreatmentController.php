@@ -24,7 +24,10 @@ class ObservationTreatmentController extends Controller
 
 		$listPaginated =  $observationHandler->getOwnObservationsList($this->getUser(), $request);
 
-		return $this->render(':Observations/treatment:myObservations.html.twig', array('pagination' => $listPaginated));
+		return $this->render(':Observations/treatment:myObservations.html.twig', array(
+			'observationHandler' => $observationHandler,
+			'pagination' => $listPaginated
+		));
 	}
 
 

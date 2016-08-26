@@ -123,7 +123,7 @@ dependent_forms:
             parent_property: department
             property: adminName
 #            role: ROLE_USER
-            no_result_msg: 'Pas de ville trouvée pour ce département'
+            no_result_msg: 'Toutes les communes'
             order_property: adminName
             order_direction: ASC
 
