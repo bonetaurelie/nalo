@@ -4,7 +4,7 @@
   light green: #DCEDC8
   green:       #8BC34A
   dark green:  #689F38
-  dark grey:   #212121
+  text:        #212121
   marron:      #795548
  ========================================================================== */
 
@@ -56,6 +56,10 @@ section {
     color: #fff;
     border: none;
     margin: 20px 0;
+}
+
+.btn-default:hover {
+    background-color: #689F38;
 }
 
 .btn-danger{
@@ -258,8 +262,20 @@ li{
  ========================================================================== */
 
 .inscription{
-    padding-top: 80px;
+    margin-top: 50px;
     margin-bottom: 50px;
+}
+
+.text-inscription {
+    margin-bottom: 30px;
+}
+
+.text-info {
+    font-size: 18px;
+}
+
+.text-password {
+    margin-bottom: 25px;
 }
 
 /*=========================================================================
@@ -654,11 +670,6 @@ footer a:hover{
         margin-top: 20px;
     }
 
-    /*inscription*/
-    .inscription {
-        padding-top: 120px;
-    }
-
     /*connexion*/
     .connexion{
         padding-top: 120px;
@@ -914,9 +925,6 @@ footer a:hover{
     }
 
     /*inscription*/
-    .inscription {
-        padding-top: 120px;
-    }
 
     .control-label-prenom{
         margin-left: 386px;
@@ -1159,13 +1167,8 @@ footer a:hover{
         margin-top: 100px;
     }
 
-    .commentaire {
-        margin-top: -230px;
-        margin-left: 545px;
-    }
-
     .btn-valider {
-        margin-left: 270px;
+        margin-left: -680px;
     }
 
     .carte {

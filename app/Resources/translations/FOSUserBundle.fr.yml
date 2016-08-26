@@ -2,20 +2,20 @@ security:
     login:
         title: 'CONNEXION'
         email: 'E-mail'
-        forgot_password_text_link: 'Mot de passe oublié?'
-        inscription_text_link: 'Pas encore inscrit?'
+        forgot_password_text_link: 'Mot de passe oublié ?'
+        inscription_text_link: 'Pas encore inscrit ?'
 registration:
     title: 'Inscription'
     text: 'Pour soumettre une observation, il est nécessaire de s''inscrire. Si vous êtes un naturaliste professionnel, vous devrez valider les observations des autres utilisateurs. Cochez la case correspondante lors de votre inscription.'
-    text_password_format: 'Le mot de passe doit être unique composé de 6 caractères au minimum avec  au moins 1 chiffre, 1 caractère spécial (#?!@$%^&*-) et 1 majuscule'
+    text_password_format: 'Le mot de passe doit être composé de 6 caractères au minimum, avec au moins 1 chiffre, 1 caractère spécial (#?!@$%^&*-) et 1 majuscule.'
     flash:
-        user_created: 'Bienvenue sur notre site!'
+        user_created: 'Bienvenue sur notre site !'
     check_email_title: 'VALIDATION DE VOTRE COMPTE'
     email:
         subject: 'Bienvenue %firstName% %lastName% !'
-        message: "Bonjour %firstName% !\n\nPour valider votre compte utilisateur, merci de vous rendre sur %confirmationUrl%\n\nCordialement,\nL'équipe NALO.\n"
-        message_html: "Bonjour %firstName% !<br><br>Pour valider votre compte utilisateur, merci de vous rendre sur %confirmationUrl%<br><br>Cordialement,<br>L'équipe NALO.<br>"
-    confirmed_title: 'VOTRE COMTPE EST VALIDE'
+        message: "Bonjour %firstName% !\n\nPour valider votre compte utilisateur, merci de vous rendre sur %confirmationUrl%.\n\nCordialement,\nL'équipe NALO.\n"
+        message_html: "Bonjour %firstName% !<br><br>Pour valider votre compte utilisateur, merci de vous rendre sur %confirmationUrl%.<br><br>Cordialement,<br>L'équipe NALO.<br>"
+    confirmed_title: 'VOTRE COMTPE EST VALIDÉ'
     confirmed: 'Félicitations %firstName%, votre compte est maintenant activé.'
     back: 'Retour à la page d''accueil.'
 resetting:
@@ -29,7 +29,7 @@ resetting:
         message: >
                   Bonjour %firstName% %lastName% !
                   <br /><br />
-                  Pour réinitialiser votre mot de passe, merci de vous rendre sur %confirmationUrl%
+                  Pour réinitialiser votre mot de passe, merci de vous rendre sur %confirmationUrl%.
                   <br /><br />
                   Cordialement,
                   <br />

@@ -1,5 +1,5 @@
 {% trans_default_domain 'FOSUserBundle' %}
-<p><em class="text-info">{{ 'registration.text_password_format'|trans }}</em></p>
+<p class="text-password"><em class="text-info">{{ 'registration.text_password_format'|trans }}</em></p>
 {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register form-horizontal'}}) }}
     {{ form_row(form.firstName) }}
     {{ form_row(form.lastName) }}
