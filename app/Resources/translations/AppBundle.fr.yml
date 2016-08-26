@@ -49,6 +49,11 @@ observations:
         action_buttons:
             edit: 'Modifier'
             delete: 'Supprimer'
+
+        delete:
+            confirm: 'Êtes-vous sûr de vouloir supprimer cette observation ?'
+            cancel: 'Annuler'
+            delete: 'Supprimer'
     add_page:
         title: 'Saisie d''une observation'
         subtitle: 'Saississez les informations relatives à votre observation, ajustez la position sur la carte, puis cliquez sur envoyer.'

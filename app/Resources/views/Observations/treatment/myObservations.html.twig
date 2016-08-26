@@ -66,14 +66,14 @@
             $('.delete-obs').on('click', function(e){
                 var href = $(this).attr('href');
                 bootbox.dialog({
-                    message: 'Êtes-vous sûr de vouloir supprimer cette observation ?',
+                    message: '{{'observations.my_observations_page.delete.confirm'|trans }}',
                     title: 'Question',
                     buttons:{
                         cancel:{
-                            label: 'Annuler'
+                            label: '{{'observations.my_observations_page.delete.cancel'|trans }}'
                         },
                         delete:{
-                            label: 'Supprimer',
+                            label: '{{'observations.my_observations_page.delete.delete'|trans }}',
                             className: 'btn btn-danger btn-supprimer',
                             callback: function(){
                                 window.location.href = href;
