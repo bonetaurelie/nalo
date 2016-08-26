@@ -11,6 +11,7 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Class Image
@@ -34,13 +35,13 @@ class Image
 	/**
 	 * @var string
 	 *
-	 * @ORM\Column(type="string", length=255, nullable=true)
+	 * @ORM\Column(type="string", length=255, nullable=false)
 	 */
 	protected $fileName;
 
 	/**
 	 * @var string
-	 * @ORM\Column(type="string", length=255, nullable=false)
+	 * @ORM\Column(type="string", length=255, nullable=true)
 	 */
 	protected $alt;
 
@@ -54,6 +55,14 @@ class Image
 	/**
 	 * @var File
 	 * @Vich\UploadableField(mapping="observation_image", fileNameProperty="fileName")
+	 * @Assert\Image(
+	 *     minWidth = 600,
+	 *     maxWidth = 1200,
+	 *     minHeight = 600,
+	 *     maxHeight = 1200,
+	 *     maxSize = "600k",
+	 *     mimeTypes = {"image/jpeg", "image/jpg"}
+	 * )
 	 */
 	protected $file;
 

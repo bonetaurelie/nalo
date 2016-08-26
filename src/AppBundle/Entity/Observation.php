@@ -95,8 +95,7 @@ class Observation
 
 	/**
 	 * @var string
-	 * @ORM\Column(type="text")
-	 * @Assert\NotBlank()
+	 * @ORM\Column(type="text", nullable=true)
 	 */
 	protected $comment;
 

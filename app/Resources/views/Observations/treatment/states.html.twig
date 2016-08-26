@@ -1,7 +1,12 @@
-<i class="glyphicon {% if observation.state is constant('STATE_STANDBY', observation) or observation.state is constant('STATE_IN_STUDY', observation) %}
-glyphicon glyphicon-refresh text-warning
-{% elseif observation.state is constant('STATE_VALIDATED', observation)  %}
-glyphicon glyphicon-ok text-success
-{% elseif observation.state is constant('STATE_REFUSED', observation)  %}
-glyphicon glyphicon-remove text-danger
-{% endif %}"></i>
+{% trans_default_domain 'AppBundle' %}
+{% if observation.state is constant('STATE_STANDBY', observation) or observation.state is constant('STATE_IN_STUDY', observation) %}
+    {% set icon = 'glyphicon-refresh text-warning' %}
+    {% set text = 'observations.my_observations_page.legends.standby'|trans %}
+{% elseif  observation.state is constant('STATE_VALIDATED', observation) %}
+    {% set icon = 'glyphicon-ok text-success' %}
+    {% set text =  'observations.my_observations_page.legends.validated'|trans %}
+{% elseif  observation.state is constant('STATE_REFUSED', observation) %}
+    {% set icon = 'glyphicon-remove text-danger' %}
+    {% set text =  'observations.my_observations_page.legends.refused'|trans %}
+{% endif %}
+<i data-toggle="tooltip" data-placement="top" title="{{ text }}" class="glyphicon {{ icon }}"></i>

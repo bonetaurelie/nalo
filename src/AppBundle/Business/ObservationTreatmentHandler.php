@@ -140,38 +140,51 @@ class ObservationTreatmentHandler
 		$this->form->handleRequest($request);
 
 		//Vérification si le formulaire est valide ou non
-		if ($this->form->isSubmitted() && $this->form->isValid()) {
-			//récupération des données du formulaire
-			$observation = $this->form->getData();
-
-			foreach ($observation->getImages() as $image){
-				$image->setObservation($observation);
-			}
-
-			try{
-				$observation->setAuthor($user);
-
-				$observation->setState(Observation::STATE_STANDBY);//Remet en validation si changement
-
-				//Si l'utilisateur est un professionnel on valide directement l'observation
-				if($user->hasRole('ROLE_PRO')){
-					$observation->setState(Observation::STATE_VALIDATED);
-				}
-
-				$this->em->persist($observation);
-				$this->em->flush();
-
-				$this->flashBag->add('success', $this->translator->trans("observations.treatment.record_success_message", [], 'AppBundle') );
-
-				return true;
-			}
-			catch(Exception $e){
-				$this->flashBag->add('error', $this->translator->trans("observations.treatment.record_error_message", [], 'AppBundle'));
-
-				return false;
-			}
-
+		if( !$this->form->isSubmitted() ){
+			return false;
 		}
+
+		if( !$this->form->isValid() ){
+			$this->flashBag->add('error', $this->translator->trans("observations.treatment.tape_error_message", [], 'AppBundle') );
+			return false;
+		}
+
+
+		//récupération des données du formulaire
+		$observation = $this->form->getData();
+
+		foreach ($observation->getImages() as $image){
+			$image->setObservation($observation);
+		}
+
+		try{
+			$observation->setAuthor($user);
+
+			$observation->setState(Observation::STATE_STANDBY);//Remet en validation si changement
+
+			$textSupNotPro = $this->translator->trans("observations.treatment.record_success_message_text_sup_not_pro", [], 'AppBundle');
+
+			//Si l'utilisateur est un professionnel on valide directement l'observation
+			if($user->hasRole('ROLE_PRO')){
+				$observation->setState(Observation::STATE_VALIDATED);
+				$textSupNotPro = '';
+			}
+
+			$this->em->persist($observation);
+			$this->em->flush();
+
+
+
+			$this->flashBag->add('success', $this->translator->trans("observations.treatment.record_success_message", ['%text_sup_not_pro%' => $textSupNotPro], 'AppBundle') );
+
+			return true;
+		}
+		catch(Exception $e){
+			$this->flashBag->add('error', $this->translator->trans("observations.treatment.record_error_message", [], 'AppBundle'));
+
+			return false;
+		}
+
 	}
 
 	public function remove(Observation $observation, UserInterface $user)

@@ -3,6 +3,8 @@ $(function(){
 
     var $department = $('#observation_department');
     var $city = $('#observation_city');
+    var longitude = parseFloat($('#observation_longitude').val());
+    var latitude = parseFloat($('#observation_latitude').val());
 
     var alertNoCitySelected = false;
 
@@ -23,6 +25,10 @@ $(function(){
 
         Search(address);
     });
+    //on initialise un point dans la carte s'il est déjà renseigné
+    if(!isNaN(longitude) && !isNaN(latitude)){
+        setCoordinates(longitude, latitude);
+    }
 });
 
 var map;
