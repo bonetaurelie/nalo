@@ -10,29 +10,27 @@
 <div class="row">
     <div class="col-md-6">
         <div id="map" class="carte"></div>
-        <em>Longitude :  {{ longitude }}/ Latitude {{ latitude }}</em>
+        <div class="text-center">
+            <em class="gps">Longitude :  {{ longitude }}/ Latitude {{ latitude }}</em>
+        </div>
     </div>
     <div id="observation" data-latitude="{{ latitude }}" data-longitude="{{ longitude }}" class="col-md-6 observation">
         <h1>{{ 'observations.detail.title'|trans({'%date%': observation.datetimeObservation|date('d/m/Y'), '%hour%': observation.datetimeObservation|date('H:i')  }) }}</h1>
         <p>{{ 'observations.detail.subtitle'|trans({'%locality%': observation.city.adminName, '%author%': observation.author.fullName}) }}</p>
-        <h2>{{ observation.species.frenchName }} ({{ observation.species.latinName }})</h2>
-        <p>{{ observation.comment }}</p>
+        <h2>{{ observation.species.frenchName }} (<em>{{ observation.species.latinName }}</em>)</h2>
+        <p class="comment">{{ observation.comment }}</p>
     </div>
 </div>
 {% if observation.images.count() > 0 %}
     <div class="row">
-        <div class="col-lg-12">
-            <div class="photos">
-                <ul class="thumbnails">
-                    {% for image in observation.images %}
-                        <li class="col-lg-2">
-                            <a href="{{ vich_uploader_asset(image, 'file') }}" title="{{ image.alt }}" class="thumbnail" data-lightbox="species">
-                                <img src="{{ vich_uploader_asset(image, 'file')|imagine_filter('thumb') }}" alt="{{ image.alt }}" />
-                            </a>
-                        </li>
-                    {% endfor %}
-                </ul>
-            </div>
+        <div class="photos">
+            {% for image in observation.images %}
+                <div class="col-xs-4 col-sm-3 col-md-2">
+                    <a href="{{ vich_uploader_asset(image, 'file') }}" title="{{ image.alt }}" class="thumbnail" data-lightbox="species">
+                        <img class="" src="{{ vich_uploader_asset(image, 'file')|imagine_filter('thumb') }}" alt="{{ image.alt }}" />
+                    </a>
+                </div>
+            {% endfor %}
         </div>
     </div>
 {% endif %}
