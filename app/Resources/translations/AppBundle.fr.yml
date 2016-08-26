@@ -102,8 +102,10 @@ observations:
             subject_valid: 'Votre observation de l''espèce "%species%" du %date% a été validée.'
             subject_refuse: 'Votre observation de l''espèce "%species%" du %date% a été refusée.'
     treatment:
-        record_success_message: 'L''observation a été enregistrée avec succès !'
-        record_error_message: 'Une erreur est survenue, merci de reessayer. Si l''erreur persiste, merci de contacter l''administrateur du site !'
+        record_success_message: 'Merci d''avoir soumis une observation %text_sup_not_pro%'
+        record_success_message_text_sup_not_pro: ', elle sera validée dans les plus brefs délais'
+        tape_error_message: 'Attention, vous avez saisi des informations erronées. Veuillez vérifier vos saisies et valider à nouveau !'
+        record_error_message: 'Nous sommes désolés, le site a rencontré une erreur interne. Veuillez recommencer. Si l''erreur persiste, veuillez contacter l''administrateur du site !'
         you_are_not_author_message: 'Vous n''êtes pas l''auteur de cette observation !'
         delete_success_message: 'L''observation du %date% a été supprimée avec succès !'
         delete_error_message: 'Une erreur est surrvenue lors de la suppression !'
