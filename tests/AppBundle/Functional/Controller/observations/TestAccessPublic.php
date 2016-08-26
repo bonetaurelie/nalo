@@ -6,7 +6,7 @@
  * Time: 15:46
  */
 
-namespace Tests\AppBundle\Controller\Observations;
+namespace Tests\AppBundle\Functional\Controller\Observations;
 
 
 use Symfony\Bundle\FrameworkBundle\Tests\Functional\WebTestCase;

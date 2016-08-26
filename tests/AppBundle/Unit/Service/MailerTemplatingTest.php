@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\AppBundle\Services;
+namespace Tests\AppBundle\Unit\Service;
 
 
 use AppBundle\Services\MailerTemplating;
