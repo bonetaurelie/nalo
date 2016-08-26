@@ -17,11 +17,11 @@
 
 {% if pageCount > 1 %}
     {% if previous is defined %}
-        <a class="text-center col-xs-offset-4 col-sm-4 col-xs-4 hidden-lg hidden-md btn-lg btn-default" rel="prev" href="{{ path(route, query|merge({(pageParameterName): previous})) }}">&laquo;&nbsp;{{ 'previous_resultats'|trans }}</a>
+        <a class="text-center col-xs-offset-4 col-sm-4 col-xs-4 hidden-lg hidden-md btn-lg btn-default" rel="prev" href="{{ path(route, query|merge({(pageParameterName): previous})) }}">&laquo;&nbsp;{{ 'previous_results'|trans }}</a>
     {% else %}
-        <span class="hidden-lg hidden-md ">{{ 'previous_resultats'|trans }}&nbsp;&raquo;</span>
+        <span class="hidden-lg hidden-md ">{{ 'previous_results'|trans }}&nbsp;&raquo;</span>
     {% endif %}
-    <ul class="pagination">
+    <ul class="pagination hidden-xs">
 
     {% if previous is defined %}
         <li>
@@ -89,8 +89,8 @@
     {% endif %}
     </ul>
     {% if next is defined %}
-        <a class="text-center col-xs-offset-4 col-sm-4 col-xs-4 hidden-lg hidden-md btn-lg btn-default" rel="next" href="{{ path(route, query|merge({(pageParameterName): next})) }}">{{ 'nexts_resultats'|trans }}&nbsp;&raquo;</a>
+        <a class="text-center col-xs-offset-4 col-sm-4 col-xs-4 hidden-lg hidden-md btn-lg btn-default" rel="next" href="{{ path(route, query|merge({(pageParameterName): next})) }}">{{ 'nexts_results'|trans }}&nbsp;&raquo;</a>
     {% else %}
-        <span class="hidden-lg hidden-md ">{{ 'nexts_resultats'|trans }}&nbsp;&raquo;</span>
+        <span class="hidden-lg hidden-md ">{{ 'nexts_results'|trans }}&nbsp;&raquo;</span>
     {% endif %}
 {% endif %}
