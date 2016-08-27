@@ -183,7 +183,14 @@ class ObservationHandler
      */
     public function getSearchFormDataToSession()
     {
-        $data = $this->dataTreatment($this->session->get('search'));
+    	$search = $this->session->get('search');
+
+    	if(null === $search){
+    		return null;
+    	}
+
+
+        $data = $this->dataTreatment($search);
 
         if(!$this->searchForm->isSubmitted()){
             $this->hydrateFormFields($data);//si on passe de page en page dans les résultats pour garder les données des champs du formulaire intact

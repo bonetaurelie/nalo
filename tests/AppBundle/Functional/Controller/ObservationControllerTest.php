@@ -4,6 +4,7 @@ namespace Tests\AppBundle\Functional\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Client;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Doctrine\ORM\EntityManager;
 
 
 class ObservationControllerTest extends WebTestCase
@@ -13,6 +14,7 @@ class ObservationControllerTest extends WebTestCase
 	const EDIT_OBSERVATION_ROUTE = '/edit-une-observation/{id}';
 	const DELETE_OBSERVATION_ROUTE = '/supprimer-une-observation/{id}';
 	const OBSERVATIONS_TO_VALIDATE_ROUTE = '/observations-a-valider';
+	const CONNECTION_ROUTE = '/connexion';
 
 
 	const UTILISATEURS_LIST = [
@@ -27,13 +29,35 @@ class ObservationControllerTest extends WebTestCase
 	];
 
 	/**
+	 * @var EntityManager
+	 */
+	private $_em;
+
+
+	protected function setUp()
+	{
+		$kernel = static::createKernel();
+		$kernel->boot();
+		$this->_em = $kernel->getContainer()->get('doctrine.orm.entity_manager');
+		$this->_em->beginTransaction();
+	}
+
+	/**
+	 * Rollback changes.
+	 */
+	public function tearDown()
+	{
+		$this->_em->rollback();
+	}
+
+	/**
 	 * Récupération d'un compte utlisateur
 	 *
 	 * @param Client $client
 	 */
 	public function connexionCompte(Client $client, $role = 'ROLE_USER')
 	{
-		$crawler = $client->request('GET', '/connexion');
+		$crawler = $client->request('GET', self::CONNECTION_ROUTE);
 
 		$form = $crawler->filter("form")->form();
 
@@ -49,29 +73,29 @@ class ObservationControllerTest extends WebTestCase
 	/************************************************ Tests affichage ************************************************/
 	/*****************************************************************************************************************/
 
-
 	/**
-	 * test l'accès au détail d'une observation via la page d'accueil
+	 * Vérifie que la page mes observations ne soit pas accessible si aucun type d'utilisateur n'est connecté
+	 * Elle doit redirigée vers la page de connexion
 	 */
-	public function testDetailObsAccessByHomePage()
+	public function testAccessMyObservationsNotLogger()
 	{
-		echo "test l'accès au détail d'une observation via la page d'accueil \r\n";
-
 		$client = static::createClient();
 
-		$crawler = $client->request('GET', '/');//accès page d'accueil
+//		$this->connexionCompte($client);
 
-		$obLink = $crawler->filter("#observations-list li")->eq(0)->filter("h4 a")->link();
+		$url = self::MY_OBSERVATIONS_ROUTE;
 
-		$client->click($obLink);
+		$client->request('GET', $url);
 
+		$this->assertTrue($client->getResponse()->isRedirect());
 
-		$this->assertEquals(200, $client->getResponse()->getStatusCode());
+		$crawler = $client->followRedirect();
+
+		$this->assertContains("CONNEXION", $crawler->filter("h1")->text());
 	}
 
-
     /**
-     * Vérifie que la page qui liste les observations écrite par l'utilisateur
+     * Vérifie que la page mes observations soit accessible par un utilisateur amateur
      */
     public function testAccessMyObservationsRoleUser()
     {
@@ -81,48 +105,88 @@ class ObservationControllerTest extends WebTestCase
 
 	    $url = self::MY_OBSERVATIONS_ROUTE;
 
-        echo "accès url : ".$url."\r\n";
-	    $client->request('GET', $url);
+	    $crawler = $client->request('GET', $url);
 	    $this->assertEquals(200, $client->getResponse()->getStatusCode());
 
+
+	    $this->assertContains("MES OBSERVATIONS", $crawler->filter("h1")->text());
     }
 
 	/**
-	 *  test l'affichage de la page d'ajout d'une observation
+	 * Page mes observation
+	 * Test si le lien vers l'ajout d'une observation fonctionne
 	 */
-    public function testAccessAddObservationPage()
-    {
-	    $client = static::createClient();
-
-	    $this->connexionCompte($client);
-
-	    $url = self::ADD_OBSERVATION_ROUTE;
-
-	    echo "accès url : ".$url."\r\n";
-	    $client->request('GET', $url);
-	    $this->assertEquals(200, $client->getResponse()->getStatusCode());
-    }
-
-	/**
-	 *  test l'affichage de la page d'edition d'une observation
-	 */
-	public function testAccessEditObservationPage()
+	public function testMyObservationAccessAddObservation()
 	{
 		$client = static::createClient();
 
 		$this->connexionCompte($client);
 
-		$crawler =  $client->request('GET', '/mes-observations');
+		$url = self::MY_OBSERVATIONS_ROUTE;
 
+		$crawler = $client->request('GET', $url);
 
-		$editLInk = $crawler->filter("a[title=Modifier]")->link();
+		$link = $crawler->selectLink('Ajouter une observation')->link();
 
-		$client->click($editLInk);
-
+		$crawlerLink = $client->click($link);
 
 		$this->assertEquals(200, $client->getResponse()->getStatusCode());
 
+		$this->assertContains("SAISIE D'UNE OBSERVATION", $crawlerLink->filter("h1")->text());
 	}
+
+	/**
+	 * Page mes observation
+	 * Test si le lien vers l'édition d'une observation fonctionne
+	 */
+	public function testMyObservationAccessEditObservation()
+	{
+		$client = static::createClient();
+
+		$this->connexionCompte($client);
+
+		$url = self::MY_OBSERVATIONS_ROUTE;
+
+		$crawler = $client->request('GET', $url);
+
+		$link = $crawler->filter("table a[title=Modifier]")->link();
+
+		$crawlerLink = $client->click($link);
+
+		$this->assertEquals(200, $client->getResponse()->getStatusCode());
+
+		$this->assertContains("MODIFIER VOTRE OBSERVATION", $crawlerLink->filter("h1")->text());
+	}
+
+	/**
+	 * Page mes observation
+	 * Test si le lien vers la suppression d'une observation fonctionne
+	 */
+	public function testMyObservationAccessDeleteObservation()
+	{
+		$client = static::createClient();
+
+		$this->connexionCompte($client);
+
+		$url = self::MY_OBSERVATIONS_ROUTE;
+
+		$crawler = $client->request('GET', $url);
+
+		$link = $crawler->filter("table a[title=Supprimer]")->link();
+
+		$client->click($link);
+
+		$this->assertTrue($client->getResponse()->isRedirect());
+
+		$crawler = $client->followRedirect();
+
+		$this->assertContains("supprimée avec succès", $crawler->filter(".alert")->text());
+
+	}
+
+
+
+
 
 
 	/************************************************ UTILISATEUR PRO ************************************************/
@@ -139,7 +203,6 @@ class ObservationControllerTest extends WebTestCase
 
 		$url = self::MY_OBSERVATIONS_ROUTE;
 
-		echo "accès url : " . $url . "\r\n";
 		$client->request('GET', $url);
 		$this->assertEquals(200, $client->getResponse()->getStatusCode());
 	}
@@ -156,7 +219,6 @@ class ObservationControllerTest extends WebTestCase
 
 		$url = self::OBSERVATIONS_TO_VALIDATE_ROUTE;
 
-		echo "accès url : " . $url . " acces par role amateur \r\n";
 		$client->request('GET', $url);
 		$this->assertEquals(403, $client->getResponse()->getStatusCode());
 	}
@@ -173,7 +235,6 @@ class ObservationControllerTest extends WebTestCase
 
 		$url = self::OBSERVATIONS_TO_VALIDATE_ROUTE;
 
-		echo "accès url : " . $url . " acces par role pro \r\n";
 		$client->request('GET', $url);
 		$this->assertEquals(200, $client->getResponse()->getStatusCode());
 	}
@@ -242,9 +303,7 @@ class ObservationControllerTest extends WebTestCase
 		//le champ "species" utilise un FormType spécial et donc il faut un petit peu changer l'accès a la class helper
 		$speciesCrawlerToTest = $crawler->filter("#observation_species")->parents('div')->parents('div > .help-block ul li')->text();
 		$this->assertContains("Cette valeur ne doit pas être vide.", $speciesCrawlerToTest);
-		$this->assertContains("Cette valeur ne doit pas être vide.", $crawler->filter("#observation_nbIndividual + .help-block ul li")->text());
-		$this->assertContains("Cette valeur ne doit pas être vide.", $crawler->filter("#observation_comment + .help-block ul li")->text());
-
+		$this->assertContains("Cette valeur ne doit pas être vide.", $crawler->filter("#observation_nbIndividual")->parents('div')->parents('div > .help-block ul li')->text());
 	}
 
 	/**
@@ -285,6 +344,6 @@ class ObservationControllerTest extends WebTestCase
 		//le champ "species" utilise un FormType spécial et donc il faut un petit peu changer l'accès a la class helper
 		$speciesCrawlerToTest = $crawler->filter("#observation_species")->parents('div')->parents('div > .help-block ul li')->text();
 		$this->assertContains(" Cette valeur n'est pas valide.", $speciesCrawlerToTest);
-		$this->assertContains(" Cette valeur n'est pas valide.", $crawler->filter("#observation_nbIndividual + .help-block ul li")->text());
+		$this->assertContains("Cette valeur doit être supérieure ou égale à 1.", $crawler->filter("#observation_nbIndividual")->parents('div')->parents('div > .help-block ul li')->text());
 	}
 }

@@ -21,3 +21,8 @@ services:
         arguments: ['@router']
         tags:
             - { name: kernel.event_subscriber}
+    user.registration_listener:
+        class: UserBundle\Listener\RegistrationListener
+        arguments: ['@router', '@security.authorization_checker', '@security.token_storage']
+        tags:
+            - { name: kernel.event_listener, event: kernel.response, method: onRouteToRegistration}

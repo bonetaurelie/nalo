@@ -7,8 +7,7 @@
 {% block body %}
     <div class="nao">
         <div class="header">
-            <h1 class="hidden-sm hidden-xs">OBSERVEZ, PARTAGEZ ET PARTICIPEZ<br> À UN PROGRAMME DE RECHERCHE</h1>
-            <h1 class="hidden-lg hidden-md">OBSERVEZ ET PARTAGEZ!</h1>
+            <h1>OBSERVEZ, PARTAGEZ ET PARTICIPEZ<span class="hidden-sm hidden-xs"><br> À UN PROGRAMME DE RECHERCHE</span> !</h1>
             <a href="{{ path('fos_user_registration_register') }}" class="btn btn-brown btn-lg">Je m'inscris !</a>
         </div>
     </div>
@@ -18,7 +17,7 @@
             <h2 class="text-center titre">NOS AMIS LES OISEAUX</h2>
             <p>Bienvenue sur notre site associatif et collaboratif qui permet de recueillir des données ornithologiques sur toute la France. Ce site vous permet d'enregistrer simplement et rapidement vos observations d'oiseaux, et de consulter les données recueillies.</p>
             <div id="boutons">
-                <a href="{{ path('app_observations_list') }}" class="btn btn-action btn-lg"><i class="fa fa-pencil" aria-hidden="true"></i> Saisir une observation</a>
+                <a href="{{ path('app_observations_add') }}" class="btn btn-action btn-lg"><i class="fa fa-pencil" aria-hidden="true"></i> Saisir une observation</a>
                 <a href="{{ path('app_observations_search') }}" class="btn btn-action btn-lg"><i class="fa fa-search" aria-hidden="true"></i> Effectuer une recherche</a>
             </div>
         </section>

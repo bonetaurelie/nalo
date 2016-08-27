@@ -23,10 +23,10 @@ class SearchActionTest extends WebTestCase
 		$crawler = $client->request('GET','/recherche');
 
 		$this->assertEquals(200, $client->getResponse()->getStatusCode());
-		$form = $crawler->filter('form[name=recherche]')->form();
+		$form = $crawler->filter('form[name=search]')->form();
 
-		$form['recherche[startDate]'] = '';
-		$form['recherche[endDate]'] = '';
+		$form['search[startDate]'] = '';
+		$form['search[endDate]'] = '';
 
 //		$departmentValues = $form['recherche[department]']->availableOptionValues();
 //		$form['recherche[department]']->select('');

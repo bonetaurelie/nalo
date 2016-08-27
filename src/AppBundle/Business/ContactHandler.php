@@ -82,7 +82,7 @@ class ContactHandler
         $this->verifEmptyData();//Vérifie que les données sont bien générées
 
         try {
-            $this->mailer->send($this->Data,$subject,$this->fromMail,$this->toMail,$template);
+            $this->mailer->send($this->data,$subject,$this->fromMail,$this->toMail,$template);
 
             $this->flashBag->add('notice', $sucessMessage);
 
@@ -112,7 +112,7 @@ class ContactHandler
      * @throws \Exception
      */
     private function verifEmptyData(){
-        if(empty($this->Data)){
+        if(null === $this->data || count($this->data) === 0){
             throw new \Exception("Please use formTreatment method before use that!");
         }
     }

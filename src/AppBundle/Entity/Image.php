@@ -101,30 +101,6 @@ class Image
     }
 
     /**
-     * Set title
-     *
-     * @param string $title
-     *
-     * @return Image
-     */
-    public function setTitle($title)
-    {
-        $this->title = $title;
-
-        return $this;
-    }
-
-    /**
-     * Get title
-     *
-     * @return string
-     */
-    public function getTitle()
-    {
-        return $this->title;
-    }
-
-    /**
      * Set alt
      *
      * @param string $alt
