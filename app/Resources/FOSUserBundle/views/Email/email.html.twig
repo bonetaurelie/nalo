@@ -142,7 +142,7 @@
                                                 <td width="200" valign="top" align="center">
                                                     <div class="contentEditableContainer contentImageEditable">
                                                         <div class="contentEditable" align='center' >
-                                                            <img src="http://photo.bastoche.fr/mail/logo.png" width="300"  alt='Logo'  data-default="placeholder" />
+                                                            <a target='_blank' href="http://localhost:8888/nalo/web/"><img src="http://photo.bastoche.fr/mail/logo.png" width="300"  alt='Logo'  data-default="placeholder" /></a>
                                                         </div>
                                                     </div>
                                                 </td>
@@ -172,7 +172,7 @@
                                                 <td width="400" align="center">
                                                     <div class="contentEditableContainer contentTextEditable">
                                                         <div class="contentEditable" align='left' >
-                                                            <p>Bonjour Sébastien, pour activer votre compte, merci de cliquer sur lien suivant&nbsp;:</p>
+                                                            <p>Bonjour {{ user.firstName }}, pour activer votre compte, merci de cliquer sur lien suivant&nbsp;:</p>
                                                         </div>
                                                     </div>
                                                 </td>
@@ -188,7 +188,7 @@
                                                             <td bgcolor="#8BC34A" align="center" style="border-radius:4px;" width="200" height="50">
                                                                 <div class="contentEditableContainer contentTextEditable">
                                                                     <div class="contentEditable" align='center' >
-                                                                        <a target='_blank' href="#" class='link2' style="font-family:Helvetica, Arial, sans-serif;color:#fff;border-radius:4px;text-decoration:none;font-size:16px;">Activer mon compte</a>
+                                                                        <a target='_blank' href="{{ confirmationUrl }}" class='link2' style="font-family:Helvetica, Arial, sans-serif;color:#fff;border-radius:4px;text-decoration:none;font-size:16px;">Activer mon compte</a>
                                                                     </div>
                                                                 </div>
                                                             </td>
@@ -207,7 +207,7 @@
                                                             <p >Une fois votre compte activé, vous pourrez soumettre vos premières observations, et valider celles des autres membres si vous êtes un naturaliste professionnel.<br><br>
                                                                 Merci de participer à notre programme de recherche.<br><br>
                                                                 Cordialement,<br><br>
-                                                                Toute l'équide de Nos Amis Les Oiseaux.</p>
+                                                                Toute l'équipe de Nos Amis Les Oiseaux.</p>
                                                         </div>
                                                     </div>
                                                 </td>
@@ -240,21 +240,21 @@
                                                             <td valign="top" width='34'>
                                                                 <div class="contentEditableContainer contentFacebookEditable" style='display:inline;'>
                                                                     <div class="contentEditable" >
-                                                                        <img src="http://photo.bastoche.fr/mail/facebook.png" data-default="placeholder" data-max-width='30' data-customIcon="true" width='30' height='30' alt='facebook' style='margin-right:40x;'>
+                                                                        <a href="https://fr-fr.facebook.com/"><img src="http://photo.bastoche.fr/mail/facebook.png" data-default="placeholder" data-max-width='30' data-customIcon="true" width='30' height='30' alt='facebook' style='margin-right:40x;'></a>
                                                                     </div>
                                                                 </div>
                                                             </td>
                                                             <td valign="top" width='34'>
                                                                 <div class="contentEditableContainer contentFacebookEditable" style='display:inline;'>
                                                                     <div class="contentEditable" >
-                                                                        <img src="http://photo.bastoche.fr/mail/flickr.png" data-default="placeholder" data-max-width='30' data-customIcon="true" width='30' height='30' alt='flickr' style='margin-right:40x;'>
+                                                                        <a href="https://www.flickr.com/"><img src="http://photo.bastoche.fr/mail/flickr.png" data-default="placeholder" data-max-width='30' data-customIcon="true" width='30' height='30' alt='flickr' style='margin-right:40x;'></a>
                                                                     </div>
                                                                 </div>
                                                             </td>
                                                             <td valign="top" width='34'>
                                                                 <div class="contentEditableContainer contentTwitterEditable" style='display:inline;'>
                                                                     <div class="contentEditable" >
-                                                                        <img src="http://photo.bastoche.fr/mail/twitter.png" data-default="placeholder" data-max-width='30' data-customIcon="true" width='30' height='30' alt='twitter' style='margin-right:40x;'>
+                                                                        <a href="https://twitter.com/?lang=fr"><img src="http://photo.bastoche.fr/mail/twitter.png" data-default="placeholder" data-max-width='30' data-customIcon="true" width='30' height='30' alt='twitter' style='margin-right:40x;'></a>
                                                                     </div>
                                                                 </div>
                                                             </td>
