@@ -2,7 +2,7 @@
 # Set parameters here that may be different on each deployment target of the app, e.g. development, staging, production.
 # http://symfony.com/doc/current/best_practices/configuration.html#infrastructure-related-configuration
 parameters:
-    database_host:     mysql://ba7d75f24e1e1c:587ef837@eu-cdbr-west-01.cleardb.com/heroku_2c687af50495f4e?reconnect=true
+    database_host:     eu-cdbr-west-01.cleardb.com
     database_port:     ~
     database_name:     heroku_2c687af50495f4e
     database_user:     ba7d75f24e1e1c
