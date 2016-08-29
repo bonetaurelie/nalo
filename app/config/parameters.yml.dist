@@ -20,7 +20,7 @@ parameters:
     # email to use for send from the site to user or other
     robot_email:  app55805575@heroku.com
     # email to use for receive from the site
-    contact_email: association.nao@gmail.com
+    contact_email: assocation.nao@gmail.com
     # sender name
     sender_name: Site Nos Amis Les Oiseaux
     # google reCAPTCHA key
