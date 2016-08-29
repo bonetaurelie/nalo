@@ -10,7 +10,7 @@ use Doctrine\ORM\EntityManager;
 use Symfony\Component\DomCrawler\Crawler;
 
 
-class ObservationControllerTest extends WebTestCase
+class ObservationTreatmentControllerTest extends WebTestCase
 {
 	const MY_OBSERVATIONS_ROUTE = '/mes-observations';
 	const ADD_OBSERVATION_ROUTE = '/ajouter-une-observation';
