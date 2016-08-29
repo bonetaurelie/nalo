@@ -18,9 +18,10 @@ parameters:
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
     # email to use for send from the site to user or other
-    robot_email:  app55805575@heroku.com
+    #app55805575@heroku.com
+    robot_email:  assocation@gmail.com
     # email to use for receive from the site
-    contact_email: pin.nicolas@free.fr
+    contact_email: assocation@gmail.com
     # sender name
     sender_name: Site Nos Amis Les Oiseaux
     # google reCAPTCHA key
