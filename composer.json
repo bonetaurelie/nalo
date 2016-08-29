@@ -41,8 +41,7 @@
         "sensio/generator-bundle": "^3.0",
         "symfony/phpunit-bridge": "^3.0",
         "league/csv": "^8.0",
-        "doctrine/doctrine-fixtures-bundle": "~2.3",
-        "liip/functional-test-bundle": "^1.6"
+        "doctrine/doctrine-fixtures-bundle": "~2.3"
     },
     "scripts": {
         "post-install-cmd": [
