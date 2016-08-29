@@ -18,8 +18,7 @@ parameters:
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
     # email to use for send from the site to user or other
-    #app55805575@heroku.com
-    robot_email:  assocation@gmail.com
+    robot_email:  app55805575@heroku.com
     # email to use for receive from the site
     contact_email: assocation@gmail.com
     # sender name
