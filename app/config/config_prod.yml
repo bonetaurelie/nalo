@@ -19,3 +19,12 @@ monolog:
             level: debug
         console:
             type:  console
+
+swiftmailer:
+  spool:     { type: memory }
+  transport: smtp
+  host:      mailtrap.io
+  username:  4fecb3f18b69bf
+  password:  b5de65197216e6
+  auth_mode: cram-md5
+  port: 2525
