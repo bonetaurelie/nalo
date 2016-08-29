@@ -11,6 +11,6 @@
 {% endblock %}
 {% block body_html %}
     {% autoescape false %}
-        {{ 'registration.email.message_html'|trans({'%firstName%': user.firstName, '%confirmationUrl%': confirmationUrl}) }}
+        {% include 'FOSUserBundle:Email:email.html.twig' %}
     {% endautoescape %}
 {% endblock %}

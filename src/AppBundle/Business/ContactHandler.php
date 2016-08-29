@@ -77,7 +77,7 @@ class ContactHandler
      * @param string $template
      * @return bool
      */
-    public function sendMail($subject = "Site NALO : message via la page contact", $sucessMessage = "Merci de nous avoir contacté, nous répondrons à vos questions dans les plus brefs délais.", $template = 'Email/contact.html.twig')
+    public function sendMail($subject = "Nos Amis Les Oiseaux : message via la page contact", $sucessMessage = "Merci de nous avoir contactés, nous répondrons à vos questions dans les plus brefs délais.", $template = 'Email/contact.html.twig')
     {
         $this->verifEmptyData();//Vérifie que les données sont bien générées
 
@@ -88,7 +88,7 @@ class ContactHandler
 
             return true;
         } catch (\Exception $e) {//si il y a une erreur
-            $this->flashBag->add('error', "Une erreur est intervenue, si l'erreur persiste veuillez contacter l'administrateur du site.");
+            $this->flashBag->add('error', "Une erreur est survenue. Si le problème persiste, merci de contacter l'administrateur du site.");
 
             return false;
         }
@@ -101,7 +101,7 @@ class ContactHandler
      * @param string $sucessMessage
      * @param string $template
      */
-    public function formTreatmentAndSendMail(Request $request, $subject = "Site NALO : message via la page contact", $sucessMessage = "Merci de nous avoir contacté, nous répondrons à vos questions dans les plus brefs délais.", $template = 'Email/contact.html.twig'){
+    public function formTreatmentAndSendMail(Request $request, $subject = "Nos Amis Les Oiseaux : message via la page contact", $sucessMessage = "Merci de nous avoir contactés, nous répondrons à vos questions dans les plus brefs délais.", $template = 'Email/contact.html.twig'){
         if(true === $this->formTreatment($request)){
             $this->sendMail($subject, $sucessMessage, $template);
         }
@@ -112,7 +112,7 @@ class ContactHandler
      * @throws \Exception
      */
     private function verifEmptyData(){
-        if(null === $this->data || count($this->data) === 0){
+        if(empty($this->data)){
             throw new \Exception("Please use formTreatment method before use that!");
         }
     }

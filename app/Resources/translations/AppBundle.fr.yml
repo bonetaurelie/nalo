@@ -49,6 +49,11 @@ observations:
         action_buttons:
             edit: 'Modifier'
             delete: 'Supprimer'
+
+        delete:
+            confirm: 'Êtes-vous sûr de vouloir supprimer cette observation ?'
+            cancel: 'Annuler'
+            delete: 'Supprimer'
     add_page:
         title: 'Saisie d''une observation'
         subtitle: 'Saississez les informations relatives à votre observation, ajustez la position sur la carte, puis cliquez sur envoyer.'
@@ -82,11 +87,11 @@ observations:
         valid: 'validée'
         refuse: 'rejetée'
         email_confirm_vote:
-            hello: 'Bonjour %fullname%,'
+            hello: 'Bonjour %fullname%.'
             your_observation_has: 'Votre observation a été %vote%.'
-            following_link_text: 'Vous pouvez consulter votre observation en cliquant sur le lien suivant : '
+            following_link_text: 'Vous pouvez la consulter et la modifier en cliquant sur le lien suivant:'
             link_text: 'votre observation'
-            comment_text: 'Voici le commentaire laissé par le professionnel :'
+            comment_text: 'Voici le commentaire laissé par le professionnel:'
         list_to_validate:
             title: 'Observations à valider'
         to_validate:
