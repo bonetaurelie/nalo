@@ -2,11 +2,11 @@
 # Set parameters here that may be different on each deployment target of the app, e.g. development, staging, production.
 # http://symfony.com/doc/current/best_practices/configuration.html#infrastructure-related-configuration
 parameters:
-    database_host:     127.0.0.1
+    database_host:     eu-cdbr-west-01.cleardb.com
     database_port:     ~
-    database_name:     symfony
-    database_user:     root
-    database_password: ~
+    database_name:     heroku_2c687af50495f4e
+    database_user:     ba7d75f24e1e1c
+    database_password: 587ef837
     # You should uncomment this if you want use pdo_sqlite
     # database_path: "%kernel.root_dir%/data.db3"
 
@@ -18,13 +18,13 @@ parameters:
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
     # email to use for send from the site to user or other
-    robot_email:        joe.doe@exemple.com
+    robot_email:  app55805575@heroku.com
     # email to use for receive from the site
-    contact_email:        joe.doe@exemple.com
+    contact_email: assocation@gmail.com
     # sender name
-    sender_name: contact
+    sender_name: Site Nos Amis Les Oiseaux
     # google reCAPTCHA key
-    google_recapatcha_site_key: the_key_for_the_public_part
-    google_recapatcha_secret_key: the_key_for_the_server_part
-    google_map_key: key_for_google_map_use
+    google_recapatcha_site_key: 6LecyigTAAAAAOHDTY5OntVkhavoMUP9ak9eLOYG
+    google_recapatcha_secret_key: 6LecyigTAAAAAKtHp43XPHSmQDqn5FUCa_bByyIP
+    google_map_key: AIzaSyDFPnWFEfvyAKgBAneq8oIl77wh1J2rba4
 
