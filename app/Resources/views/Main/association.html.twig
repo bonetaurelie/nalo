@@ -1,20 +1,21 @@
 {% extends "layout.html.twig" %}
 
+{% trans_default_domain('AppBundle') %}
+
 {% block title %}
-    {{ parent() }} - L'association
+    {{ parent() }} - {{ 'association.title_page'|trans }}
 {% endblock %}
 
 {% block body %}
     <div class="container">
         <div class="main">
             <div class="row">
-                <h1 class="titre text-center">NOS AMIS LES OISEAUX</h1>
+                <h1 class="titre text-center">{{ 'association.title'|trans|upper }}</h1>
             </div>
 
             <div class="row">
                 <img class="imgoiseau center-block col-sm-6" src="{{ asset('/images/oiseau1.jpg') }}" alt="image oiseau">
-                <p class="col-sm-6">Nos amis les oiseaux est une association fondée en 2012. Elle œuvre au quotidien pour la protection des espèces, la préservation de leur habitat, et pour l'éducation et la sensibilisation à l'environnement.<br/><br/>
-                    En 2016, elle a mis en place une plateforme participative pour la saisie d'observations ornithologiques et la communication des informations collectées. Ce projet d'inscrit dans le cadre d'un programme de recherche visant à étudier les effets du climat, de l'urbanisme et de l'agriculture sur  la biodiversité.</p>
+                <p class="col-sm-6">{{ 'association.paragraph1'|trans }}<br/><br/>{{ 'association.paragraph2'|trans }}</p>
             </div>
         </div>
     </div>
