@@ -253,6 +253,7 @@ class ObservationHandler
         return $this->em->getRepository('AppBundle:Observation')->search(
             $search->startDate,
             $search->endDate,
+            $search->department,
             $search->city,
             $search->species
         );
