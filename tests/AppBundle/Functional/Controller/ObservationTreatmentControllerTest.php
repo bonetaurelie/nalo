@@ -284,7 +284,7 @@ class ObservationTreatmentControllerTest extends WebTestCase
 
 		$crawler = $client->followRedirect();
 
-		$this->assertContains("Merci d'avoir soumis une observation", $crawler->filter(".alert")->text());
+		$this->assertContains("Merci d'avoir soumis une observation, elle sera validée dans les plus brefs délais", $crawler->filter(".alert")->text());
 	}
 
 
@@ -405,11 +405,11 @@ class ObservationTreatmentControllerTest extends WebTestCase
 
 
 
-	public function setAddValidObservation()
+	public function setAddValidObservation($role = 'ROLE_USER')
 	{
 		$client = static::createClient();
 
-		$this->connexionCompte($client, 'ROLE_USER');
+		$this->connexionCompte($client, $role);
 
 		$crawler = $client->request('GET', self::ADD_OBSERVATION_ROUTE);
 
@@ -440,6 +440,18 @@ class ObservationTreatmentControllerTest extends WebTestCase
 
 
 	/************************************************ UTILISATEUR PRO ************************************************/
+
+	public function setAddValidObservationByRolePro()
+	{
+		$client = $this->setAddValidObservation($role = 'ROLE_USER');
+
+		$this->assertTrue($client->getResponse()->isRedirect());
+
+		$crawler = $client->followRedirect();
+
+		$this->assertContainsOnly("Merci d'avoir soumis une observation", $crawler->filter(".alert")->text());
+	}
+
 
 
 	/**
@@ -490,17 +502,8 @@ class ObservationTreatmentControllerTest extends WebTestCase
 	}
 
 
-	/**
-	 * Test l'accès via un lien dans la liste des observatiosn à valider
-	 *
-	 * L'accès doit être accepté
-	 */
-	public function testAccessLinkObservationToValidateByRolePro()
+	public function getAccessLinkObservationToValidateByRolePro()
 	{
-		//on recréer une observation pour pouvoir la valider
-
-		$this->setAddValidObservation();
-
 		$client = static::createClient();
 
 		$this->connexionCompte($client, 'ROLE_PRO');
@@ -513,8 +516,77 @@ class ObservationTreatmentControllerTest extends WebTestCase
 
 		$client->click($validateLInk);
 
+		return $client;
+	}
+
+	/**
+	 * Test l'accès via un lien dans la liste des observatiosn à valider
+	 *
+	 * L'accès doit être accepté
+	 */
+	public function testAccessLinkObservationToValidateByRolePro()
+	{
+		//on recréer une observation pour pouvoir la valider
+
+		$this->setAddValidObservation();
+
+		$client = $this->getAccessLinkObservationToValidateByRolePro();
+
+
 		$this->assertEquals(200, $client->getResponse()->getStatusCode());
 	}
 
 
+	/**
+	 * Test la validation d'une observation le formulaire de validation des observations
+	 *
+	 */
+	public function testValidateFormObservationValidation()
+	{
+		$client = $this->getAccessLinkObservationToValidateByRolePro();
+		$crawler = $client->getCrawler();
+
+		$form = $crawler->selectButton("Valider l'observation")->form();
+
+		$form['validate_observation[comment]'] = "Observation OK pour moi";
+
+//		$crawler->selectButton('#validate_observation_valid')->
+
+		$client->submit($form);
+
+		$this->assertTrue($client->getResponse()->isRedirect());
+
+		$crawler = $client->followRedirect();
+
+		$textAlert = $crawler->filter('.alert')->text();
+		$textToVerif = "Merci d'avoir validé l'observation, l'auteur a été averti !";
+		$this->assertContains($textToVerif, $textAlert);
+	}
+
+	/**
+	 * Test le refus d'une observation le formulaire de validation des observations
+	 *
+	 */
+	public function testRefusedFormObservationValidation()
+	{
+		$this->setAddValidObservation();//On ajout une nouvelle observations à valider
+
+		$client = $this->getAccessLinkObservationToValidateByRolePro();//On accède a la page de validation
+
+		$crawler = $client->getCrawler();
+
+		$form = $crawler->selectButton("Rejeter l'observation")->form();
+
+		$form['validate_observation[comment]'] = "Observation non ok pour moi";
+
+		$client->submit($form);
+
+		$this->assertTrue($client->getResponse()->isRedirect());
+
+		$crawler = $client->followRedirect();
+
+		$textAlert = $crawler->filter('.alert')->text();
+		$textToVerif = "L'observation a été rejetée, l'auteur a été averti !";
+		$this->assertContains($textToVerif, $textAlert);
+	}
 }
