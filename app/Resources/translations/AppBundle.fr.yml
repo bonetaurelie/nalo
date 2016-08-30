@@ -1,3 +1,22 @@
+index:
+    header_hero:
+        big:
+            part1: 'Observez, partagez, et participez'
+            part2: 'à un programme de recherche !'
+        small: 'Observez et partagez !'
+    header_register: 'Je m''inscris !'
+    subtitle_welcome: 'Nos amis les oiseaux'
+    welcome_message: 'Bienvenue sur notre site associatif et collaboratif qui permet de recueillir des données ornithologiques sur toute la France. Ce site vous permet d''enregistrer simplement et rapidement vos observations d''oiseaux, et de consulter les données recueillies.'
+    button:
+        add_observation: 'Saisir une observation'
+        search: 'Effectuer une recherche'
+    last_observations: 'Dernières observations'
+    last_birds: 'Derniers oiseaux observés'
+association:
+    title_page: 'L''assocation'
+    title: 'L''association'
+    paragraph1: 'Nos amis les oiseaux est une association fondée en 2012. Elle œuvre au quotidien pour la protection des espèces, la préservation de leur habitat, et pour l''éducation et la sensibilisation à l''environnement.'
+    paragraph2: 'En 2016, elle a mis en place une plateforme participative pour la saisie d''observations ornithologiques et la communication des informations collectées. Ce projet d''inscrit dans le cadre d''un programme de recherche visant à étudier les effets du climat, de l''urbanisme et de l''agriculture sur  la biodiversité.'
 contact:
     title_page: 'Contacter l''association'
     text: 'Si vous avez une question ou une demande, envoyez-nous un message à l''aide du formulaire suivant :'

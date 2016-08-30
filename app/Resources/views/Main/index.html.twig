@@ -1,5 +1,7 @@
 {% extends "layout.html.twig" %}
 
+{% trans_default_domain('AppBundle') %}
+
 {% block title %}
     {{ parent() }}
 {% endblock %}
@@ -7,30 +9,30 @@
 {% block body %}
     <div class="nao">
         <div class="header">
-            <h1 class="hidden-sm hidden-xs">OBSERVEZ, PARTAGEZ ET PARTICIPEZ<br> À UN PROGRAMME DE RECHERCHE&nbsp;!</h1>
-            <span class="h1 visible-xs visible-sm">OBSERVEZ ET PARTAGEZ&nbsp;!</span>
+            <h1 class="hidden-sm hidden-xs">{{ 'index.header_hero.big.part1'|trans|upper }}<br> {{ 'index.header_hero.big.part2'|trans|upper }}</h1>
+            <span class="h1 visible-xs visible-sm">{{ 'index.header_hero.small'|trans|upper }}</span>
             <a href="{{ path('fos_user_registration_register') }}" class="btn btn-brown btn-lg">Je m'inscris !</a>
         </div>
     </div>
 
     <div class="container main-home">
         <section>
-            <h2 class="text-center titre">NOS AMIS LES OISEAUX</h2>
-            <p>Bienvenue sur notre site associatif et collaboratif qui permet de recueillir des données ornithologiques sur toute la France. Ce site vous permet d'enregistrer simplement et rapidement vos observations d'oiseaux, et de consulter les données recueillies.</p>
+            <h2 class="text-center titre">{{ 'index.subtitle_welcome'|trans|upper }}</h2>
+            <p>{{ 'index.welcome_message'|trans }}</p>
             <div id="boutons">
-                <a href="{{ path('app_observations_add') }}" class="btn btn-action btn-lg"><i class="fa fa-pencil" aria-hidden="true"></i> Saisir une observation</a>
-                <a href="{{ path('app_observations_search') }}" class="btn btn-action btn-lg"><i class="fa fa-search" aria-hidden="true"></i> Effectuer une recherche</a>
+                <a href="{{ path('app_observations_add') }}" class="btn btn-action btn-lg"><i class="fa fa-pencil" aria-hidden="true"></i> {{ 'index.button.add_observation'|trans }}</a>
+                <a href="{{ path('app_observations_search') }}" class="btn btn-action btn-lg"><i class="fa fa-search" aria-hidden="true"></i> {{ 'index.button.search'|trans }}</a>
             </div>
         </section>
         <section>
             <div class="row">
-                <h2 class="text-center">DERNIÈRES OBSERVATIONS</h2>
+                <h2 class="text-center">{{ 'index.last_observations'|trans|upper }}</h2>
                 <div id="map" class="carte col-sm-6 hidden-xs"></div>
                 {#<div class="carte col-lg-offset-1 col-md-offset-1 col-lg-4 col-md-4 hidden-sm hidden-xs">#}
                     {#<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d5647781.620328719!2d2.951989442325457!3d46.275949317535904!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfr!2sfr!4v1469042707453" width="500" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>#}
                 {#</div>#}
                 <div class="col-sm-6">
-                    <h3 class="dos hidden-xs">Derniers oiseaux observés</h3>
+                    <h3 class="dos hidden-xs">{{ 'index.last_birds'|trans }}</h3>
                     <div class="last-obs">
                         {{ render(controller('AppBundle:Observation:lastObservationsValidate', {'nbItems' : 4 })) }}
                     </div>
