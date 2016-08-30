@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: nicolas
- * Date: 10/08/16
- * Time: 16:18
- */
 
 namespace SimpleFilterListEntityBundle\Twig\Extension;
 
