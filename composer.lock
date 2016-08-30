@@ -3089,7 +3089,8 @@
     "prefer-lowest": false,
     "platform": {
         "php": ">=5.5.9",
-        "ext-gd2": "*",
+        "ext-gd": "*",
+        "ext-exif":"*",
         "ext-intl": "*"
     },
     "platform-dev": [],
