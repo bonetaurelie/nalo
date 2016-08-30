@@ -10,6 +10,7 @@ namespace AppBundle\Repository;
 
 
 use AppBundle\Entity\locality\City;
+use AppBundle\Entity\locality\Department;
 use AppBundle\Entity\Observation;
 use AppBundle\Entity\Species;
 use Doctrine\ORM\EntityRepository;
@@ -44,12 +45,18 @@ class ObservationRepository extends EntityRepository
 		return $query;
 	}
 
-	public function search(\DateTime $startDate, \DateTime $endDate, City $city = null, Species $species = null, $orders = array('o.datetimeObservation' => 'ASC'))
+	public function search(\DateTime $startDate, \DateTime $endDate, Department $department = null, City $city = null, Species $species = null, $orders = array('o.datetimeObservation' => 'ASC'))
     {
         $query = $this->createQueryBuilder("o")
 	        ->where("o.state = :state")->setParameter('state', Observation::STATE_VALIDATED)
             ->andWhere("o.datetimeObservation >= :startDate")->setParameter('startDate', $startDate)
             ->andWhere("o.datetimeObservation <= :endDate")->setParameter('endDate', $endDate);
+
+	    if(null !== $department && null === $city){
+		    $query->join("o.city", "city")
+		        ->andWhere("city.department = :department")
+		            ->setParameter(":department", $department);
+	    }
 
         if(null !== $city){
             $query->andWhere("o.city = :city")->setParameter('city', $city->getId());//besoin de prendre l'id car bug avec la session
