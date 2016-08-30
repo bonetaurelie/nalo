@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: nicolas
- * Date: 17/08/16
- * Time: 09:07
- */
 
 namespace AppBundle\Entity;
 
@@ -98,30 +92,6 @@ class Image
     public function getFileName()
     {
         return $this->fileName;
-    }
-
-    /**
-     * Set title
-     *
-     * @param string $title
-     *
-     * @return Image
-     */
-    public function setTitle($title)
-    {
-        $this->title = $title;
-
-        return $this;
-    }
-
-    /**
-     * Get title
-     *
-     * @return string
-     */
-    public function getTitle()
-    {
-        return $this->title;
     }
 
     /**

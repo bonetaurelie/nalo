@@ -82,7 +82,7 @@ class ObservationType extends AbstractType
 				'required' => false,
 				'label_attr' => ['class' => 'label-control col-lg-4'],
 				'label' => 'observations.form.nb_individual',
-				'translation_domain' => 'AppBundle',
+				'translation_domain' => 'AppBundle'
 			))
 			->add('comment', TextareaType::class, array(
 				'required' => false,

@@ -89,7 +89,7 @@ class Observation
 	 * @var integer
 	 * @ORM\Column(type="integer", length=3)
 	 * @Assert\NotBlank()
-	 * @Assert\Length(min=1, max=3, minMessage="observations.form.error.minNbIndividual", maxMessage="observations.form.error.minNbIndividual")
+	 * @Assert\GreaterThanOrEqual(1)
 	 */
 	protected $nbIndividual;
 

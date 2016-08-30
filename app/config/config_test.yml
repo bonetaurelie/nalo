@@ -17,5 +17,3 @@ swiftmailer:
 
 ewz_recaptcha:
     enabled:  false
-
-liip_functional_test: ~

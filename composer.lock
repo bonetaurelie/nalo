@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6c858b102f8107a4882efa30598c7a27",
-    "content-hash": "b66a58f18e89ab3fab7cde9fd006f5ad",
+    "hash": "54736acf65dff6479d283322945eb773",
+    "content-hash": "8c7aaf1459025a9f89f6dcbe390873ad",
     "packages": [
         {
             "name": "anacona16/dependent-forms-bundle",
@@ -3088,7 +3088,9 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.5.9"
+        "php": ">=5.5.9",
+        "ext-gd": "*",
+        "ext-intl": "*"
     },
     "platform-dev": [],
     "platform-overrides": {

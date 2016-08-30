@@ -25,7 +25,7 @@ class LoadObservationData implements FixtureInterface, OrderedFixtureInterface
 	private function getFakeObservation()
 	{
 		$towns = ['Le Thor', 'Saint-Martin-du-Frêne', 'Biarritz'];
-		$species = ['Canard d\'Eaton', 'Bernache à ventre pâle', 'Martinet de Cayenne ', 'Aigle royal'];
+		$species = ['Canard d\'Eaton', 'Bernache à ventre pâle', 'Martinet de Cayenne', 'Aigle royal'];
 		$dateStr = '2016-08-'.str_pad(mt_rand(1,31),2,'0', STR_PAD_LEFT).' '.str_pad(mt_rand(0,23),2,'0', STR_PAD_LEFT).':'.str_pad(mt_rand(0,59),2,'0', STR_PAD_LEFT);
 
 		$state = mt_rand(0,3);
