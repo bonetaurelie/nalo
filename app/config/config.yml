@@ -142,8 +142,8 @@ vich_uploader:
     db_driver: orm
     mappings:
         observation_image:
-            uri_prefix:         /uploads
-            upload_destination: %kernel.root_dir%/../web/uploads/
+            uri_prefix:         '/uploads'
+            upload_destination: '../web/uploads'
             namer:              vich_uploader.namer_uniqid
             inject_on_load:     false
             delete_on_update:   true
@@ -152,7 +152,7 @@ liip_imagine:
     resolvers:
         default:
             web_path:
-                web_root: %kernel.root_dir%/../web
+                web_root: '../web'
                 cache_prefix: media/cache
 
     filter_sets:
