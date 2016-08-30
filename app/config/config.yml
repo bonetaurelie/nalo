@@ -142,7 +142,7 @@ vich_uploader:
     mappings:
         observation_image:
             uri_prefix:         '/uploads'
-            upload_destination: '../web/uploads/'
+            upload_destination: '../web/uploads'
             namer:              vich_uploader.namer_uniqid
             inject_on_load:     false
             delete_on_update:   true
