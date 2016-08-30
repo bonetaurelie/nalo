@@ -8,6 +8,18 @@ use Symfony\Component\Form\FormView;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\PropertyAccess\PropertyAccessorInterface;
 
+/**
+ *
+ * FormType for to filter simply a select box with a simple input text
+ *
+ * It's my first custom formType :-)
+ *
+ * Class SimpleFilterType
+ *
+ * @author Nicolas PIN <pin.nicolas@free.fr>
+ *
+ * @package SimpleFilterListEntityBundle\Form\Type
+ */
 class SimpleFilterType extends AbstractType
 {
 

@@ -6,6 +6,15 @@ namespace SimpleFilterListEntityBundle\Twig\Extension;
 use Symfony\Bridge\Twig\Form\TwigRendererInterface;
 use Symfony\Component\Form\FormView;
 
+/**
+ * Twig extension for render the Javascript block of the form type
+ *
+ * Class FormExtension
+ *
+ * @author Nicolas PIN <pin.nicolas@free.fr>
+ *
+ * @package SimpleFilterListEntityBundle\Twig\Extension
+ */
 class FormExtension extends \Twig_Extension
 {
     /**

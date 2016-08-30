@@ -8,8 +8,9 @@
 
 {% block stylesheet %}
     {{ parent() }}
-    <link rel="stylesheet" href="{{ asset('css/bootstrap-datepicker3.min.css') }}">
-{% endblock %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('js/plugins/datetimepicker/jquery.datetimepicker.css') }}" />
+{% endblock stylesheet %}
+
 
 {% block title %}
     {{ parent() }} - {{ 'search.title_page'|trans }}
@@ -91,24 +92,23 @@
 
 {% block javascript %}
     {{ parent() }}
-
-    <script src="{{ asset ('js/plugins/bootstrap-datepicker/bootstrap-datepicker.min.js') }}"></script>
-    <script src="{{ asset('js/plugins/bootstrap-datepicker/bootstrap-datepicker.fr.min.js') }}" charset="UTF-8"></script>
+    <script src="{{ asset('js/plugins/datetimepicker/jquery.datetimepicker.full.min.js') }}"></script>
     <script type="text/javascript">
+        $(function(){
+            $.datetimepicker.setLocale('{{ locale }}');
 
-        $(function () {
-            $('#search_startDate').datepicker({
-                format: "dd/mm/yyyy",
-                language: '{{ locale }}',
-                autoclose: true
+            $('#search_startDate').datetimepicker({
+                format: "d/m/Y",
+                timepicker: false,
+                datepicker: true
             });
-            $('#search_endDate').datepicker({
-                format: "dd/mm/yyyy",
-                language: '{{ locale }}',
-                autoclose: true
+            $('#search_endDate').datetimepicker({
+                format: "d/m/Y",
+                timepicker: false,
+                datepicker: true
             });
         });
-   </script>
+    </script>
     {% if results is not null %}
        {% include ':Observations:observations_location.js.html.twig' with {'zoom': 5, 'latitude': france_location.latitude , 'longitude': france_location.longitude } %}
         <script type="text/javascript">

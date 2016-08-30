@@ -44,7 +44,7 @@ $(function(){
             },
             delete:{
                 label: delBtnLabel,
-                    className: 'btn btn-danger',
+                    className: 'btn btn-danger btn-supprimer',
                     callback: function(){
                     $delBtn.parents('div.form-group').remove();
                     displayOrNotAddImage();

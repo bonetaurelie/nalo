@@ -13,22 +13,38 @@
 {% endblock filter_list_widget %}
 {% block form_javascript %}
     <script type="text/javascript">
+        //If Jquery is not use display error message to notify it
         if(typeof($) === 'undefined'){
             alert('{{ 'filter_list.jquery_missing_message'|trans({}, 'FilterList') }}');
         }
         else{
             $(function(){
+                // get input filter
                 var $filterElement = $('#filter_{{ id }}');
+                //select element to filter
+                var $choiceList = $('#{{ id }}');
+
+                //When we enter the text than we want to search
                 $filterElement.on('keyup', function(){
-                    var value = $(this).val();
-                    var contain = new RegExp(value,"gi");
-                    var $choiceList = $('#{{ id }}');
-                    $choiceList.find('option').css('display', 'none');
+                    var value = $(this).val();//the value of text
+                    var contain = new RegExp(value,"gi");//RegExp to search in select box
+
+                    $choiceList.find('option:selected').removeAttr('selected');
+                    $choiceList.find('option:not(:first-child)').css('display', 'none');//set display to none of all option element
+
+                    //display again all option found with the searched text
                     $choiceList.find('option').filter(function(){
                         return contain.test($(this).text());
                     }).css('display', 'block');
                 });
 
+                //If we select a element of the select list, the filter get the text select automatically
+                $choiceList.on('change', function(){
+                    var text = $(this).find('option:selected').text();
+                    $filterElement.val(text);
+                });
+
+                //Display a helper text to use the functionnality
                 $('#popover_{{ id }}').popover({'trigger':'hover'});
             });
         }
