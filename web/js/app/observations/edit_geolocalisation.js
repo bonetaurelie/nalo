@@ -8,6 +8,9 @@ $(function(){
 
     var alertNoCitySelected = false;
 
+    /**
+     * cherche les coordonnées via le lieu dit
+     */
     $('#observation_locality').on('keyup', function(){
         var cityId = parseInt($city.find('option:selected').val());
 
@@ -25,6 +28,23 @@ $(function(){
 
         Search(address);
     });
+
+    /**
+     * cherche les coordonnées via la ville sélectionnée
+     */
+    $city.on('change', function(){
+        var departmentName =  $department.find('option:selected').text();
+        var cityName = $(this).find('option:selected').text();
+
+        if('' == $(this).val()){
+            return;
+        }
+
+        var address =  cityName +' ' + departmentName;
+
+        Search(address);
+    });
+
     //on initialise un point dans la carte s'il est déjà renseigné
     if(!isNaN(longitude) && !isNaN(latitude)){
         setCoordinates(longitude, latitude);
