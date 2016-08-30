@@ -7,7 +7,7 @@ imports:
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: fr
-    images_directory: '%kernel.root_dir%/../web/uploads/'
+
 framework:
     #esi:             ~
     translator:      { fallbacks: ["%locale%"] }
@@ -143,7 +143,7 @@ vich_uploader:
     mappings:
         observation_image:
             uri_prefix:         '/uploads'
-            upload_destination: '%kernel.root_dir%/../web/uploads/'
+            upload_destination: '/../web/uploads/'
             namer:              vich_uploader.namer_uniqid
             inject_on_load:     false
             delete_on_update:   true
