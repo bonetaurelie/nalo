@@ -22,10 +22,10 @@
                     <tbody>
                     {% for observation in pagination %}
                     <tr>
-                        <td>{{ observation.datetimeObservation|date('d/m/Y') }}</td>
-                        <td>{{ observation.city.adminName }}</td>
-                        <td>{{ observation.species.frenchName }}</td>
-                        <td data-title="Actions"><a class="text-center btn btn-default" href="{{ path('app_observation_validate', {'id': observation.id }) }}" title="{{ 'observations.validation.to_validate.validate_link_btn'|trans }}" role="button">{{ 'observations.validation.to_validate.validate_link_btn'|trans }}</a></td>
+                        <td data-title="{{ 'observations.table.header.date'|trans }}">{{ observation.datetimeObservation|date('d/m/Y') }}</td>
+                        <td data-title="{{ 'observations.table.header.city'|trans }}">{{ observation.city.adminName }}</td>
+                        <td data-title="{{ 'observations.table.header.species'|trans }}">{{ observation.species.frenchName }}</td>
+                        <td data-title="{{ 'observations.table.header.action'|trans }}"><a class="text-center btn btn-default" href="{{ path('app_observation_validate', {'id': observation.id }) }}" title="{{ 'observations.validation.to_validate.validate_link_btn'|trans }}" role="button">{{ 'observations.validation.to_validate.validate_link_btn'|trans }}</a></td>
                     </tr>
                     {% endfor %}
                     </tbody>
