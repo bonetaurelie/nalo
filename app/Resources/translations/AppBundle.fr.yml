@@ -1,3 +1,17 @@
+index:
+    header_hero:
+        big:
+            part1: 'Observez, partagez, et participez'
+            part2: 'à un programme de recherche !'
+        small: 'Observez et partagez !'
+    header_register: 'Je m''inscris !'
+    subtitle_welcome: 'Nos amis les oiseaux'
+    welcome_message: 'Bienvenue sur notre site associatif et collaboratif qui permet de recueillir des données ornithologiques sur toute la France. Ce site vous permet d''enregistrer simplement et rapidement vos observations d''oiseaux, et de consulter les données recueillies.'
+    button:
+        add_observation: 'Saisir une observation'
+        search: 'Effectuer une recherche'
+    last_observations: 'Dernières observations'
+    last_birds: 'Derniers oiseaux observés'
 contact:
     title_page: 'Contacter l''association'
     text: 'Si vous avez une question ou une demande, envoyez-nous un message à l''aide du formulaire suivant :'
