@@ -142,7 +142,7 @@ vich_uploader:
     mappings:
         observation_image:
             uri_prefix:         '/uploads'
-            upload_destination: 'app/../web/uploads/'
+            upload_destination: '../web/uploads/'
             namer:              vich_uploader.namer_uniqid
             inject_on_load:     false
             delete_on_update:   true
@@ -151,7 +151,7 @@ liip_imagine:
     resolvers:
         default:
             web_path:
-                web_root: 'app/../web'
+                web_root: '../web'
                 cache_prefix: media/cache
 
     filter_sets:
