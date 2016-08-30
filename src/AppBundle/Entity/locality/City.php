@@ -62,19 +62,6 @@ class City
         return $this->id;
     }
 
-    /**
-     * Set adminName
-     *
-     * @param string $adminName
-     *
-     * @return City
-     */
-    public function setAdminName($adminName)
-    {
-        $this->adminName = $adminName;
-
-        return $this;
-    }
 
     /**
      * Get adminName
@@ -87,20 +74,6 @@ class City
     }
 
     /**
-     * Set postalCode
-     *
-     * @param string $postalCode
-     *
-     * @return City
-     */
-    public function setPostalCode($postalCode)
-    {
-        $this->postalCode = $postalCode;
-
-        return $this;
-    }
-
-    /**
      * Get postalCode
      *
      * @return string
@@ -108,20 +81,6 @@ class City
     public function getPostalCode()
     {
         return $this->postalCode;
-    }
-
-    /**
-     * Set longitude
-     *
-     * @param string $longitude
-     *
-     * @return City
-     */
-    public function setLongitude($longitude)
-    {
-        $this->longitude = $longitude;
-
-        return $this;
     }
 
     /**
@@ -156,20 +115,6 @@ class City
     public function getLatitude()
     {
         return $this->latitude;
-    }
-
-    /**
-     * Set department
-     *
-     * @param \AppBundle\Entity\locality\Department $department
-     *
-     * @return City
-     */
-    public function setDepartment(\AppBundle\Entity\locality\Department $department = null)
-    {
-        $this->department = $department;
-
-        return $this;
     }
 
     /**

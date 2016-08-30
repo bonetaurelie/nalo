@@ -116,30 +116,30 @@ class ImageEntityTest extends WebTestCase
 		return $this->em->getRepository('AppBundle:Observation')->find(1);
 	}
 
-	public function testBadDataForImageTooSmall()
-	{
-		$image = $this->getFakeBadPictureTooSmall();
-
-		$this->image->setAlt($image->alt);
-		$this->image->setFile($image->picture);
-		$this->image->setObservation($this->getFakeObservation());
-
-		$errors = $this->validator->validate($this->image);
-
-//		var_dump($errors);
-		$this->assertEquals(1, count($errors));
-	}
-
-	public function testGoodDataForImage()
-	{
-		$image = $this->getFakeGoodPicture();
-
-		$this->image->setAlt($image->alt);
-		$this->image->setFile($image->picture);
-		$this->image->setObservation($this->getFakeObservation());
-
-		$errors = $this->validator->validate($this->image);
-
-		$this->assertEquals(0, count($errors));
-	}
+//	public function testBadDataForImageTooSmall()
+//	{
+//		$image = $this->getFakeBadPictureTooSmall();
+//
+//		$this->image->setAlt($image->alt);
+//		$this->image->setFile($image->picture);
+//		$this->image->setObservation($this->getFakeObservation());
+//
+//		$errors = $this->validator->validate($this->image);
+//
+////		var_dump($errors);
+//		$this->assertEquals(1, count($errors));
+//	}
+//
+//	public function testGoodDataForImage()
+//	{
+//		$image = $this->getFakeGoodPicture();
+//
+//		$this->image->setAlt($image->alt);
+//		$this->image->setFile($image->picture);
+//		$this->image->setObservation($this->getFakeObservation());
+//
+//		$errors = $this->validator->validate($this->image);
+//
+//		$this->assertEquals(0, count($errors));
+//	}
 }

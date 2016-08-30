@@ -3,8 +3,8 @@
 namespace AppBundle\DataFixtures\ORM;
 
 
-use AppBundle\Entity\locality\City;
-use AppBundle\Entity\locality\Department;
+use AppBundle\DataFixtures\Model\CityFixture as City;
+use AppBundle\DataFixtures\Model\DepartmentFixture as Department;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;

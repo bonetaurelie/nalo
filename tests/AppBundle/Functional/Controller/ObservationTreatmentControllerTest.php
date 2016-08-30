@@ -7,10 +7,11 @@ use AppBundle\Entity\Observation;
 use Symfony\Bundle\FrameworkBundle\Client;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Doctrine\ORM\EntityManager;
-use Symfony\Component\DomCrawler\Crawler;
+use Symfony\Component\BrowserKit\Cookie;
+use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 
 
-class ObservationControllerTest extends WebTestCase
+class ObservationTreatmentControllerTest extends WebTestCase
 {
 	const MY_OBSERVATIONS_ROUTE = '/mes-observations';
 	const ADD_OBSERVATION_ROUTE = '/ajouter-une-observation';
@@ -18,6 +19,7 @@ class ObservationControllerTest extends WebTestCase
 	const DELETE_OBSERVATION_ROUTE = '/supprimer-une-observation/{id}';
 	const OBSERVATIONS_TO_VALIDATE_ROUTE = '/observations-a-valider';
 	const CONNECTION_ROUTE = '/connexion';
+	const LOGOUT_ROUTE = '/deconnexion';
 
 
 	const UTILISATEURS_LIST = [
@@ -70,6 +72,9 @@ class ObservationControllerTest extends WebTestCase
 	 */
 	public function connexionCompte(Client $client, $role = 'ROLE_USER')
 	{
+		// on se déconnecte avant de se reconnecter
+		$this->deconnexion($client);
+
 		$crawler = $client->request('GET', self::CONNECTION_ROUTE);
 
 		$form = $crawler->filter("form")->form();
@@ -80,6 +85,16 @@ class ObservationControllerTest extends WebTestCase
 		$form['_password'] = $utilisateur['password'];
 
 		$client->submit($form);
+	}
+
+	/**
+	 * Simule une deconnexion
+	 *
+	 * @param Client $client
+	 */
+	public function deconnexion(Client $client)
+	{
+		$crawler = $client->request('GET', self::LOGOUT_ROUTE);
 	}
 
 	/*****************************************************************************************************************/
@@ -284,7 +299,7 @@ class ObservationControllerTest extends WebTestCase
 
 		$crawler = $client->followRedirect();
 
-		$this->assertContains("Merci d'avoir soumis une observation", $crawler->filter(".alert")->text());
+		$this->assertContains("Merci d'avoir soumis une observation, elle sera validée dans les plus brefs délais", $crawler->filter(".alert")->text());
 	}
 
 
@@ -405,11 +420,11 @@ class ObservationControllerTest extends WebTestCase
 
 
 
-	public function setAddValidObservation()
+	public function setAddValidObservation($role = 'ROLE_USER')
 	{
 		$client = static::createClient();
 
-		$this->connexionCompte($client, 'ROLE_USER');
+		$this->connexionCompte($client, $role);
 
 		$crawler = $client->request('GET', self::ADD_OBSERVATION_ROUTE);
 
@@ -440,6 +455,23 @@ class ObservationControllerTest extends WebTestCase
 
 
 	/************************************************ UTILISATEUR PRO ************************************************/
+
+	public function testAddObservationValidFieldsRolePro()
+	{
+
+		$client = $this->setAddValidObservation('ROLE_PRO');
+
+		$this->assertTrue($client->getResponse()->isRedirect());
+
+		$crawler = $client->followRedirect();
+
+		//on verifie que le message de confirmation soit bien sans le texte de confirmation de validation
+		//une observation faite par un pro est considérée valide
+		$verif = (bool) preg_match("/, elle sera validée dans les plus brefs délais/", $crawler->filter(".alert")->text());
+
+		$this->assertFalse($verif);
+	}
+
 
 
 	/**
@@ -490,17 +522,8 @@ class ObservationControllerTest extends WebTestCase
 	}
 
 
-	/**
-	 * Test l'accès via un lien dans la liste des observatiosn à valider
-	 *
-	 * L'accès doit être accepté
-	 */
-	public function testAccessLinkObservationToValidateByRolePro()
+	public function getAccessLinkObservationToValidateByRolePro()
 	{
-		//on recréer une observation pour pouvoir la valider
-
-		$this->setAddValidObservation();
-
 		$client = static::createClient();
 
 		$this->connexionCompte($client, 'ROLE_PRO');
@@ -513,8 +536,77 @@ class ObservationControllerTest extends WebTestCase
 
 		$client->click($validateLInk);
 
+		return $client;
+	}
+
+	/**
+	 * Test l'accès via un lien dans la liste des observatiosn à valider
+	 *
+	 * L'accès doit être accepté
+	 */
+	public function testAccessLinkObservationToValidateByRolePro()
+	{
+		//on recréer une observation pour pouvoir la valider
+
+		$this->setAddValidObservation();
+
+		$client = $this->getAccessLinkObservationToValidateByRolePro();
+
+
 		$this->assertEquals(200, $client->getResponse()->getStatusCode());
 	}
 
 
+	/**
+	 * Test la validation d'une observation le formulaire de validation des observations
+	 *
+	 */
+	public function testValidateFormObservationValidation()
+	{
+		$client = $this->getAccessLinkObservationToValidateByRolePro();
+		$crawler = $client->getCrawler();
+
+		$form = $crawler->selectButton("Valider l'observation")->form();
+
+		$form['validate_observation[comment]'] = "Observation OK pour moi";
+
+//		$crawler->selectButton('#validate_observation_valid')->
+
+		$client->submit($form);
+
+		$this->assertTrue($client->getResponse()->isRedirect());
+
+		$crawler = $client->followRedirect();
+
+		$textAlert = $crawler->filter('.alert')->text();
+		$textToVerif = "Merci d'avoir validé l'observation, l'auteur a été averti !";
+		$this->assertContains($textToVerif, $textAlert);
+	}
+
+	/**
+	 * Test le refus d'une observation le formulaire de validation des observations
+	 *
+	 */
+	public function testRefusedFormObservationValidation()
+	{
+		$this->setAddValidObservation();//On ajout une nouvelle observations à valider
+
+		$client = $this->getAccessLinkObservationToValidateByRolePro();//On accède a la page de validation
+
+		$crawler = $client->getCrawler();
+
+		$form = $crawler->selectButton("Rejeter l'observation")->form();
+
+		$form['validate_observation[comment]'] = "Observation non ok pour moi";
+
+		$client->submit($form);
+
+		$this->assertTrue($client->getResponse()->isRedirect());
+
+		$crawler = $client->followRedirect();
+
+		$textAlert = $crawler->filter('.alert')->text();
+		$textToVerif = "L'observation a été rejetée, l'auteur a été averti !";
+		$this->assertContains($textToVerif, $textAlert);
+	}
 }

@@ -1,11 +1,34 @@
 <?php
 
-namespace OC\UserBundle\Tests\Controller;
+namespace Tests\UserBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class fos_user_registration_formControllerTest extends WebTestCase
+class RegistrationControllerTest extends WebTestCase
 {
+
+	/**
+	 * @var EntityManager
+	 */
+	private $_em;
+
+	protected function setUp()
+	{
+		$kernel = static::createKernel();
+		$kernel->boot();
+		$this->_em = $kernel->getContainer()->get('doctrine.orm.entity_manager');
+		$this->_em->beginTransaction();
+	}
+
+	/**
+	 * Rollback changes.
+	 */
+	public function tearDown()
+	{
+		$this->_em->rollback();
+	}
+
+
     public function testRegisterNotBlank()
     {
         $client = static::createClient();
@@ -72,21 +95,22 @@ class fos_user_registration_formControllerTest extends WebTestCase
     public function testRegisterValid()
     {
         //En attente de trouver comment tester le formulaire sans enregistrer dans la base
-//        $client = static::createClient();
-//        $crawler = $client->request('GET','/inscription');
-//        $form = $crawler->selectButton('Inscrivez-vous')->form();
-//
-//        $form['fos_user_registration_form[firstName]'] = 'test';
-//        $form['fos_user_registration_form[lastName]'] = 'test';
-//        $form['fos_user_registration_form[email]'] = 'test';
-//        $form['fos_user_registration_form[plainPassword][first]'] = 'Test89-';
-//        $form['fos_user_registration_form[plainPassword][second]'] = 'Test89-';
-//
-//        $crawler = $client->submit($form);
-//
-//        $this->assertContains("Veuillez renseigner un prénom.", $crawler->filter("#fos_user_registration_form_firstName + .help-block ul li")->text());
-//        $this->assertContains("Veuillez renseigner un nom.", $crawler->filter("#fos_user_registration_form_lastName + .help-block ul li")->text());
-//        $this->assertContains("Veuillez renseigner un e-mail valide.", $crawler->filter("#fos_user_registration_form_email + .help-block ul li")->text());
-//        $this->assertContains("Les deux mots de passe ne sont pas identiques", $crawler->filter("#fos_user_registration_form_plainPassword_first + .help-block ul li")->text());
+        $client = static::createClient();
+        $crawler = $client->request('GET','/inscription');
+        $form = $crawler->selectButton('Inscrivez-vous')->form();
+
+        $form['fos_user_registration_form[firstName]'] = 'test';
+        $form['fos_user_registration_form[lastName]'] = 'test';
+        $form['fos_user_registration_form[email]'] = 'test'.uniqid().'@test.fr';
+        $form['fos_user_registration_form[plainPassword][first]'] = 'Test89-';
+        $form['fos_user_registration_form[plainPassword][second]'] = 'Test89-';
+
+        $crawler = $client->submit($form);
+
+	    $this->assertTrue($client->getResponse()->isRedirect());
+
+	    $crawler = $client->followRedirect();
+
+	    $this->assertContains("Bienvenue sur notre site !", $crawler->filter(".alert")->text());
     }
 }

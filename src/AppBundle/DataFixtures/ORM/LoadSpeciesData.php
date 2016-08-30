@@ -8,7 +8,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 use \League\Csv\Reader;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use AppBundle\Entity\Species;
+use AppBundle\DataFixtures\Model\SpeciesFixture as Species;
 
 class LoadSpeciesData implements FixtureInterface, ContainerAwareInterface
 {
