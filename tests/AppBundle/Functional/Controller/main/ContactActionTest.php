@@ -6,8 +6,6 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class ContactActionTest extends WebTestCase
 {
-
-
 	/**
 	 * Vérifie dans la page contact que si tout les champs sont vide on est bien
 	 * l'erreur "Cette valeur ne doit pas être vide."
@@ -76,6 +74,6 @@ class ContactActionTest extends WebTestCase
 
 		$crawler = $client->submit($form);
 
-		$this->assertContains("Merci de nous avoir contacté, nous répondrons à vos questions dans les plus brefs délais.", $crawler->filter(".alert")->text());
+		$this->assertContains("Merci de nous avoir contactés, nous répondrons à vos questions dans les plus brefs délais.", $crawler->filter(".alert")->text());
 	}
 }

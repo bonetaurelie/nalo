@@ -49,20 +49,6 @@ class Species
     }
 
     /**
-     * Set frenchName
-     *
-     * @param string $frenchName
-     *
-     * @return Species
-     */
-    public function setFrenchName($frenchName)
-    {
-        $this->frenchName = $frenchName;
-
-        return $this;
-    }
-
-    /**
      * Get frenchName
      *
      * @return string
@@ -73,20 +59,6 @@ class Species
     }
 
 	/**
-	 * Set latinName
-	 *
-	 * @param string $latinName
-	 *
-	 * @return Species
-	 */
-	public function setLatinName($latinName)
-	{
-		$this->latinName = $latinName;
-
-		return $this;
-	}
-
-	/**
 	 * Get latinName
 	 *
 	 * @return string
@@ -95,20 +67,6 @@ class Species
 	{
 		return $this->latinName;
 	}
-
-    /**
-     * Set author
-     *
-     * @param string $author
-     *
-     * @return Species
-     */
-    public function setAuthor($author)
-    {
-        $this->author = $author;
-
-        return $this;
-    }
 
     /**
      * Get author

@@ -7,7 +7,8 @@ use AppBundle\Entity\Observation;
 use Symfony\Bundle\FrameworkBundle\Client;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Doctrine\ORM\EntityManager;
-use Symfony\Component\DomCrawler\Crawler;
+use Symfony\Component\BrowserKit\Cookie;
+use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 
 
 class ObservationTreatmentControllerTest extends WebTestCase
@@ -18,6 +19,7 @@ class ObservationTreatmentControllerTest extends WebTestCase
 	const DELETE_OBSERVATION_ROUTE = '/supprimer-une-observation/{id}';
 	const OBSERVATIONS_TO_VALIDATE_ROUTE = '/observations-a-valider';
 	const CONNECTION_ROUTE = '/connexion';
+	const LOGOUT_ROUTE = '/deconnexion';
 
 
 	const UTILISATEURS_LIST = [
@@ -70,6 +72,9 @@ class ObservationTreatmentControllerTest extends WebTestCase
 	 */
 	public function connexionCompte(Client $client, $role = 'ROLE_USER')
 	{
+		// on se déconnecte avant de se reconnecter
+		$this->deconnexion($client);
+
 		$crawler = $client->request('GET', self::CONNECTION_ROUTE);
 
 		$form = $crawler->filter("form")->form();
@@ -80,6 +85,16 @@ class ObservationTreatmentControllerTest extends WebTestCase
 		$form['_password'] = $utilisateur['password'];
 
 		$client->submit($form);
+	}
+
+	/**
+	 * Simule une deconnexion
+	 *
+	 * @param Client $client
+	 */
+	public function deconnexion(Client $client)
+	{
+		$crawler = $client->request('GET', self::LOGOUT_ROUTE);
 	}
 
 	/*****************************************************************************************************************/
@@ -441,15 +456,20 @@ class ObservationTreatmentControllerTest extends WebTestCase
 
 	/************************************************ UTILISATEUR PRO ************************************************/
 
-	public function setAddValidObservationByRolePro()
+	public function testAddObservationValidFieldsRolePro()
 	{
-		$client = $this->setAddValidObservation($role = 'ROLE_USER');
+
+		$client = $this->setAddValidObservation('ROLE_PRO');
 
 		$this->assertTrue($client->getResponse()->isRedirect());
 
 		$crawler = $client->followRedirect();
 
-		$this->assertContainsOnly("Merci d'avoir soumis une observation", $crawler->filter(".alert")->text());
+		//on verifie que le message de confirmation soit bien sans le texte de confirmation de validation
+		//une observation faite par un pro est considérée valide
+		$verif = preg_match("/, elle sera validée dans les plus brefs délais/", $crawler->filter(".alert")->text());
+
+		$this->assertFalse($verif);
 	}
 
 
