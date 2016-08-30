@@ -3,8 +3,8 @@
 namespace FOS\UserBundle\Tests\Form\Type;
 
 use FOS\UserBundle\Form\Type\ResettingFormType;
-use FOS\UserBundle\Tests\TestUser;
-use FOS\UserBundle\Util\LegacyFormHelper;
+use Tests\UserBundle\Model\TestUser;
+use UserBundle\Form\ResettingType;
 
 class ResettingFormTypeTest extends ValidatorExtensionTypeTestCase
 {
@@ -12,7 +12,7 @@ class ResettingFormTypeTest extends ValidatorExtensionTypeTestCase
     {
         $user = new TestUser();
 
-        $form = $this->factory->create(LegacyFormHelper::getType('FOS\UserBundle\Form\Type\ResettingFormType'), $user);
+        $form = $this->factory->create(ResettingType::class, $user);
         $formData = array(
             'plainPassword' => array(
                 'first'         => 'test',
@@ -29,7 +29,7 @@ class ResettingFormTypeTest extends ValidatorExtensionTypeTestCase
     protected function getTypes()
     {
         return array_merge(parent::getTypes(), array(
-            new ResettingFormType('FOS\UserBundle\Tests\TestUser'),
+            new ResettingFormType('Tests\UserBundle\Model\TestUser'),
         ));
     }
 }

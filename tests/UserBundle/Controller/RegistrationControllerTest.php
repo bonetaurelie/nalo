@@ -101,7 +101,7 @@ class RegistrationControllerTest extends WebTestCase
 
         $form['fos_user_registration_form[firstName]'] = 'test';
         $form['fos_user_registration_form[lastName]'] = 'test';
-        $form['fos_user_registration_form[email]'] = 'test@test.fr';
+        $form['fos_user_registration_form[email]'] = 'test'.uniqid().'@test.fr';
         $form['fos_user_registration_form[plainPassword][first]'] = 'Test89-';
         $form['fos_user_registration_form[plainPassword][second]'] = 'Test89-';
 

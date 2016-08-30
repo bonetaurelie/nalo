@@ -467,7 +467,7 @@ class ObservationTreatmentControllerTest extends WebTestCase
 
 		//on verifie que le message de confirmation soit bien sans le texte de confirmation de validation
 		//une observation faite par un pro est considérée valide
-		$verif = preg_match("/, elle sera validée dans les plus brefs délais/", $crawler->filter(".alert")->text());
+		$verif = (bool) preg_match("/, elle sera validée dans les plus brefs délais/", $crawler->filter(".alert")->text());
 
 		$this->assertFalse($verif);
 	}
